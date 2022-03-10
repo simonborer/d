@@ -1,4 +1,5 @@
 import './style.scss'
+import './prism.js'
 
 var updateButton = document.getElementById('updateDetails');
 var favDialog = document.getElementById('favDialog');

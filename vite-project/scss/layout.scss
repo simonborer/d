@@ -1,25 +1,110 @@
-@use 'scss/variables.scss' as var;
+@use 'scss/variables.scss'as var;
 
-.col {
-	margin: 0 auto;
-	max-width: calc(60ch + 10vw);
+.row > .col {
+    margin: 0 auto;
+    max-width: calc(60ch + 10vw);
 }
 
-section > *, header > * {
-	padding-left: 5vw;
-	padding-right: 5vw;
+section>*,
+header>* {
+    padding-left: 5vw;
+    padding-right: 5vw;
 }
+
+section > h3 {
+	padding-left: 8vw;
+}
+section > h4 {
+	padding-left: 11vw;
+}
+section > h5 {
+	padding-left: 14vw;
+}
+section > h6 {
+	padding-left: 17vw;
+}
+
+.row {
+	padding-top: 1em;
+	padding-bottom: 8vh;
+	&:nth-of-type(even) {
+	background: var(--row-colour-offset);
+}
+}
+
 @media (min-width: var.$breakpoint) {
-	header > h1, section > :is(h2, h3, h4, h5, h6) {
-		padding-left: 0;
-		padding-right: 0;
+    header>h1 {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+.title {
+    margin: 2em 0 1em 0;
+    background-color: var(--text);
+    color: var(--bg);
+    padding-top: .25em;
+    padding-bottom: .75em;
+    line-height: .8em;
+}
+
+.toc {
+    margin-bottom: 5rem;
+
+    & .headline {
+        font-size: 1rem * var.$goldenRatio;
+        border-bottom: .125em solid var(--text);
+        border-top: 0 solid transparent;
+        margin-bottom: 1em;
+        margin-top: clamp(1rem * var.$goldenRatio, 2vh * var.$goldenRatio, 1em * var.$goldenRatio);
+    }
+}
+
+@media (min-width: var.$breakpoint) {
+    .title {
+        padding: 0;
+        margin: -0.025em 0 1em 0;
+        line-height: 0.6em;
+        overflow: hidden;
+        text-align: right;
+
+        @media (prefers-color-scheme: dark) {
+            outline: 20px dotted rgba(255, 244, 100, .1);
+            outline-offset: -1em;
+
+        }
+
+        .home & {
+            margin: 0 0 1em 0;
+            line-height: 1.6em;
+            padding-right: .125em;
+        }
+
+    }
+
+    header>nav {
+        padding-bottom: .5em;
+    }
+}
+
+@media (min-width: var.$breakpoint) {
+    img {
+        max-width: 100%;
+        margin: 2rem 0;
+    }
+}
+
+.further-reading {
+	position: relative;
+	&:before {
+		content: " ";
+    position: absolute;
+    border-left: clamp(.5em, 2vw, 4em) solid var(--text);
+    height: 100%;
+    top: 0;
+}
+	& h4 {
+		margin-top: 0;
+		margin-bottom: .5em;
 	}
-}
-.title {
-	margin: 2em 0 1em 0;
-}
-@media (min-width: var.$breakpoint) {
-.title {
-	margin: -0.25em 0 0 0;
-}
 }
