@@ -1,0 +1,25 @@
+@use 'scss/variables.scss' as var;
+
+.col {
+	margin: 0 auto;
+	max-width: calc(60ch + 10vw);
+}
+
+section > *, header > * {
+	padding-left: 5vw;
+	padding-right: 5vw;
+}
+@media (min-width: var.$breakpoint) {
+	header > h1, section > :is(h2, h3, h4, h5, h6) {
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+.title {
+	margin: 2em 0 1em 0;
+}
+@media (min-width: var.$breakpoint) {
+.title {
+	margin: -0.25em 0 0 0;
+}
+}

@@ -1,0 +1,20 @@
+$goldenRatio: 1.61803398875;
+$breakpoint: 599px;
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1e1a1a;
+    --text: #fff464;
+    --highlight: #ff3f00;
+    --lowlight: #080fff;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #fff464;
+    --text: #1e1a1a;
+    --highlight: yellow;
+    --lowlight: lightblue;
+  }
+}

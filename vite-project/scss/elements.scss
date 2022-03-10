@@ -1,0 +1,109 @@
+@use 'scss/variables.scss' as var;
+
+html {
+    font-family: Helvetica Neue, Helvetica, Futura, Trebuchet MS, Arial,
+        sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    font-size: 20px;
+    font-weight: 500;
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: bold;
+    white-space: pre-line;
+    margin: .5em 0 .25em;
+}
+
+h1 {
+    font-size: clamp(1rem * var.$goldenRatio * 2, 1vw * var.$goldenRatio * 8, 1em * var.$goldenRatio * 6);
+}
+h2 {
+    font-size: clamp(1rem * var.$goldenRatio * 1.5, 1vw * var.$goldenRatio * 4, 1em * var.$goldenRatio * 3);
+}
+h3 {
+    font-size: clamp(1rem * var.$goldenRatio, 1vw * var.$goldenRatio * 3, 1em * var.$goldenRatio * 2);
+}
+h4, h5, h6 {
+    font-size: clamp(1rem * var.$goldenRatio, 1vw * var.$goldenRatio * 2, 1em * var.$goldenRatio);
+}
+
+nav ul {
+    display: flex;
+    padding-left: 0;
+}
+
+nav li {
+    list-style: none;
+    margin-right: 1em;
+}
+
+nav li:last-child {
+    margin-right: 0;
+}
+
+img {
+    font-family: inherit;
+    font-weight: 300;
+    line-height: 2;
+    text-align: center;
+    margin-top: 10px;
+    min-width: 50px;
+    height: auto;
+    display: block;
+    position: relative;
+    min-height: 50px;
+}
+
+img:before {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: -10px;
+    left: 0;
+    height: calc(100% + 10px);
+    width: 100%;
+    background-color: rgb(230, 230, 230);
+    border: 2px dotted rgb(200, 200, 200);
+    border-radius: 5px;
+}
+
+img:after {
+    content: "🏞 Broken Image of "attr(alt);
+    display: block;
+    font-size: 16px;
+    font-style: normal;
+    color: rgb(100, 100, 100);
+    position: absolute;
+    top: 5px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+}
+
+details {
+    background: rgba(0, 0, 0, .25);
+    display: inline-block;
+    padding: 0.5em 1em;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    &[open] summary {
+        border-bottom-width: 2px;
+        border-bottom-style: dotted;
+        margin-bottom: .5em;
+    }
+}
+
+blockquote {
+    border-left: .25em solid;
+    padding-left: .5em;
+}
