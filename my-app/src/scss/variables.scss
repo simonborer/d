@@ -1,0 +1,24 @@
+$goldenRatio: 1.61803398875;
+$breakpoint: 599px;
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1e1a1a;
+    --text: #fff464;
+    --text-strong: #ffcd43;
+    --highlight: #ff3f00;
+    --lowlight: #080fff;
+    --row-colour-offset: rgba(255,255,255,0.05);
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #ffeca4;
+    --text: #1e1a1a;
+    --text-strong: #000000;
+    --row-colour-offset: rgba(253,251,255,0.9);
+    --highlight: yellow;
+    --lowlight: lightblue;
+  }
+}
