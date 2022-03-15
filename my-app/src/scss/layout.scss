@@ -23,9 +23,10 @@ section > h5 {
 section > h6 {
 	padding-left: 17vw;
 }
-
+.row:not(header) {
+    padding-top: 1em;
+}
 .row {
-	padding-top: 1em;
 	padding-bottom: 8vh;
 	&:nth-of-type(even) {
 	background: var(--row-colour-offset);

@@ -1,48 +1,24 @@
-<!DOCTYPE html>
-<html lang="en" class="no-js">
+<script context="module">
+	const pageTitle = "Build tools";
+	const description = "Today we look at introducing build tools in a modern development workflow, including task runners, toolchains, and bundlers. Then we get a project up and running using Vite."
+	export const prerender = true;
+	export function load({params, stuff}) {
+		return {
+	      stuff: {
+	      	title: pageTitle,
+	      	description: description
+	      }
+	    };
+	};
+</script>
+<script>
+	import SEO from '$lib/SEO.svelte';
+	import { page } from '$app/stores';
+</script>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Build Tools</title>
-    <script type="module">
-        document.documentElement.classList.remove('no-js');
-    document.documentElement.classList.add('js');
-  </script>
-    <meta name="description" content="Page description">
-    <meta property="og:title" content="Unique page title - My Site">
-    <meta property="og:description" content="Page description">
-<!--     <meta property="og:image" content="https://www.mywebsite.com/image.jpg">
-    <meta property="og:image:alt" content="Image description">
-    <meta property="og:locale" content="en_GB">
-    <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary_large_image"> -->
-    <meta property="og:url" content="https://www.mywebsite.com/page">
-    <link rel="canonical" href="https://www.mywebsite.com/page">
-<!--     <link rel="icon" href="/favicon.ico">
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-    <link rel="manifest" href="/my.webmanifest"> -->
-    <meta name="theme-color" content="#FF00FF">
-</head>
+<SEO />
 
-<body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="">Home</a></li>
-                <li><a href="">Slides</a></li>
-            </ul>
-        </nav>
-        <h1 class="title">Build Tools</h1>
-        <div class="row">
-            <div class="col">
-                Today we look at introducing build tools in a modern development workflow, including task runners, toolchains, and bundlers. Then we get a project up and running using Vite.
-            </div>
-        </div>
-    </header>
-    <main>
-        <article>
+<article>
             <section class="row">
                 <div class="col">
                     <nav class="toc">
@@ -229,7 +205,7 @@
                     <p>You'll be asked to make some choices, about <strong>what you want to call your project</strong> (call it whatever!), <strong>what framework you'd like to use</strong> (let's go with no framework, also known as 'vanilla'), and <strong>whether you'd like to use TypeScript</strong> ('ts'), which we won't use today.</p>
                     <p>Then it'll tell you a few commands to run to get started:</p>
                     <pre><code class="language-bash"># change directories into your project folder
-cd {your project name}
+{`cd {your project name}`}
 # install dependencies
 npm install
 # start using vite, including
@@ -262,9 +238,7 @@ npm run dev</code></pre>
             <section class="row">
                 <div class="col">
                     <p><strong>Step 1</strong>: <strong>install sass</strong>.</p>
-                    <p>
-                        <pre><code class="language-bash">npm install --save-dev sass</code></pre>
-                    </p>
+                    <pre><code class="language-bash">npm install --save-dev sass</code></pre>
                 </div>
             </section>
             <section class="row">
@@ -368,10 +342,3 @@ npm run preview</code></pre>
                 </div>
             </section>
         </article>
-    </main>
-    <footer>
-    </footer>
-    <script type="module" src="/main.js"></script>
-</body>
-
-</html>
