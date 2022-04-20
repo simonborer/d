@@ -1,0 +1,35 @@
+[build]
+  publish = "_site"
+  command = "npm run build"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+  X-Frame-Options = "DENY"
+  X-Content-Type-Options = "nosniff"
+  X-XSS-Protection = "1; mode=block"
+  Content-Security-Policy = "frame-ancestors none;"
+  Referrer-Policy = "no-referrer"
+  Permissions-Policy = '''
+      accelerometer=(self "https://www.youtube-nocookie.com" "https://www.youtube.com"),
+      ambient-light-sensor=(),
+      autoplay=(self "https://www.youtube-nocookie.com" "https://www.youtube.com"),
+      camera=(),
+      clipboard-write=(self "https://www.youtube-nocookie.com" "https://www.youtube.com"),
+      encrypted-media=(self "https://www.youtube-nocookie.com" "https://www.youtube.com" "https://*.spotify.com"),
+      fullscreen=(),
+      geolocation=(),
+      gyroscope=(self "https://www.youtube-nocookie.com" "https://www.youtube.com"),
+      magnetometer=(),
+      microphone=(),
+      midi=(),
+      payment=(),
+      picture-in-picture=(self "https://www.youtube-nocookie.com" "https://www.youtube.com"),
+      speaker=(),
+      usb=(),
+      vibrate=(),
+      vr=()
+  '''
+#   	Content-Security-Policy = "default-src self https://securityqa.ca;frame-src https://www.youtube-nocookie.com;img-src self https://securityqa.ca https://*.cloudfront.net unsafe-inline; media-src https://*.cloudfront.net;script-src"
+  # Permissions-Policy = "payment=(),usb=(),fullscreen=(self),geolocation=(), camera=(),accelerometer=(self "https://www.youtube-nocookie.com" "https://www.youtube.com"); autoplay=(self "https://www.youtube-nocookie.com" "https://www.youtube.com"); clipboard-write=(self "https://www.youtube-nocookie.com" "https://www.youtube.com"); encrypted-media=(self "https://www.youtube-nocookie.com" "https://www.youtube.com" "https://*.spotify.com"); gyroscope=(self "https://www.youtube-nocookie.com" "https://www.youtube.com"); picture-in-picture=(self "https://www.youtube-nocookie.com" "https://www.youtube.com")"
+

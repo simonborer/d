@@ -10,6 +10,8 @@ header>* {
     padding-left: 5vw;
     padding-right: 5vw;
 }
+@media (min-width: var.$breakpoint) {
+    
 
 section > h3 {
 	padding-left: 8vw;
@@ -23,14 +25,32 @@ section > h5 {
 section > h6 {
 	padding-left: 17vw;
 }
+}
 .row:not(header) {
     padding-top: 1em;
+    padding-bottom: 8vh;
 }
 .row {
-	padding-bottom: 8vh;
-	&:nth-of-type(even) {
-	background: var(--row-colour-offset);
-}
+ //    position: relative;
+ //    &:before {
+ //        content: " ";
+ //        position: absolute;
+ //        width: 100%;
+ //        height: clamp(4em, 10vw, 10em); 
+ //        top: clamp(-2em, -5vw, -5em);
+ //        z-index: -1;
+ //    }
+	// &:nth-of-type(even) {
+ //    	background: var(--row-colour-offset);
+ //        &:before {
+ //            background: linear-gradient(var(--bg),var(--row-colour-offset));
+ //        }
+ //    }
+ //    &:nth-of-type(odd):not(header):not(:nth-of-type(1)) {
+ //        &:before {
+ //            background: linear-gradient(var(--row-colour-offset), var(--bg));
+ //        }
+ //    }
 }
 
 @media (min-width: var.$breakpoint) {
@@ -42,11 +62,31 @@ section > h6 {
 
 .title {
     margin: 2em 0 1em 0;
-    background-color: var(--text);
+    background-color: var.$pink;
     color: var(--bg);
     padding-top: .25em;
     padding-bottom: .75em;
     line-height: .8em;
+}
+
+@media (prefers-color-scheme: dark) {
+    .title {
+        background-color: var.$coral-50
+    }
+}
+.summary {
+    padding: 2px;
+}
+@media (prefers-color-scheme: light) {
+.summary {
+    background: var.$green;
+    color: var(--bg);
+}
+}
+@media (prefers-color-scheme: dark) {
+    .summary {
+        background: var.$green;
+    }
 }
 
 .toc {
@@ -64,16 +104,16 @@ section > h6 {
 @media (min-width: var.$breakpoint) {
     .title {
         padding: 0;
-        margin: -0.025em 0 1em 0;
+        margin: -0.025em 0 .75em 0;
         line-height: 0.6em;
         overflow: hidden;
         text-align: right;
 
-        @media (prefers-color-scheme: dark) {
-            outline: 20px dotted rgba(255, 244, 100, .1);
-            outline-offset: -1em;
+        // @media (prefers-color-scheme: dark) {
+        //     // outline: 20px dotted rgba(255, 244, 100, .1);
+        //     // outline-offset: -1em;
 
-        }
+        // }
 
         .home & {
             margin: 0 0 1em 0;
@@ -97,15 +137,54 @@ section > h6 {
 
 .further-reading {
 	position: relative;
+    z-index: 0;
+    background: var.$gold-30 !important;
 	&:before {
-		content: " ";
-    position: absolute;
-    border-left: clamp(.5em, 2vw, 4em) solid var(--text);
-    height: 100%;
-    top: 0;
-}
+        position: absolute;
+        border-left: clamp(.5em, 2vw, 4em) solid var.$blue-40;
+        height: 100%;
+        top: 0;
+        background: transparent !important;
+    }
 	& h4 {
 		margin-top: 0;
 		margin-bottom: .5em;
 	}
+    & .col {
+        padding-left: 10vw;
+    }
+}
+
+@media (min-width: var.$breakpoint) {
+    .further-reading .col {
+        padding-left: 5vw;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .further-reading {
+        background: var.$gold-90 !important;
+        // box-shadow: 
+        //     0 0 12px 6px rgb(255 255 0 / 7.5%), 
+        //     0 -8px 12px 6px rgb(255 0 255 / 7.5%), 
+        //     0 8px 12px 6px rgb(0 255 255 / 7.5%), 
+        //     0 0 18px 6px inset rgb(255 255 0 / 2.5%), 
+        //     0 -8px 18px 3px rgb(255 0 255 / 5%) inset, 
+        //     0 8px 18px 3px rgb(0 255 255 / 5%) inset;
+        // transition: box-shadow ease .5s;
+        // &:hover {
+        //     box-shadow: 
+        //         0 8px 12px 6px rgb(255 255 0 / 7.5%), 
+        //         0 0 12px 6px rgb(255 0 255 / 7.5%), 
+        //         0 -8px 12px 6px rgb(0 255 255 / 7.5%), 
+        //         0 0 12px 6px inset rgb(255 255 0 / 2.5%), 
+        //         0 8px 18px 3px rgb(255 0 255 / 5%) inset, 
+        //         0 -8px 18px 3px rgb(0 255 255 / 5%) inset;
+        // }
+    }
+}
+
+.body-icon {
+    margin: 0 auto 2em;
+    width: clamp(50%, 50%, 80vw);
 }

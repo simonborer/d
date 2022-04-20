@@ -1,0 +1,4 @@
+@mixin invert {
+    background: var(--foreground);
+    color: var(--background);
+}

@@ -1,0 +1,120 @@
+$goldenRatio: 1.61803398875;
+$breakpoint: 599px;
+
+// @media (prefers-color-scheme: dark) {
+//   :root {
+//     --bg: #1e1a1a;
+//     --text: #fff464;
+//     --text-strong: #ffcd43;
+//     --highlight: #ff3f00;
+//     --lowlight: #080fff;
+//     --row-colour-offset: rgba(255,255,255,0.05);
+//   }
+// }
+
+// @media (prefers-color-scheme: light) {
+//   :root {
+//     --bg: #ffeca4;
+//     --text: #1e1a1a;
+//     --text-strong: #000000;
+//     --row-colour-offset: rgba(253,251,255,0.9);
+//     --highlight: yellow;
+//     --lowlight: lightblue;
+//   }
+// }
+
+
+$coral: #ff8080;
+$coral-10: #ffe6e6;
+$coral-20: #ffcccc;
+$coral-30: #ffb3b3;
+$coral-40: #ff9999;
+$coral-50: $coral;
+$coral-60: #e67373;
+$coral-70: #cc6666;
+$coral-80: #b35a5a;
+$coral-85: #663333;
+$coral-90: #4c2626;
+
+$gold: #ffcd43;
+$gold-10: #fffaec;
+$gold-15: #fff5d9;
+$gold-20: #ffebb4;
+$gold-30: #ffe18e;
+$gold-40: #ffd970;
+$gold-50: $gold;
+$gold-60: #e6b93c;
+$gold-70: #b3902f;
+$gold-80: #66521b;
+$gold-90: #191407;
+
+$blue: #0a9bbf;
+$blue-10: #ceebf2;
+$blue-20: #9dd7e5;
+$blue-30: #6cc3d9;
+$blue-40: #54b9d2;
+$blue-50: $blue;
+$blue-60: #00525c;
+$blue-70: #004047;
+$blue-80: #002429;
+$blue-90: #001214;
+
+$green: #005b66;
+$green-10: #b3ced1;
+$green-20: #80adb3;
+$green-30: #669da3;
+$green-40: #337c85;
+$green-50: $green;
+$green-60: #1a6b75;
+$green-70: #337c85;
+$green-80: #002529;
+$green-90: #001214;
+
+$pink: #8e4162;
+$pink-10: #ddc6d0;
+$pink-20: #c7a0b1;
+$pink-30: #bb8da1;
+$pink-40: #a56781;
+$pink-50: $pink;
+$pink-60: #803b58;
+$pink-70: #72344e;
+$pink-80: #622D44;
+$pink-90: #391a27;
+
+$brown: #56351e;
+$brown-10: #ccc2bc;
+$brown-20: #ab9a8f;
+$brown-30: #9a8678;
+$brown-40: #785d4b;
+$brown-50: $brown;
+$brown-60: #4d301b;
+$brown-70: #452a18;
+$brown-80: #3c2515;
+$brown-90: #2b1b0f;
+
+
+:root {
+  --foreground: #2a2222;
+  --background: #fff9eb;
+  --emphasis: #{$green-60};
+  --warning: #{$gold-40};
+  --alert: #{$coral-60};
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1e1a1a;
+    --text: #{$gold-40};
+    --text-strong: #{$gold};
+    --row-colour-offset: #292626;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #{$gold-10};
+    --text: #{$brown-80};
+    --text-strong: #{$brown-90};
+    --row-colour-offset: #{$gold-15};
+  }
+}

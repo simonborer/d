@@ -1,0 +1,227 @@
+
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script type="module">
+      document.documentElement.classList.remove('no-js');
+      document.documentElement.classList.add('js');
+    </script>
+    <title>Build Tools</title>
+    <meta name="description" content="Today we look at introducing build tools in a modern development workflow, including task runners, toolchains, and bundlers. Then we get a project up and running using Vite.">
+    <meta property="og:title" content="Build Tools">
+    <meta property="og:description" content="Today we look at introducing build tools in a modern development workflow, including task runners, toolchains, and bundlers. Then we get a project up and running using Vite.">
+    <meta property="og:url" content="">
+    <link rel="canonical" href="">
+
+    <meta property="og:image" content="https://www.mywebsite.com/icons/d-i.jpg">
+    <meta property="og:image:alt" content="Image description">
+    <meta property="og:locale" content="en_CA">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" href="/icons/favicon.ico">
+    <link rel="icon" href="/icons/d-i.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#FFF464">
+    <script></script>
+  </head>
+  <body data-difficulty="2">
+  <a href="#content" class="show-for-sr show-on-focus skip-link">Skip navigation</a>
+  <header class="header">
+    <nav class="nav">
+    
+        <ul class="nav__links">
+            <li><a href="/">Home</a></li>
+        </ul>
+    
+      <div class="nav__search-box">
+        <label for="search" class="show-for-sr">Type to search</label>
+        <input id="search" placeholder="Search" class="nav__search-input">
+        <ul aria-live="polite" id="searchResults" class="nav__search-results"></ul>
+      </div>
+    </nav>
+    <div class="row full-width title-and-summary">
+    <h1 id="content" class="title">Build Tools</h1>
+    
+    <div class="callout summary-container">
+      <div class="col">
+      
+      <span class="summary">Today we look at introducing build tools in a modern development workflow, including task runners, toolchains, and bundlers. Then we get a project up and running using Vite.</span>
+      </div>
+    </div>
+    
+    </div>
+    </header>
+    <main>
+      
+    <article>
+        <section class="row">
+        <div class="col">
+            <nav class="toc">
+                <h2 class="heading-style-5">Table of Contents</h2>
+                <ul>
+                    <li>
+                        <a href="#nerdSniping">Nerd Sniping</a>
+                        <ul>
+                            <li><a href="#weirdState">The (weird) state of build tools</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#problems">Problems build tools solve</a></li>
+                    <li><a href="#categories">Categories of build tools</a>
+                        <ul>
+                            <li><a href="#task-runners">Task runners</a>
+                                <ul class="post-only">
+                                    <li><a href="#task-runner-list">List of task runners</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#toolchains">Toolchains<ul class="post-only">
+                                        <li><a href="#toolchain-list">List of toolchains</a></li>
+                                    </ul></a></li>
+                            <li><a href="#bundlers">Bundlers</a>
+                                <ul class="post-only">
+                                    <li><a href="#bundler-list">List of bundlers</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#try-it">Let's try out a toolchain</a>
+                        <ul>
+                            <li><a href="#sass-vite">SASS support in Vite</a></li>
+                            <li><a href="#module-vite">Module bundling in Vite</a></li>
+                            <li><a href="#prod">Building for production</a></li>
+                            <li><a href="#preview">Previewing production</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </section>
+</article>
+    </main>
+    <script src="/js/fuse.js"></script>
+    <script>
+    const searchArray = [{ 
+          "url": "/",
+          "title": "Decent Internet",
+          "tags": []
+        },{ 
+          "url": "/build-tools/",
+          "title": "Build Tools",
+          "tags": ["Task runners","Toolchains","Bundlers","Vite","SASS"]
+        },{ 
+          "url": "/how-to-get-hacked/",
+          "title": "How to get hacked",
+          "tags": ["OWASP","XSS","SQL Injection","Security","Authentication"]
+        },{ 
+          "url": "/tags/all/",
+          "title": "",
+          "tags": []
+        },{ 
+          "url": "/HON2201-deployed/",
+          "title": "",
+          "tags": []
+        },{ 
+          "url": "/tags/Task%20runners/",
+          "title": "Task runners",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Toolchains/",
+          "title": "Toolchains",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Bundlers/",
+          "title": "Bundlers",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Vite/",
+          "title": "Vite",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/SASS/",
+          "title": "SASS",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/OWASP/",
+          "title": "OWASP",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/XSS/",
+          "title": "XSS",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/SQL%20Injection/",
+          "title": "SQL Injection",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Security/",
+          "title": "Security",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Authentication/",
+          "title": "Authentication",
+          "tags": [],
+          "isTag": true
+        }
+    ];
+
+    const options = {
+      includeScore: true,
+      keys: [{name: 'title', weight: .9}, {name: 'tags', weight: 1}]
+    }
+
+    const fuse = new Fuse(searchArray, options);
+
+    const searchBox = document.getElementById('search');
+    window.onload = () => searchBox.value = ``;
+    
+    searchBox.addEventListener('keyup',function(){
+      const resultsList = document.getElementById('searchResults');
+      resultsList.innerHTML = ``;
+      const searchResults = fuse.search(searchBox.value).sort((a, b) => a.score - b.score).slice(0, 3);
+      
+      searchResults.forEach(result => {
+        resultsList.innerHTML += `<li><a href="${result.item.url}">${result.item.title}<span class="pill">${result.item.isTag ? `Tag` : `Page`}</span></a></li>`;
+      });
+
+      listenToResults();
+
+      if (resultsList.children.length > 0 && event.key === "ArrowDown") {
+        resultsList.firstChild.querySelector("a").focus();
+      }
+
+    });
+
+    const listenToResults = () => {
+      document.getElementById('searchResults').querySelectorAll("a").forEach((searchResultLink, index) => {
+        searchResultLink.addEventListener('keyup', function() {
+          if ((index === 0 && event.key === "ArrowUp") || (index + 1 === document.getElementById('searchResults').querySelectorAll("a").length && event.key === "ArrowDown")) {
+            searchBox.focus();
+          } else if (event.key === "ArrowUp") {
+            document.getElementById('searchResults').querySelectorAll("a")[index - 1].focus();
+          } else if (event.key === "ArrowDown") {
+            document.getElementById('searchResults').querySelectorAll("a")[index + 1].focus();
+          }
+        });
+      })
+    }
+
+    
+    </script>
+  </body>
+</html>

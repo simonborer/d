@@ -1,11 +1,22 @@
 @use './variables.scss'as var;
 
+
+::selection {
+  background: var(--text);
+  color: var(--bg);
+}
+
+h1::selection {
+  color: var(--text);
+  background: var(--bg);
+}
+
 html {
     font-family: Helvetica Neue, Helvetica, Futura, Trebuchet MS, Arial,
         sans-serif;
     color: var(--text);
     background: var(--bg);
-    font-size: 20px;
+    font-size: 24px;
     font-weight: 500;
     overflow-x: hidden;
 }
@@ -30,28 +41,46 @@ h1 {
 }
 
 h2 {
-    font-size: clamp(1rem * var.$goldenRatio * 1.5, 1vw * var.$goldenRatio * 4, 1em * var.$goldenRatio * 3);
-    margin-top: clamp(1rem * var.$goldenRatio * 1.5, 4vh * var.$goldenRatio * 4, 1em * var.$goldenRatio * 3);
-    padding-top: clamp(1rem * var.$goldenRatio * 1.5, 1vh * var.$goldenRatio * 4, 1em * var.$goldenRatio * 3);
-    border-top: .75em solid currentColor;
+    font-size: clamp(1rem * var.$goldenRatio * 1.25, 1vw * var.$goldenRatio * 4, 1em * var.$goldenRatio * 3);
+    margin-top: clamp(1rem * var.$goldenRatio * 1.25, 4vh * var.$goldenRatio * 4, 1em * var.$goldenRatio * 3);
+    padding-top: clamp(1rem * var.$goldenRatio * 1.25, 1vh * var.$goldenRatio * 4, 1em * var.$goldenRatio * 3);
+    border-top: .75em solid var.$green;
 }
 
 h3 {
     margin-top: clamp(1rem * var.$goldenRatio, 4vh * var.$goldenRatio * 3, 1em * var.$goldenRatio * 2);
     padding-top: clamp(1rem * var.$goldenRatio, 1vh * var.$goldenRatio * 3, 1em * var.$goldenRatio * 2);
     font-size: clamp(1rem * var.$goldenRatio, 1vw * var.$goldenRatio * 3, 1em * var.$goldenRatio * 2);
-    border-top: .125em dotted currentColor;
+    border-top: .25em dotted var.$coral;
 }
+
+@media (min-width: var.$breakpoint) {
+    h3 {
+        border-top-width: .125em;
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    h2 {
+        border-color: var.$blue-20;
+    }
+    }
 
 h4 {
     margin-top: clamp(1rem * var.$goldenRatio, 3vh * var.$goldenRatio * 2, 1em * var.$goldenRatio * 2);
     padding-top: clamp(1rem * var.$goldenRatio, 1vh * var.$goldenRatio * 2, 1em * var.$goldenRatio);
-    font-size: clamp(.95rem * var.$goldenRatio, .95vw * var.$goldenRatio * 2, .95em * var.$goldenRatio);
+    font-size: clamp(.9rem * var.$goldenRatio, .95vw * var.$goldenRatio * 2, .95em * var.$goldenRatio);
+    line-height: 1.1em;
+}
+@media (min-width: var.$breakpoint) { 
+    h4 {
+        line-height: calc(1em + 0.6rem);
+    }
 }
 h5 {
     margin-top: clamp(1rem * var.$goldenRatio, 2vh * var.$goldenRatio, 1em * var.$goldenRatio * 2);
     padding-top: clamp(1rem * var.$goldenRatio, 1vh * var.$goldenRatio, 1em * var.$goldenRatio * .9);
-    font-size: clamp(.9rem * var.$goldenRatio, .9vw * var.$goldenRatio * 1.5, .9em * var.$goldenRatio);
+    font-size: clamp(.85rem * var.$goldenRatio, .9vw * var.$goldenRatio * 1.5, .9em * var.$goldenRatio);
 }
 h6 {
     margin-top: clamp(1rem * var.$goldenRatio, 1vh * var.$goldenRatio, 1em * var.$goldenRatio * 2);
@@ -167,6 +196,11 @@ hr {
 }
 code {
     word-break: break-all;
+    white-space: pre-line;
+}
+code[class*=language-], pre[class*=language-] {
+     word-break: break-all;
+    white-space: pre-line;   
 }
 @media (min-width: var.$breakpoint) {
     code {
@@ -182,7 +216,14 @@ code:not([class*=language-]) {
     outline: 1px solid rgba(0,0,0,.5);
 }
 a[target="_blank"][rel="noopener noreferrer"] {
-    background-color: rgba(224, 26, 241, .2);
+    background-color: var.$coral-85;
+    border-radius: .25em;
+    padding: 4px;
+}
+@media (prefers-color-scheme: light) {
+a[target="_blank"][rel="noopener noreferrer"] {
+    background-color: var.$coral-20;
+}
 }
 dt {
     font-weight: 900;
