@@ -1,0 +1,219 @@
+{% set regExp = r/\.(gif|svg|jpe?g|tiff?|png|webp|bmp)\s*/gi %}
+{% set ytRegExp = r/\.(youtube.com\/embed)\s*/gi %}
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script type="module">
+      document.documentElement.classList.remove('no-js');
+      document.documentElement.classList.add('js');
+    </script>
+    <title>{{ title }}</title>
+    <meta name="description" content="{{description}}">
+    <meta property="og:title" content="{{title}}">
+    <meta property="og:description" content="{{description}}">
+    <meta property="og:url" content="{{url}}">
+    <link rel="canonical" href="{{url}}">
+{#   {#if $page.stuff.hasExamples}
+  <script async defer src="/js/prism.js"></script>
+  {/if} #}
+    <meta property="og:image" content="https://www.mywebsite.com/icons/d-i.jpg">
+    <meta property="og:image:alt" content="Image description">
+    <meta property="og:locale" content="en_CA">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" href="/icons/favicon.ico">
+    <link rel="icon" href="/icons/d-i.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#FFF464">
+    <script></script>
+  </head>
+  <body{% if learningLevel %} data-difficulty="{{ learningLevel }}"{% endif %}>
+  <a href="#content" class="show-for-sr show-on-focus skip-link">Skip navigation</a>
+  <header class="header">
+    <nav class="nav">
+    {% if not home %}
+        <ul class="nav__links">
+            <li><a href="/">Home</a></li>
+        </ul>
+    {% endif %}
+      <div class="nav__search-box">
+        <label for="search" class="show-for-sr">Type to search</label>
+        <input id="search" placeholder="Search" class="nav__search-input">
+        <ul aria-live="polite" id="searchResults" class="nav__search-results"></ul>
+      </div>
+    </nav>
+    <div class="row full-width title-and-summary">
+    <h1 id="content" class="title">{{title}}</h1>
+    {% if description %}
+    <div class="callout summary-container">
+      <div class="col">
+      {% if regExp.test(feature.src) %}
+        <div class="summary__image-container">
+        <img alt="{{feature.alt}}" class="summary__image{% if feature.needsPadding %} summary__image--padded{% endif %}" src="/images/{{ feature.src }}">
+        </div>
+      {% endif %}
+      <span class="summary">{{description}}</span>
+      </div>
+    </div>
+    {% endif %}
+    </div>
+    </header>
+    <main>
+    {% if home %}
+      <ul class="filter-strip" data-filter aria-label="Filter content by learning level.">
+        <li class="active"><button disabled data-filter-option="-1" aria-controls="cardList">All</button></li>
+        <li data-filter-list-item="1"><button data-filter-option="1" aria-controls="cardList">Stuff everybody should know</button></li>
+        <li data-filter-list-item="2"><button data-filter-option="2" aria-controls="cardList">Starting to code</button></li>
+        <li data-filter-list-item="3"><button data-filter-option="3" aria-controls="cardList">Advanced coding stuff</button></li>
+      </ul>
+      <ul class="card-list" aria-live="polite" id="cardList">
+      {%- for post in collections.all -%}
+        {% if not post.data.home and not post.data.exclude %}
+          {% if post.data.learningLevel %}{% set learningLevel = post.data.learningLevel %}{%  else %}{% set learningLevel = 0 %}{% endif %}
+        <li class="card-list__item" data-learning-level="{{ learningLevel }}">
+          <a href="{{ post.url }}" class="card-list__link">
+            <div class="card-list__feature">
+              {% if regExp.test(post.data.feature.src) %}
+                <img alt="{{post.data.feature.alt}}" class="card-list__image{% if post.data.feature.needsPadding %} card-list__image--padded{% endif %}" src="/images/{{ post.data.feature.src }}">
+              {% elif ytRegExp.test(post.data.feature.src) %}
+                <iframe title="{{ post.data.feature.title }}" class="card-list__video" width="560" height="315" src="{{post.data.feature.src}}" frameborder="0" allowfullscreen></iframe>
+              {% endif %}
+            </div>
+            <div class="card-list__title heading-style-5">{{ post.data.title }}</div>
+            <div class="card-list__summary">{{ post.data.description }}</div>
+            <div class="card-list__cta">Read on<span class="hide-for-sr">…</span><span class="show-for-sr"> about {{ post.data.title }}</span></div>
+          </a>
+        </li>
+        {% endif %}
+      {%- endfor -%}
+      </ul>
+    {% endif %}  
+    {{ content | safe }}
+    </main>
+    <script src="/js/fuse.js"></script>
+    <script>
+    const searchArray = [
+      {%- for page in collections.all %}{ 
+          "url": "{{ page.url }}",
+          "title": "{{ page.data.title }}",
+          "tags": [{%- for tag in page.data.tags %}"{{tag}}"{% if not loop.last %},{% endif %}{%- endfor %}]
+        },{%- endfor %}{% for tag in collections.tagsList %}{ 
+          "url": "/tags/{{ tag | replace(" ", "%20") }}/",
+          "title": "{{ tag }}",
+          "tags": [],
+          "isTag": true
+        }{% if not loop.last %},{% endif %}{%- endfor %}
+    ];
+
+    const options = {
+      includeScore: true,
+      keys: [{name: 'title', weight: .9}, {name: 'tags', weight: 1}]
+    }
+
+    const fuse = new Fuse(searchArray, options);
+
+    const searchBox = document.getElementById('search');
+    window.onload = () => searchBox.value = ``;
+    
+    searchBox.addEventListener('keyup',function(){
+      const resultsList = document.getElementById('searchResults');
+      resultsList.innerHTML = ``;
+      const searchResults = fuse.search(searchBox.value).sort((a, b) => a.score - b.score).slice(0, 3);
+      
+      searchResults.forEach(result => {
+        resultsList.innerHTML += `<li><a href="${result.item.url}">${result.item.title}<span class="pill">${result.item.isTag ? `Tag` : `Page`}</span></a></li>`;
+      });
+
+      listenToResults();
+
+      if (resultsList.children.length > 0 && event.key === "ArrowDown") {
+        resultsList.firstChild.querySelector("a").focus();
+      }
+
+    });
+
+    const listenToResults = () => {
+      document.getElementById('searchResults').querySelectorAll("a").forEach((searchResultLink, index) => {
+        searchResultLink.addEventListener('keyup', function() {
+          if ((index === 0 && event.key === "ArrowUp") || (index + 1 === document.getElementById('searchResults').querySelectorAll("a").length && event.key === "ArrowDown")) {
+            searchBox.focus();
+          } else if (event.key === "ArrowUp") {
+            document.getElementById('searchResults').querySelectorAll("a")[index - 1].focus();
+          } else if (event.key === "ArrowDown") {
+            document.getElementById('searchResults').querySelectorAll("a")[index + 1].focus();
+          }
+        });
+      })
+    }
+
+    {% if home %}
+      const filterOptions = document.querySelectorAll('[data-filter-option]');
+      const learningLevels = document.querySelectorAll('[data-learning-level]');
+      const cardList = document.getElementById("cardList");
+      
+      const cardListClassReset = () => {
+        for (let i = cardList.classList.length - 1; i >= 0; i--) {
+          const className = cardList.classList[i];
+          if (className.startsWith('card-list--learning-level-')) {
+            cardList.classList.remove(className);
+          }
+        };
+      }
+
+      cardListClassReset();
+
+      const optionFilter = (elem) => {
+        const filterOption = elem.dataset.filterOption;
+        filterOptions.forEach(opt => {
+          opt.parentElement.classList.remove('active');
+          opt.removeAttribute('disabled');
+        });
+        elem.parentElement.classList.add('active');
+        elem.setAttribute('disabled', 'true'); 
+        
+        cardListClassReset();
+        console.log(elem);
+        cardList.classList.add(`card-list--learning-level-${elem.dataset.filterOption ? elem.dataset.filterOption : 0}`)
+
+        learningLevels.forEach(levelSetItem => {
+          if (filterOption !== "-1" && levelSetItem.dataset.learningLevel !== filterOption) {
+            levelSetItem.style.display = 'none';
+          } else if (filterOption === "-1" || levelSetItem.dataset.learningLevel === filterOption) {
+            levelSetItem.style.display = 'block';
+          }
+        });
+      };
+
+      filterOptions.forEach((df, index) => {
+          df.addEventListener("click", function() {optionFilter(df);}, false);
+          // Removing this option because disabled buttons don't get these events,
+          // meaning this only works the first time through, possibly confusing
+          // users.
+      //     df.addEventListener("keyup", function() {
+      //       const lastOption = filterOptions[filterOptions.length - 1];
+      //       if (index === 0 && event.key === "ArrowLeft") {
+      //         lastOption.focus();
+      //         optionFilter(lastOption);
+      //       } else if (index === filterOptions.length - 1 && event.key === "ArrowRight") {
+      //         filterOptions[0].focus();
+      //         optionFilter(filterOptions[0]);
+      //       } else if (event.key === "ArrowRight") {
+      //         filterOptions[index + 1].focus();
+      //         optionFilter(filterOptions[index + 1]);
+      //       } else if (event.key === "ArrowLeft") {
+      //         filterOptions[index - 1].focus();
+      //         optionFilter(filterOptions[index - 1]);
+      //       }
+      //     }, false);
+      });
+
+    {% endif %}
+    </script>
+  </body>
+</html>

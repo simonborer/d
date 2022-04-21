@@ -1,0 +1,55 @@
+@use './variables.scss'as var;
+
+.show-for-sr {
+    font-size: 0;
+    height: 1px;
+    width: 1px;
+    position: absolute;
+    top: auto;
+    left: -10000px;
+    overflow: hidden;
+
+    &:focus {
+        position: static;
+        height: auto;
+        width: auto;
+        font-size: 1rem;
+    }
+
+    &:active {
+        position: static;
+        height: auto;
+        width: auto;
+        font-size: 1rem;
+    }
+}
+
+.row:not(.full-width), .col {
+    max-width: 60ch;
+    margin: 0 auto;
+}
+
+.row:not(.card-list) {
+    padding: 1rem;
+}
+.row.title-and-summary {
+    padding: 0;
+}
+@media (min-width: var.$breakpoint) {
+    .title {
+        padding-left: .5rem;
+    }
+    .row.title-and-summary {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-right: 0;
+        padding-top: 0;
+        padding-bottom:  0;
+    }
+    .summary-container {
+        flex-basis: max(16rem, 20%);
+        display: flex;
+        align-items: center;
+    }
+}

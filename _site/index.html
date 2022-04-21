@@ -1,0 +1,282 @@
+
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script type="module">
+      document.documentElement.classList.remove('no-js');
+      document.documentElement.classList.add('js');
+    </script>
+    <title>Decent Internet</title>
+    <meta name="description" content="">
+    <meta property="og:title" content="Decent Internet">
+    <meta property="og:description" content="">
+    <meta property="og:url" content="">
+    <link rel="canonical" href="">
+
+    <meta property="og:image" content="https://www.mywebsite.com/icons/d-i.jpg">
+    <meta property="og:image:alt" content="Image description">
+    <meta property="og:locale" content="en_CA">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" href="/icons/favicon.ico">
+    <link rel="icon" href="/icons/d-i.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#FFF464">
+    <script></script>
+  </head>
+  <body>
+  <a href="#content" class="show-for-sr show-on-focus skip-link">Skip navigation</a>
+  <header class="header">
+    <nav class="nav">
+    
+      <div class="nav__search-box">
+        <label for="search" class="show-for-sr">Type to search</label>
+        <input id="search" placeholder="Search" class="nav__search-input">
+        <ul aria-live="polite" id="searchResults" class="nav__search-results"></ul>
+      </div>
+    </nav>
+    <div class="row full-width title-and-summary">
+    <h1 id="content" class="title">Decent Internet</h1>
+    
+    </div>
+    </header>
+    <main>
+    
+      <ul class="filter-strip" data-filter aria-label="Filter content by learning level.">
+        <li class="active"><button disabled data-filter-option="-1" aria-controls="cardList">All</button></li>
+        <li data-filter-list-item="1"><button data-filter-option="1" aria-controls="cardList">Stuff everybody should know</button></li>
+        <li data-filter-list-item="2"><button data-filter-option="2" aria-controls="cardList">Starting to code</button></li>
+        <li data-filter-list-item="3"><button data-filter-option="3" aria-controls="cardList">Advanced coding stuff</button></li>
+      </ul>
+      <ul class="card-list" aria-live="polite" id="cardList">
+          
+        <li class="card-list__item" data-learning-level="2">
+          <a href="/build-tools/" class="card-list__link">
+            <div class="card-list__feature">
+              
+                <iframe title="FizzBuzz: One Simple Interview Question" class="card-list__video" width="560" height="315" src="https://www.youtube.com/embed/QPZ0pIK_wsc" frameborder="0" allowfullscreen></iframe>
+              
+            </div>
+            <div class="card-list__title heading-style-5">Build Tools</div>
+            <div class="card-list__summary">Today we look at introducing build tools in a modern development workflow, including task runners, toolchains, and bundlers. Then we get a project up and running using Vite.</div>
+            <div class="card-list__cta">Read on<span class="hide-for-sr">…</span><span class="show-for-sr"> about Build Tools</span></div>
+          </a>
+        </li>
+        
+          
+        <li class="card-list__item" data-learning-level="3">
+          <a href="/how-to-get-hacked/" class="card-list__link">
+            <div class="card-list__feature">
+              
+                <img alt="Person with a blowtorch" class="card-list__image card-list__image--padded" src="/images/factory.svg">
+              
+            </div>
+            <div class="card-list__title heading-style-5">How to get hacked</div>
+            <div class="card-list__summary">Today we look at the OWASP Top 10 Web Application Security Risks.</div>
+            <div class="card-list__cta">Read on<span class="hide-for-sr">…</span><span class="show-for-sr"> about How to get hacked</span></div>
+          </a>
+        </li>
+        
+          
+        <li class="card-list__item" data-learning-level="0">
+          <a href="/HON2201-deployed/" class="card-list__link">
+            <div class="card-list__feature">
+              
+            </div>
+            <div class="card-list__title heading-style-5"></div>
+            <div class="card-list__summary"></div>
+            <div class="card-list__cta">Read on<span class="hide-for-sr">…</span><span class="show-for-sr"> about </span></div>
+          </a>
+        </li>
+        </ul>
+      
+    
+    </main>
+    <script src="/js/fuse.js"></script>
+    <script>
+    const searchArray = [{ 
+          "url": "/",
+          "title": "Decent Internet",
+          "tags": []
+        },{ 
+          "url": "/build-tools/",
+          "title": "Build Tools",
+          "tags": ["Task runners","Toolchains","Bundlers","Vite","SASS"]
+        },{ 
+          "url": "/how-to-get-hacked/",
+          "title": "How to get hacked",
+          "tags": ["OWASP","XSS","SQL Injection","Security","Authentication"]
+        },{ 
+          "url": "/tags/all/",
+          "title": "",
+          "tags": []
+        },{ 
+          "url": "/HON2201-deployed/",
+          "title": "",
+          "tags": []
+        },{ 
+          "url": "/tags/Task%20runners/",
+          "title": "Task runners",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Toolchains/",
+          "title": "Toolchains",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Bundlers/",
+          "title": "Bundlers",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Vite/",
+          "title": "Vite",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/SASS/",
+          "title": "SASS",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/OWASP/",
+          "title": "OWASP",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/XSS/",
+          "title": "XSS",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/SQL%20Injection/",
+          "title": "SQL Injection",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Security/",
+          "title": "Security",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Authentication/",
+          "title": "Authentication",
+          "tags": [],
+          "isTag": true
+        }
+    ];
+
+    const options = {
+      includeScore: true,
+      keys: [{name: 'title', weight: .9}, {name: 'tags', weight: 1}]
+    }
+
+    const fuse = new Fuse(searchArray, options);
+
+    const searchBox = document.getElementById('search');
+    window.onload = () => searchBox.value = ``;
+    
+    searchBox.addEventListener('keyup',function(){
+      const resultsList = document.getElementById('searchResults');
+      resultsList.innerHTML = ``;
+      const searchResults = fuse.search(searchBox.value).sort((a, b) => a.score - b.score).slice(0, 3);
+      
+      searchResults.forEach(result => {
+        resultsList.innerHTML += `<li><a href="${result.item.url}">${result.item.title}<span class="pill">${result.item.isTag ? `Tag` : `Page`}</span></a></li>`;
+      });
+
+      listenToResults();
+
+      if (resultsList.children.length > 0 && event.key === "ArrowDown") {
+        resultsList.firstChild.querySelector("a").focus();
+      }
+
+    });
+
+    const listenToResults = () => {
+      document.getElementById('searchResults').querySelectorAll("a").forEach((searchResultLink, index) => {
+        searchResultLink.addEventListener('keyup', function() {
+          if ((index === 0 && event.key === "ArrowUp") || (index + 1 === document.getElementById('searchResults').querySelectorAll("a").length && event.key === "ArrowDown")) {
+            searchBox.focus();
+          } else if (event.key === "ArrowUp") {
+            document.getElementById('searchResults').querySelectorAll("a")[index - 1].focus();
+          } else if (event.key === "ArrowDown") {
+            document.getElementById('searchResults').querySelectorAll("a")[index + 1].focus();
+          }
+        });
+      })
+    }
+
+    
+      const filterOptions = document.querySelectorAll('[data-filter-option]');
+      const learningLevels = document.querySelectorAll('[data-learning-level]');
+      const cardList = document.getElementById("cardList");
+      
+      const cardListClassReset = () => {
+        for (let i = cardList.classList.length - 1; i >= 0; i--) {
+          const className = cardList.classList[i];
+          if (className.startsWith('card-list--learning-level-')) {
+            cardList.classList.remove(className);
+          }
+        };
+      }
+
+      cardListClassReset();
+
+      const optionFilter = (elem) => {
+        const filterOption = elem.dataset.filterOption;
+        filterOptions.forEach(opt => {
+          opt.parentElement.classList.remove('active');
+          opt.removeAttribute('disabled');
+        });
+        elem.parentElement.classList.add('active');
+        elem.setAttribute('disabled', 'true'); 
+        
+        cardListClassReset();
+        console.log(elem);
+        cardList.classList.add(`card-list--learning-level-${elem.dataset.filterOption ? elem.dataset.filterOption : 0}`)
+
+        learningLevels.forEach(levelSetItem => {
+          if (filterOption !== "-1" && levelSetItem.dataset.learningLevel !== filterOption) {
+            levelSetItem.style.display = 'none';
+          } else if (filterOption === "-1" || levelSetItem.dataset.learningLevel === filterOption) {
+            levelSetItem.style.display = 'block';
+          }
+        });
+      };
+
+      filterOptions.forEach((df, index) => {
+          df.addEventListener("click", function() {optionFilter(df);}, false);
+          // Removing this option because disabled buttons don't get these events,
+          // meaning this only works the first time through, possibly confusing
+          // users.
+      //     df.addEventListener("keyup", function() {
+      //       const lastOption = filterOptions[filterOptions.length - 1];
+      //       if (index === 0 && event.key === "ArrowLeft") {
+      //         lastOption.focus();
+      //         optionFilter(lastOption);
+      //       } else if (index === filterOptions.length - 1 && event.key === "ArrowRight") {
+      //         filterOptions[0].focus();
+      //         optionFilter(filterOptions[0]);
+      //       } else if (event.key === "ArrowRight") {
+      //         filterOptions[index + 1].focus();
+      //         optionFilter(filterOptions[index + 1]);
+      //       } else if (event.key === "ArrowLeft") {
+      //         filterOptions[index - 1].focus();
+      //         optionFilter(filterOptions[index - 1]);
+      //       }
+      //     }, false);
+      });
+
+    
+    </script>
+  </body>
+</html>
