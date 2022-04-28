@@ -9,6 +9,7 @@
       document.documentElement.classList.remove('no-js');
       document.documentElement.classList.add('js');
     </script>
+    
     <title>{{ title }}</title>
     <meta name="description" content="{{description}}">
     <meta property="og:title" content="{{title}}">
@@ -31,17 +32,31 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
     <meta name="theme-color" content="#FFF464">
-    <script></script>
+    <script src="https://unpkg.com/alpinejs" defer></script>
   </head>
-  <body{% if learningLevel %} data-difficulty="{{ learningLevel }}"{% endif %}>
+  <body{% if learningLevel %} data-difficulty="{{ learningLevel }}"{% endif %} x-data :class="$store.menuToggle.on && 'no-scroll'">
   <a href="#content" class="show-for-sr show-on-focus skip-link">Skip navigation</a>
   <header class="header">
     <nav class="nav">
-    {% if not home %}
-        <ul class="nav__links">
-            <li><a href="/">Home</a></li>
-        </ul>
-    {% endif %}
+    
+    <button x-data @click="$store.menuToggle.toggle();document.getElementById('navBarClose').focus();" id="navBarOpen" class="nav__toggle-button">
+      <svg width="2rem" height="2rem" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" aria-role="presentation"><path d="M32 96v64h448V96H32zm0 128v64h448v-64H32zm0 128v64h448v-64H32z"/></svg>
+      <span class="show-for-sr">Toggle the menu visibility</span>
+    </button>
+    <div x-data class="nav__links" :class="$store.menuToggle.on && 'nav__links--expanded'">
+      <button x-data @click="$store.menuToggle.toggle();document.getElementById('navBarOpen').focus();" id="navBarClose" class="nav__toggle-button nav__toggle-button--close">
+        <svg width="2rem" height="2rem" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-role="presentation">
+          <path d="M8 8L40 40" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="svg-x"/>
+          <path d="M8 40L40 8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="svg-x"/>
+        </svg>
+        <span class="show-for-sr">Toggle the menu visibility</span>
+      </button>
+      <ul>
+        {% if not home %}<li><a href="/">Home</a></li>{% endif %}
+        <li><a href="/about">About</a></li>
+        <li><a href="/socials">Socials</a></li>
+      </ul>
+    </div>
       <div class="nav__search-box">
         <label for="search" class="show-for-sr">Type to search</label>
         <input id="search" placeholder="Search" class="nav__search-input">
@@ -52,14 +67,12 @@
     <h1 id="content" class="title">{{title}}</h1>
     {% if description %}
     <div class="callout summary-container">
-      <div class="col">
       {% if regExp.test(feature.src) %}
         <div class="summary__image-container">
         <img alt="{{feature.alt}}" class="summary__image{% if feature.needsPadding %} summary__image--padded{% endif %}" src="/images/{{ feature.src }}">
         </div>
       {% endif %}
       <span class="summary">{{description}}</span>
-      </div>
     </div>
     {% endif %}
     </div>
@@ -72,16 +85,18 @@
         <li data-filter-list-item="2"><button data-filter-option="2" aria-controls="cardList">Starting to code</button></li>
         <li data-filter-list-item="3"><button data-filter-option="3" aria-controls="cardList">Advanced coding stuff</button></li>
       </ul>
-      <ul class="card-list" aria-live="polite" id="cardList">
+      <ul class="card-list card-list--learning-level--1" aria-live="polite" id="cardList">
       {%- for post in collections.all -%}
         {% if not post.data.home and not post.data.exclude %}
           {% if post.data.learningLevel %}{% set learningLevel = post.data.learningLevel %}{%  else %}{% set learningLevel = 0 %}{% endif %}
         <li class="card-list__item" data-learning-level="{{ learningLevel }}">
           <a href="{{ post.url }}" class="card-list__link">
             <div class="card-list__feature">
+              {# wtf, this was real weird - didn't work as an if else #}
               {% if regExp.test(post.data.feature.src) %}
                 <img alt="{{post.data.feature.alt}}" class="card-list__image{% if post.data.feature.needsPadding %} card-list__image--padded{% endif %}" src="/images/{{ post.data.feature.src }}">
-              {% elif ytRegExp.test(post.data.feature.src) %}
+              {% endif %}
+              {% if regExp.test(post.data.feature.src) %}{% elif ytRegExp.test(post.data.feature.src) %}
                 <iframe title="{{ post.data.feature.title }}" class="card-list__video" width="560" height="315" src="{{post.data.feature.src}}" frameborder="0" allowfullscreen></iframe>
               {% endif %}
             </div>
@@ -93,8 +108,10 @@
         {% endif %}
       {%- endfor -%}
       </ul>
-    {% endif %}  
+    {% endif %}
+    {% if not home %}<article>{% endif %}
     {{ content | safe }}
+    {% if not home %}</article>{% endif %}
     </main>
     <script src="/js/fuse.js"></script>
     <script>
@@ -151,6 +168,23 @@
         });
       })
     }
+    
+
+
+
+    document.addEventListener('alpine:init', () => {
+        Alpine.store('menuToggle', {
+            on: false,
+ 
+            toggle() {
+                this.on = ! this.on
+            }
+        })
+    });
+
+
+
+
 
     {% if home %}
       const filterOptions = document.querySelectorAll('[data-filter-option]');
@@ -165,8 +199,6 @@
           }
         };
       }
-
-      cardListClassReset();
 
       const optionFilter = (elem) => {
         const filterOption = elem.dataset.filterOption;

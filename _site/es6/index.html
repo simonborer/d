@@ -1,0 +1,980 @@
+
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script type="module">
+      document.documentElement.classList.remove('no-js');
+      document.documentElement.classList.add('js');
+    </script>
+    
+    <title>ES6+</title>
+    <meta name="description" content="Modern JavaScript, and how to enforce quality through language features.">
+    <meta property="og:title" content="ES6+">
+    <meta property="og:description" content="Modern JavaScript, and how to enforce quality through language features.">
+    <meta property="og:url" content="">
+    <link rel="canonical" href="">
+
+    <meta property="og:image" content="https://www.mywebsite.com/icons/d-i.jpg">
+    <meta property="og:image:alt" content="Image description">
+    <meta property="og:locale" content="en_CA">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" href="/icons/favicon.ico">
+    <link rel="icon" href="/icons/d-i.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#FFF464">
+    <script src="https://unpkg.com/alpinejs" defer></script>
+  </head>
+  <body data-difficulty="2" x-data :class="$store.menuToggle.on && 'no-scroll'">
+  <a href="#content" class="show-for-sr show-on-focus skip-link">Skip navigation</a>
+  <header class="header">
+    <nav class="nav">
+    
+    <button x-data @click="$store.menuToggle.toggle();document.getElementById('navBarClose').focus();" id="navBarOpen" class="nav__toggle-button">
+      <svg width="2rem" height="2rem" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" aria-role="presentation"><path d="M32 96v64h448V96H32zm0 128v64h448v-64H32zm0 128v64h448v-64H32z"/></svg>
+      <span class="show-for-sr">Toggle the menu visibility</span>
+    </button>
+    <div x-data class="nav__links" :class="$store.menuToggle.on && 'nav__links--expanded'">
+      <button x-data @click="$store.menuToggle.toggle();document.getElementById('navBarOpen').focus();" id="navBarClose" class="nav__toggle-button nav__toggle-button--close">
+        <svg width="2rem" height="2rem" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-role="presentation">
+          <path d="M8 8L40 40" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="svg-x"/>
+          <path d="M8 40L40 8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="svg-x"/>
+        </svg>
+        <span class="show-for-sr">Toggle the menu visibility</span>
+      </button>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/socials">Socials</a></li>
+      </ul>
+    </div>
+      <div class="nav__search-box">
+        <label for="search" class="show-for-sr">Type to search</label>
+        <input id="search" placeholder="Search" class="nav__search-input">
+        <ul aria-live="polite" id="searchResults" class="nav__search-results"></ul>
+      </div>
+    </nav>
+    <div class="row full-width title-and-summary">
+    <h1 id="content" class="title">ES6+</h1>
+    
+    <div class="callout summary-container">
+      
+        <div class="summary__image-container">
+        <img alt="Person with a blowtorch" class="summary__image summary__image--padded" src="/images/javascript.svg">
+        </div>
+      
+      <span class="summary">Modern JavaScript, and how to enforce quality through language features.</span>
+    </div>
+    
+    </div>
+    </header>
+    <main>
+    
+    <article>
+    <div class="body-spacer--small"></div>
+<p style="margin-bottom: 1rem;">Modern JavaScript, and how to enforce quality through language features.</p>
+<section>
+    <h2 class="text-center">Table of Contents</h2>
+    <ul>
+        <li><a href="#quality-through-language-features">Quality Through Language Features</a></li>
+        <li><a href="#browser-support-for-new-javascript-features">Browser Support for New JavaScript Features</a></li>
+        <li><a href="#let-const">Let & Const</a></li>
+        <li><a href="#strict-mode">Strict mode</a></li>
+        <li><a href="#modules">Modules</a></li>
+        <li><a href="#asynchronous-javascript">Other ES6+ features you should recognize</a></li>
+    </ul>
+</section>
+<div class="body-spacer"></div>
+<section id="quality-through-language-features"><img class="body-icon" alt="" src="/images/language.svg">
+    <h2>Quality Through Language Features</h2>
+    <p>As discussed previously, one of the most basic (and therefore powerful) tools we have as developers are <strong>the features of the languages</strong> we use.</p>
+    <p>Just as when we write or speak in a <a href="https://en.wikipedia.org/wiki/Natural_language" target="_blank" rel="noopener noreferrer">natural language<span class="show-for-sr"> Opens in a new window</span></a> (as opposed to a computer language), we can make ourselves better understood by being precise.</p>
+</section>
+<section>
+    <p>Some of the recently added features in JavaScript are a good example of this. Today we'll look at two newer features that let us enhance the quality of our applications by being <strong>more descriptive</strong> and <strong>better organized</strong>.</p>
+</section>
+<div class="body-spacer"></div>
+<section id="browser-support-for-new-javascript-features"><img class="body-icon" alt="" src="/images/support.svg">
+    <h2>Browser Support for New JavaScript Features</h2>
+    <p>Before we begin, we have to have the standard talk about using newer features.</p>
+    <p>Ideally, your code would work in every browser, through every version, and on every device and operating system.</p>
+</section>
+<section>
+    <p>Here's a list of browsers with >= 0.01% market share in Canada, as of April 2021:</p>
+    <table class="scroll post-only" id="browserMarketShareInCanada">
+        <caption class="text-left">Browser Market Share in Canada</caption>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Chrome</th>
+                <th>Safari</th>
+                <th>Firefox</th>
+                <th>Edge</th>
+                <th>Samsung Internet</th>
+                <th>Edge Legacy</th>
+                <th>IE</th>
+                <th>Opera</th>
+                <th>Android</th>
+                <th>Mozilla</th>
+                <th>360 Safe Browser</th>
+                <th>UC Browser</th>
+                <th>Sony PS4</th>
+                <th>QQ Browser</th>
+                <th>Unknown</th>
+                <th>Sogou Explorer</th>
+                <th>Yandex Browser</th>
+                <th>Maxthon</th>
+                <th>Chromium</th>
+                <th>BlackBerry</th>
+                <th>Puffin</th>
+                <th>Pale Moon</th>
+                <th>Coc Coc</th>
+                <th>Other</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>2021&#8209;04</td>
+                <td align="right">54.09</td>
+                <td align="right">28.32</td>
+                <td align="right">5.17</td>
+                <td align="right">5.57</td>
+                <td align="right">3.26</td>
+                <td align="right">0.79</td>
+                <td align="right">0.83</td>
+                <td align="right">0.76</td>
+                <td align="right">0.37</td>
+                <td align="right">0.23</td>
+                <td align="right">0.18</td>
+                <td align="right">0.13</td>
+                <td align="right">0.06</td>
+                <td align="right">0.04</td>
+                <td align="right">0.03</td>
+                <td align="right">0.02</td>
+                <td align="right">0.03</td>
+                <td align="right">0.02</td>
+                <td align="right">0.01</td>
+                <td align="right">0.02</td>
+                <td align="right">0.01</td>
+                <td align="right">0.01</td>
+                <td align="right">0.01</td>
+                <td align="right">0.05</td>
+            </tr>
+        </tbody>
+        <tfoot><tr><td colspan="25">Data via <a href="https://gs.statcounter.com/browser-market-share/all/canada" target="_blank" rel="noopener noreferrer">Statcounter<span class="show-for-sr"> Opens in a new window</span></a></td></tr></tfoot>
+    </table>
+    <table class="slide-only" style="table-layout:fixed;width:100%;">
+        <caption class="text-left" style="font-size: 1.1em;text-decoration: underline;">Browser Market Share in Canada</caption>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Chrome</th>
+                <th>Safari</th>
+                <th>Firefox</th>
+                <th>Edge</th>
+                <th>Samsung</th>
+                <th>Edge Legacy</th>
+                <th>IE</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>2021&#8209;04</td>
+                <td style="background:#fff;color:#000">54.09</td>
+                <td style="background:#fff;color:#000">28.32</td>
+                <td style="background:#fff;color:#000">5.17</td>
+                <td style="background:#fff;color:#000">5.57</td>
+                <td style="background:#fff;color:#000">3.26</td>
+                <td style="background:#fff;color:#000">0.79</td>
+                <td style="background:#fff;color:#000">0.83</td>
+            </tr>
+        </tbody>
+        <tfoot><tr><td colspan="8" style="font-size:.75em;padding:1em .5em .5em">Data via <a href="https://gs.statcounter.com/browser-market-share/all/canada" target="_blank" rel="noopener noreferrer">Statcounter<span class="show-for-sr"> Opens in a new window</span></a>. See <a target="_blank" href="/posts/es6/#browserMarketShareInCanada">notes</a> for full list.</td></tr></tfoot>
+    </table>
+</section>
+<section>
+    <p>Some of these browsers I've never heard of, and <a href="https://brave.com/" target="_blank" rel="noopener noreferrer">some<span class="show-for-sr"> Opens in a new window</span></a> <a href="https://support.mozilla.org/en-US/kb/focus" target="_blank" rel="noopener noreferrer">browsers<span class="show-for-sr"> Opens in a new window</span></a> I personally use aren't on the list!</p>
+    <p class="callout">The good news: <strong>the majority of these browsers use the same "engine"</strong> - Chromium - meaning that feature support is at least <em>somewhat</em> consistent. It would be a lot tougher if they were all built with different underlying technologies.</p>
+</section>
+<section>
+    <p>We're still left with the fact, however, that 100% bulletproof cross-browser support isn't possible. This means that <strong>supported browsers</strong> is an <strong>important requirement</strong> to document.</p>
+    <p>That said, which browsers can you <strong>expect to be required</strong> in most situations, and <strong>how do you support them</strong>?</p>
+</section>
+<section>
+    <p>Your first stop for determining feature support across different browsers should be <a href="https://caniuse.com" target="_blank" rel="noopener noreferrer">caniuse.com<span class="show-for-sr"> Opens in a new window</span></a>.</p>
+    <p>caniuse provides detailed information about support for HTML, CSS, and JavaScript features (along with other front-end technologies). Have a look at <a href="https://caniuse.com/es6" target="_blank" rel="noopener noreferrer">feature support for ES6 broadly<span class="show-for-sr"> Opens in a new window</span></a>, but know that you can <strong>search for individual features</strong>.</p>
+    <p>Because that's the thing about newer features on the front-end: they don't get enabled in broad categories like "CSS3", "HTML5" or "ES6" anymore - they get <strong>rolled out one feature at a time</strong>.</p>
+</section>
+<div class="body-spacer--small"></div>
+<section>
+    <img src="/images/atomizer.svg" alt="" class="body-icon--small">
+    <p>In the bad old days, we used to use a technique called <a href="https://en.wikipedia.org/wiki/Browser_sniffing" target="_blank" rel="noopener noreferrer">"browser sniffing"<span class="show-for-sr"> Opens in a new window</span></a>, or "device sniffing". In this technique, you use various hacks to determine the user's hardware and/or software, and serve different code features accordingly. It didn't work very well, and wasn't future-proof at all.</p>
+</section>
+<section>
+    <p>Nowadays we use two techniques - <strong>transcompilation</strong> (turning our new code into old code), and "<strong>cutting the mustard</strong>".</p>
+</section>
+<section>
+    <p>In transcompilation, we run our code through a "transcompiler". The <strong>most popular transcompiler is <a href="https://babeljs.io/" target="_blank" rel="noopener noreferrer">Babel<span class="show-for-sr"> Opens in a new window</span></a></strong>. Babel takes your fancy new code, and turns it into code that will run in older browsers by writing out our newer shorthands into <strong>older, longer code</strong>, and by adding "<strong>polyfills</strong>" (extra code that will create newer features in the older version of the language) where needed.</p>
+</section>
+<section>
+    <p>"Cutting the mustard" means <strong>checking to see if a newer feature is available by invoking it</strong>. If it's not available, a fallback is used.</p>
+</section>
+<section>
+    <p>Here's a very simple version of a "mustard cut":</p>
+    <pre><code class="language-html">&lt;html lang="en" class="no-js">
+&lt;head>
+    &lt;meta charset="UTF-8">
+    &lt;meta 
+        name="viewport" 
+        content="width=device-width, initial-scale=1.0">
+    &lt;title>Document&lt;/title>
+    &lt;script>
+      document.documentElement.classList.remove('no-js');
+      document.documentElement.classList.add('js');
+    &lt;/script>
+    &lt;style>
+        .content-no-js {
+            display: none;
+        }
+        .no-js .content-no-js {
+            display: block;
+        }
+    &lt;/style>
+&lt;/head>
+&lt;body>
+    &lt;div class="content-no-js">
+        Looks like you've 
+        turned off JavaScript
+        ¯\_(ツ)_/¯
+    &lt;/div>
+&lt;/body>
+&lt;/html></code></pre>
+</section>
+<section>
+    <p>Transcompilation lets us <strong>write modern JavaScript while supporting older browsers</strong>, and mustard cuts let us use <strong>progressive enhancement to serve newer features where available</strong>, while still providing basic features everywhere. We can have a good idea of what features are widely supported by looking them up on caniuse.com.</p><p>Now that we know how to responsibly use newer features, let's look at some modern JavaScript!</p>
+</section>
+<hr>
+<div class="further-reading">
+<strong>Further Reading:</strong>
+<ul>
+    <li><a href="https://alistapart.com/article/understandingprogressiveenhancement/" target="_blank" rel="noopener noreferrer">Understanding Progressive Enhancement<span class="show-for-sr"> Opens in a new window</span>, <em>Aaron Gustafson</em></a></li>
+    <li><a href="https://fettblog.eu/cutting-the-mustard-2018/" target="_blank" rel="noreferrer">Cutting the mustard<span class="show-for-sr"> Opens in a new window</span></a>, <em>Stefan Baumgartner</em></li>
+    <li><a href="https://flaviocopes.com/babel/" target="_blank" rel="noopener noreferrer">A short and simple guide to Babel<span class="show-for-sr"> Opens in a new window</span></a>, <em>Flavio Copes</em></li>
+</ul>
+</div>
+<div class="body-spacer"></div>
+<section id="let-const"><img class="body-icon" alt="" src="/images/buildings.svg">
+    <h2>Let & Const</h2>
+    <p>Like variables? Me too!</p>
+    <pre><code class="language-javascript">var doingThis = "terrific";</code></pre>
+    <p>One thing that can go wrong with variables, however, is <strong>changing their value when you didn't mean to</strong>.</p>
+    <pre><code class="language-javascript">doingThis = "not good if you didn't want to";</code></pre>
+</section>
+<section>
+    <p>In the name 'variables' is the idea that <strong>sometimes you'll want to change values</strong>. But sometimes we do it accidentally - overriding another developer's code, perhaps, or just forgetting we already used a variable name when we're 500 lines deep into our code.</p>
+    <p>If only there were some way we could say to our code, "<strong>I intend to change this value</strong>", or "<strong>I don't want this value to be changed</strong>".</p>
+</section>
+<section>
+    <p>That's where <code class="language-javascript">let</code> and <code class="language-javascript">const</code> come in!</p>
+    <p>Both <code>let</code> and <code>const</code> <strong>work just like <code>var</code></strong>, except <strong><code>let</code> will 'let' you change the value</strong>, and <strong><code>const</code> will not let you change the value</strong> (because it is "constant").</p>
+</section>
+<section>
+    <p>And... that's about it, really!</p>
+    <p>A few things to note: </p>
+</section>
+<section>
+    <p>You can update <code>let</code>'s value, but you can't re-declare it:</p>
+    <pre><code class="language-javascript">let myVar = 5;
+myVar = 10; // Totally ok.
+let myVar = 15; // Not ok.</code></pre>
+</section>
+<section>
+<p>Unlike <code>var</code>, <strong><code>let</code> & <code>const</code> are block-scoped</strong>.</p>
+<pre><code class="language-javascript">// `var` doesn't care about your blocks
+var myVar = "Oh hello there";
+var boolean = true;
+if (boolean === true) {
+  var myVar = "Goodbye";
+  console.log(myVar);
+  // Logs "Goodbye"
+}
+console.log(myVar);
+// Logs "Goodbye"</code></pre>
+</section>
+<section>
+<p>This means we can define a variable with a separate name in different blocks <strong>without the inner block affecting the outer block</strong>.</p>
+<pre><code class="language-javascript">let myVar = "Oh hello there";
+let boolean = true;
+if (boolean === true) {
+  let myVar = "Goodbye";
+  // Logs "Goodbye"
+  console.log(myVar);
+}
+console.log(myVar);
+// Logs "Oh hello there"</code></pre>
+</section>
+<section>
+    <p>However <strong>if we <em>re</em>define the variable in the inner block, it <em>will</em> affect the outer block</strong>.</p>
+    <pre><code class="language-javascript">let myVar = "Oh hello there";
+let boolean = true;
+if (boolean === true) {
+  myVar = "Goodbye";
+  // Logs "Goodbye"
+  console.log(myVar);
+}
+console.log(myVar);
+// Logs "Goodbye"</code></pre>
+</section>
+<section>
+<p>Const behaves the same as in the above examples with regard to defining a variable in a separate block:</p>
+<pre><code class="language-javascript">const myVar = "Oh hello there";
+const boolean = true;
+if (boolean === true) {
+  const myVar = "Goodbye";
+  // Logs "Goodbye"
+  console.log(myVar);
+}
+console.log(myVar);
+// Logs "Oh hello there"</code></pre>
+</section>
+<section>
+<p>As you'd expect, it doesn't allow redefinition at all:</p>
+<pre><code class="language-javascript">const myVar = "Oh hello there";
+const boolean = true;
+if (boolean === true) {
+  myVar = "Goodbye"; // Syntax Error
+}
+myVar = "Something else"; // Syntax Error</code></pre>
+</section>
+<section>
+<p>One thing to note with <code>const</code> is that you have to <strong>give it a value when you define it</strong>.</p><p>This makes sense - since you can't redefine it, how would it ever have a value, and what's the point of a variable without a value?</p>
+<pre><code class="language-javascript">const useless; // Syntax Error</code></pre>
+</section>
+<section>
+<p>The other thing with <code>const</code> is that <strong>you <em>can</em> change the properties</strong> of constant values. What do I mean by that? I mean that you can <strong>add or remove values</strong> from an array or object that was declared as a constant, but you <strong>cannot change the array or the object itself</strong>.</p>
+</section>
+<section>
+<pre><code class="language-javascript">const myArray = [];
+myArray.push('7');
+console.log(myArray); 
+// Logs ["7"]
+&nbsp;
+myArray = ["8"]; 
+// Syntax Error
+</code></pre>
+</section>
+<section>
+<pre><code class="language-javascript">const myObj = { myKey: "my value" };
+myObj.myKey = "a different value";
+console.log(myObj);
+// Logs { "myKey": "a different value" }
+&nbsp;
+myObj = { myKey: "my value" }; 
+// Syntax error</code></pre>
+</section>
+<hr>
+<div class="further-reading">
+<strong>Further Reading:</strong>
+<ul>
+    <li><a href="https://hacks.mozilla.org/2015/07/es6-in-depth-let-and-const/" target="_blank" rel="noreferrer">ES6 In Depth: let and const<span class="show-for-sr"> Opens in a new window</span></a>, <em>Jason Orendorff</em></li>
+</ul>
+</div>
+<div class="body-spacer"></div>
+<section id="strict-mode">
+    <img src="/images/strict.svg" alt="" class="body-icon">
+    <h2>Strict mode</h2>
+    <p>In the last couple weeks, I mentioned JavaScript's status as a "loose", or "permissive" language. If you want to tighten things up (which <strong>you do</strong>, for both quality and security reasons), you can write JavaScript in "strict mode".</p>
+</section>
+<section>
+    <p>Entering strict mode is really easy. All you have to do is <strong>put this at the top of your JavaScript file</strong>:</p>
+    <pre><code class="language-javascript">'use strict';</code></pre>
+</section>
+<section>
+    <p>Strict mode was introduced in the "ES5" version of JavaScript (way back in 2009), and is widely supported in browsers all the way back to, and including, IE10.</p>
+    <p>Feel free to read more about <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode/Transitioning_to_strict_mode" target="_blank" rel="noopener noreferrer">what strict mode disallows<span class="show-for-sr"> Opens in a new window</span></a>, but, to be frank, it's all stuff I would have to teach you how to do in order to teach you how not to do it, and I don't know if that's the best use of our time.</p>
+    <p>Suffice it to say that if you're doing something, and adding <code class="language-javascript">'use strict';</code> to your code prevents you from doing it, you shouldn't have been doing that thing.</p>
+    <p><strong>You should enable strict mode for your JavaScript</strong>. Unless you're using modules, because <strong>modules have strict mode enabled by default</strong>!</p>
+</section>
+<hr>
+<div class="further-reading">
+<strong>Further Reading:</strong>
+<ul>
+    <li><a href="https://whereswalden.com/2010/09/08/new-es5-strict-mode-support-now-with-poison-pills/" target="_blank" rel="noreferrer">New ES5 strict mode support<span class="show-for-sr"> Opens in a new window</span></a>, <em>Jeff Walden</em></li>
+    <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode" target="_blank" rel="noreferrer">Strict mode<span class="show-for-sr"> Opens in a new window</span></a>, <em>MDN Web Docs</em></li>
+</ul>
+</div>
+<div class="body-spacer"></div>
+<section id="modules"><img class="body-icon--small" alt="" src="/images/module.svg">
+    <h2>Modules</h2>
+</section>
+<section>
+    <p>JavaScript modules are <strong>JavaScript files</strong>, containing <strong>normal JavaScript</strong>.</p>
+    <p>They take advantage of two features introduced in ES6 - <code class="language-javascript">import</code> and <code class="language-javascript">export</code>.</p>
+    <p>This lets you <strong>choose which JavaScript variables end up where</strong>.</p>
+    <p>Modules are also a great way to break up our code into smaller, better-organized pieces, which <strong>makes code reuse much simpler</strong>.</p>
+</section>
+<div class="body-spacer--small"></div>
+<section>
+    <h3>Problem: namespace pollution</h3>
+    <p>Say you have a page that loads two JavaScript files - <code>/script.js</code>, and <code>/other-script.js</code>.</p>
+</section>
+<section>
+    <p>On line 700 of <code>/script.js</code>, you've got this code:</p>
+    <pre><code class="language-javascript">const myNumber = 700;</code></pre>
+    <p>On line 17 of <code>/other-script.js</code>, you've got this code:</p>
+    <pre><code class="language-javascript">const myNumber = 701;</code></pre>
+    <p>On its own, <code>/other-script.js</code> is valid JavaScript, but <strong>when both files are loaded on the page</strong>, you get</p>
+    <pre class="language-console error"><code>Uncaught SyntaxError: 
+  Identifier 'myNumber' has already been declared</code></pre>
+</section>
+<section>
+    <p>This is what's called <strong>namespace pollution</strong>. Namespace pollution is when there's too much going on in the global scope, and <strong>everybody's variables and functions are all hanging out together</strong>. It gets messy.</p>
+    <p>Modules, specifically the <code class="language-javascript">import</code> and <code class="language-javascript">export</code> statements, let us be explicit about what we're using, and where we're using it. No more namespace pollution!</p>
+</section>
+<div class="body-spacer--small"></div>
+<section>
+    <h3>Problem: big JS files</h3>
+    <p>JavaScript files can get big. Like, really big. The <a href="https://httparchive.org/reports/state-of-javascript?start=2021_01_01&end=latest&view=list" target="_blank" rel="noopener noreferrer">average amount of JavaScript transferred<span class="show-for-sr"> Opens in a new window</span></a> for every web page is roughly 2-3 times the size of the <a href="https://blog.fostergrant.co.uk/2017/08/03/word-counts-popular-books-world/" target="_blank" rel="noopener noreferrer">average<span class="show-for-sr"> Opens in a new window</span></a> <a href="http://extraconversion.com/data-storage/kilobytes/kilobytes-to-words.html" target="_blank" rel="noopener noreferrer">novel<span class="show-for-sr"> Opens in a new window</span></a>.</p>
+    <p>We need a way to manage how we work on all that code!</p>
+</section>
+<section>
+    <p>That's where modules come in.</p>
+    <p>Now, in the previous example, if we loaded our JavaScript files in the traditional way, we produced an error.</p>
+</section>
+<section>
+    <strong>/script.js</strong>
+    <pre><code class="language-javascript">const myNumber = 700;</code></pre>
+    <strong>/other-script.js</strong>
+    <pre><code class="language-javascript">const myNumber = 701;</code></pre>
+    <strong>/index.html</strong>
+    <pre><code class="language-html">&lt;script src="script.js">&lt;/script>
+&lt;script src="other-script.js">&lt;/script>
+&lt;script>
+  console.log("My number is " + myNumber);
+&lt;/script></code></pre>
+    <strong>The Console</strong>
+    <pre class="language-console error"><code>Uncaught SyntaxError: 
+  Identifier 'myNumber' has already been declared
+My number is 700</code></pre>
+</section>
+<section>
+    <p>Simply by adding the attribute value <code class="language-html">type="module"</code> to the script tags in our HTML, we get rid of that error - and replace it with a new one.</p>
+</section>
+<section>
+    <strong>/script.js</strong>
+    <pre><code class="language-javascript">const myNumber = 700;</code></pre>
+    <strong>/other-script.js</strong>
+    <pre><code class="language-javascript">const myNumber = 701;</code></pre>
+    <strong>/index.html</strong>
+    <pre><code class="language-html">&lt;script src="script.js" type="module">&lt;/script>
+&lt;script src="other-script.js" type="module">&lt;/script>
+&lt;script>
+  console.log("My number is " + myNumber);
+&lt;/script>
+</code></pre>
+    <strong>The Console</strong>
+    <pre class="language-console error"><code>Uncaught ReferenceError: myNumber is not defined</code></pre>
+</section>
+<section>
+    <p>This is because the variables have been <strong>taken out of the global scope</strong> - meaning they're no longer fighting to define the variable <code class="language-javascript">myNumber</code>.</p>
+    <p>Of course, we want to be able to use variables in different places, like in the above example.</p>
+    <p>To have this example work as intended, we need to make use of the <code class="language-javascript">import</code> and <code class="language-javascript">export</code> statements.</p>
+</section>
+<section>
+    <strong>/script.js</strong>
+<pre><code class="language-javascript">const myNumber = 700;</code></pre>
+    <strong>/other-script.js</strong>
+    <pre><code class="language-javascript">const myNumber = 701;
+export { myNumber };</code></pre>
+    <strong>/index.html</strong>
+    <pre><code class="language-html">&lt;script src="script.js" type="module">&lt;/script>
+&lt;script src="other-script.js" type="module">&lt;/script>
+&lt;script type="module">
+    import { myNumber } from './other-script.js';
+    console.log("My number is " + myNumber);
+&lt;/script></code></pre>
+    <strong>The Console</strong>
+    <pre class="language-console"><code>My number is 701</code></pre>
+</section>
+<section>
+    <p>In this example, we can see that <code class="language-javascript">export</code> says, "make this thing available", and <code class="language-javascript">import</code> says, "I want this thing".</p>
+    <p>Let's rearrange this in a few ways and see what happens.</p>
+    <p>Let's try importing a variable that the imported scripts <strong>has declared</strong>, but <strong>hasn't exported</strong>.</p>
+</section>
+<section>
+    <strong>/other-script.js</strong>
+    <pre><code class="language-javascript">const myNumber = 701;
+const myOtherNumber = 702;
+&nbsp;
+export { myNumber };</code></pre>
+    <strong>/index.html</strong>
+    <pre><code class="language-html">&lt;script src="other-script.js" type="module">&lt;/script>
+&lt;script type="module">
+    import { myOtherNumber } from './other-script.js';
+    console.log("My number is " + myOtherNumber);
+&lt;/script></code></pre>
+    <strong>The Console</strong>
+    <pre class="language-console error"><code>Uncaught SyntaxError: 
+The requested module './other-script.js' does not 
+provide an export named 'myOtherNumber'</code></pre>
+</section>
+<section>
+    <p>Now let's using a variable that is <strong>exported</strong>, but <strong>not imported</strong>.</p>
+</section>
+<section>
+    <strong>/other-script.js</strong>
+    <pre><code class="language-javascript">const myNumber = 701;
+const myOtherNumber = 702;
+&nbsp;
+export { myOtherNumber };</code></pre>
+    <strong>/index.html</strong>
+    <pre><code class="language-html">&lt;script src="other-script.js" type="module">&lt;/script>
+&lt;script type="module">
+    import { myNumber } from './other-script.js';
+    console.log("My number is " + myOtherNumber);
+&lt;/script></code></pre>
+    <strong>The Console</strong>
+    <pre class="language-console error"><code>Uncaught SyntaxError: 
+The requested module './other-script.js' does not 
+provide an export named 'myOtherNumber'</code></pre>
+</section>
+<section>
+    <p>We get the same error regardless of whether the variable is <strong>exported, but not imported</strong>, or <strong>imported, but not exported</strong>. Just a heads-up for if you're debugging based on this error.</p>
+</section>
+<section>
+    <p>Can you export and/or import more than one thing? <strong>Absolutely.</strong></p>
+</section>
+<section>
+    <strong>/other-script.js</strong>
+    <pre><code class="language-javascript">const myNumber = 701;
+const myOtherNumber = 702;
+&nbsp;
+export { myNumber, myOtherNumber };</code></pre>
+    <strong>/index.html</strong>
+    <pre><code class="language-html">&lt;script src="other-script.js" type="module">&lt;/script>
+&lt;script type="module">
+    import { myNumber, myOtherNumber } 
+        from './other-script.js';
+    console.log("My number is " + myNumber);
+    console.log("My other number is " + myOtherNumber);
+&lt;/script></code></pre>
+    <strong>The Console</strong>
+    <pre class="language-console"><code>My number is 701
+My other number is 702</code></pre>
+</section>
+<section>
+    <p>I see that you have to export everything you want to import, but do you have to import everything that's being exported? <strong>Nope.</strong></p>
+</section>
+<section>
+    <strong>/other-script.js</strong>
+    <pre><code class="language-javascript">const myNumber = 701;
+const myOtherNumber = 702;
+&nbsp;
+export { myNumber, myOtherNumber };</code></pre>
+    <strong>/index.html</strong>
+    <pre><code class="language-html">&lt;script src="other-script.js" type="module">&lt;/script>
+&lt;script type="module">
+    import { myOtherNumber } from './other-script.js';
+    console.log("My other number is " + myOtherNumber);
+&lt;/script></code></pre>
+    <strong>The Console</strong>
+    <pre class="language-console"><code>My other number is 702</code></pre>
+</section>
+<section>
+    <p>So, the big idea here is that we're <strong>not importing the whole file</strong>, just <strong>stuff that gets exported</strong>. Everything else gets stays within the module file.</p>
+</section>
+<section>
+    <p>A few things to note about modules:</p>
+    <p>Modules are <strong>more secure</strong> than regular JS files. A side-effect of this is that <strong>you cannot serve them locally</strong>. When developing locally with modules, you must <strong>use an HTTP server</strong>, like we did with some of our ad hoc testing tools.</p>
+    <p>Modules are in <strong>strict mode by default</strong>. You don't need to declare <code class="language-javascript">"use strict";</code> at the top of your modules - it's already happening.</p>
+</section>
+<section>
+    <p>Also, you can note that JavaScript modules are <strong>deferred by default</strong>.</p>
+    <p>Back in the day, we used to speed up our pages by putting our script tags at the bottom of our html content:</p>
+    <pre><code class="language-html">&lt;html lang="en">
+&lt;head>
+  &lt;meta charset="UTF-8">
+  &lt;meta name="viewport" 
+    content="width=device-width, initial-scale=1.0">
+  &lt;title>Document&lt;/title>
+&lt;/head>
+&lt;body>
+    &lt;!-- All the content first -->
+    &lt;script 
+        type="text/javascript" 
+        src="/scripts/script.js">&lt;/script>
+&lt;/body>
+&lt;/html></code></pre>
+</section>
+<section>
+    <p>Nowadays, of course, we can accomplish the same thing with the <code class="language-html">defer</code> attribute.</p>
+    <pre><code class="language-html">&lt;html lang="en">
+&lt;head>
+  &lt;meta charset="UTF-8">
+  &lt;meta name="viewport" 
+    content="width=device-width">
+  &lt;title>Document&lt;/title>
+  &lt;script src="/scripts/script.js" defer>&lt;/script>
+&lt;/head>
+&lt;body>
+    &lt;!-- All the content -->
+&lt;/body>
+&lt;/html></code></pre>
+</section>
+<section>
+    <p>If we load our script as a module, however, that's taken care of.</p>
+    <pre><code class="language-html">&lt;html lang="en">
+&lt;head>
+  &lt;meta charset="UTF-8">
+  &lt;meta name="viewport" 
+    content="width=device-width">
+  &lt;title>Document&lt;/title>
+  &lt;script 
+    src="/scripts/script.js" 
+    type="module">&lt;/script>
+&lt;/head>
+&lt;body>
+    &lt;!-- All the content -->
+&lt;/body>
+&lt;/html></code></pre>
+</section>
+<section>
+    <p>So modules are safer, higher-quality, better organized and easier to develop? <strong>What's not to love?</strong></p>
+</section>
+<section>
+    <p>Now, does all this mean that we should be serving a whole bunch of JavaScript as separate HTTP request in our production JavaScript? <strong>Heck no</strong>.</p>
+    <p>Modules are great for use when writing Node (which we'll cover in two weeks), and for development - there's no sense in having two developers working on separate features but pushing to the same file in our version control system.</p>
+</section>
+<section>
+    <p>Once you're <strong>in production</strong> and running code on the end-user's browser, however, it's a different story. There's been a lot of efforts made over the last few years to reduce the impact of multiple HTTP requests on page performance, but not enough yet that we can recommend serving many small files over one or two big ones.</p>
+    <p>What we do instead is use modules in development, and then "<strong>bundle</strong>" the files using our build process - <strong>turning our many development files into a single file</strong> that gets served to the end-user.</p>
+</section>
+<section>
+    <p>There's been a lot of strong contenders for "best bundler" in the last year or two, but <a href="https://webpack.js.org/" target="_blank" rel="noopener noreferrer">webpack<span class="show-for-sr"> Opens in a new window</span></a> is still the most-used tool. Keep an eye out though - <a href="https://esbuild.github.io/" target="_blank" rel="noopener noreferrer">esbuild<span class="show-for-sr"> Opens in a new window</span></a>, <!-- <a href="https://www.snowpack.dev/" target="_blank" rel="noopener noreferrer">Snowpack<span class="show-for-sr"> Opens in a new window</span></a>,  --><a href="https://parceljs.org/" target="_blank" rel="noopener noreferrer">Parcel<span class="show-for-sr"> Opens in a new window</span></a> and <a href="https://rollupjs.org/guide/en/" target="_blank" rel="noopener noreferrer">rollup<span class="show-for-sr"> Opens in a new window</span></a> all have the potential to become the front-runner in the next few years.</p>
+</section>
+<hr>
+<div class="further-reading">
+<strong>Further Reading:</strong>
+<ul>
+    <li><a href="https://evertpot.com/http-2-push-is-dead/" target="_blank" rel="noreferrer">HTTP/2 Push is dead<span class="show-for-sr"> Opens in a new window</span></a>, <em>Evert Pot</em></li>
+</ul>
+</div>
+<hr>
+<div class="further-reading">
+<strong>Further Reading:</strong>
+<ul>
+    <li><a href="https://hacks.mozilla.org/2018/03/es-modules-a-cartoon-deep-dive/" target="_blank" rel="noopener noreferrer">ES modules: A cartoon deep-dive<span class="show-for-sr"> Opens in a new window</span></a>, <em>Lin Clark</em></li>
+    <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules" target="_blank" rel="noopener noreferrer">JavaScript modules guide<span class="show-for-sr"> Opens in a new window</span></a>, <em>MDN Web Docs</em></li>
+    <li><a href="https://exploringjs.com/es6/ch_modules.html" target="_blank" rel="noreferrer">Exploring ES6: Modules<span class="show-for-sr"> Opens in a new window</span></a>, <em>Dr. Axel Rauschmayer</em></li>
+</ul>
+</div>
+<div class="body-spacer"></div>
+<section id="asynchronous-javascript"><img class="body-icon" alt="" src="/images/spotlight.svg">
+    <h2>Other ES6+ features you should recognize</h2>
+    <p>There's a few more features in modern JavaScript that, as we continue this journey, you'll want to be able to recognize.</p>
+</section>
+<section>
+    <p>These are outside of the scope of today's lesson - this is a Security & QA course, after all, not Intro to Intermediate JavaScript, despite how we've been spending our time lately. However, as you continue to learn, you'll see these pop up, and <strong>I want you to have at least a vague idea of what you're looking at</strong>.</p>
+    <p>Some of these are fairly recent developments, so make sure you check their <a href="https://caniuse.com/async-functions" target="_blank" rel="noopener noreferrer">browser support<span class="show-for-sr"> Opens in a new window</span></a> before using them in a web application.</p>
+</section>
+<div class="body-spacer--small"></div>
+<section>
+    <h3>Arrows</h3>
+    <p>Arrows are just a <strong>shorthand syntax for functions</strong>.</p>
+    <pre><code class="language-javascript">const oldMultiply = function(x,y) {
+  return x * y;
+}
+const arrowMultiply = (x,y) => x * y;
+console.log("The old way", oldMultiply(2,4));
+console.log("The new way", arrowMultiply(2,4));</code></pre>
+<pre class="language-console"><code>"The old way" 8
+"The new way" 8</code></pre>
+</section>
+<section>
+<pre><code class="language-javascript">const myArray = [5,3,1];
+&nbsp;
+myArray.forEach(function(element) {
+  console.log("The old way", element);
+});
+&nbsp;
+myArray.forEach(element => {
+  console.log("The new way", element);
+});</code></pre>
+<pre class="language-console"><code>"The old way" 5
+"The old way" 3
+"The old way" 1
+"The new way" 5
+"The new way" 3
+"The new way" 1</code></pre>
+</section>
+<hr>
+<div class="further-reading">
+<strong>Further Reading:</strong>
+<ul>
+    <li><a href="https://www.javascripttutorial.net/es6/javascript-arrow-function/" target="_blank" rel="noreferrer">A Gentle Introduction to JavaScript Arrow Functions<span class="show-for-sr"> Opens in a new window</span></a>, <em>javascripttutorial.net</em></li>
+</ul>
+</div>
+<div class="body-spacer--small"></div>
+<section>
+    <h3>Template literals</h3>
+    <p>Template literals are a new way of <strong>using variables, expressions and line breaks in strings</strong>. They use backticks (<code>`</code>) instead of quotes around the string, and curly braces preceded by a dollar sign (<code>${}</code>) for any variables or statements that need to be evaluated.</p>
+    <pre><code class="language-javascript">const str = "strings";
+&nbsp;
+console.log("This is the old way to write " + str 
+  + "\nand include values like " + 2 * 10);
+&nbsp;
+console.log(`This is the new way to write ${str} 
+and include values like ${2 * 10}`);</code></pre>
+<pre class="language-console">"This is the old way to write strings 
+and include values like 20"
+&nbsp;
+"This is the new way to write strings 
+and include values like 20"</pre>
+</section>
+<hr>
+<div class="further-reading">
+<strong>Further Reading:</strong>
+<ul>
+    <li><a href="https://flaviocopes.com/javascript-template-literals/" target="_blank" rel="noreferrer">A guide to JavaScript Template Literals<span class="show-for-sr"> Opens in a new window</span></a>, <em>Flavio Copes</em></li>
+</ul>
+</div>
+<div class="body-spacer--small"></div>
+<section>
+    <h3>Fetch</h3>
+    <p>Fetch is the <strong>new syntax for AJAX</strong> - getting resources in JavaScript without reloading the page.</p>
+    <pre><code class="language-javascript">fetch('https://jsonplaceholder.typicode.com/todos/1')
+  .then(response => response.json())
+  .then(json => console.log(json))</code></pre>
+  <strong>The Console</strong>
+  <pre class="language-javascript"><code>{
+    "userId": 1,
+    "id": 1,
+    "title": "delectus aut autem",
+    "completed": false
+}</code></pre>
+</section>
+<hr>
+<div class="further-reading">
+<strong>Further Reading:</strong>
+<ul>
+    <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch" target="_blank" rel="noreferrer">Using Fetch<span class="show-for-sr"> Opens in a new window</span></a>, <em>MDN Web Docs</em></li>
+</ul>
+</div>
+<div class="body-spacer--small"></div>
+<section>
+    <h3>Async/Await</h3>
+    <p>Okay, there could be an entire course on asynchronous JavaScript. Or maybe a month of classes. <strong>It's complicated</strong> is what I'm trying to say.</p>
+</section>
+<section>
+    <p>Basically, sometimes things in JavaScript <strong>take time</strong>, like waiting for an API to respond, or, in Node, waiting for the computer to finish reading a file.</p>
+    <p>Asynchronous JavaScript gives you the ability to say, "<strong>I want to wait</strong> for something before doing other things".</p>
+</section>
+<section>
+    <p>First we got <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises" target="_blank" rel="noopener noreferrer">promises<span class="show-for-sr"> Opens in a new window</span></a>, but the syntax for handling them was pretty messy and awkward, so we got this new syntax for handling promises called <strong>async/await</strong>.</p>
+</section>
+<section>
+    <p>You <strong>declare that a function will be asynchronous</strong> with the keyword <code class="language-javascript">async</code>. Then, with anything inside that function that is <strong>going to take some time</strong> (anything that is a <code class="language-javascript">Promise</code>), you use the statement <code class="language-javascript">await</code>. Anything in the function that <strong>comes after</strong> the <code class="language-javascript">await</code> will wait on the Promise to resolve (i.e. finish) before executing.</p>
+    <pre><code class="language-javascript">console.clear();
+&nbsp;
+async function myFetch() {
+  let response = await fetch('https://jsonplaceholder.typicode.com/photos/1')
+  if (!response.ok) {
+    throw new Error(`HTTP error! status: ${response.status}`);
+  }
+  return response.json();
+}
+&nbsp;
+myFetch().then((data) => {
+  console.log(data.thumbnailUrl);
+  const image = document.createElement('img');
+  image.src = data.thumbnailUrl;
+  document.body.appendChild(image);
+}).catch((e) =>
+  console.log("ok so there's an error", e)
+);</code></pre>
+</section>
+<hr>
+<div class="further-reading">
+<strong>Further Reading:</strong>
+<ul>
+    <li><a href="https://flaviocopes.com/javascript-async-await/" target="_blank" rel="noreferrer">Modern Asynchronous JavaScript with Async and Await<span class="show-for-sr"> Opens in a new window</span></a>, <em>Flavio Copes</em></li>
+    <li><a href="https://www.youtube.com/watch?v=DwQJ_NPQWWo" target="_blank" rel="noopener noreferrer">Async + Await in JavaScript<span class="show-for-sr"> Opens in a new window</span></a> (Video), <em>Wes Bos</em></li>
+</ul>
+</div>
+<div class="body-spacer"></div>
+<section>
+    <h2>In summary:</h2>
+</section>
+<section>
+    <ul>
+        <li>We increase code quality by taking advantage of precision in language features.</li>
+        <li>Using newer features comes with the responsibility to use techniques that allow us to meet requirements for browser support.</li>
+        <li><code>let</code> is like <code>var</code>, except block-scoped and explicitly re-definable.</li>
+        <li><code>const</code> is like <code>var</code>, except block-scoped and explicitly <strong>not</strong> re-definable.</li>
+        <li>Strict mode is JavaScript, but slightly better.</li>
+        <li>Modules break up our JavaScript into smaller files, with values and objects explicitly imported and exported.</li>
+        <li>Arrow functions are just functions, only a little more fun.</li>
+        <li>Template literals are just a new way of writing strings with other stuff in them.</li>
+        <li>Fetch is a really easy way to write AJAX.</li>
+        <li>Async/Await is a way to write asynchronous JavaScript, and it's a lot.</li>
+    </ul>
+</section>
+<div class="body-spacer"></div>
+    </article>
+    </main>
+    <script src="/js/fuse.js"></script>
+    <script>
+    const searchArray = [{ 
+          "url": "/",
+          "title": "Decent Internet",
+          "tags": []
+        },{ 
+          "url": "/build-tools/",
+          "title": "Build Tools",
+          "tags": ["Task runners","Toolchains","Bundlers","Vite","SASS"]
+        },{ 
+          "url": "/how-to-get-hacked/",
+          "title": "How to get hacked",
+          "tags": ["OWASP","XSS","SQL Injection","Security","Authentication"]
+        },{ 
+          "url": "/tags/all/",
+          "title": "",
+          "tags": []
+        },{ 
+          "url": "/ad-hoc-testing/",
+          "title": "Ad hoc testing",
+          "tags": ["OWASP","XSS","SQL Injection","Security","Authentication"]
+        },{ 
+          "url": "/encryption-and-hashing/",
+          "title": "Encryption &amp; Hashing",
+          "tags": ["OWASP","XSS","SQL Injection","Security","Authentication"]
+        },{ 
+          "url": "/es6/",
+          "title": "ES6+",
+          "tags": ["OWASP","XSS","SQL Injection","Security","Authentication"]
+        },{ 
+          "url": "/types-of-testing/",
+          "title": "What is &#39;Quality&#39; &#39;Assurance&#39;?",
+          "tags": ["OWASP","XSS","SQL Injection","Security","Authentication"]
+        },{ 
+          "url": "/tags/OWASP/",
+          "title": "OWASP",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/XSS/",
+          "title": "XSS",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/SQL%20Injection/",
+          "title": "SQL Injection",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Security/",
+          "title": "Security",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Authentication/",
+          "title": "Authentication",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Task%20runners/",
+          "title": "Task runners",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Toolchains/",
+          "title": "Toolchains",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Bundlers/",
+          "title": "Bundlers",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Vite/",
+          "title": "Vite",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/SASS/",
+          "title": "SASS",
+          "tags": [],
+          "isTag": true
+        }
+    ];
+
+    const options = {
+      includeScore: true,
+      keys: [{name: 'title', weight: .9}, {name: 'tags', weight: 1}]
+    }
+
+    const fuse = new Fuse(searchArray, options);
+
+    const searchBox = document.getElementById('search');
+    window.onload = () => searchBox.value = ``;
+    
+    searchBox.addEventListener('keyup',function(){
+      const resultsList = document.getElementById('searchResults');
+      resultsList.innerHTML = ``;
+      const searchResults = fuse.search(searchBox.value).sort((a, b) => a.score - b.score).slice(0, 3);
+      
+      searchResults.forEach(result => {
+        resultsList.innerHTML += `<li><a href="${result.item.url}">${result.item.title}<span class="pill">${result.item.isTag ? `Tag` : `Page`}</span></a></li>`;
+      });
+
+      listenToResults();
+
+      if (resultsList.children.length > 0 && event.key === "ArrowDown") {
+        resultsList.firstChild.querySelector("a").focus();
+      }
+
+    });
+
+    const listenToResults = () => {
+      document.getElementById('searchResults').querySelectorAll("a").forEach((searchResultLink, index) => {
+        searchResultLink.addEventListener('keyup', function() {
+          if ((index === 0 && event.key === "ArrowUp") || (index + 1 === document.getElementById('searchResults').querySelectorAll("a").length && event.key === "ArrowDown")) {
+            searchBox.focus();
+          } else if (event.key === "ArrowUp") {
+            document.getElementById('searchResults').querySelectorAll("a")[index - 1].focus();
+          } else if (event.key === "ArrowDown") {
+            document.getElementById('searchResults').querySelectorAll("a")[index + 1].focus();
+          }
+        });
+      })
+    }
+    
+
+
+
+    document.addEventListener('alpine:init', () => {
+        Alpine.store('menuToggle', {
+            on: false,
+ 
+            toggle() {
+                this.on = ! this.on
+            }
+        })
+    });
+
+
+
+
+
+    
+    </script>
+  </body>
+</html>

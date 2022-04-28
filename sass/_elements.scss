@@ -97,10 +97,6 @@ p {
 }
 
 nav:not(.toc) {
-    & ul {
-        display: flex;
-        padding-left: 0;
-    }
 
     & li {
         list-style: none;
@@ -235,4 +231,8 @@ dt:after {
 
 iframe {
     max-width: 100%;
+}
+
+.svg-x {
+    stroke: var(--background)
 }

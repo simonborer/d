@@ -32,7 +32,7 @@
     <meta name="theme-color" content="#FFF464">
     <script src="https://unpkg.com/alpinejs" defer></script>
   </head>
-  <body x-data :class="$store.menuToggle.on && 'no-scroll'">
+  <body>
   <a href="#content" class="show-for-sr show-on-focus skip-link">Skip navigation</a>
   <header class="header">
     <nav class="nav">
@@ -50,11 +50,9 @@
         <span class="show-for-sr">Toggle the menu visibility</span>
       </button>
       <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/socials">Socials</a></li>
-      </ul>
+        <li><a href="/">Home</a></li></ul>
     </div>
+    
       <div class="nav__search-box">
         <label for="search" class="show-for-sr">Type to search</label>
         <input id="search" placeholder="Search" class="nav__search-input">
@@ -65,8 +63,10 @@
     <h1 id="content" class="title"></h1>
     
     <div class="callout summary-container">
+      <div class="col">
       
       <span class="summary">List of tagged pages</span>
+      </div>
     </div>
     
     </div>
@@ -74,20 +74,10 @@
     <main>
     
     <article>
-    <h1>Tagged “Authentication”</h1>
+    <h1>Tagged “learningLevelList”</h1>
 
 <ol class="row">
 
-
-  <li><a href="/types-of-testing/">What is &#39;Quality&#39; &#39;Assurance&#39;?</a></li>
-
-  <li><a href="/es6/">ES6+</a></li>
-
-  <li><a href="/encryption-and-hashing/">Encryption &amp; Hashing</a></li>
-
-  <li><a href="/ad-hoc-testing/">Ad hoc testing</a></li>
-
-  <li><a href="/how-to-get-hacked/">How to get hacked</a></li>
 
 </ol>
     </article>

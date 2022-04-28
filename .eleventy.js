@@ -17,5 +17,5 @@ module.exports = function(eleventyConfig) {
             item.data.tags.forEach((tag) => tagsSet.add(tag))
         })
         return tagsSet
-    })
+    });
 };

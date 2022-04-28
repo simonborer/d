@@ -1,0 +1,666 @@
+---json
+{
+    "layout": "layout.njk",
+    "title": "What is 'Quality' 'Assurance'?",
+    "feature": {
+        "src": "testing.svg",
+        "alt": "Person with a blowtorch",
+        "needsPadding": true
+    },
+    "description": "We can say that 'quality' means meeting requirements, and 'assurance' is proving that we've met those requirements. Today, let's look at where requirements come from - the client, the user, standards specifications, and your team. And then: testing comes in all shapes and sizes. Today we'll also look at why we test, how we design our tests, what all the different types of testing are, and how they fit into a team's lifecycle.",
+    "tags": ["OWASP", "XSS", "SQL Injection", "Security", "Authentication"],
+    "learningLevel": 1
+}
+---
+<div class="body-spacer--small"></div>
+<p style="margin-bottom: 1rem;">{{ description }}</p>
+<section>
+    <h2 class="text-center">Table of Contents</h2>
+    <ul>
+        <li><a href="#clientRequirements">Client Requirements</a></li>
+        <li><a href="#userRequirements">User Requirements</a></li>
+        <li><a href="#beyondTheAsk">Beyond the ask: Security & Standards.</a></li>
+        <li><a href="#teamRequirements">Team Requirements</a></li>
+        <li><a href="#why">Why do we test?</a>
+            <ul class="post-only">
+                <li><a href="#forget">Testing to forget</a></li>
+                <li><a href="#track">Testing to track</a>
+                    <ul>
+                        <li><a href="#complexity">Application complexity</a></li>
+                        <li><a href="#maturity">Application maturity</a></li>
+                        <li><a href="#reuse">Code re-use</a></li>
+                    </ul>
+                </li>
+                <li><a href="#proof">Testing to prove</a>
+            </ul>
+        </li>
+        <li><a href="#what">What do we test?</a>
+            <ul class="post-only">
+                <li><a href="#dueDiligence">Due diligence</a>
+                    <ul>
+                        <li><a href="#properties">Properties</a></li>
+                        <li><a href="#redFlags">Requirements Red Flags</a></li>
+                        <li><a href="#sot">Source(s) of truth</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="#how">How do we test?</a>
+            <ul class="post-only">
+                <li><a href="#specs">Code specifications - Language Features, Linters, Validators & Manual Testing</a></li>
+                <li><a href="#team">Team standards - Code Review</a></li>
+                <li><a href="#userClient">User & client requirements - the kitchen sink, et al.</a>
+                    <ul>
+                        <li><a href="#adHoc">Ad hoc testing</a>
+                            <ul>
+                                <li><a href="#devTools">Developer Tools</a></li>
+                                <li><a href="#linkCheck">Link Checking</a></li>
+                                <li><a href="#input">Input testing</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#unitTesting">Unit testing</a>
+                            <ul>
+                                <li><a href="#whatToUnitTest">What to unit test</a></li>
+                                <li><a href="#tdd">Test-driven development</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#ci">Continuous Integration</a>
+                            <ul>
+                                <li><a href="#lifecycle">Deployment lifecycle</a></li>
+                                <li><a href="#integrationTesting">Integration testing</a></li>
+                                <li><a href="#end">End-to-end testing</a></li>
+                                <li><a href="#load">Load testing</a></li>
+                                <li><a href="#stress">Stress testing</a></li>
+                                <li><a href="#manual">Manual testing</a></li>
+                                <li><a href="#pen">Penetration testing</a></li>
+                                <li><a href="#userAcceptance">User acceptance testing</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#postDeployment">Post-Deployment</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li><a href="#summary">Summary</a></li>
+    </ul>
+</section>
+<div class="body-spacer"></div>
+<section id="quality">
+    <hr class="post-only">
+    <img src="/images/party.svg" alt="" class="body-icon">
+    <h2>What is 'Quality'?</h2>
+    <p>When making any kind of product, quality is defined by <strong>meeting requirements</strong>.</p>
+    <p>In web development, requirements come from a variety of sources:</p>
+</section>
+<section>
+    <dl>
+        <dt>Client requirements</dt>
+        <dd>What <strong>the client</strong> wants.</dd>
+        <dt>User requirements</dt>
+        <dd>What <strong>the user</strong> needs.</dd>
+        <dt>Standards</dt>
+        <dd>What <strong>the language specification</strong> says.</dd>
+        <dt>Team requirements</dt>
+        <dd>What <strong>the team</strong> wants.</dd>
+    </dl>
+</section>
+<div class="body-spacer--small"></div>
+<section id="clientRequirements">
+    <h3 class="text-center">Client requirements</h3>
+    <p>... are strange and arcane. They are a chimera that may elude you long after launch, shimmering like C-beams in the dark near the Tannhäuser Gate.</p>
+    <figure><img src="/images/roy.jpeg" alt="Roy Blatty">
+        <figcaption>Pictured: senior dev</figcaption>
+    </figure>
+</section>
+<section>
+    <p>Hopefully you have a manager who can translate client requirements into <strong>technical requirements</strong>, so that requirements like, "brand synergy" become actionable items, like "team photos on the 'About Us' page".</p>
+    <p>Devs are often a degree removed from clients, so that client requirements get <strong>translated through content and design teams</strong>. However, if you're freelancing or working in a smaller shop, or if your team doesn't do UI prototyping as part of the design phase, you'll need to parse client requirements.</p>
+</section>
+<section>
+    <p>When your code is ready for a "release", there is usually a phase of testing called "<strong>user acceptance testing</strong>". This may involve actual users, but most often this is "<strong>client acceptance</strong>", meaning the client gets to test the release.</p>
+    <p>Client acceptance is when you're really relieved that you <strong>documented the client requirements at the beginning</strong>, and had them <strong>sign off</strong> on the proposed designs. Client acceptance is the phase in which the client changes their mind, or introduces new requirements. Since those changes weren't captured in the initial requirements, you get to move deadlines and charge them for the extra work.</p>
+    <p>Client requirements are <strong>arguably the most important requirements</strong> outside of accessibility. Meeting client requirements is what gets you paid and lets you go home at&nbsp;5pm.</p>
+</section>
+<div class="body-spacer--small"></div>
+<section id="userRequirements">
+    <h3 class="text-center">User requirements</h3>
+    <p>User requirements are <strong>anything a user needs to accomplish their goals</strong> while using your application. In a perfect world, you could sit down with one user and just ask what they needed.</p>
+    <p>The process of generating these requirements, however, is more complex.</p>
+    <figure><figcaption class="post-only" style="text-align:left;">Edit: <strong>Hi, this is Simon from the future.</strong> I've been experimenting with <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers" target="_blank" rel="noopener noreferrer">HTTP headers<span class="show-for-sr"> Opens in a new window</span></a> on this site to maximize security. Every now and then (particularly when I'm loading content from another domain, like embedding Youtube videos), this breaks something. Since it's just me maintaining these course sites, I appreciate your patience with this kind of stuff. On the other hand, if you need something (like course notes or code examples), and they aren't available, please let me know ASAP! Here's the <a href="https://www.youtube.com/watch?v=QoCOQb2u-N8&t=52s" target="_blank" rel="noopener noreferrer">Parks & Rec video<span class="show-for-sr"> Opens in a new window</span></a> if the embed below isn't working.</figcaption><iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/QoCOQb2u-N8?start=52&end=93&modestbranding=1&iv_load_policy=3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></figure>
+</section>
+<section>
+    <p>User requirements come from user testing. This could come from observing users (<strong>usability testing</strong>), interviewing users (<strong>user experience testing</strong>), or digital tracking of user behaviour (<strong>analytics</strong>).</p>
+</section>
+<div class="body-spacer"></div>
+<section id="beyondTheAsk">
+    <img src="/images/building.svg" alt="" class="body-icon">
+    <h3 class="text-center">Beyond the ask: Security & Standards.</h3>
+    <p>You're going to learn about actively collecting user and client requirements in various other courses, so it won't be something we spend too much time on here.</p>
+    <p>There are things, however, that are required by both the client and the user that they <strong>shouldn't have to</strong> (and most likely <strong>won't think to</strong>) <strong>ask for</strong>.</p>
+</section>
+<section>
+    <dl>
+        <dt>Security</dt>
+        <dd><strong>Keeping user data from unauthorized access</strong>, <strong>making sure the application keeps working</strong>, and <strong>keeping the application free from unauthorized changes</strong> are requirements often left unspoken by clients and users alike, but they are the responsibility of the people engineering the application.</dd>
+        <dt>Standards</dt>
+        <dd>Sticking to <strong>language specifications</strong>, like those created by <a href="https://www.w3.org/blog/2019/05/w3c-and-whatwg-to-work-together-to-advance-the-open-web-platform/#:~:text=WHATWG%20maintains%20the%20HTML%20and%20DOM%20Living%20Standards&text=W3C%20stops%20independent%20publishing%20of,Review%20Drafts%20to%20W3C%20Recommendations" target="_blank" rel="noopener noreferrer">WHATWG & the W3C<span class="show-for-sr"> Opens in a new window</span></a> (HTML, CSS & accessibility) and <a href="https://www.ecma-international.org/" target="_blank" rel="noopener noreferrer">ECMA International<span class="show-for-sr"> Opens in a new window</span></a> (JavaScript), mean that your application is accessible for people with disabilities, and future-proofed to work on devices that haven't even been conceived of yet.</dd>
+    </dl>
+</section>
+<div class="body-spacer--small"></div>
+<section id="teamRequirements">
+    <h3 class="text-center">Team Requirements</h3>
+    <video style="width:480px;height:270px;margin-bottom: .5rem" autoplay name="media" loop controls>
+        <track kind="captions" srclang="en" src="/images/captions/mvp.vtt">
+        <source src="/images/mvp.mp4" type="video/mp4"></video>
+    <p>There's a term I've started seeing thrown around lately that I love: 'DX'. It stands for <strong>Developer Experience</strong>.</p>
+    <p>I've heard it in the context of different frameworks (i.e. "Svelte has great DX compared to React"), and it's the reason we have <strong>Team Requirements</strong>.</p>
+</section>
+<section>
+    <p>Team requirements might be things like <strong>code naming conventions</strong>, <strong>formatting</strong>, <strong>commenting conventions</strong>, <strong>version control workflow</strong>, <strong>design patterns</strong>, <strong>testing strategies</strong>, etc.</p>
+    <p>If you don't know what some (or any!) of those things are - that's okay! We'll be talking about them all in this class.</p>
+</section>
+<section>
+    <p>All you need to know at this point is that every high-functioning team, big or small, has at least some <strong>agreed-upon patterns</strong> when writing, storing and/or deploying their code.</p>
+    <p>The patterns themselves may vary, but what's important is that <strong>the team agrees</strong>. This works on the same principle that allows standards-compliant code to run on different devices: <strong>predictability</strong>. If I know how <em>you</em>'re going to write <em>your</em> code, I can predict how I can write mine so it "plays nice together". It also allows me to easily read and understand your code (or, you know, my own code that I wrote 6 months ago).</p>
+    <p>The purpose of team requirements is to improve the Developer Experience, making <strong>collaboration</strong>, <strong>enhancement</strong> and <strong>maintenance</strong> quick and easy.</p>
+</section>
+<div class="body-spacer"></div>
+<section id="summary">
+    <h3 class="text-center">In summary...</h3>
+    <p>...we can say that in the world of web development, "quality" is satisfying the client, the user, the standards, and our team.</p>
+    <video style="width:480px;height:270px;margin-bottom: .5rem" autoplay name="media" loop controls>
+        <track kind="captions" srclang="en" src="/images/captions/all-about.vtt">
+        <source src="/images/all-about.mp4" type="video/mp4">
+    </video>
+</section>
+<div class="body-spacer"></div>
+<section>
+    <h2>What is 'Assurance'?</h2>
+    <p>Assurance is the process by which we create confidence.</p>
+    <p>It sounds like 'insurance', and that's not a coincidence! Insurance is a process that's in place that happens in case something unexpected happens. Assurance is a process that's in place to make sure unexpected things <em>don't</em> happen.</p>
+</section>
+<section id="why">
+    <h2>Why do we test?</h2>
+    <p>We test so we can <strong>forget about requirements</strong>, so we can <strong>track down bugs</strong>, and so we can <strong>prove our work</strong>.</p>
+</section>
+<section id="forget">
+    <h3 class="text-center">Testing to forget</h3>
+    <p>When dealing with web applications, we take <strong>requirements from a multitude of sources</strong> (including, but not limited to: the user, the client, our teams, web standards). We do our best to translate these requirements into an application built with a variety of interoperable languages.</p>
+</section>
+<section>
+    <p>I have an enduring respect for <a href="https://en.wikipedia.org/wiki/Diner_lingo" target="_blank" rel="noopener noreferrer">servers<span class="show-for-sr"> Opens in a new window</span></a> at restaurants. Many servers can remember a multitude of complicated orders, coupled with the identity of the orderer, and efficiently communicate with the kitchen, all before any actual serving happens.</p>
+    <p>Most, however, will offload memory read/write tasks, providing transferability and traceability through non-volatile data storage.</p>
+    <figure>
+        <img src="/images/waitress.jpeg" alt="">
+        <figcaption class="post-only">Pictured: data caching to increase available bandwidth.</figcaption>
+    </figure>
+</section>
+<section>
+    <p>The idea here is, <strong>the more complicated a task, the greater the need to capture those complications</strong> and put them somewhere that doesn't rely on our memory.</p>
+    <p>Automated testing, along with manual testing responsibilities documented and distributed across our team, allow us to capture requirements so that <strong>we can forget about them</strong> without failing to meet them.</p>
+</section>
+<section id="track">
+    <h3 class="text-center">Testing to track</h3>
+    <img src="/images/bug.svg" alt="" class="body-icon--small">
+    <p>How long have you spent tracking down an errant semicolon? After a decade of web programming, I'm sure I've accrued days of lost productivity. Errors are inevitable, but there are circumstances that are <strong>force-multipliers</strong> when it comes to mysteriousness.</p>
+</section>
+<section id="complexity">
+    <h4>Application complexity</h4>
+    <p>What's breaking that layout? The CSS? In which file? Is the style coming from a Javascript function? Is it in that 3rd-party library? Or is it the browser defaults?</p>
+    <p>The more you have influencing your application, the longer you have to wear your deerstalker cap and puff on your pipe.</p>
+    <figure>
+        <img src="/images/deerstalker.jpeg" alt="" class="body-icon">
+        <figcaption>Not a good look for anyone born after Disraeli was Prime Minister.</figcaption>
+    </figure>
+</section>
+<section>
+    <p>This is why we <strong>both test the parts of an application individually, and the application as a whole</strong>. Testing individually allows us to find bugs in a contained space before they reach the rest of the application. Testing the whole allows us to capture bugs that emerge from clashes between the parts.</p>
+</section>
+<section id="maturity">
+    <h4>Application maturity</h4>
+    <p><strong>We test early, and we test often.</strong></p>
+    <p>Catching a bug while you're coding is a healthy part of everyday life. Catching a bug in production will make your manager call you at 1am on a Tuesday.</p>
+    <p>The <strong>longer it takes to catch an error, the more costly a bug becomes</strong> (and the more people you have to explain yourself to).</p>
+</section>
+<section id="reuse">
+    <h4>Re-use</h4>
+    <p>The <abbr title="Don't Repeat Yourself">DRY</abbr> principle in programming is tremendously useful in programming, and is definitely to be encouraged. It must be understood, however, that it is making a trade-off when it comes to bugs: <strong>code reuse means bug reuse</strong>. The impact of an error in code that is widely used will be... wide.</p>
+</section>
+<section>
+    <p>Now, the obvious benefit of DRY programming is that <strong>fixing bugs is quick</strong> - fix it once and it's fixed everywhere, no tracking down every instance of an error that was manually copied and pasted into independant pages. The cost of this efficiency is to <strong>respect the impact of code re-use</strong>. We test early to mitigate the risk of a widely-distributed bug, and we test robustly to account for the variety of contexts in which our code may be used.</p>
+    <p>By testing robustly, we take into consideration the <strong>variety of inputs and outputs</strong> our code may be called upon to accomodate, and the <strong>various platforms and user-agents</strong> our code may encounter.</p>
+</section>
+<section id="proof">
+    <h3 class="text-center">Testing to prove</h3>
+    <p>Arguing with people sucks. Except when it's fun.</p>
+    <video style="width:244px;height:222px;margin-bottom: .5rem" autoplay name="media" loop controls>
+        <track kind="captions" srclang="en" src="/images/captions/bear.vtt">
+        <source src="/images/bear.mp4" type="video/mp4">
+    </video>
+    <p>I've had the good fortune to have some fun arguments with other developers on my team about code. What made those arguments fun is that we would always end up <em>testing</em> what it was we were arguing about - page load speeds, compression sizes, the ability of various code editors to load >1GB-sized <span style="white-space: pre;">files, etc. etc.</span> And they'd always end with someone saying, <strong>"Hunh - guess I owe you a coke."</strong></p>
+</section>
+<section>
+    <p>Common advice for writing a resume is to list your accomplishments, not just your responsibilities. Creating metrics will <strong>generate some feathers for your cap</strong>, and can help you <strong>advocate for preferred solutions</strong> for your team. But the best outcome of testing, in my view, is to <strong>minimize guesswork, ego and conflict</strong> in the workplace by generating <em>proofs</em> by objectively testing assumptions.</p>
+</section>
+<div class="body-spacer"></div>
+<section id="what">
+    <img src="/images/report.svg" alt="" class="body-icon">
+    <h2>What do we test?</h2>
+    <p>Coding errors happen every day. If we're lucky, the error means our code doesn't make sense to the computer. In that case, we get near instantaneous feedback in the form of an error message.</p>
+    <div style="padding:2rem 1.75rem; font-size: 1.25rem; background: #000CB3; font-family: 'Courier New', Courier, 'Lucida Sans Typewriter', 'Lucida Typewriter', monospace;margin-bottom: 1rem;"><code style="border: 0 solid transparent;font-size: 1.25rem; background: transparent; color: #FF7070;">❌❌❌ <strong>ERR6401:</strong> You're welcome!</code></div>
+</section>
+<section>
+    <p>However, if you want to test <strong>not only whether the computer understands you</strong>, but also <strong>whether you're explaining your intentions properly</strong>, you're going to have to create your own error conditions. This will require some critical thinking.</p>
+    <p>A test is a question, and <strong>the simplest questions are "True or False"</strong>. If you can break your assumptions down into binary, you'll greatly simplify the process.</p>
+</section>
+<section>
+    <img src="https://imgs.xkcd.com/comics/tasks.png" alt="Client: When a user takes a photo, the app should check whether they're in a National Park... Programmer: Sure, easy GIS lookup. Gimme a few hours. Client: ...and check whether the photo is of a bird. Programmer: I'll need a research team and five years. Caption: In CS, it can be hard to explain the difference between the easy and the virtually impossible.">
+</section>
+<section>
+    <p>Some things can be very easy to test in an automated way. Others essentially impossible (I'm looking at you, users). Luckily, other courses teach you how to test complicated things like, "How do people behave when using the application?" Additionally, other courses teach you how to collect good requirements.</p>
+</section>
+<section>
+    <p>Good requirements will <strong>translate easily into testable assumptions</strong>. <strong>"True of False" is best</strong>, but there are other types of questions that are simple to answer in a programmatic way:</p>
+    <ul>
+        <li>'<strong>It can/cannot be greater/less than x</strong>' (boundary testing)</li>
+        <li>'<strong>It must allow x</strong>' (test-to-pass), or '<strong>it must not allow x</strong>' (test-to-fail)</li>
+    </ul>
+</section>
+<section id="dueDiligence">
+    <h3 class="text-center">Due diligence</h3>
+    <p>Some questions are too much work to answer, even when automated. If you create a calculator, you don't expect to test every possible combination of numbers. That being said, here's what you might propose to test:</p>
+</section>
+<section>
+    <ul>
+        <li>An input of 0-9 does not throw an error</li>
+        <li>An input of 999999 does not throw an error</li>
+        <li>An input of -999999 does not throw an error</li>
+        <li>1 + 2 = 3</li>
+        <li>-3 + -4 = -7</li>
+        <li>5 * 6 = 30</li>
+        <li>7 * -8 = -56</li>
+        <li>9 - 10 = -1</li>
+        <li>-11 - 12 = -23</li>
+        <li>13 - -14 = 27</li>
+        <li>15 / 5 = 3</li>
+        <li>16 / -4 = -4</li>
+    </ul>
+</section>
+<section id="properties">
+    <h4>Properties</h4>
+    <p><strong>Consider the properties of numbers.</strong> The questions <span class="post-only">above </span>are not testing all numbers, but they are testing the following numerical properties:</p>
+    <ul>
+        <li>Signed/unsigned (positivity or negativity)</li>
+        <li>Summable</li>
+        <li>Subtractable</li>
+        <li>Multipliable</li>
+        <li>Divisible</li>
+        <li>Multi-digit</li>
+    </ul>
+    <p>What <strong>property</strong> of numbers was not tested in our list of questions?</p>
+    <p>What properties do numbers have that are beyond the <strong>scope</strong> of a calculator (i.e. possible infinite digits)? What is the <strong>boundary of the scope</strong>? What should happen when that <strong>boundary is reached</strong>?</p>
+</section>
+<section>
+    <div class="callout">
+        <p>If you have carefully considered the properties of what you are testing, and tested properly, you may still end up with an error for one of the values that you didn't test. Say, for example, that a demon possesses the user whenever they enter the number <code>666</code>.</p><img src="/images/regan.svg" class="body-icon--small body-icon--white-bg" alt="Regan MacNeil">
+        <p class="post-only">Later, we'll see why creating a test plan is important - getting the client or management to sign-off on these testing limitations means they've judged these 'unknown unknowns' to be an acceptable risk. People are way more likely to get mad at you if they're surprised.</p>
+    </div>
+</section>
+<section>
+    <p>Unfortunately, you're not always the one gathering the requirements. Let me state for the record: "<strong>Most costly errors are a failure in the requirements</strong>". False assumptions and misunderstandings are the most likely issues to make it to production, and, as we saw earlier, the later the stage, the bigger the problem. Regardless of who gathered the requirements, though, <strong>understanding the requirements is your responsibility</strong>.</p>
+</section>
+<section id="redFlags">
+    <h4>A list of requirements red flags:</h4>
+    <dl>
+        <dt>Always, Never</dt>
+        <dd>Are you absolutely sure of these absolutes?</dd>
+        <dt>Obviously</dt>
+        <dd>Is it, though?</dd>
+        <dt>Usually</dt>
+        <dd>What about when the unusual happens?</dd>
+        <dt>Etc.</dt>
+        <dd>Please, do elaborate...</dd>
+        <dt>If</dt>
+        <dd>Else?</dd>
+    </dl>
+</section>
+<section id="sot">
+    <h4>Source(s) of truth</h4>
+    <p>As discussed, <strong>requirements can come from multiple places</strong>. Even if you understand a requirements document backwards and forwards, you may find <strong>one source conflicting with another</strong>, i.e. an approved design conflicting with a copy deck, or a styleguide. It's on you to raise this with... well, someone. Someone with the authority to tell you what to consider the "<strong>source of truth</strong>" - the requirements that override anything that conflicts with it.</p>
+    <p>Sometimes, no one can tell you. In that case, someone needs to ask the client, or else you're in for a very boring series of meetings.</p>
+</section>
+<section>
+    <h3 class="text-center">In summary...</h3>
+    <p>It is your job to <strong>understand the requirements</strong>. <strong>If you don't, ask</strong>. If there is <strong>conflict, clarify</strong>. Know the 'else...', 'etc...', 'must...', and 'cannot...'.</p>
+    <p>Break the requirements down to their <strong>simplest form</strong>. <strong>Test to equal</strong> (true/false) when you can. If that is too costly, <strong>test properties</strong>. <strong>Test boundaries</strong>. <strong>Test to pass</strong> and <strong>test to fail</strong>.</p>
+</section>
+<div class="body-spacer"></div>
+<section id="how">
+    <img src="/images/bulb.svg" alt="" class="body-icon">
+    <h2>How do we test?</h2>
+    <p>As discussed, requirements come from a variety of sources. Each type of requirement comes with its own types of testing.</p>
+    <div class="callout">
+        <p>You'll notice that user testing and analytics are absent from the list below. That's because those are types of testing that are focussed on <em>generating</em> requirements. <strong>'Assurance' describes all the processes we follow when <em>meeting</em> requirements</strong>.</p>
+    </div>
+</section>
+<section>
+    <div class="callout warning">
+        <p>You also might look at this list and think, 'wait, <strong>AM I GONNA HAVE TO DO ALL THIS??</strong>'</p>
+        <p>Nope. As a junior/intermediate developer, you'll want to know how to <strong>write your own unit tests</strong>, do some <strong>ad hoc testing</strong>, and some <strong>code review</strong>. When it comes to things like integration testing, end-to-end testing, etc., a larger team will have that stuff governed by senior devs, devOps managers and QA managers.</p>
+        <p>A smaller team (or if you're freelancing) will need to have a pared-down process, but will still need a plan for how to test your releases.</p>
+    </div>
+</section>
+<section id="specs">
+    <h3 class="text-center">Code specifications - Language Features, Linters, Validators & Manual Testing</h3>
+    <p>Computer languages all have features that can be used to enforce code quality - think <strong>data types</strong>, <strong>scope</strong>, <strong>mutability</strong>, <strong>strict mode</strong>, etc. We'll learn more about some of these features in this course. For now, just know that a strong developer uses language features to create quality, and welcomes errors as their first line of defense.</p>
+</section>
+<section>
+    <p>A <strong>validator</strong> will read code and check for any violations of the language specification.</p>
+    <p>Example: <strong><a href="https://validator.w3.org/" target="_blank" rel="noopener noreferrer">w3c html validator<span class="show-for-sr"> Opens in a new window</span></a></strong></p>
+    <p>A <strong>linter</strong> will validate your code, and additionally flag style errors as well. Typically, you can configure a linter, defining new rules, or ignoring existing rules.</p>
+    <p>Example: <strong><a href="https://jshint.com/" target="_blank" rel="noopener noreferrer">JSHint JavaScript linter<span class="show-for-sr"> Opens in a new window</span></a></strong></p>
+</section>
+<section>
+    <p><strong>Not all code standards can be captured with automated processes</strong>. Standards that are based on intention, like semantics and accessibility, may not be something a computer easily understands (for example, a picture of a dog with the alternative text "a cat" would violate accessibility standards, but this violation is not easily identified by an automated process). In some cases, <strong>manual verification</strong> is required.</p>
+    <p>In other words, a computer doesn't understand your intentions, only what you tell it in computer language. <strong>You can only automate what a computer understands</strong>.</p>
+</section>
+<section>
+    <figure>
+        <img src="/images/catdog.jpeg" alt="">
+        <figcaption>Skynet is on-line. Ish.</figcaption>
+    </figure>
+</section>
+<section id="team">
+    <h3 class="text-center">Team standards - Code Review</h3>
+    <blockquote>When a measure becomes a target, it ceases to be a good measure. <cite>Goodhart's law</cite></blockquote>
+    <p>Team standards may be enforced through automated testing, but the most important tool in code-sharing is the <strong>code review</strong>.</p>
+</section>
+<section>
+    <p>Simply, when you want to merge the code you've been working on into the larger codebase, you <strong>ask someone else on the team to read it</strong>. If they understand it, and feel it meets the team's standards, it can be merged.</p>
+    <p>This is a 'safety net'. If your code is too complex (i.e. too poorly commented) for another team member to understand, <strong>how will they work with it</strong>? Maybe you accidentally (or otherwise) 'gamed' the automated testing. Your teammates will call you out - <strong>and that's a good thing</strong>.</p>
+</section>
+<section id="userClient">
+    <h3 class="text-center">User & client requirements - the kitchen sink,&nbsp;et al.</h3>
+    <p>In the words of the Legendary Stardust Cowboy, this is where the rubber hits the road.</p>
+    <iframe class="post-only" title="The Rubber Hits the Road by the Legendary Stardust Cowboy" src="https://open.spotify.com/embed/track/6CP9dHpOQDzTbaNGVd6P1C" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+    <p>You have your requirements, and you're ready to start coding. If you're under a tight deadline, and/or writing low-complexity code, you may simply write you code and perform some <strong>ad hoc</strong> testing. If you're doing anything more complex, you'll want to write <strong>unit tests</strong>.</p>
+</section>
+<section id="adHoc">
+    <h4>Ad hoc testing</h4>
+    <p>Ad hoc testing is the <strong>bare minimum</strong>, seat-of-your-pants testing that you're already doing. You know you need to do a thing, you open your browser to see if the thing works.</p>
+    <p>Here are some ad hoc testing tools that I use regularly:</p>
+</section>
+<section id="devTools">
+    <h5>Developer Tools</h5>
+    <p>
+        <pre><code class="language-javascript">var hw = "Hello World";
+console.log(hw);</code></pre>
+    </p>
+    <p>Inspecting elements is <strong>classic ad hoc testing</strong>. Are things rendering on the page as intended? What are their CSS properties?</p>
+    <p>Modern dev tools provide a wealth of data (which we'll do a deep dive on shortly). The Lighthouse and <a href="https://chrome.google.com/webstore/detail/axe-devtools-web-accessib/lhdoppojpmngadmnindnejefpokejbdd" target="_blank" rel="noopener noreferrer">axe<span class="show-for-sr"> Opens in a new window</span></a> <strong>auditing tools</strong> are invaluable for quickly identifying opportunities to improve <strong>load times</strong>, <strong>SEO</strong> and <strong>accessibility</strong>. <strong>Device emulation</strong> and responsive testing make checking your CSS breakpoints really easy (but don't be fooled - I've run into bugs on multiple occasions where the emulators didn't match the real devices' behaviour).</p>
+</section>
+<section id="linkCheck">
+    <h5>Link checking</h5>
+    <p>Checking that there are no broken links on your page is a great "<strong>sanity test</strong>". A "sanity test" (is this term problematic? it kinda feels problematic, but it is a common industry term... I dunno) is checking <strong>whether something <em>can</em> be true</strong>. Just because there are no broken links doesn't mean all your links point to the right place, but <strong>broken links are never correct</strong>.</p>
+    <p><a href="https://chrome.google.com/webstore/detail/link-checker/olcpkmmoifipcklgnphbhdhbpfniijmb?hl=en-GB" target="_blank" rel="noopener noreferrer">Link Checker<span class="show-for-sr"> Opens in a new window</span></a> is a great Chrome plugin for verifying that the links on your page aren't broken.</p>
+</section>
+<section id="input">
+    <h5>Input testing</h5>
+    <p>It's fine to manually test form inputs - just don't forget to try <strong>navigating your forms with your keyboard</strong> as well as your mouse. Don't forget about <strong>allowing for whitespace</strong> (postal code fields, I'm looking at you), the wonderful <strong><a href="https://www.bbc.com/future/article/20160325-the-names-that-break-computer-systems" target="_blank" rel="noopener noreferrer">variety of names<span class="show-for-sr"> Opens in a new window</span></a></strong> people have, how you <strong><a href="https://www.regular-expressions.info/email.html" target="_blank" rel="noopener noreferrer">probably shouldn't regex emails<span class="show-for-sr"> Opens in a new window</span></a></strong>, etc. etc.</p>
+</section>
+<section>
+    <div class="callout">
+        <p>If you want to add a degree of automation to your ad hoc testing, I really love the browser automation tool <a href="https://ui.vision/" target="_blank" rel="noopener noreferrer">UI Vision<span class="show-for-sr"> Opens in a new window</span></a>. I hesitate to recommend it simply because I don't see it discussed much, but it really has cut many hours of work out of my jobs, or at least saved me some carpal tunnel.</p>
+        <p>It can automate things like button clicks, navigation, and typing in your browser, it can loop and read variable values from a spreadsheet, etc. It's not as "set-it-and-forget-it" as <strong>headless browser automation</strong> (where a tool opens an 'invisible' browser and mimics a user), but I love it for working with bad websites - I put my browser on autopilot, but I can intervene if anything goes wrong.</p>
+    </div>
+</section>
+<section id="unitTesting">
+    <h4>Unit testing</h4>
+    <p>This is a unit test.</p>
+    <p>
+        <pre><code class="language-javascript">// It should add numbers
+var addStuff = function(firstNumber, secondNumber) {
+  return firstNumber + secondNumber;
+};
+// Test it
+var testAddStuff = function() {
+  if (typeof addStuff(1, 2) === 'number') {
+    return true;
+  } else {
+    return false;
+  }
+}
+// Returns true
+console.log(testAddStuff());</code></pre>
+    </p>
+    <p>...but this is not how unit testing is done.</p>
+</section>
+<section>
+    <p>Unit testing is typically done by <strong>importing a file into a test file</strong>, using a <strong>testing&nbsp;framework/assertion library</strong> to write tests simply, and <strong>using Node to run the test</strong>. Don't worry! We're going to learn how to do all three of these things. It's going to look something like this:</p>
+</section>
+<section>
+    <p><strong><code>/add-stuff.js</code></strong>
+        <pre><code class="language-javascript">var addStuff = function(firstNumber, secondNumber) {
+  return firstNumber + secondNumber;
+};
+module.exports = addStuff;</code></pre>
+    </p>
+    <p><strong><code>/test.js</code></strong>
+        <pre><code class="language-javascript">var expect = require("chai").expect;
+var addStuff = require("./add-stuff.js");
+it("returns a number", function() {
+  expect(addStuff(1, 2)).to.be.a('number');
+});
+//  ✓ returns a number
+//  1 passing (5ms)</code></pre>
+    </p>
+</section>
+<section>
+    <p>Like I said, we've got a few concepts to learn in order to implement this, but hopefully you're excited about <strong>how intuitive it is</strong> to write <pre><code class="language-javascript">expect(beverages)&#8203;to&#8203;.have&#8203;.property('tea')&#8203;.with&#8203;.lengthOf(3);</code></pre></p>
+</section>
+<section id="whatToUnitTest">
+    <h5>What to unit test</h5>
+    <p>At this point, you're probably asking the question, "<strong>Do I have to test if every function that returns a number actually returns a number??</strong>"</p>
+    <p>The answer is <strong>no, unless it will help</strong>.</p>
+</section>
+<section>
+    <p>The point of testing is to save you time, as well as to mitigate risk. So, you need to ask the questions: </p>
+    <ul>
+        <li><strong>How long will it take to write the test?</strong> and</li>
+        <li><strong>How long will it take to test this manually?</strong></li>
+    </ul>
+    <p>If the answer to the first question is "2 minutes", and the answer to the second question is "1 minute", then <strong>testing manually twice means you should've just written the unit test</strong>. You can expect to write fewer tests as you get more comfortable with programming.</p>
+</section>
+<section>
+    <p>Also consider the fact that <strong>testing helps you organize your thinking</strong>. Testing is the practice of explicitly stating your assumptions. This is a good practice in life, and coding, too!</p>
+    <p>Which brings us to...</p>
+</section>
+<section id="tdd">
+    <h5>Test-driven development</h5>
+    <p>Test-driven development (or 'TDD') is the practice of writing your tests <strong>before you write the thing you're testing</strong>.</p>
+</section>
+<section>
+    <p>First we write this...</p>
+    <p><strong><code>/test.js</code></strong>
+        <pre><code class="language-javascript">var expect = require("chai").expect;
+var addStuff = require("./add-stuff.js");
+it("returns a number", function() {
+  expect(addStuff(1, 2)).to.be.a('number');
+});
+// 0 passing (5ms)
+// 1 failing
+// 
+// 1) returns a number:
+//  TypeError: addStuff is not a function
+//   at Context.&lt;anonymous> (test/test.js:4:10)</code></pre>
+    </p>
+</section>
+<section>
+    <p>...and then we write this...</p>
+    <p><strong><code>/add-stuff.js</code></strong>
+        <pre><code class="language-javascript">var addStuff = function(firstNumber, secondNumber) {
+  return firstNumber + secondNumber;
+};
+module.exports = addStuff;
+// Now our test returns
+//  ✓ returns a number
+//  1 passing (5ms)</code></pre>
+    </p>
+</section>
+<section id="ci">
+    <h4>Continuous Integration</h4>
+    <p>Whether you're working solo or on a team, hopefully you're taking advantage of a version control system like git. Continous Integration (commonly abbreviated 'CI') is <strong>the practice of pushing your code to the shared codebase frequently</strong> (minimum once per day).</p>
+    <p>If someone else's code <strong>doesn't play nicely with yours</strong> (or vice versa), this will <strong>quickly become obvious</strong>, and should be <strong>simple to address</strong>. It also means you're communicating with your teammates frequently, which is nice!</p>
+</section>
+<section>
+    <p>When you attempt to merge into the main branch, this will <strong>trigger a number of tests</strong>. These tests tend to be bulkier and slower, maybe taking minutes (compared to milliseconds for your units tests). This includes your unit tests, naturally, but also <strong>a set of tests meant to look at the application as a whole</strong>.</p>
+</section>
+<section id="lifecycle">
+    <div class="callout">
+        <h5>Deployment lifecycle</h5>
+        <p>Typically, your <strong>application will be live in a few different places</strong>. You've got a copy on your <strong>local machine</strong>, of course, and then there's the <strong>development server</strong> where your code gets integrated with that of other developers.</p>
+        <p>There's probably a version of the application for <strong>Quality Assurance testers</strong> to run their tests. Once code passes the QA team's tests, this more 'polished' version of the application goes on to a <strong>'UAT' server</strong>, where clients can have a look at the code before it goes live.</p>
+        <p class="post-only">All of this, at least on a larger team, is usually governed either by a well-thought-out process, or, ideally, by "DevOps managers", who build a whole automated pipeline to handle the chain of deployments.</p>
+        <p class="post-only">The point of all this is to <strong>filter out bugs</strong>. You don't want to take up other developers' time with syntax errors, QA testers' time with integration errors, the client's time with missed requirements, and you certainly don't want to show public users any of the above.</p>
+        <p class="post-only">It should be noted that when I use the term 'server' here, this could mean a number of things - from physical machines, to virtual machines, all the way to clusters of containers. The effect is the same - progressively more 'high quality' versions of the application to be tested at higher levels before reaching the end-user.</p>
+    </div>
+</section>
+<section class="slide-only">
+    <div class="callout">
+        <p>All of this, at least on a larger team, is usually governed either by a well-thought-out process, or, ideally, by "DevOps managers", who build a whole automated pipeline to handle the chain of deployments.</p>
+        <p>The point of all this is to <strong>filter out bugs</strong>. You don't want to take up other developers' time with syntax errors, QA testers' time with integration errors, the client's time with missed requirements, and you certainly don't want to show public users any of the above.</p>
+        <p>It should be noted that when I use the term 'server' here, this could mean a number of things - from physical machines, to virtual machines, all the way to clusters of containers. The effect is the same - progressively more 'high quality' versions of the application to be tested at higher levels before reaching the end-user.</p>
+    </div>
+</section>
+<section id="integrationTesting">
+    <h5>Integration testing</h5>
+    <p>Integration tests check to make sure that <strong>your code can interact with others'</strong> code without breaking anything, and, if it's meant to work together, produces the expected results. It may also test your code integrating with <strong>outside data sources</strong> like a database or an API, testing the expected "data flow".</p>
+    <p>Despite the larger scope of work, it's usually <strong>written with the same testing framework</strong> as you unit tests.</p>
+</section>
+<section id="end">
+    <h5>End-to-end testing</h5>
+    <p>Whereas integration testing is like unit testing with a broader scope, end-to-end testing (E2E) examines your code from an entirely different perspective. End-to-end testing <strong><em>pretends to be a user</em> and 'acts out' user stories</strong>.</p>
+    <p>This is typically done with a 'headless browser', which runs your application in a browser (that you can't see), <strong>clicking stuff</strong>, <strong>navigating</strong>, and <strong>filling out forms</strong> while taking screenshots and/or video, and collecting other data including reporting on whether <strong>custom E2E test conditions</strong> succeeded or failed. This may include metrics for "<strong>performance testing</strong>", which reports on how quickly your application loads and performs user interactions.</p>
+</section>
+<section>
+    <figure>
+        <img src="/images/sleepy.jpeg" alt="">
+        <figcaption>This, only with Chrome or Firefox.</figcaption>
+    </figure>
+</section>
+<section id="load">
+    <h5>Load testing</h5>
+    <p><strong>Load testing</strong> is a subset of end-to-end testing. It tests user stories with <em>multiple simulated users simultaneously</em>. This can test <strong>performance</strong> when a bunch of users are logged on, or it can test assumptions about what happens on your website when <strong>multiple people interact</strong>, like, "What happens when multiple people put the last of an item in their shopping cart?"</p>
+</section>
+<section id="stress">
+    <h5>Stress testing</h5>
+    <p><strong>Stress testing</strong> is similar to load testing in that it simulates multiple users. However, stress testing <strong>deliberately overloads</strong> your application to answer questions like, "How many users is too many?", or, "Do users get our custom error message if we get <abbr title="Distributed Denial of Service">DDoS</abbr>'d?"</p>
+</section>
+<section id="manual">
+    <h5>Manual testing</h5>
+    <figure>
+        <img src="/images/manual.jpeg" alt="">
+        <figcaption>Pictured: Mr. Popular</figcaption>
+    </figure>
+</section>
+<section>
+    <p>Device emulation, as offered in your developer tools or end-to-end testing automation, is pretty good. In my experience, however, it's possible for it to miss things when it comes to <strong>device-specific layout quirks</strong> (particularly if the client wants to support things like Blackberrys), as well as <strong>gestures</strong> like touch or swipe.</p>
+    <p>Commonly in larger shops, a QA tester will run through <strong>user stories on real devices</strong>. Even if you're developing solo, it can be a good practice to <strong>test things out</strong> on whatever real devices you have handy.</p>
+</section>
+<section id="pen">
+    <h5>Penetration testing</h5>
+    <p>Penetration testing or 'pentesting' is <strong>benign hacking</strong> by security experts employed by you or your client to try and subvert your security measures. Hopefully you've <strong>already tested your security requirements</strong> in your integration/E2E testing!</p>
+</section>
+<section id="userAcceptance">
+    <h5>User acceptance testing</h5>
+    <p>In a <strong>well-managed environment</strong>, this is the point at which you demonstrate to the client that <strong>all their requirements have been met</strong>. They fool around with it a bit, sign off on the release, and it can be deployed to the end user.</p>
+    <p>In a <strong>poorly managed environment</strong>, the client will catch <strong>missed requirements</strong>, either because those requirements <strong>weren't documented properly</strong>, <strong>weren't passed along</strong> properly, or because they <strong>changed their mind</strong> and they're too valuable (and volatile) of a client to contradict.</p>
+</section>
+<section id="postDeployment">
+    <h4>Post-Deployment</h4>
+    <p>When the application or feature has gone public, testing doesn't stop there. DevOps monitors the site for <strong>performance changes</strong>, <strong>availability</strong>, <strong>crashes</strong>, and <strong>proper API responses</strong>.</p>
+</section>
+<section id="summary">
+    <h2>Summary</h2>
+    <p>Whew! That was a lot! Just to review:</p>
+    <ul>
+        <li>We test because:
+            <ul>
+                <li>Then we don't have to remember everything</li>
+                <li>It's easier than testing things manually</li>
+                <li>The further a bug gets, the more expensive it is to fix</li>
+                <li>It's the price of code re-use</li>
+                <li>It proves our assumptions</li>
+            </ul>
+        </li>
+        <li class="post-only">You can automate testing for:
+            <ul>
+                <li>A binary, easily</li>
+                <li>A boundary</li>
+                <li>Only things a computer understands</li>
+            </ul>
+        </li>
+        <li class="post-only">If you can't test all possibilities, test properties</li>
+        <li class="post-only">Most errors that stick around are errors in the requirements (and it's your job to clarify)</li>
+        <li class="post-only">Testing is a team effort</li>
+        <li class="post-only">We test code and team standards with:
+            <ul>
+                <li>Languages features</li>
+                <li>Validators (the "letter of the law") & linters (the "spirit of the law")</li>
+                <li>Code review (for happy teammates)</li>
+            </ul>
+        </li>
+        <li class="post-only">
+            We test client requirements with:
+            <ul>
+                <li>Ad hoc testing (dev tools, link checkers, whatever we can get our hands on)</li>
+                <li>Unit testing (and we call it TDD because we start with the test)</li>
+                <li>The team's CI workflow, including integration testing, E2E testing, load testing, manual device testing, and maybe pen testing and/or stress testing</li>
+            </ul>
+        </li>
+    </ul>
+</section>
+<div class="body-spacer"></div>
+<section class="slide-only">
+    <ul>
+        <li>You can <strong>automate testing</strong> for:
+            <ul>
+                <li>A <strong>binary</strong>, easily</li>
+                <li>A <strong>boundary</strong></li>
+                <li>Only things a <strong>computer understands</strong></li>
+            </ul>
+        </li>
+    </ul>
+</section>
+<section class="slide-only">
+    <ul>
+        <li><strong>If you can't test all possibilities</strong>, <strong>test properties</strong></li>
+        <li>Most errors that stick around are <strong>errors in the requirements</strong> (and it's your job to clarify)</li>
+        <li>Testing is a <strong>team effort</strong></li>
+    </ul>
+</section>
+<section class="slide-only">
+    <ul>
+        <li>We test <strong>code and team standards</strong> with:
+            <ul>
+                <li><strong>Language</strong> features</li>
+                <li><strong>Validators</strong> (the "letter of the law") & <strong>linters</strong> (the "spirit of the law")</li>
+                <li><strong>Code review</strong> (for happy teammates)</li>
+            </ul>
+        </li>
+    </ul>
+</section>
+<section class="slide-only">
+    <ul>
+        <li>
+            We test <strong>client requirements</strong> with:
+            <ul>
+                <li><strong>Ad hoc testing</strong> (dev tools, link checkers, whatever we can get our hands on)</li>
+                <li><strong>Unit testing</strong> (and we call it TDD because we start with the test)</li>
+                <li>The team's <strong>CI workflow</strong>, including integration testing, E2E testing, load testing, manual device testing, and maybe pen testing and/or stress testing</li>
+            </ul>
+        </li>
+    </ul>
+</section>

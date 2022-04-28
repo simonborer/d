@@ -9,6 +9,7 @@
       document.documentElement.classList.remove('no-js');
       document.documentElement.classList.add('js');
     </script>
+    
     <title>Decent Internet</title>
     <meta name="description" content="">
     <meta property="og:title" content="Decent Internet">
@@ -29,13 +30,31 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
     <meta name="theme-color" content="#FFF464">
-    <script></script>
+    <script src="https://unpkg.com/alpinejs" defer></script>
   </head>
-  <body>
+  <body x-data :class="$store.menuToggle.on && 'no-scroll'">
   <a href="#content" class="show-for-sr show-on-focus skip-link">Skip navigation</a>
   <header class="header">
     <nav class="nav">
     
+    <button x-data @click="$store.menuToggle.toggle();document.getElementById('navBarClose').focus();" id="navBarOpen" class="nav__toggle-button">
+      <svg width="2rem" height="2rem" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" aria-role="presentation"><path d="M32 96v64h448V96H32zm0 128v64h448v-64H32zm0 128v64h448v-64H32z"/></svg>
+      <span class="show-for-sr">Toggle the menu visibility</span>
+    </button>
+    <div x-data class="nav__links" :class="$store.menuToggle.on && 'nav__links--expanded'">
+      <button x-data @click="$store.menuToggle.toggle();document.getElementById('navBarOpen').focus();" id="navBarClose" class="nav__toggle-button nav__toggle-button--close">
+        <svg width="2rem" height="2rem" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-role="presentation">
+          <path d="M8 8L40 40" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="svg-x"/>
+          <path d="M8 40L40 8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="svg-x"/>
+        </svg>
+        <span class="show-for-sr">Toggle the menu visibility</span>
+      </button>
+      <ul>
+        
+        <li><a href="/about">About</a></li>
+        <li><a href="/socials">Socials</a></li>
+      </ul>
+    </div>
       <div class="nav__search-box">
         <label for="search" class="show-for-sr">Type to search</label>
         <input id="search" placeholder="Search" class="nav__search-input">
@@ -55,11 +74,13 @@
         <li data-filter-list-item="2"><button data-filter-option="2" aria-controls="cardList">Starting to code</button></li>
         <li data-filter-list-item="3"><button data-filter-option="3" aria-controls="cardList">Advanced coding stuff</button></li>
       </ul>
-      <ul class="card-list" aria-live="polite" id="cardList">
+      <ul class="card-list card-list--learning-level--1" aria-live="polite" id="cardList">
           
         <li class="card-list__item" data-learning-level="2">
           <a href="/build-tools/" class="card-list__link">
             <div class="card-list__feature">
+              
+              
               
                 <iframe title="FizzBuzz: One Simple Interview Question" class="card-list__video" width="560" height="315" src="https://www.youtube.com/embed/QPZ0pIK_wsc" frameborder="0" allowfullscreen></iframe>
               
@@ -75,7 +96,9 @@
           <a href="/how-to-get-hacked/" class="card-list__link">
             <div class="card-list__feature">
               
+              
                 <img alt="Person with a blowtorch" class="card-list__image card-list__image--padded" src="/images/factory.svg">
+              
               
             </div>
             <div class="card-list__title heading-style-5">How to get hacked</div>
@@ -85,18 +108,72 @@
         </li>
         
           
-        <li class="card-list__item" data-learning-level="0">
-          <a href="/HON2201-deployed/" class="card-list__link">
+        <li class="card-list__item" data-learning-level="1">
+          <a href="/ad-hoc-testing/" class="card-list__link">
             <div class="card-list__feature">
               
+              
+                <img alt="Person with a blowtorch" class="card-list__image card-list__image--padded" src="/images/adhoc.svg">
+              
+              
             </div>
-            <div class="card-list__title heading-style-5"></div>
-            <div class="card-list__summary"></div>
-            <div class="card-list__cta">Read on<span class="hide-for-sr">…</span><span class="show-for-sr"> about </span></div>
+            <div class="card-list__title heading-style-5">Ad hoc testing</div>
+            <div class="card-list__summary">You&#39;re already testing! &#39;Ad hoc&#39; testing is the first type of testing every developer does, and it will likely become a permanent part of your workflow. Let&#39;s learn about some of the tools available to us that you can start using today (if you&#39;re not already).</div>
+            <div class="card-list__cta">Read on<span class="hide-for-sr">…</span><span class="show-for-sr"> about Ad hoc testing</span></div>
+          </a>
+        </li>
+        
+          
+        <li class="card-list__item" data-learning-level="3">
+          <a href="/encryption-and-hashing/" class="card-list__link">
+            <div class="card-list__feature">
+              
+              
+                <img alt="Person with a blowtorch" class="card-list__image card-list__image--padded" src="/images/password.svg">
+              
+              
+            </div>
+            <div class="card-list__title heading-style-5">Encryption &amp; Hashing</div>
+            <div class="card-list__summary">Uses and praxis of encryption &amp; hashing in secure web applications.</div>
+            <div class="card-list__cta">Read on<span class="hide-for-sr">…</span><span class="show-for-sr"> about Encryption &amp; Hashing</span></div>
+          </a>
+        </li>
+        
+          
+        <li class="card-list__item" data-learning-level="2">
+          <a href="/es6/" class="card-list__link">
+            <div class="card-list__feature">
+              
+              
+                <img alt="Person with a blowtorch" class="card-list__image card-list__image--padded" src="/images/javascript.svg">
+              
+              
+            </div>
+            <div class="card-list__title heading-style-5">ES6+</div>
+            <div class="card-list__summary">Modern JavaScript, and how to enforce quality through language features.</div>
+            <div class="card-list__cta">Read on<span class="hide-for-sr">…</span><span class="show-for-sr"> about ES6+</span></div>
+          </a>
+        </li>
+        
+          
+        <li class="card-list__item" data-learning-level="1">
+          <a href="/types-of-testing/" class="card-list__link">
+            <div class="card-list__feature">
+              
+              
+                <img alt="Person with a blowtorch" class="card-list__image card-list__image--padded" src="/images/testing.svg">
+              
+              
+            </div>
+            <div class="card-list__title heading-style-5">What is &#39;Quality&#39; &#39;Assurance&#39;?</div>
+            <div class="card-list__summary">We can say that &#39;quality&#39; means meeting requirements, and &#39;assurance&#39; is proving that we&#39;ve met those requirements. Today, let&#39;s look at where requirements come from - the client, the user, standards specifications, and your team. And then: testing comes in all shapes and sizes. Today we&#39;ll also look at why we test, how we design our tests, what all the different types of testing are, and how they fit into a team&#39;s lifecycle.</div>
+            <div class="card-list__cta">Read on<span class="hide-for-sr">…</span><span class="show-for-sr"> about What is &#39;Quality&#39; &#39;Assurance&#39;?</span></div>
           </a>
         </li>
         </ul>
-      
+    
+    
+    
     
     </main>
     <script src="/js/fuse.js"></script>
@@ -118,34 +195,21 @@
           "title": "",
           "tags": []
         },{ 
-          "url": "/HON2201-deployed/",
-          "title": "",
-          "tags": []
+          "url": "/ad-hoc-testing/",
+          "title": "Ad hoc testing",
+          "tags": ["OWASP","XSS","SQL Injection","Security","Authentication"]
         },{ 
-          "url": "/tags/Task%20runners/",
-          "title": "Task runners",
-          "tags": [],
-          "isTag": true
+          "url": "/encryption-and-hashing/",
+          "title": "Encryption &amp; Hashing",
+          "tags": ["OWASP","XSS","SQL Injection","Security","Authentication"]
         },{ 
-          "url": "/tags/Toolchains/",
-          "title": "Toolchains",
-          "tags": [],
-          "isTag": true
+          "url": "/es6/",
+          "title": "ES6+",
+          "tags": ["OWASP","XSS","SQL Injection","Security","Authentication"]
         },{ 
-          "url": "/tags/Bundlers/",
-          "title": "Bundlers",
-          "tags": [],
-          "isTag": true
-        },{ 
-          "url": "/tags/Vite/",
-          "title": "Vite",
-          "tags": [],
-          "isTag": true
-        },{ 
-          "url": "/tags/SASS/",
-          "title": "SASS",
-          "tags": [],
-          "isTag": true
+          "url": "/types-of-testing/",
+          "title": "What is &#39;Quality&#39; &#39;Assurance&#39;?",
+          "tags": ["OWASP","XSS","SQL Injection","Security","Authentication"]
         },{ 
           "url": "/tags/OWASP/",
           "title": "OWASP",
@@ -169,6 +233,31 @@
         },{ 
           "url": "/tags/Authentication/",
           "title": "Authentication",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Task%20runners/",
+          "title": "Task runners",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Toolchains/",
+          "title": "Toolchains",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Bundlers/",
+          "title": "Bundlers",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Vite/",
+          "title": "Vite",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/SASS/",
+          "title": "SASS",
           "tags": [],
           "isTag": true
         }
@@ -214,6 +303,23 @@
         });
       })
     }
+    
+
+
+
+    document.addEventListener('alpine:init', () => {
+        Alpine.store('menuToggle', {
+            on: false,
+ 
+            toggle() {
+                this.on = ! this.on
+            }
+        })
+    });
+
+
+
+
 
     
       const filterOptions = document.querySelectorAll('[data-filter-option]');
@@ -228,8 +334,6 @@
           }
         };
       }
-
-      cardListClassReset();
 
       const optionFilter = (elem) => {
         const filterOption = elem.dataset.filterOption;

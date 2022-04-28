@@ -9,6 +9,7 @@
       document.documentElement.classList.remove('no-js');
       document.documentElement.classList.add('js');
     </script>
+    
     <title></title>
     <meta name="description" content="List of tagged pages">
     <meta property="og:title" content="">
@@ -29,17 +30,31 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
     <meta name="theme-color" content="#FFF464">
-    <script></script>
+    <script src="https://unpkg.com/alpinejs" defer></script>
   </head>
-  <body>
+  <body x-data :class="$store.menuToggle.on && 'no-scroll'">
   <a href="#content" class="show-for-sr show-on-focus skip-link">Skip navigation</a>
   <header class="header">
     <nav class="nav">
     
-        <ul class="nav__links">
-            <li><a href="/">Home</a></li>
-        </ul>
-    
+    <button x-data @click="$store.menuToggle.toggle();document.getElementById('navBarClose').focus();" id="navBarOpen" class="nav__toggle-button">
+      <svg width="2rem" height="2rem" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" aria-role="presentation"><path d="M32 96v64h448V96H32zm0 128v64h448v-64H32zm0 128v64h448v-64H32z"/></svg>
+      <span class="show-for-sr">Toggle the menu visibility</span>
+    </button>
+    <div x-data class="nav__links" :class="$store.menuToggle.on && 'nav__links--expanded'">
+      <button x-data @click="$store.menuToggle.toggle();document.getElementById('navBarOpen').focus();" id="navBarClose" class="nav__toggle-button nav__toggle-button--close">
+        <svg width="2rem" height="2rem" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-role="presentation">
+          <path d="M8 8L40 40" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="svg-x"/>
+          <path d="M8 40L40 8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="svg-x"/>
+        </svg>
+        <span class="show-for-sr">Toggle the menu visibility</span>
+      </button>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/socials">Socials</a></li>
+      </ul>
+    </div>
       <div class="nav__search-box">
         <label for="search" class="show-for-sr">Type to search</label>
         <input id="search" placeholder="Search" class="nav__search-input">
@@ -50,16 +65,15 @@
     <h1 id="content" class="title"></h1>
     
     <div class="callout summary-container">
-      <div class="col">
       
       <span class="summary">List of tagged pages</span>
-      </div>
     </div>
     
     </div>
     </header>
     <main>
-      
+    
+    <article>
     <h1>Tagged “Vite”</h1>
 
 <ol class="row">
@@ -68,6 +82,7 @@
   <li><a href="/build-tools/">Build Tools</a></li>
 
 </ol>
+    </article>
     </main>
     <script src="/js/fuse.js"></script>
     <script>
@@ -88,34 +103,21 @@
           "title": "",
           "tags": []
         },{ 
-          "url": "/HON2201-deployed/",
-          "title": "",
-          "tags": []
+          "url": "/ad-hoc-testing/",
+          "title": "Ad hoc testing",
+          "tags": ["OWASP","XSS","SQL Injection","Security","Authentication"]
         },{ 
-          "url": "/tags/Task%20runners/",
-          "title": "Task runners",
-          "tags": [],
-          "isTag": true
+          "url": "/encryption-and-hashing/",
+          "title": "Encryption &amp; Hashing",
+          "tags": ["OWASP","XSS","SQL Injection","Security","Authentication"]
         },{ 
-          "url": "/tags/Toolchains/",
-          "title": "Toolchains",
-          "tags": [],
-          "isTag": true
+          "url": "/es6/",
+          "title": "ES6+",
+          "tags": ["OWASP","XSS","SQL Injection","Security","Authentication"]
         },{ 
-          "url": "/tags/Bundlers/",
-          "title": "Bundlers",
-          "tags": [],
-          "isTag": true
-        },{ 
-          "url": "/tags/Vite/",
-          "title": "Vite",
-          "tags": [],
-          "isTag": true
-        },{ 
-          "url": "/tags/SASS/",
-          "title": "SASS",
-          "tags": [],
-          "isTag": true
+          "url": "/types-of-testing/",
+          "title": "What is &#39;Quality&#39; &#39;Assurance&#39;?",
+          "tags": ["OWASP","XSS","SQL Injection","Security","Authentication"]
         },{ 
           "url": "/tags/OWASP/",
           "title": "OWASP",
@@ -139,6 +141,31 @@
         },{ 
           "url": "/tags/Authentication/",
           "title": "Authentication",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Task%20runners/",
+          "title": "Task runners",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Toolchains/",
+          "title": "Toolchains",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Bundlers/",
+          "title": "Bundlers",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Vite/",
+          "title": "Vite",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/SASS/",
+          "title": "SASS",
           "tags": [],
           "isTag": true
         }
@@ -184,6 +211,23 @@
         });
       })
     }
+    
+
+
+
+    document.addEventListener('alpine:init', () => {
+        Alpine.store('menuToggle', {
+            on: false,
+ 
+            toggle() {
+                this.on = ! this.on
+            }
+        })
+    });
+
+
+
+
 
     
     </script>
