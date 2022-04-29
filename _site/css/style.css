@@ -250,6 +250,7 @@ html {
   overflow-x: hidden;
   background: var(--background);
   color: var(--foreground);
+  width: 100vw;
 }
 
 footer {
@@ -712,7 +713,7 @@ iframe {
   transform: translateX(0);
 }
 .nav__links ul {
-  padding-left: max(36vw, 2rem);
+  padding-left: max(10vw, 2rem);
   padding-right: 2rem;
 }
 .nav__toggle-button {
@@ -754,8 +755,8 @@ iframe {
 
 @media (min-width: 599px) {
   .nav__links {
-    width: 50vw;
-    transform: translateX(-50vw);
+    width: 30vw;
+    transform: translateX(-30vw);
   }
   .nav__links--expanded {
     transform: translateX(0);
