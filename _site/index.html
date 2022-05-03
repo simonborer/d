@@ -62,7 +62,7 @@
         <li><a href="/socials">Socials</a></li>
       </ul>
     </div>
-    <button x-data class="nav__toggle-tap-to-close" :class="$store.menuToggle.on && 'nav__toggle-tap-to-close--open'" @click="$store.menuToggle.toggle();document.getElementById('navBarOpen').focus();" tabindex="-1" aria-hidden></button>
+    <button x-data class="nav__toggle-tap-to-close" :class="$store.menuToggle.on && 'nav__toggle-tap-to-close--open'" @click="$store.menuToggle.toggle();document.getElementById('navBarOpen').focus();" tabindex="-1">Toggle the menu</button>
       <div class="nav__search-box">
         <label for="search" class="show-for-sr">Type to search</label>
         <input id="search" placeholder="Search" class="nav__search-input">

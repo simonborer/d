@@ -816,6 +816,9 @@ iframe {
 .nav__toggle-button--close {
   margin-top: 0.5rem;
 }
+.nav__toggle-tap-to-close {
+  font-size: 0;
+}
 .nav__toggle-tap-to-close--open {
   width: 70vw;
   height: 100vw;
