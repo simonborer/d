@@ -33,7 +33,13 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
     <meta name="theme-color" content="#FFF464">
-    <script src="https://unpkg.com/alpinejs" defer></script>
+    <script defer src="/js/alpine.js"></script>
+    <script defer src="/js/fuse.js"></script>
+    <script defer src="/js/lite-yt-embed.js"></script>
+    <script defer src="/js/script.js"></script>
+    {% if home %}
+      <script defer src="/js/filter.js"></script>
+    {% endif %}
   </head>
   <body{% if learningLevel %} data-difficulty="{{ learningLevel }}"{% endif %} x-data :class="$store.menuToggle.on && 'no-scroll'">
   <a href="#content" class="show-for-sr show-on-focus skip-link">Skip navigation</a>
@@ -116,140 +122,6 @@
     {{ content | safe }}
     {% if not home %}</article>{% endif %}
     </main>
-    <script defer src="/js/fuse.js"></script>
-    <script defer src="/js/lite-yt-embed.js"></script>
-    <script>
-    const searchArray = [
-      {%- for page in collections.all %}{ 
-          "url": "{{ page.url }}",
-          "title": "{{ page.data.title }}",
-          "tags": [{%- for tag in page.data.tags %}"{{tag}}"{% if not loop.last %},{% endif %}{%- endfor %}]
-        },{%- endfor %}{% for tag in collections.tagsList %}{ 
-          "url": "/tags/{{ tag | replace(" ", "%20") }}/",
-          "title": "{{ tag }}",
-          "tags": [],
-          "isTag": true
-        }{% if not loop.last %},{% endif %}{%- endfor %}
-    ];
-
-    const options = {
-      includeScore: true,
-      keys: [{name: 'title', weight: .9}, {name: 'tags', weight: 1}]
-    }
-
-    const fuse = new Fuse(searchArray, options);
-
-    const searchBox = document.getElementById('search');
-    window.onload = () => searchBox.value = ``;
     
-    searchBox.addEventListener('keyup',function(){
-      const resultsList = document.getElementById('searchResults');
-      resultsList.innerHTML = ``;
-      const searchResults = fuse.search(searchBox.value).sort((a, b) => a.score - b.score).slice(0, 3);
-      
-      searchResults.forEach(result => {
-        resultsList.innerHTML += `<li><a href="${result.item.url}">${result.item.title}<span class="pill">${result.item.isTag ? `Tag` : `Page`}</span></a></li>`;
-      });
-
-      listenToResults();
-
-      if (resultsList.children.length > 0 && event.key === "ArrowDown") {
-        resultsList.firstChild.querySelector("a").focus();
-      }
-
-    });
-
-    const listenToResults = () => {
-      document.getElementById('searchResults').querySelectorAll("a").forEach((searchResultLink, index) => {
-        searchResultLink.addEventListener('keyup', function() {
-          if ((index === 0 && event.key === "ArrowUp") || (index + 1 === document.getElementById('searchResults').querySelectorAll("a").length && event.key === "ArrowDown")) {
-            searchBox.focus();
-          } else if (event.key === "ArrowUp") {
-            document.getElementById('searchResults').querySelectorAll("a")[index - 1].focus();
-          } else if (event.key === "ArrowDown") {
-            document.getElementById('searchResults').querySelectorAll("a")[index + 1].focus();
-          }
-        });
-      })
-    }
-    
-
-
-
-    document.addEventListener('alpine:init', () => {
-        Alpine.store('menuToggle', {
-            on: false,
- 
-            toggle() {
-                this.on = ! this.on
-            }
-        })
-    });
-
-
-
-
-
-    {% if home %}
-      const filterOptions = document.querySelectorAll('[data-filter-option]');
-      const learningLevels = document.querySelectorAll('[data-learning-level]');
-      const cardList = document.getElementById("cardList");
-      
-      const cardListClassReset = () => {
-        for (let i = cardList.classList.length - 1; i >= 0; i--) {
-          const className = cardList.classList[i];
-          if (className.startsWith('card-list--learning-level-')) {
-            cardList.classList.remove(className);
-          }
-        };
-      }
-
-      const optionFilter = (elem) => {
-        const filterOption = elem.dataset.filterOption;
-        filterOptions.forEach(opt => {
-          opt.parentElement.classList.remove('active');
-          opt.removeAttribute('disabled');
-        });
-        elem.parentElement.classList.add('active');
-        elem.setAttribute('disabled', 'true'); 
-        
-        cardListClassReset();
-        console.log(elem);
-        cardList.classList.add(`card-list--learning-level-${elem.dataset.filterOption ? elem.dataset.filterOption : 0}`)
-
-        learningLevels.forEach(levelSetItem => {
-          if (filterOption !== "-1" && levelSetItem.dataset.learningLevel !== filterOption) {
-            levelSetItem.style.display = 'none';
-          } else if (filterOption === "-1" || levelSetItem.dataset.learningLevel === filterOption) {
-            levelSetItem.style.display = 'block';
-          }
-        });
-      };
-
-      filterOptions.forEach((df, index) => {
-          df.addEventListener("click", function() {optionFilter(df);}, false);
-          // Removing this option because disabled buttons don't get these events,
-          // meaning this only works the first time through, possibly confusing
-          // users.
-      //     df.addEventListener("keyup", function() {
-      //       const lastOption = filterOptions[filterOptions.length - 1];
-      //       if (index === 0 && event.key === "ArrowLeft") {
-      //         lastOption.focus();
-      //         optionFilter(lastOption);
-      //       } else if (index === filterOptions.length - 1 && event.key === "ArrowRight") {
-      //         filterOptions[0].focus();
-      //         optionFilter(filterOptions[0]);
-      //       } else if (event.key === "ArrowRight") {
-      //         filterOptions[index + 1].focus();
-      //         optionFilter(filterOptions[index + 1]);
-      //       } else if (event.key === "ArrowLeft") {
-      //         filterOptions[index - 1].focus();
-      //         optionFilter(filterOptions[index - 1]);
-      //       }
-      //     }, false);
-      });
-
-    {% endif %}
-    </script>
   </body>
 </html>
