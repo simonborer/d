@@ -41,10 +41,10 @@
     <nav class="nav">
     
     <button x-data @click="$store.menuToggle.toggle();document.getElementById('navBarClose').focus();" id="navBarOpen" class="nav__toggle-button">
-      <svg width="2rem" height="2rem" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" aria-role="presentation"><path d="M32 96v64h448V96H32zm0 128v64h448v-64H32zm0 128v64h448v-64H32z"/></svg>
+      <svg width="2rem" height="2rem" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" role="presentation"><path d="M32 96v64h448V96H32zm0 128v64h448v-64H32zm0 128v64h448v-64H32z"/></svg>
       <span class="show-for-sr">Toggle the menu visibility</span>
     </button>
-    
+
     <div x-data class="nav__links" :class="$store.menuToggle.on && 'nav__links--expanded'">
       <button x-data @click="$store.menuToggle.toggle();document.getElementById('navBarOpen').focus();" id="navBarClose" class="nav__toggle-button nav__toggle-button--close">
         <svg width="2rem" height="2rem" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-role="presentation">
@@ -71,7 +71,7 @@
     <div class="callout summary-container">
       {% if regExp.test(feature.src) %}
         <div class="summary__image-container">
-        <img alt="{{feature.alt}}" class="summary__image{% if feature.needsPadding %} summary__image--padded{% endif %}" src="/images/{{ feature.src }}">
+        <img alt="{{feature.alt}}" class="summary__image{% if feature.needsPadding %} summary__image--padded{% endif %}" src="/images/{{ feature.src }}" height="{{ feature.height }}" width="{{ feature.width }}">
         </div>
       {% endif %}
       <span class="summary">{{description}}</span>
@@ -96,7 +96,7 @@
             <div class="card-list__feature">
               {# wtf, this was real weird - didn't work as an if else #}
               {% if regExp.test(post.data.feature.src) %}
-                <img alt="{{post.data.feature.alt}}" class="card-list__image{% if post.data.feature.needsPadding %} card-list__image--padded{% endif %}" src="/images/{{ post.data.feature.src }}">
+                <img alt="{{post.data.feature.alt}}" class="card-list__image{% if post.data.feature.needsPadding %} card-list__image--padded{% endif %}" src="/images/{{ post.data.feature.src }}" height="{{ post.data.feature.height }}" width="{{ post.data.feature.width }}">
               {% endif %}
               {% if regExp.test(post.data.feature.src) %}{% elif ytRegExp.test(post.data.feature.src) %}
                 <iframe title="{{ post.data.feature.title }}" class="card-list__video" width="560" height="315" src="{{post.data.feature.src}}" frameborder="0" allowfullscreen></iframe>

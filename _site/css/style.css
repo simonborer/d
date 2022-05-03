@@ -641,6 +641,7 @@ iframe {
   margin: 0 auto;
   aspect-ratio: 1/1;
   max-height: 24vh;
+  width: fit-content;
 }
 .card-list__image--padded {
   padding: 1em;

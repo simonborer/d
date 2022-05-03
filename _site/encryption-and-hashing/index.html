@@ -39,10 +39,10 @@
     <nav class="nav">
     
     <button x-data @click="$store.menuToggle.toggle();document.getElementById('navBarClose').focus();" id="navBarOpen" class="nav__toggle-button">
-      <svg width="2rem" height="2rem" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" aria-role="presentation"><path d="M32 96v64h448V96H32zm0 128v64h448v-64H32zm0 128v64h448v-64H32z"/></svg>
+      <svg width="2rem" height="2rem" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" role="presentation"><path d="M32 96v64h448V96H32zm0 128v64h448v-64H32zm0 128v64h448v-64H32z"/></svg>
       <span class="show-for-sr">Toggle the menu visibility</span>
     </button>
-    
+
     <div x-data class="nav__links" :class="$store.menuToggle.on && 'nav__links--expanded'">
       <button x-data @click="$store.menuToggle.toggle();document.getElementById('navBarOpen').focus();" id="navBarClose" class="nav__toggle-button nav__toggle-button--close">
         <svg width="2rem" height="2rem" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-role="presentation">
@@ -69,7 +69,7 @@
     <div class="callout summary-container">
       
         <div class="summary__image-container">
-        <img alt="Person with a blowtorch" class="summary__image summary__image--padded" src="/images/password.svg">
+        <img alt="Person with a blowtorch" class="summary__image summary__image--padded" src="/images/password.svg" height="150" width="128">
         </div>
       
       <span class="summary">Uses and praxis of encryption &amp; hashing in secure web applications.</span>
@@ -520,31 +520,6 @@ Ugh, it's my turn with these stupid 'travelling pants'. I don't care what Lena, 
           "title": "What is &#39;Quality&#39; &#39;Assurance&#39;?",
           "tags": ["OWASP","XSS","SQL Injection","Security","Authentication"]
         },{ 
-          "url": "/tags/OWASP/",
-          "title": "OWASP",
-          "tags": [],
-          "isTag": true
-        },{ 
-          "url": "/tags/XSS/",
-          "title": "XSS",
-          "tags": [],
-          "isTag": true
-        },{ 
-          "url": "/tags/SQL%20Injection/",
-          "title": "SQL Injection",
-          "tags": [],
-          "isTag": true
-        },{ 
-          "url": "/tags/Security/",
-          "title": "Security",
-          "tags": [],
-          "isTag": true
-        },{ 
-          "url": "/tags/Authentication/",
-          "title": "Authentication",
-          "tags": [],
-          "isTag": true
-        },{ 
           "url": "/tags/Task%20runners/",
           "title": "Task runners",
           "tags": [],
@@ -567,6 +542,31 @@ Ugh, it's my turn with these stupid 'travelling pants'. I don't care what Lena, 
         },{ 
           "url": "/tags/SASS/",
           "title": "SASS",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/OWASP/",
+          "title": "OWASP",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/XSS/",
+          "title": "XSS",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/SQL%20Injection/",
+          "title": "SQL Injection",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Security/",
+          "title": "Security",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Authentication/",
+          "title": "Authentication",
           "tags": [],
           "isTag": true
         }
