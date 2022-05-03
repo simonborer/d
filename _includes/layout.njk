@@ -1,5 +1,6 @@
 {% set regExp = r/\.(gif|svg|jpe?g|tiff?|png|webp|bmp)\s*/gi %}
 {% set ytRegExp = r/\.(youtube.com\/embed)\s*/gi %}
+
 <!DOCTYPE html>
 <html lang="en" class="no-js">
   <head>
@@ -43,6 +44,7 @@
       <svg width="2rem" height="2rem" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" aria-role="presentation"><path d="M32 96v64h448V96H32zm0 128v64h448v-64H32zm0 128v64h448v-64H32z"/></svg>
       <span class="show-for-sr">Toggle the menu visibility</span>
     </button>
+    
     <div x-data class="nav__links" :class="$store.menuToggle.on && 'nav__links--expanded'">
       <button x-data @click="$store.menuToggle.toggle();document.getElementById('navBarOpen').focus();" id="navBarClose" class="nav__toggle-button nav__toggle-button--close">
         <svg width="2rem" height="2rem" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-role="presentation">
