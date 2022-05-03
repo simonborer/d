@@ -833,9 +833,9 @@ a[data-filter-option] {
   padding-right: 2rem;
 }
 .nav__toggle-button {
-  margin-left: 1rem;
+  margin-left: 0.75rem;
   outline-offset: 0.25rem;
-  margin-top: 0.75rem;
+  margin-top: 0.25rem;
 }
 .nav__toggle-button--close {
   margin-top: 0.85rem;
