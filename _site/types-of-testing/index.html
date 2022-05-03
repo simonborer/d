@@ -31,10 +31,9 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
     <meta name="theme-color" content="#FFF464">
-    <script defer src="/js/alpine.js"></script>
-    <script defer src="/js/fuse.js"></script>
-    <script defer src="/js/lite-yt-embed.js"></script>
-    <script defer src="/js/script.js"></script>
+    <script src="/js/alpine.js" defer></script>
+    <script src="/js/lite-yt-embed.js" defer></script>
+    <script src="/js/script.js" defer></script>
     
   </head>
   <body data-difficulty="1" x-data :class="$store.menuToggle.on && 'no-scroll'">
@@ -49,7 +48,7 @@
 
     <div x-data class="nav__links" :class="$store.menuToggle.on && 'nav__links--expanded'">
       <button x-data @click="$store.menuToggle.toggle();document.getElementById('navBarOpen').focus();" id="navBarClose" class="nav__toggle-button nav__toggle-button--close">
-        <svg width="2rem" height="2rem" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-role="presentation">
+        <svg width="2rem" height="2rem" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" role="presentation">
           <path d="M8 8L40 40" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="svg-x"/>
           <path d="M8 40L40 8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="svg-x"/>
         </svg>
@@ -61,6 +60,7 @@
         <li><a href="/socials">Socials</a></li>
       </ul>
     </div>
+    <button x-data class="nav__toggle-tap-to-close" :class="$store.menuToggle.on && 'nav__toggle-tap-to-close--open'" @click="$store.menuToggle.toggle();document.getElementById('navBarOpen').focus();" tabindex="-1" aria-hidden></button>
       <div class="nav__search-box">
         <label for="search" class="show-for-sr">Type to search</label>
         <input id="search" placeholder="Search" class="nav__search-input">
@@ -739,5 +739,142 @@ module.exports = addStuff;
     </article>
     </main>
     
+    <script src="/js/fuse.js"></script>
+    <script>
+      const searchArray = [{ 
+          "url": "/",
+          "title": "Decent Internet",
+          "tags": []
+        },{ 
+          "url": "/build-tools/",
+          "title": "Build Tools",
+          "tags": ["Task runners","Toolchains","Bundlers","Vite","SASS"]
+        },{ 
+          "url": "/how-to-get-hacked/",
+          "title": "How to get hacked",
+          "tags": ["OWASP","XSS","SQL Injection","Security","Authentication"]
+        },{ 
+          "url": "/tags/all/",
+          "title": "",
+          "tags": []
+        },{ 
+          "url": "/ad-hoc-testing/",
+          "title": "Ad hoc testing",
+          "tags": ["OWASP","XSS","SQL Injection","Security","Authentication"]
+        },{ 
+          "url": "/encryption-and-hashing/",
+          "title": "Encryption &amp; Hashing",
+          "tags": ["OWASP","XSS","SQL Injection","Security","Authentication"]
+        },{ 
+          "url": "/es6/",
+          "title": "ES6+",
+          "tags": ["OWASP","XSS","SQL Injection","Security","Authentication"]
+        },{ 
+          "url": "/types-of-testing/",
+          "title": "What is &#39;Quality&#39; &#39;Assurance&#39;?",
+          "tags": ["OWASP","XSS","SQL Injection","Security","Authentication"]
+        },{ 
+          "url": "/tags/OWASP/",
+          "title": "OWASP",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/XSS/",
+          "title": "XSS",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/SQL%20Injection/",
+          "title": "SQL Injection",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Security/",
+          "title": "Security",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Authentication/",
+          "title": "Authentication",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Task%20runners/",
+          "title": "Task runners",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Toolchains/",
+          "title": "Toolchains",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Bundlers/",
+          "title": "Bundlers",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Vite/",
+          "title": "Vite",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/SASS/",
+          "title": "SASS",
+          "tags": [],
+          "isTag": true
+        }
+    ];
+
+    const options = {
+      includeScore: true,
+      keys: [{name: 'title', weight: .9}, {name: 'tags', weight: 1}]
+    }
+
+    const fuse = new Fuse(searchArray, options);
+
+    const searchBox = document.getElementById('search');
+    window.onload = () => searchBox.value = ``;
+    
+    searchBox.addEventListener('keyup',function(){
+      const resultsList = document.getElementById('searchResults');
+      resultsList.innerHTML = ``;
+      const searchResults = fuse.search(searchBox.value).sort((a, b) => a.score - b.score).slice(0, 3);
+      
+      searchResults.forEach(result => {
+        resultsList.innerHTML += `<li><a href="${result.item.url}">${result.item.title}<span class="pill">${result.item.isTag ? `Tag` : `Page`}</span></a></li>`;
+      });
+
+      listenToResults();
+
+      if (resultsList.children.length > 0 && event.key === "ArrowDown") {
+        resultsList.firstChild.querySelector("a").focus();
+      }
+
+    });
+
+    const listenToResults = () => {
+      document.getElementById('searchResults').querySelectorAll("a").forEach((searchResultLink, index) => {
+        searchResultLink.addEventListener('keyup', function() {
+          if ((index === 0 && event.key === "ArrowUp") || (index + 1 === document.getElementById('searchResults').querySelectorAll("a").length && event.key === "ArrowDown")) {
+            searchBox.focus();
+          } else if (event.key === "ArrowUp") {
+            document.getElementById('searchResults').querySelectorAll("a")[index - 1].focus();
+          } else if (event.key === "ArrowDown") {
+            document.getElementById('searchResults').querySelectorAll("a")[index + 1].focus();
+          }
+        });
+      })
+    };
+
+    document.addEventListener('alpine:init', () => {
+        Alpine.store('menuToggle', {
+            on: false,
+            toggle() {
+                this.on = ! this.on
+            }
+        })
+    });
+    </script>
   </body>
 </html>

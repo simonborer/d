@@ -49,9 +49,10 @@ h6,
     white-space: pre-line;
 }
 h1, .heading-style-1 {
-    font-size: clamp(1rem * var.$goldenRatio * 2, 1vw * var.$goldenRatio * 6, 1em * var.$goldenRatio * 6);
-    margin: 0 0 1vh;
-    padding: 0 1rem;
+    font-size: clamp(1rem * var.$goldenRatio * 1.25, 1vw * var.$goldenRatio * 6, 1em * var.$goldenRatio * 6);
+    margin: 4vh 0 1vh;
+    padding: 2rem 1rem;
+    line-height: 1;
 }
 @media (min-width: var.$breakpoint) { 
     h1, .heading-style-1 {

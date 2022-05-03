@@ -244,6 +244,15 @@
             margin-top: .5rem;
         }
     }
+    &__toggle-tap-to-close {
+        &--open {
+            width: 70vw;
+            height: 100vw;
+            opacity: 0;
+            right: 0;
+            position: absolute;
+        }
+    }
     &__search-box {
         margin-left: auto;
         position: relative;
@@ -359,18 +368,18 @@
     & li {
         flex-grow: 1;
         text-align: center;
-        padding-top: .125rem;
+        // padding-top: .125rem;
         outline-offset: 0;
-        padding-bottom: 1rem;
-        margin-bottom: -.75rem;
+        // padding-bottom: 1rem;
+        // margin-bottom: -.75rem;
 
         &:first-child {
             border-top: .125rem solid var(--foreground);
         }
 
-        &:first-child.active {
-            border-top: .125rem solid transparent;
-        }
+        // &:first-child.active {
+        //     border-top: .125rem solid transparent;
+        // }
 
         &:last-child {
             padding-bottom: 0;
@@ -387,13 +396,37 @@
         }
 
         &.active {
-            @include mixins.invert;
-            clip-path: polygon(.5rem 0, calc(100% - .5rem) 0, 100% .5rem, 100% 100%, 0 100%, 0 .5rem);
-            margin-bottom: -1px;
+            // @include mixins.invert;
+            // clip-path: polygon(.5rem 0, calc(100% - .5rem) 0, 100% .5rem, 100% 100%, 0 100%, 0 .5rem);
+            // clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, .5rem 50%);
+            // margin-bottom: -1px;
             cursor: none;
-            border-color: transparent;
-            padding-bottom: .125rem;
-            margin-top: -.125rem;
+            // border-color: transparent;
+            // padding-bottom: .125rem;
+            // margin-top: -.125rem;
+            position: relative;
+            &:before {
+                content: "";
+                background: var(--foreground);
+                left: 0;
+                top: 0;
+                position: absolute;
+                height: 100%;
+                width: .5rem;
+                display: block;
+                clip-path: polygon(0 0, 0% 100%, 100% 50%);
+            }
+            &:after {
+                content: "";
+                background: var(--foreground);
+                right: 0;
+                top: 0;
+                position: absolute;
+                height: 100%;
+                width: .5rem;
+                display: block;
+                clip-path: polygon(0 50%, 100% 100%, 100% 0);
+            }
 
             & button {
                 cursor: auto;
@@ -424,9 +457,19 @@
             margin-bottom: 0;
 
             &.active {
+                @include mixins.invert;
+                margin-bottom: -1px;
+                cursor: none;
+                border-color: transparent;
                 padding-bottom: .25rem;
                 margin-top: -.25rem;
                 clip-path: polygon(.75rem 0, 100% 0%, 100% 100%, 0 100%, 0 .75rem);
+                &:before {
+                    content: none;
+                }
+                &:after {
+                    content: none;
+                }
             }
 
             &:first-child {
@@ -453,6 +496,10 @@
 .summary {
     display: inline-block;
     max-width: 60ch;
+    padding: 1rem;
+    &-container {
+        margin-top: 8vh;
+    }
     &__image {
         object-fit: contain;
 
@@ -480,6 +527,6 @@
 
 @media (min-width: var.$breakpoint) {
     .summary-container {
-        clip-path: polygon(.75rem 0, 100% 0, 100% 100%, .75rem 100%, 0 calc(100% - .75rem), 0 .75rem);
+
     }
 }

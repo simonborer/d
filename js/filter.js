@@ -21,7 +21,6 @@ const filterOptions = document.querySelectorAll('[data-filter-option]');
         elem.setAttribute('disabled', 'true'); 
         
         cardListClassReset();
-        console.log(elem);
         cardList.classList.add(`card-list--learning-level-${elem.dataset.filterOption ? elem.dataset.filterOption : 0}`)
 
         learningLevels.forEach(levelSetItem => {
