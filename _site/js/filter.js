@@ -15,10 +15,8 @@ const filterOptions = document.querySelectorAll('[data-filter-option]');
         const filterOption = elem.dataset.filterOption;
         filterOptions.forEach(opt => {
           opt.parentElement.classList.remove('active');
-          opt.removeAttribute('disabled');
         });
         elem.parentElement.classList.add('active');
-        elem.setAttribute('disabled', 'true'); 
         
         cardListClassReset();
         cardList.classList.add(`card-list--learning-level-${elem.dataset.filterOption ? elem.dataset.filterOption : 0}`)

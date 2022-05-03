@@ -73,7 +73,7 @@
     </nav>
     <div class="row full-width title-and-summary">
     <h1 id="content" class="title">{{title}}</h1>
-    {% if description %}
+    {% if description and not home %}
     <div class="callout summary-container">
       {% if regExp.test(feature.src) %}
         <div class="summary__image-container">
@@ -88,10 +88,10 @@
     <main>
     {% if home %}
       <ul class="filter-strip" data-filter aria-label="Filter content by learning level.">
-        <li class="active"><button disabled data-filter-option="-1" aria-controls="cardList">All</button></li>
-        <li data-filter-list-item="1"><button data-filter-option="1" aria-controls="cardList">Stuff everybody should know</button></li>
-        <li data-filter-list-item="2"><button data-filter-option="2" aria-controls="cardList">Starting to code</button></li>
-        <li data-filter-list-item="3"><button data-filter-option="3" aria-controls="cardList">Advanced coding stuff</button></li>
+        <li id="dataFilterListItem1" class="active"><a href="#dataFilterListItem1" data-filter-option="-1" aria-controls="cardList">All</a></li>
+        <li id="dataFilterListItem2" data-filter-list-item="1"><a href="#dataFilterListItem2" data-filter-option="1" aria-controls="cardList">Stuff everyone can use</a></li>
+        <li id="dataFilterListItem3" data-filter-list-item="2"><a href="#dataFilterListItem3" data-filter-option="2" aria-controls="cardList">Starting to code</a></li>
+        <li id="dataFilterListItem4" data-filter-list-item="3"><a href="#dataFilterListItem4" data-filter-option="3" aria-controls="cardList">Advanced coding stuff</a></li>
       </ul>
       <ul class="card-list card-list--learning-level--1" aria-live="polite" id="cardList">
       {%- for post in collections.all -%}
@@ -122,7 +122,11 @@
     {{ content | safe }}
     {% if not home %}</article>{% endif %}
     </main>
-    
+    <footer>
+    <div class="row">
+      &copy; 2022
+      </div>
+    </footer>
     <script src="/js/fuse.js"></script>
     <script>
       const searchArray = [

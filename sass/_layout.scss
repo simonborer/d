@@ -1,5 +1,12 @@
 @use './variables.scss'as var;
-
+@media (min-width: var.$breakpoint){
+body {
+    border-top: 0.5rem solid;
+    border-left: 0.5rem solid;
+    padding-right: 0.5rem;
+}
+    
+}
 .show-for-sr {
     font-size: 0;
     height: 1px;
