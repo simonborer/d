@@ -23,6 +23,9 @@ $breakpoint: 599px;
 //   }
 // }
 
+@function opcty($color, $opacity) {
+  @return #{$color + $opacity};
+}
 
 $coral: #ff8080;
 $coral-10: #ffe6e6;

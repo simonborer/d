@@ -134,6 +134,16 @@
         .card-list__item:hover & {
             box-shadow: 0 -2px 4px rgb(0 0 0 / 25%) inset;
         }
+
+        [data-learning-level="1"] & {
+            background-color: var.opcty(var.$green-60, '50');
+        }
+        [data-learning-level="2"] & {
+            background-color: var.opcty(var.$gold-40, '50');
+        }
+        [data-learning-level="3"] & {
+            background-color: var.opcty(var.$coral-60, '50');
+        }
     }
 
     &__cta {
@@ -225,7 +235,12 @@ a[data-filter-option] {
     padding: .25rem;
     line-height: 1.2;
 }
-
+@media (min-width: var.$breakpoint) {
+    a[data-filter-option] {
+        padding-top: .5rem;
+        padding-bottom: .5rem;
+    }
+}
 [data-filter-list-item="1"] {
     background: var(--emphasis);
     color: var(--background);
@@ -256,12 +271,12 @@ a[data-filter-option] {
 
 @media (min-width: var.$breakpoint) {
     .card-list {
+        padding-top: 1rem;
         min-height: calc(100vh - 10em);
-
+        gap: 2rem;
         &__item {
             flex-basis: 16rem;
             min-width: 16rem;
-            margin-right: 1rem;
         }
     }
 }
@@ -420,6 +435,8 @@ a[data-filter-option] {
         background: var(--background);
         box-shadow: 1vw 0 1vw var(--background);
         border-width: .125rem;
+        border-top: none;
+        border-bottom: none;
     }
     .nav__toggle-button--close {
         margin-top: .5rem;
