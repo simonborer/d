@@ -100,17 +100,18 @@
         padding: .5em .75rem .125em 1rem;
         border-top: .5rem solid;
         line-height: 1.1;
+
         [data-learning-level="1"] & {
-                border-top: .5rem solid var(--emphasis);
-            }
+            border-top: .5rem solid var(--emphasis);
+        }
 
         [data-learning-level="2"] & {
-                border-top: .5rem solid var(--warning);
-            }
+            border-top: .5rem solid var(--warning);
+        }
 
         [data-learning-level="3"] & {
-                border-top: .5rem solid var(--alert);
-            }
+            border-top: .5rem solid var(--alert);
+        }
     }
 
     &__summary {
@@ -152,6 +153,7 @@
         aspect-ratio: 1 / 1;
         max-height: 24vh;
         width: fit-content;
+
         &--padded {
             padding: 1em;
         }
@@ -175,12 +177,15 @@
         }
     }
 }
+
 a[data-filter-option] {
     display: inline-block;
     width: 100%;
     outline-offset: -.125rem;
     padding: .25rem;
+    line-height: 1.2;
 }
+
 [data-filter-list-item="1"] {
     background: var(--emphasis);
     color: var(--background);
@@ -217,6 +222,7 @@ a[data-filter-option] {
         }
     }
 }
+
 // @media screen and (prefers-reduced-motion: no-preference) { 
 //     .nav__links {
 //         transition: transform .5s;
@@ -226,7 +232,7 @@ a[data-filter-option] {
 .nav {
     display: flex;
     align-items: center;
-    
+
     &__links {
         @include mixins.invert;
         position: absolute;
@@ -235,9 +241,11 @@ a[data-filter-option] {
         height: 100vh;
         z-index: 1;
         transform: translateX(-100vw);
+
         &--expanded {
             transform: translateX(0);
-        }    
+        }
+
         & ul {
             padding-left: max(6vw, 2rem);
             padding-right: 2rem;
@@ -249,12 +257,15 @@ a[data-filter-option] {
         margin-left: .75rem;
         outline-offset: .25rem;
         margin-top: .25rem;
+
         &--close {
             margin-top: .85rem;
         }
     }
+
     &__toggle-tap-to-close {
         font-size: 0;
+
         &--open {
             width: 70vw;
             height: 100vw;
@@ -263,6 +274,7 @@ a[data-filter-option] {
             position: absolute;
         }
     }
+
     &__search-box {
         margin-left: auto;
         position: relative;
@@ -296,7 +308,7 @@ a[data-filter-option] {
             &:not(:empty) {
                 height: auto;
                 background: var(--foreground);
-                padding: 0 .5em .25em;
+                padding: 0 0 .25em;
                 box-shadow: 0px 1px 3px 0 var(--background);
             }
         }
@@ -311,10 +323,12 @@ a[data-filter-option] {
         // }
     }
 }
-@media (min-width: var.$breakpoint) { 
+
+@media (min-width: var.$breakpoint) {
     .nav__links {
         width: 30vw;
         transform: translateX(-30vw);
+
         &--expanded {
             transform: translateX(0);
             box-shadow: 0 0 6vw var(--foreground);
@@ -323,16 +337,19 @@ a[data-filter-option] {
             border-top: .5rem solid var(--foreground);
             border-right: .5rem solid var(--foreground);
             border-bottom: .5rem solid var(--foreground);
-        }    
+        }
     }
+
     .nav__toggle-button {
         margin-left: .75rem;
         margin-top: .25rem;
+
         &--close {
-            margin-top: .5rem;
+            margin-top: .75rem;
         }
     }
 }
+
 #search {
     .no-js & {
         display: none;
@@ -355,11 +372,16 @@ a[data-filter-option] {
     & li {
         width: 100%;
         @include mixins.invert;
+        padding: .5em;
+        &:nth-child(even) {
+            background-color: var(--foreground-offset);
+        }
 
         & a {
             outline-offset: 0;
             display: flex;
             width: 100%;
+            line-height: 1.1;
         }
 
         & .pill {
@@ -391,7 +413,7 @@ a[data-filter-option] {
     list-style: none;
     padding: 0;
     margin-top: 1rem;
-    border-bottom: .25rem solid var(--foreground);
+    border-bottom: .125rem solid var(--foreground);
 
     .no-js & {
         display: none;
@@ -437,6 +459,7 @@ a[data-filter-option] {
             // padding-bottom: .125rem;
             // margin-top: -.125rem;
             position: relative;
+
             &:before {
                 content: "";
                 background: var(--foreground);
@@ -444,10 +467,11 @@ a[data-filter-option] {
                 top: 0;
                 position: absolute;
                 height: 100%;
-                width: .5rem;
+                width: 1rem;
                 display: block;
-                clip-path: polygon(0 0, 0% 100%, 100% 50%);
+                clip-path: polygon(0 30%, 35% 30%, 35% 10%, 100% 50%, 35% 90%, 35% 70%, 0 70%);
             }
+
             &:after {
                 content: "";
                 background: var(--foreground);
@@ -455,9 +479,18 @@ a[data-filter-option] {
                 top: 0;
                 position: absolute;
                 height: 100%;
-                width: .5rem;
+                width: 1rem;
                 display: block;
-                clip-path: polygon(0 50%, 100% 100%, 100% 0);
+                clip-path: polygon(65% 10%, 65% 30%, 100% 30%, 100% 70%, 65% 70%, 65% 90%, 0% 50%);
+            }
+            &[data-filter-list-item="1"] {
+                &:before {
+background: var(--background);
+                }
+                &:after {
+                    background: var(--background);
+                }
+                
             }
 
             & button {
@@ -470,7 +503,7 @@ a[data-filter-option] {
 @media (min-width: var.$breakpoint) {
     .filter-strip {
         flex-direction: row;
-        padding: 0 1rem;
+        padding: 1rem 1rem 0;
 
         & button {
             padding: 0 1rem;
@@ -487,6 +520,9 @@ a[data-filter-option] {
             margin-right: max(.5vw, .125rem);
             padding-bottom: 0;
             margin-bottom: 0;
+            min-width: 12vw;
+            display: flex;
+            align-items: center;
 
             &.active {
                 @include mixins.invert;
@@ -496,9 +532,11 @@ a[data-filter-option] {
                 padding-bottom: .25rem;
                 margin-top: -.25rem;
                 clip-path: polygon(.75rem 0, 100% 0%, 100% 100%, 0 100%, 0 .75rem);
+
                 &:before {
                     content: none;
                 }
+
                 &:after {
                     content: none;
                 }
@@ -529,9 +567,11 @@ a[data-filter-option] {
     display: inline-block;
     max-width: 60ch;
     padding: 1rem;
+
     &-container {
         margin-top: 8vh;
     }
+
     &__image {
         object-fit: contain;
 
@@ -542,6 +582,7 @@ a[data-filter-option] {
         &-container {
             max-height: 20vh;
             display: flex;
+
             [data-difficulty="1"] & {
                 background: var(--emphasis);
             }
@@ -558,7 +599,5 @@ a[data-filter-option] {
 }
 
 @media (min-width: var.$breakpoint) {
-    .summary-container {
-
-    }
+    .summary-container {}
 }

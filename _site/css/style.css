@@ -23,7 +23,7 @@ html {
 
 html,
 body {
-  height: 100%;
+  min-height: 100vh;
 }
 
 body {
@@ -300,6 +300,7 @@ lite-youtube.lyt-activated > .lty-playbtn {
 
 :root {
   --foreground: #2a2222;
+  --foreground-offset: #4d3f3f;
   --background: #fff9eb;
   --background--offset: #d2d2d2;
   --emphasis: #1a6b75;
@@ -346,6 +347,11 @@ html {
 @media screen and (prefers-reduced-motion: no-preference) {
   html {
     scroll-behavior: smooth;
+  }
+}
+@media (prefers-reduced-motion: no-preference) and (min-width: 599px) {
+  html {
+    scroll-behavior: auto;
   }
 }
 footer {
@@ -575,9 +581,10 @@ iframe {
 }
 @media (min-width: 599px) {
   body {
-    border-top: 0.5rem solid;
-    border-left: 0.5rem solid;
-    padding-right: 0.5rem;
+    border-top: 0.75rem solid;
+    border-left: 0.75rem solid;
+    border-right: 0.75rem solid;
+    width: calc(100vw - 0.5rem);
   }
 }
 .show-for-sr {
@@ -777,6 +784,7 @@ a[data-filter-option] {
   width: 100%;
   outline-offset: -0.125rem;
   padding: 0.25rem;
+  line-height: 1.2;
 }
 
 [data-filter-list-item="1"] {
@@ -875,7 +883,7 @@ a[data-filter-option] {
 .nav__search-box:focus-within .nav__search-results:not(:empty) {
   height: auto;
   background: var(--foreground);
-  padding: 0 0.5em 0.25em;
+  padding: 0 0 0.25em;
   box-shadow: 0px 1px 3px 0 var(--background);
 }
 
@@ -899,7 +907,7 @@ a[data-filter-option] {
     margin-top: 0.25rem;
   }
   .nav__toggle-button--close {
-    margin-top: 0.5rem;
+    margin-top: 0.75rem;
   }
 }
 #search {
@@ -924,11 +932,16 @@ a[data-filter-option] {
   width: 100%;
   background: var(--foreground);
   color: var(--background);
+  padding: 0.5em;
+}
+#searchResults li:nth-child(even) {
+  background-color: var(--foreground-offset);
 }
 #searchResults li a {
   outline-offset: 0;
   display: flex;
   width: 100%;
+  line-height: 1.1;
 }
 #searchResults li .pill {
   text-decoration: none;
@@ -955,7 +968,7 @@ a[data-filter-option] {
   list-style: none;
   padding: 0;
   margin-top: 1rem;
-  border-bottom: 0.25rem solid var(--foreground);
+  border-bottom: 0.125rem solid var(--foreground);
 }
 .no-js .filter-strip {
   display: none;
@@ -990,9 +1003,9 @@ a[data-filter-option] {
   top: 0;
   position: absolute;
   height: 100%;
-  width: 0.5rem;
+  width: 1rem;
   display: block;
-  clip-path: polygon(0 0, 0% 100%, 100% 50%);
+  clip-path: polygon(0 30%, 35% 30%, 35% 10%, 100% 50%, 35% 90%, 35% 70%, 0 70%);
 }
 .filter-strip li.active:after {
   content: "";
@@ -1001,9 +1014,15 @@ a[data-filter-option] {
   top: 0;
   position: absolute;
   height: 100%;
-  width: 0.5rem;
+  width: 1rem;
   display: block;
-  clip-path: polygon(0 50%, 100% 100%, 100% 0);
+  clip-path: polygon(65% 10%, 65% 30%, 100% 30%, 100% 70%, 65% 70%, 65% 90%, 0% 50%);
+}
+.filter-strip li.active[data-filter-list-item="1"]:before {
+  background: var(--background);
+}
+.filter-strip li.active[data-filter-list-item="1"]:after {
+  background: var(--background);
 }
 .filter-strip li.active button {
   cursor: auto;
@@ -1012,7 +1031,7 @@ a[data-filter-option] {
 @media (min-width: 599px) {
   .filter-strip {
     flex-direction: row;
-    padding: 0 1rem;
+    padding: 1rem 1rem 0;
   }
   .filter-strip button {
     padding: 0 1rem;
@@ -1028,6 +1047,9 @@ a[data-filter-option] {
     margin-right: max(0.5vw, 0.125rem);
     padding-bottom: 0;
     margin-bottom: 0;
+    min-width: 12vw;
+    display: flex;
+    align-items: center;
   }
   .filter-strip li.active {
     background: var(--foreground);

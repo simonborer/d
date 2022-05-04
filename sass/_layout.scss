@@ -1,9 +1,10 @@
 @use './variables.scss'as var;
 @media (min-width: var.$breakpoint){
 body {
-    border-top: 0.5rem solid;
-    border-left: 0.5rem solid;
-    padding-right: 0.5rem;
+    border-top: 0.75rem solid;
+    border-left: 0.75rem solid;
+    border-right: 0.75rem solid;
+    width: calc(100vw - .5rem);
 }
     
 }
