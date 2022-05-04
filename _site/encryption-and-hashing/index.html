@@ -529,31 +529,6 @@ Ugh, it's my turn with these stupid 'travelling pants'. I don't care what Lena, 
           "title": "What is &#39;Quality&#39; &#39;Assurance&#39;?",
           "tags": ["OWASP","XSS","SQL Injection","Security","Authentication"]
         },{ 
-          "url": "/tags/Task%20runners/",
-          "title": "Task runners",
-          "tags": [],
-          "isTag": true
-        },{ 
-          "url": "/tags/Toolchains/",
-          "title": "Toolchains",
-          "tags": [],
-          "isTag": true
-        },{ 
-          "url": "/tags/Bundlers/",
-          "title": "Bundlers",
-          "tags": [],
-          "isTag": true
-        },{ 
-          "url": "/tags/Vite/",
-          "title": "Vite",
-          "tags": [],
-          "isTag": true
-        },{ 
-          "url": "/tags/SASS/",
-          "title": "SASS",
-          "tags": [],
-          "isTag": true
-        },{ 
           "url": "/tags/OWASP/",
           "title": "OWASP",
           "tags": [],
@@ -578,6 +553,31 @@ Ugh, it's my turn with these stupid 'travelling pants'. I don't care what Lena, 
           "title": "Authentication",
           "tags": [],
           "isTag": true
+        },{ 
+          "url": "/tags/Task%20runners/",
+          "title": "Task runners",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Toolchains/",
+          "title": "Toolchains",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Bundlers/",
+          "title": "Bundlers",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Vite/",
+          "title": "Vite",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/SASS/",
+          "title": "SASS",
+          "tags": [],
+          "isTag": true
         }
     ];
 
@@ -597,7 +597,7 @@ Ugh, it's my turn with these stupid 'travelling pants'. I don't care what Lena, 
       const searchResults = fuse.search(searchBox.value).sort((a, b) => a.score - b.score).slice(0, 3);
       
       searchResults.forEach(result => {
-        resultsList.innerHTML += `<li><a href="${result.item.url}">${result.item.title}<span class="pill">${result.item.isTag ? `Tag` : `Page`}</span></a></li>`;
+        resultsList.innerHTML += `<li><a href="${result.item.url}" tabindex="0">${result.item.title}<span class="pill">${result.item.isTag ? `Tag` : `Page`}</span></a></li>`;
       });
 
       listenToResults();

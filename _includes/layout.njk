@@ -158,7 +158,7 @@
       const searchResults = fuse.search(searchBox.value).sort((a, b) => a.score - b.score).slice(0, 3);
       
       searchResults.forEach(result => {
-        resultsList.innerHTML += `<li><a href="${result.item.url}">${result.item.title}<span class="pill">${result.item.isTag ? `Tag` : `Page`}</span></a></li>`;
+        resultsList.innerHTML += `<li><a href="${result.item.url}" tabindex="0">${result.item.title}<span class="pill">${result.item.isTag ? `Tag` : `Page`}</span></a></li>`;
       });
 
       listenToResults();

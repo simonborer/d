@@ -291,7 +291,8 @@ a[data-filter-option] {
             box-shadow: 0px 1px 3px 0 var(--background);
         }
 
-        .nav__search-input:focus+& {
+
+        .nav__search-box:focus-within & {
             &:not(:empty) {
                 height: auto;
                 background: var(--foreground);
@@ -299,6 +300,15 @@ a[data-filter-option] {
                 box-shadow: 0px 1px 3px 0 var(--background);
             }
         }
+
+        // .nav__search-input:focus+& {
+        //     &:not(:empty) {
+        //         height: auto;
+        //         background: var(--foreground);
+        //         padding: 0 .5em .25em;
+        //         box-shadow: 0px 1px 3px 0 var(--background);
+        //     }
+        // }
     }
 }
 @media (min-width: var.$breakpoint) { 
