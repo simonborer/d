@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Decent Internet</title>
+  <subtitle>I am writing about my experiences as a naval navel-gazer.</subtitle>
+  <link href="https://meek-tarsier-01cebe.netlify.app/feed.xml" rel="self"/>
+  <link href="https://meek-tarsier-01cebe.netlify.app/"/>
+  <updated>2022-05-04T14:58:19Z</updated>
+  <id>https://meek-tarsier-01cebe.netlify.app/</id>
+  <author>
+    <name>Boaty McBoatFace</name>
+    <email>me@example.com</email>
+  </author>
+</feed>

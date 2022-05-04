@@ -253,7 +253,7 @@
 touchableElement.addEventListener('touchstart', (event) => {
     touchstartX = event.changedTouches[0].screenX;
     touchstartY = event.changedTouches[0].screenY;
-}, false);
+}, {passive: true});
 
 touchableElement.addEventListener('touchend', (event) => {
     touchendX = event.changedTouches[0].screenX;
@@ -262,7 +262,7 @@ touchableElement.addEventListener('touchend', (event) => {
       Alpine.store('menuToggle').toggle();
       document.getElementById('navBarOpen').focus();
     }
-}, false);
+}, {passive: true});
     </script>
   </body>
 </html>
