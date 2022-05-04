@@ -11,6 +11,16 @@
   outline-offset: .5em;
 }
 
+@media (prefers-color-scheme: dark) {
+    ::selection:not(img, iframe) {
+    background: var(--warning);
+}
+
+    *:focus {
+      outline: .125em dashed var(--warning);
+    }
+}
+
 html {
     font-family: Helvetica Neue, Helvetica, Futura, Trebuchet MS, Arial,
         sans-serif;
@@ -31,9 +41,18 @@ html {
         scroll-behavior: auto;
     }
 }
+body {
+    overflow-x: hidden;
+}
 footer {
     min-height: 20vh;
     @include mixins.invert;
+}
+@media (prefers-color-scheme: dark){
+    footer {
+        background: var(--background);
+        color: var(--foreground);
+    }
 }
 h1,
 h2,
@@ -246,11 +265,19 @@ iframe {
     max-width: 100%;
 }
 
-.svg-x {
-    stroke: var(--background);
+.svg-fill {
+    fill: var(--foreground);
+    stroke: var(--foreground);
+    &--inverted {
+        fill: var(--background);
+        stroke: var(--background);
+    }
 }
 @media (min-width: var.$breakpoint) {
-    .svg-x {
-    stroke: var(--foreground);
+    .svg-fill {
+        &--inverted {
+        fill: var(--foreground);
+        stroke: var(--foreground);
+    }
 }
 }

@@ -104,18 +104,24 @@ $brown-90: #2b1b0f;
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #1e1a1a;
-    --text: #{$gold-40};
-    --text-strong: #{$gold};
-    --row-colour-offset: #292626;
+    --foreground: #fff9eb;
+    --foreground-offset: #d2d2d2;
+    --background: #2a2222;
+    --background--offset: #3a2b2b;
+    --emphasis: #{$green-60};
+    --warning: #{$gold-40};
+    --alert: #{$coral-60};
   }
 }
 
 @media (prefers-color-scheme: light) {
   :root {
-    --bg: #{$gold-10};
-    --text: #{$brown-80};
-    --text-strong: #{$brown-90};
-    --row-colour-offset: #{$gold-15};
+    --foreground: #2a2222;
+  --foreground-offset: #4d3f3f;
+  --background: #fff9eb;
+  --background--offset: #d2d2d2;
+  --emphasis: #{$green-60};
+  --warning: #{$gold-40};
+  --alert: #{$coral-60};
   }
 }

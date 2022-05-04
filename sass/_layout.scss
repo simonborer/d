@@ -1,12 +1,18 @@
 @use './variables.scss'as var;
-@media (min-width: var.$breakpoint){
-body {
-    border-top: 0.75rem solid;
-    border-left: 0.75rem solid;
-    border-right: 0.75rem solid;
-    width: calc(100vw - .5rem);
+@media (min-width: var.$breakpoint) {
+    body {
+        border-top: 0.75rem solid;
+        border-left: 0.75rem solid;
+        border-right: 0.75rem solid;
+        width: calc(100vw - .5rem);
+    }
 }
-    
+@media (min-width: var.$breakpoint) and (prefers-color-scheme: dark) {
+    body {
+        border-top-width: 0;
+        border-left-width: 0;
+        border-right-width: 0;
+    }
 }
 .show-for-sr {
     font-size: 0;
