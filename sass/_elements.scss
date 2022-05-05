@@ -266,18 +266,28 @@ iframe {
 }
 
 .svg-fill {
-    fill: var(--foreground);
-    stroke: var(--foreground);
+    fill: var(--emphasis);
+    stroke: var(--emphasis);
     &--inverted {
         fill: var(--background);
         stroke: var(--background);
     }
 }
-@media (min-width: var.$breakpoint) {
+@media (prefers-color-scheme: dark) {
     .svg-fill {
-        &--inverted {
-        fill: var(--foreground);
-        stroke: var(--foreground);
+    fill: var(--warning);
+    stroke: var(--warning);
+    &--inverted {
+        fill: var(--background);
+        stroke: var(--background);
     }
 }
+}
+@media (min-width: var.$breakpoint) {
+        .svg-fill {
+            &--inverted {
+            fill: var(--foreground);
+            stroke: var(--foreground);
+        }
+    }
 }

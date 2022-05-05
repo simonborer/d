@@ -596,14 +596,24 @@ iframe {
 }
 
 .svg-fill {
-  fill: var(--foreground);
-  stroke: var(--foreground);
+  fill: var(--emphasis);
+  stroke: var(--emphasis);
 }
 .svg-fill--inverted {
   fill: var(--background);
   stroke: var(--background);
 }
 
+@media (prefers-color-scheme: dark) {
+  .svg-fill {
+    fill: var(--warning);
+    stroke: var(--warning);
+  }
+  .svg-fill--inverted {
+    fill: var(--background);
+    stroke: var(--background);
+  }
+}
 @media (min-width: 599px) {
   .svg-fill--inverted {
     fill: var(--foreground);
@@ -1220,6 +1230,10 @@ a[data-filter-option] {
 }
 [data-difficulty="3"] .summary__image-container {
   background: var(--alert);
+}
+
+.svg-hero {
+  margin-top: 0.5rem;
 }
 
 /*# sourceMappingURL=style.css.map */
