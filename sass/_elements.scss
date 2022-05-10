@@ -17,7 +17,7 @@
 }
 
     *:focus {
-      outline: .125em dashed var(--warning);
+      outline: .125em dashed var(--foreground--offset);
     }
 }
 

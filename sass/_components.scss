@@ -349,7 +349,7 @@ a[data-filter-option] {
         margin-left: auto;
         position: relative;
         max-width: 75%;
-
+        outline-offset: .2em;
         &:focus-within {
             &__search-input {
                 flex-basis: auto;
@@ -384,8 +384,7 @@ a[data-filter-option] {
         .nav__search-box:focus-within & {
             &:not(:empty) {
                 height: auto;
-                background: var(--foreground);
-                padding: 0 0 .25em;
+                padding: 0;
                 box-shadow: 0px 1px 3px 0 var(--background);
             }
         }
@@ -427,10 +426,19 @@ a[data-filter-option] {
     }
 }
 
-@media (prefers-color-scheme: dark) and (min-width: var.$breakpoint) {
+@media (prefers-color-scheme: dark) {
     .nav__links {
-        background: var(--background--offset);   
+        background: var(--background--offset);  
+        color: var(--foreground); 
     }
+    .nav__toggle-button--close .svg-fill--inverted {
+        fill: var(--foreground);
+        stroke: var(--foreground);
+    }
+}
+
+
+@media (prefers-color-scheme: dark) and (min-width: var.$breakpoint) {
     .nav__links--expanded {
         background: var(--background);
         box-shadow: 1vw 0 1vw var(--background);
@@ -460,10 +468,14 @@ a[data-filter-option] {
 
     & li {
         width: 100%;
-        @include mixins.invert;
+        // @include mixins.invert;
+        background-color: var(--background);
         padding: .5em;
         &:nth-child(even) {
-            background-color: var(--foreground-offset);
+            background-color: var(--background--offset);
+            & .pill {
+                background-color: var(--background);
+            }
         }
 
         & a {
@@ -476,7 +488,7 @@ a[data-filter-option] {
         & .pill {
             text-decoration: none;
             font-size: small;
-            background: var(--background);
+            background: var(--background--offset);
             color: var(--foreground);
             margin-left: auto;
             height: 50%;
@@ -572,7 +584,16 @@ a[data-filter-option] {
                 display: block;
                 clip-path: polygon(65% 10%, 65% 30%, 100% 30%, 100% 70%, 65% 70%, 65% 90%, 0% 50%);
             }
-            &[data-filter-list-item="1"] {
+            &[data-filter-list-item="2"] {
+                &:before {
+                    background: var(--background);
+                }
+                &:after {
+                    background: var(--background);
+                }
+                
+            }
+            &[data-filter-list-item="3"] {
                 &:before {
                     background: var(--background);
                 }

@@ -300,7 +300,7 @@ lite-youtube.lyt-activated > .lty-playbtn {
 
 :root {
   --foreground: #2a2222;
-  --foreground-offset: #4d3f3f;
+  --foreground--offset: #4d3f3f;
   --background: #fff9eb;
   --background--offset: #d2d2d2;
   --emphasis: #1a6b75;
@@ -311,23 +311,9 @@ lite-youtube.lyt-activated > .lty-playbtn {
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground: #fff9eb;
-    --foreground-offset: #d2d2d2;
+    --foreground--offset: #d2d2d2;
     --background: #2a2222;
     --background--offset: #3a2b2b;
-    --emphasis: #1a6b75;
-    --warning: #ffd970;
-    --alert: #e67373;
-  }
-}
-@media (prefers-color-scheme: light) {
-  :root {
-    --foreground: #2a2222;
-    --foreground-offset: #4d3f3f;
-    --background: #fff9eb;
-    --background--offset: #d2d2d2;
-    --emphasis: #1a6b75;
-    --warning: #ffd970;
-    --alert: #e67373;
   }
 }
 ::selection:not(img, iframe) {
@@ -346,7 +332,7 @@ lite-youtube.lyt-activated > .lty-playbtn {
   }
 
   *:focus {
-    outline: 0.125em dashed var(--warning);
+    outline: 0.125em dashed var(--foreground--offset);
   }
 }
 html {
@@ -964,6 +950,7 @@ a[data-filter-option] {
   margin-left: auto;
   position: relative;
   max-width: 75%;
+  outline-offset: 0.2em;
 }
 .nav__search-box:focus-within__search-input {
   flex-basis: auto;
@@ -990,8 +977,7 @@ a[data-filter-option] {
 }
 .nav__search-box:focus-within .nav__search-results:not(:empty) {
   height: auto;
-  background: var(--foreground);
-  padding: 0 0 0.25em;
+  padding: 0;
   box-shadow: 0px 1px 3px 0 var(--background);
 }
 
@@ -1018,11 +1004,18 @@ a[data-filter-option] {
     margin-top: 0.75rem;
   }
 }
-@media (prefers-color-scheme: dark) and (min-width: 599px) {
+@media (prefers-color-scheme: dark) {
   .nav__links {
     background: var(--background--offset);
+    color: var(--foreground);
   }
 
+  .nav__toggle-button--close .svg-fill--inverted {
+    fill: var(--foreground);
+    stroke: var(--foreground);
+  }
+}
+@media (prefers-color-scheme: dark) and (min-width: 599px) {
   .nav__links--expanded {
     background: var(--background);
     box-shadow: 1vw 0 1vw var(--background);
@@ -1052,12 +1045,14 @@ a[data-filter-option] {
 }
 #searchResults li {
   width: 100%;
-  background: var(--foreground);
-  color: var(--background);
+  background-color: var(--background);
   padding: 0.5em;
 }
 #searchResults li:nth-child(even) {
-  background-color: var(--foreground-offset);
+  background-color: var(--background--offset);
+}
+#searchResults li:nth-child(even) .pill {
+  background-color: var(--background);
 }
 #searchResults li a {
   outline-offset: 0;
@@ -1068,7 +1063,7 @@ a[data-filter-option] {
 #searchResults li .pill {
   text-decoration: none;
   font-size: small;
-  background: var(--background);
+  background: var(--background--offset);
   color: var(--foreground);
   margin-left: auto;
   height: 50%;
@@ -1140,10 +1135,16 @@ a[data-filter-option] {
   display: block;
   clip-path: polygon(65% 10%, 65% 30%, 100% 30%, 100% 70%, 65% 70%, 65% 90%, 0% 50%);
 }
-.filter-strip li.active[data-filter-list-item="1"]:before {
+.filter-strip li.active[data-filter-list-item="2"]:before {
   background: var(--background);
 }
-.filter-strip li.active[data-filter-list-item="1"]:after {
+.filter-strip li.active[data-filter-list-item="2"]:after {
+  background: var(--background);
+}
+.filter-strip li.active[data-filter-list-item="3"]:before {
+  background: var(--background);
+}
+.filter-strip li.active[data-filter-list-item="3"]:after {
   background: var(--background);
 }
 .filter-strip li.active button {

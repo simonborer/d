@@ -97,7 +97,7 @@ $brown-90: #2b1b0f;
 
 :root {
   --foreground: #2a2222;
-  --foreground-offset: #4d3f3f;
+  --foreground--offset: #4d3f3f;
   --background: #fff9eb;
   --background--offset: #d2d2d2;
   --emphasis: #{$green-60};
@@ -108,23 +108,13 @@ $brown-90: #2b1b0f;
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground: #fff9eb;
-    --foreground-offset: #d2d2d2;
+    --foreground--offset: #d2d2d2;
     --background: #2a2222;
     --background--offset: #3a2b2b;
-    --emphasis: #{$green-60};
-    --warning: #{$gold-40};
-    --alert: #{$coral-60};
   }
 }
 
 @media (prefers-color-scheme: light) {
   :root {
-    --foreground: #2a2222;
-  --foreground-offset: #4d3f3f;
-  --background: #fff9eb;
-  --background--offset: #d2d2d2;
-  --emphasis: #{$green-60};
-  --warning: #{$gold-40};
-  --alert: #{$coral-60};
   }
 }
