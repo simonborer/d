@@ -11,10 +11,10 @@
       document.documentElement.classList.add('js');
     </script>
     
-    <title></title>
-    <meta name="description" content="List of tagged pages">
-    <meta property="og:title" content="">
-    <meta property="og:description" content="List of tagged pages">
+    <title>About</title>
+    <meta name="description" content="Who I am (Simon, a developer and professor), and who I&#39;m doing this for (everyone who wants to get better at the web, and who sees a need for more decency in how we, collectively, use this wonderful thing called the internet).">
+    <meta property="og:title" content="About">
+    <meta property="og:description" content="Who I am (Simon, a developer and professor), and who I&#39;m doing this for (everyone who wants to get better at the web, and who sees a need for more decency in how we, collectively, use this wonderful thing called the internet).">
     <meta property="og:url" content="">
     <link rel="canonical" href="">
 
@@ -80,15 +80,34 @@
     </nav>
     
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 186" preserveAspectRatio="none" role="presentation" class="svg-hero svg-hero--waves">
-      <path class="svg-fill svg-hero__path svg-hero--waves__path" d="M0,128L30,144C60,160,120,192,180,176C240,160,300,96,360,90.7C420,85,480,139,540,149.3C600,160,660,128,720,122.7C780,117,840,139,900,154.7C960,171,1020,181,1080,154.7C1140,128,1200,64,1260,53.3C1320,43,1380,85,1410,106.7L1440,128L1440,0L1410,0C1380,0,1320,0,1260,0C1200,0,1140,0,1080,0C1020,0,960,0,900,0C840,0,780,0,720,0C660,0,600,0,540,0C480,0,420,0,360,0C300,0,240,0,180,0C120,0,60,0,30,0L0,0Z"></path></svg>
+      <svg xmlns='http://www.w3.org/2000/svg' width="100%" height="100%" class="svg-hero">
+    <pattern id="blueprint" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+      <rect width='100' height='100' class="svg-fill" />
+      <g fill='#6494b7'>
+        <rect width='100' height='1' y='20' />
+        <rect width='100' height='1' y='40' />
+        <rect width='100' height='1' y='60' />
+        <rect width='100' height='1' y='80' />
+        <rect width='1' height='100' x='20' />
+        <rect width='1' height='100' x='40' />
+        <rect width='1' height='100' x='60' />
+        <rect width='1' height='100' x='80' />
+      </g>
+      <rect width='100' height='100' fill='none' stroke-width='2' stroke='#fff' />
+    </pattern>
+    <rect x="0" y="0" width="100%" height="100%" fill="url(#blueprint)"></rect>
+  </svg>
       
     <div class="row full-width title-and-summary">
-    <h1 id="content" class="title"></h1>
+    <h1 id="content" class="title">About</h1>
     
     <div class="callout summary-container">
       
-      <span class="summary">List of tagged pages</span>
+        <div class="summary__image-container summary__image-container--photo" style="background-image:url('/images/me.jpeg');">
+        <img alt="Simon Borer" class="summary__image" src="/images/me.jpeg" height="735" width="786">
+        </div>
+      
+      <span class="summary">Who I am (Simon, a developer and professor), and who I&#39;m doing this for (everyone who wants to get better at the web, and who sees a need for more decency in how we, collectively, use this wonderful thing called the internet).</span>
     </div>
     
     </div>
@@ -96,12 +115,31 @@
     <main>
     
     <article>
-    <h1>Tagged “tagsList”</h1>
-
-<ol class="row">
-
-
-</ol>
+    <nav class="toc row">
+    <div class="col">
+        <h2>Table of contents</h2>
+        <ol>
+            <li><a href="#bonaFides">My bona fides</a></li>
+            <li><a href="#why">Why I'm doing this</a></li>
+            <li><a href="#who">Who is this for</a></li>
+        </ol>
+    </div>
+</nav>
+<section id="bonaFides" class="row">
+    <div class="col">
+    <h2>Bona Fides</h2>
+    </div>
+</section>
+<section id="why" class="row">
+    <div class="col">
+    <h2>The 'Why'</h2>
+    </div>
+</section>
+<section id="who" class="row">
+    <div class="col">
+    <h2>The 'Who'</h2>
+    </div>
+</section>
     </article>
     </main>
     <footer>
