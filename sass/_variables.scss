@@ -101,8 +101,13 @@ $brown-90: #2b1b0f;
   --background: #fff9eb;
   --background--offset: #d2d2d2;
   --emphasis: #{$green-60};
+  --emphasis--text: #{$green};
   --warning: #{$gold-40};
   --alert: #{$coral-60};
+  --null-1: #{$green};
+  --null-2: #{$gold};
+  --null-3: #{$coral};
+
 }
 
 @media (prefers-color-scheme: dark) {
@@ -111,6 +116,7 @@ $brown-90: #2b1b0f;
     --foreground--offset: #d2d2d2;
     --background: #2a2222;
     --background--offset: #3a2b2b;
+    --emphasis--text: #{$coral-30};
   }
 }
 

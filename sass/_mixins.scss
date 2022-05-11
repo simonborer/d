@@ -2,3 +2,39 @@
     background: var(--foreground);
     color: var(--background);
 }
+
+@mixin null-1 {
+    background: var(--null-1);
+    box-shadow: 0 0 1rem var(--foreground) inset;
+}
+
+@mixin null-2 {
+    background: var(--null-2);
+    box-shadow: 0 0 1rem var(--foreground) inset;
+}
+
+@mixin null-3 {
+    background: var(--null-3);
+    box-shadow: 0 0 1rem var(--foreground) inset;
+}
+
+@media (prefers-color-scheme: dark) {
+    @mixin null-1 {
+    background: var(--null-1);
+    box-shadow: 0 0 1rem var(--background--offset) inset;
+}
+
+@mixin null-2 {
+    background: var(--null-2);
+    box-shadow: 0 0 1rem var(--background--offset) inset;
+}
+
+@mixin null-3 {
+    background: var(--null-3);
+    box-shadow: 0 0 1rem var(--background--offset) inset;
+}
+}
+
+@mixin null-child {
+    background: var(--background);
+}

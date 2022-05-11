@@ -12,9 +12,9 @@
     </script>
     
     <title>About</title>
-    <meta name="description" content="Who I am (Simon, a developer and professor), and who I&#39;m doing this for (everyone who wants to get better at the web, and who sees a need for more decency in how we, collectively, use this wonderful thing called the internet).">
+    <meta name="description" content="Who I am (Simon, a developer and professor), and who I&#39;m doing this for (everyone who wants the web to be better).">
     <meta property="og:title" content="About">
-    <meta property="og:description" content="Who I am (Simon, a developer and professor), and who I&#39;m doing this for (everyone who wants to get better at the web, and who sees a need for more decency in how we, collectively, use this wonderful thing called the internet).">
+    <meta property="og:description" content="Who I am (Simon, a developer and professor), and who I&#39;m doing this for (everyone who wants the web to be better).">
     <meta property="og:url" content="">
     <link rel="canonical" href="">
 
@@ -50,6 +50,7 @@
     </button>
 
     <div x-data class="nav__links" :class="$store.menuToggle.on && 'nav__links--expanded'">
+      <div class="mock-nav">
       <button x-data @click="$store.menuToggle.toggle();document.getElementById('navBarOpen').focus();" id="navBarClose" class="nav__toggle-button nav__toggle-button--close">
         <svg width="2rem" height="2rem" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" role="presentation">
           <path d="M8 8L40 40" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="svg-fill--inverted"/>
@@ -57,6 +58,7 @@
         </svg>
         <span class="show-for-sr">Toggle the menu visibility</span>
       </button>
+      </div>
       <ul>
         <li><a href="/">Home</a></li>
         <li><a href="/about">About</a></li>
@@ -80,22 +82,16 @@
     </nav>
     
     
-      <svg xmlns='http://www.w3.org/2000/svg' width="100%" height="100%" class="svg-hero">
-    <pattern id="blueprint" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
-      <rect width='100' height='100' class="svg-fill" />
-      <g fill='#6494b7'>
-        <rect width='100' height='1' y='20' />
-        <rect width='100' height='1' y='40' />
-        <rect width='100' height='1' y='60' />
-        <rect width='100' height='1' y='80' />
-        <rect width='1' height='100' x='20' />
-        <rect width='1' height='100' x='40' />
-        <rect width='1' height='100' x='60' />
-        <rect width='1' height='100' x='80' />
-      </g>
-      <rect width='100' height='100' fill='none' stroke-width='2' stroke='#fff' />
-    </pattern>
-    <rect x="0" y="0" width="100%" height="100%" fill="url(#blueprint)"></rect>
+      <svg xmlns='http://www.w3.org/2000/svg' width="100%" height="250px" class="svg-hero svg-hero--honeycomb">
+        <pattern id="honeycomb" x="0" y="0" width="56" height="100" patternUnits="userSpaceOnUse">
+          <rect width='56' height='100' class="svg-fill--honeycomb"/>
+          <path d='M28 66L0 50L0 16L28 0L56 16L56 50L28 66L28 100' fill='none' stroke="#ffd970" stroke-width='2'/>
+          <path d='M28 0L28 34L0 50L0 84L28 100L56 84L56 50L28 34' fill='none' stroke="#ffd970" stroke-width='2'/>
+        </pattern>
+        <rect x="0" y="0" width="100%" height="100%" fill="url(#honeycomb)"></rect>
+      </svg>
+
+      
   </svg>
       
     <div class="row full-width title-and-summary">
@@ -107,7 +103,7 @@
         <img alt="Simon Borer" class="summary__image" src="/images/me.jpeg" height="735" width="786">
         </div>
       
-      <span class="summary">Who I am (Simon, a developer and professor), and who I&#39;m doing this for (everyone who wants to get better at the web, and who sees a need for more decency in how we, collectively, use this wonderful thing called the internet).</span>
+      <span class="summary">Who I am (Simon, a developer and professor), and who I&#39;m doing this for (everyone who wants the web to be better).</span>
     </div>
     
     </div>
@@ -115,7 +111,7 @@
     <main>
     
     <article>
-    <nav class="toc row">
+    <nav class="toc row full-width">
     <div class="col">
         <h2>Table of contents</h2>
         <ol>
@@ -128,6 +124,14 @@
 <section id="bonaFides" class="row">
     <div class="col">
     <h2>Bona Fides</h2>
+    <p>This part is the <em>least</em> exciting for me to write, but it's only fair you know who's giving you advice.</p>
+    <p>My name is Simon Borer. I have been:</p>
+<ul>
+    <li><strong>on the internet since 1993</strong> (in the heyday of the Bulletin Board System),</li>
+    <li><strong>writing code since 2004</strong> (professionally since 2011), and</li>
+    <li><strong>teaching internet technologies at the post-graduate level since 2018</strong>.</li>
+</ul>
+     
     </div>
 </section>
 <section id="why" class="row">
@@ -182,31 +186,6 @@
           "title": "What is &#39;Quality&#39; &#39;Assurance&#39;?",
           "tags": ["OWASP","XSS","SQL Injection","Security","Authentication"]
         },{ 
-          "url": "/tags/Task%20runners/",
-          "title": "Task runners",
-          "tags": [],
-          "isTag": true
-        },{ 
-          "url": "/tags/Toolchains/",
-          "title": "Toolchains",
-          "tags": [],
-          "isTag": true
-        },{ 
-          "url": "/tags/Bundlers/",
-          "title": "Bundlers",
-          "tags": [],
-          "isTag": true
-        },{ 
-          "url": "/tags/Vite/",
-          "title": "Vite",
-          "tags": [],
-          "isTag": true
-        },{ 
-          "url": "/tags/SASS/",
-          "title": "SASS",
-          "tags": [],
-          "isTag": true
-        },{ 
           "url": "/tags/OWASP/",
           "title": "OWASP",
           "tags": [],
@@ -229,6 +208,31 @@
         },{ 
           "url": "/tags/Authentication/",
           "title": "Authentication",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Task%20runners/",
+          "title": "Task runners",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Toolchains/",
+          "title": "Toolchains",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Bundlers/",
+          "title": "Bundlers",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Vite/",
+          "title": "Vite",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/SASS/",
+          "title": "SASS",
           "tags": [],
           "isTag": true
         }

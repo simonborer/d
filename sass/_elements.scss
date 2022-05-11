@@ -202,6 +202,7 @@ blockquote {
 
 strong {
     font-weight: 900;
+    color: var(--emphasis--text);
 }
 
 ul ul li,
@@ -273,6 +274,12 @@ iframe {
         stroke: var(--background);
     }
 }
+.svg-fill--honeycomb {
+    margin-top: 2rem;
+    fill: transparent;
+    stroke: var(--background);
+}
+
 @media (prefers-color-scheme: dark) {
     .svg-fill {
     fill: var(--warning);
@@ -291,3 +298,4 @@ iframe {
         }
     }
 }
+
