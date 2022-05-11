@@ -8,7 +8,8 @@
     "watch:eleventy": "npx @11ty/eleventy --serve",
     "watch:sass": "npx sass sass:_site/css --watch",
     "start": "npm run watch:eleventy & npm run watch:sass",
-    "build": "npx sass sass:_site/css && npx @11ty/eleventy"
+    "build": "npx sass sass:_site/css && npx @11ty/eleventy",
+    "spellcheck": "node _utilities/turn.mjs"
   },
   "keywords": [],
   "author": "",
@@ -26,6 +27,9 @@
   "devDependencies": {
     "@11ty/eleventy-plugin-rss": "^1.1.2",
     "@csstools/postcss-sass": "^5.0.1",
-    "postcss": "^8.4.13"
+    "fs-extra": "^10.1.0",
+    "postcss": "^8.4.13",
+    "spellchecker-cli": "^4.10.0",
+    "turndown": "^7.1.1"
   }
 }
