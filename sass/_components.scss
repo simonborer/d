@@ -163,7 +163,7 @@ $card-list-border: .25em;
         aspect-ratio: 1 / 1;
         max-height: 24vh;
         width: fit-content;
-
+min-width: 50%;
         &--padded {
             padding: 1em;
         }

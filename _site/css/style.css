@@ -800,6 +800,7 @@ iframe {
   aspect-ratio: 1/1;
   max-height: 24vh;
   width: fit-content;
+  min-width: 50%;
 }
 .card-list__image--padded {
   padding: 1em;
