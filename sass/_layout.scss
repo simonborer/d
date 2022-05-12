@@ -1,20 +1,5 @@
 @use './variables.scss'as var;
-// @media (min-width: var.$breakpoint) {
-//     body {
-//         border-top: 0.75rem solid;
-//         border-left: 0.75rem solid;
-//         border-right: 0.75rem solid;
-//         // width: calc(100vw - .5rem);
-//         padding-right: .5rem;
-//     }
-// }
-// @media (min-width: var.$breakpoint) and (prefers-color-scheme: dark) {
-//     body {
-//         border-top-width: 0;
-//         border-left-width: 0;
-//         border-right-width: 0;
-//     }
-// }
+
 .show-for-sr {
     font-size: 0;
     height: 1px;
@@ -54,17 +39,7 @@
     .title {
         padding-left: .5rem;
     }
-    // .row.title-and-summary {
-    //     display: flex;
-    //     align-items: center;
-    //     justify-content: space-between;
-    //     padding-right: 0;
-    //     padding-top: 0;
-    //     padding-bottom:  0;
-    // }
     .summary-container {
-        // flex-basis: max(16rem, 20%);
         display: flex;
-        // align-items: center;
     }
 }

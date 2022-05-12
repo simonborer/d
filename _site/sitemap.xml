@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    
+        <url>
+            <loc>https://meek-tarsier-01cebe.netlify.app//</loc>
+            <lastmod>2022-04-13T13:55:24.000Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>https://meek-tarsier-01cebe.netlify.app//build-tools/</loc>
+            <lastmod>2022-04-13T15:22:02.000Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>https://meek-tarsier-01cebe.netlify.app//how-to-get-hacked/</loc>
+            <lastmod>2022-04-13T15:31:35.000Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>https://meek-tarsier-01cebe.netlify.app//tags/all/</loc>
+            <lastmod>2022-04-14T11:27:31.000Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>https://meek-tarsier-01cebe.netlify.app//ad-hoc-testing/</loc>
+            <lastmod>2022-04-14T19:17:45.000Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>https://meek-tarsier-01cebe.netlify.app//encryption-and-hashing/</loc>
+            <lastmod>2022-04-14T19:17:45.000Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>https://meek-tarsier-01cebe.netlify.app//es6/</loc>
+            <lastmod>2022-04-28T13:03:27.000Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>https://meek-tarsier-01cebe.netlify.app//types-of-testing/</loc>
+            <lastmod>2022-04-28T13:09:04.000Z</lastmod>
+        </url>
+    
+</urlset>

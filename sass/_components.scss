@@ -437,18 +437,9 @@ a[data-filter-option] {
             box-shadow: 0 0 6vw var(--foreground);
             background: var(--background);
             color: var(--foreground);
-            // border-top: .5rem solid var(--foreground);
             border-right: .5rem solid var(--foreground);
-            // border-bottom: .5rem solid var(--foreground);
         }
     }
-
-    // .nav__toggle-button {
-
-    //     &--close {
-    //         margin-top: .75rem;
-    //     }
-    // }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -527,7 +518,6 @@ a[data-filter-option] {
 }
 
 .toc {
-    // @include mixins.null-3;
     & .col {
         @include mixins.null-child;
         border: .125rem solid;
@@ -677,7 +667,6 @@ a[data-filter-option] {
                 border-color: transparent;
                 padding-bottom: .25rem;
                 margin-top: -.25rem;
-                // clip-path: polygon(.75rem 0, 100% 0%, 100% 100%, 0 100%, 0 .75rem);
 
                 &:before {
                     content: none;
@@ -736,8 +725,6 @@ a[data-filter-option] {
         }
 
         &-container {
-            // max-height: 25vh;
-            // min-width: 16vw;
             flex-basis: 20vw;
             display: flex;
             justify-content: center;

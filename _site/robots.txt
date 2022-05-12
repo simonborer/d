@@ -1,3 +1,4 @@
 # https://www.robotstxt.org/robotstxt.html
+Sitemap: https://meek-tarsier-01cebe.netlify.app/sitemap.xml
 User-agent: *
 Disallow:

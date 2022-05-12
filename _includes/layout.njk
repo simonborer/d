@@ -153,7 +153,6 @@
               {% endif %}
               {% if regExp.test(post.data.feature.src) %}{% elif ytRegExp.test(post.data.feature.src) %}
                 <lite-youtube videoid="{{post.data.feature.id}}" style="background-image: url('https://i.ytimg.com/vi/{{post.data.feature.id}}/hqdefault.jpg');" params="controls=0&start=10&end=30&modestbranding=2&rel=0&enablejsapi=1"></lite-youtube>
-                {# <iframe title="{{ post.data.feature.title }}" class="card-list__video" width="560" height="315" src="{{post.data.feature.src}}" frameborder="0" allowfullscreen></iframe> #}
               {% endif %}
             </div>
             <div class="card-list__title heading-style-5">{{ post.data.title }}</div>
@@ -166,6 +165,7 @@
       </ul>
     {% endif %}
     {% if not home %}<article>{% endif %}
+      {% if readingTime %}<div class="row">About {{ content | readingTime }} reading time</div>{% endif %}
     {{ content | safe }}
     {% if not home %}</article>{% endif %}
     </main>
