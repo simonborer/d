@@ -18,8 +18,8 @@
     <meta property="og:url" content="">
     <link rel="canonical" href="">
 
-    <meta property="og:image" content="https://www.mywebsite.com/icons/d-i.jpg">
-    <meta property="og:image:alt" content="Image description">
+    <meta property="og:image" content="https://meek-tarsier-01cebe.netlify.app/">
+    <meta property="og:image:alt" content="Decent Internet">
     <meta property="og:locale" content="en_CA">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
@@ -30,12 +30,11 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=swap" rel="stylesheet">
     <meta name="theme-color" content="#FFF464">
     <script src="/js/alpine.js" defer></script>
-    <script src="/js/lite-yt-embed.js" defer></script>
     <script src="/js/script.js" defer></script>
     
   </head>
@@ -95,7 +94,7 @@
   </svg>
       
     <div class="row full-width title-and-summary">
-    <h1 id="content" class="title">How this site is made.</h1>
+    <h1 id="content" class="title" data-annotate="true" data-ann-type="underline">How this site is made.</h1>
     
     <div class="callout summary-container">
       
@@ -118,6 +117,7 @@
     </footer>
     <script src="/js/fuse.js"></script>
     <script>
+      // Let 11ty populate an array of pages
       const searchArray = [{ 
           "url": "/",
           "title": "Decent Internet",
@@ -203,23 +203,34 @@
         }
     ];
 
+    // Set fuse options
     const options = {
       includeScore: true,
-      keys: [{name: 'title', weight: .9}, {name: 'tags', weight: 1}]
-    }
+      keys: [
+        { name: "title", weight: 0.9 },
+        { name: "tags", weight: 1 },
+      ],
+    };
 
+    // Create instance of fuse
     const fuse = new Fuse(searchArray, options);
 
-    const searchBox = document.getElementById('search');
-    window.onload = () => searchBox.value = ``;
-    
-    searchBox.addEventListener('keyup',function(){
-      const resultsList = document.getElementById('searchResults');
+    const searchBox = document.getElementById("search");
+    window.onload = () => (searchBox.value = ``);
+
+    // Give results while typing
+    searchBox.addEventListener("keyup", function () {
+      const resultsList = document.getElementById("searchResults");
       resultsList.innerHTML = ``;
-      const searchResults = fuse.search(searchBox.value).sort((a, b) => a.score - b.score).slice(0, 3);
-      
-      searchResults.forEach(result => {
-        resultsList.innerHTML += `<li><a href="${result.item.url}" tabindex="0">${result.item.title}<span class="pill">${result.item.isTag ? `Tag` : `Page`}</span></a></li>`;
+      const searchResults = fuse
+        .search(searchBox.value)
+        .sort((a, b) => a.score - b.score)
+        .slice(0, 3);
+
+      searchResults.forEach((result) => {
+        resultsList.innerHTML += `<li><a href="${result.item.url}" tabindex="0">${
+          result.item.title
+        }<span class="pill">${result.item.isTag ? `Tag` : `Page`}</span></a></li>`;
       });
 
       listenToResults();
@@ -227,48 +238,73 @@
       if (resultsList.children.length > 0 && event.key === "ArrowDown") {
         resultsList.firstChild.querySelector("a").focus();
       }
-
     });
 
     const listenToResults = () => {
-      document.getElementById('searchResults').querySelectorAll("a").forEach((searchResultLink, index) => {
-        searchResultLink.addEventListener('keyup', function() {
-          if ((index === 0 && event.key === "ArrowUp") || (index + 1 === document.getElementById('searchResults').querySelectorAll("a").length && event.key === "ArrowDown")) {
-            searchBox.focus();
-          } else if (event.key === "ArrowUp") {
-            document.getElementById('searchResults').querySelectorAll("a")[index - 1].focus();
-          } else if (event.key === "ArrowDown") {
-            document.getElementById('searchResults').querySelectorAll("a")[index + 1].focus();
-          }
+      document
+        .getElementById("searchResults")
+        .querySelectorAll("a")
+        .forEach((searchResultLink, index) => {
+          searchResultLink.addEventListener("keyup", function () {
+            if (
+              (index === 0 && event.key === "ArrowUp") ||
+              (index + 1 ===
+                document.getElementById("searchResults").querySelectorAll("a")
+                  .length &&
+                event.key === "ArrowDown")
+            ) {
+              searchBox.focus();
+            } else if (event.key === "ArrowUp") {
+              document
+                .getElementById("searchResults")
+                .querySelectorAll("a")
+                [index - 1].focus();
+            } else if (event.key === "ArrowDown") {
+              document
+                .getElementById("searchResults")
+                .querySelectorAll("a")
+                [index + 1].focus();
+            }
+          });
         });
-      })
     };
 
-    document.addEventListener('alpine:init', () => {
-        Alpine.store('menuToggle', {
-            on: false,
-            toggle() {
-                this.on = ! this.on
-            }
-        })
+    // Use Alpine to toggle the menu
+    document.addEventListener("alpine:init", () => {
+      Alpine.store("menuToggle", {
+        on: false,
+        toggle() {
+          this.on = !this.on;
+        },
+      });
     });
 
+    // Close menu on left swipe
     const touchableElement = document.querySelectorAll(".nav__links")[0];
 
-touchableElement.addEventListener('touchstart', (event) => {
-    touchstartX = event.changedTouches[0].screenX;
-    touchstartY = event.changedTouches[0].screenY;
-}, {passive: true});
+    touchableElement.addEventListener(
+      "touchstart",
+      (event) => {
+        touchstartX = event.changedTouches[0].screenX;
+        touchstartY = event.changedTouches[0].screenY;
+      },
+      { passive: true }
+    );
 
-touchableElement.addEventListener('touchend', (event) => {
-    touchendX = event.changedTouches[0].screenX;
-    touchendY = event.changedTouches[0].screenY;
-    if (touchendX < touchstartX && touchstartX - touchendX > 75) {
-      Alpine.store('menuToggle').toggle();
-      document.getElementById('navBarOpen').focus();
-    }
-}, {passive: true});
+    touchableElement.addEventListener(
+      "touchend",
+      (event) => {
+        touchendX = event.changedTouches[0].screenX;
+        touchendY = event.changedTouches[0].screenY;
+        if (touchendX < touchstartX && touchstartX - touchendX > 75) {
+          Alpine.store("menuToggle").toggle();
+          document.getElementById("navBarOpen").focus();
+        }
+      },
+      { passive: true }
+    );
+
     </script>
-    <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
+    <script src="/js/instantpage-5.1.0.js" type="module" defer></script>
   </body>
 </html>

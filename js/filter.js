@@ -38,7 +38,6 @@
   filterOptions.forEach((df, index) => {
       df.addEventListener("click", (event) => { 
         optionFilter(df, event); 
-        console.log("o...k......");
       }, false);
       // Removing this option because disabled buttons don't get these events,
       // meaning this only works the first time through, possibly confusing
@@ -59,5 +58,4 @@
       //         optionFilter(filterOptions[index - 1]);
       //       }
       //     }, false);
-
   });

@@ -7,8 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch:eleventy": "npx @11ty/eleventy --serve",
     "watch:sass": "npx sass sass:_site/css --watch",
-    "start": "npm run watch:eleventy & npm run watch:sass",
-    "build": "npx sass sass:_site/css && npx @11ty/eleventy",
+    "watch:esbuild": "npx esbuild js/app.js --outfile=js/script.js --bundle --watch",
+    "start": "npm run watch:eleventy & npm run watch:sass && npm run watch:esbuild",
+    "build": "npx sass sass:_site/css && npx esbuild js/app.js --outfile=js/script.js --bundle --minify && npx @11ty/eleventy",
     "spellcheck": "node _utilities/turn.mjs"
   },
   "keywords": [],
@@ -16,7 +17,10 @@
   "license": "ISC",
   "dependencies": {
     "@11ty/eleventy": "^1.0.0",
+    "alpinejs": "^3.10.2",
     "eleventy-plugin-reading-time": "^0.0.1",
+    "esbuild": "^0.14.39",
+    "rough-notation": "^0.5.1",
     "sass": "^1.50.0"
   },
   "devDependencies": {
