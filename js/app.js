@@ -6,7 +6,7 @@ const annElem = document.querySelectorAll('[data-annotate]');
 
 const animDefaults = {
     type: `highlight`,
-    color: `#ffb3b3`,
+    color: `#ffd970`,
     strokeWidth: 2,
     padding: 8
 };
