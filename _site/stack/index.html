@@ -43,20 +43,20 @@
   <header class="header">
     <nav class="nav">
     
-    <button x-data @click="$store.menuToggle.toggle();document.getElementById('navBarClose').focus();" id="navBarOpen" class="nav__toggle-button">
-      <svg width="2rem" height="2rem" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" role="presentation"><path d="M32 96v64h448V96H32zm0 128v64h448v-64H32zm0 128v64h448v-64H32z" class="svg-fill" /></svg>
-      <span class="show-for-sr">Toggle the menu visibility</span>
+    <button x-data @click="$store.menuToggle.toggle();document.getElementById('navBarClose').focus();" id="navBarOpen" class="nav__toggle-button hide-without-js">
+      <svg width="48" height="48" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" role="presentation"><path d="M32 96v64h448V96H32zm0 128v64h448v-64H32zm0 128v64h448v-64H32z" class="svg-fill" /></svg>
+      <span class="show-for-sr">Toggle the menu visibility on</span>
     </button>
 
     <div x-data class="nav__links" :class="$store.menuToggle.on && 'nav__links--expanded'">
-      <div class="mock-nav">
-      <button x-data @click="$store.menuToggle.toggle();document.getElementById('navBarOpen').focus();" id="navBarClose" class="nav__toggle-button nav__toggle-button--close">
-        <svg width="2rem" height="2rem" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" role="presentation">
-          <path d="M8 8L40 40" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="svg-fill--inverted"/>
-          <path d="M8 40L40 8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="svg-fill--inverted"/>
-        </svg>
-        <span class="show-for-sr">Toggle the menu visibility</span>
-      </button>
+      <div class="mock-nav hide-without-js">
+        <button x-data @click="$store.menuToggle.toggle();document.getElementById('navBarOpen').focus();" id="navBarClose" class="nav__toggle-button nav__toggle-button--close">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" role="presentation">
+            <path d="M8 8L40 40" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="svg-fill--inverted"/>
+            <path d="M8 40L40 8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="svg-fill--inverted"/>
+          </svg>
+          <span class="show-for-sr">Toggle the menu visibility off</span>
+        </button>
       </div>
       <ul>
         <li><a href="/">Home</a></li>
@@ -64,8 +64,8 @@
         <li><a href="/socials">Socials</a></li>
       </ul>
     </div>
-    <button x-data class="nav__toggle-tap-to-close" :class="$store.menuToggle.on && 'nav__toggle-tap-to-close--open'" @click="$store.menuToggle.toggle();document.getElementById('navBarOpen').focus();" tabindex="-1">Toggle the menu</button>
-      <div class="nav__search-box">
+    <button x-data class="nav__toggle-tap-to-close hide-without-js" :class="$store.menuToggle.on && 'nav__toggle-tap-to-close--open'" @click="$store.menuToggle.toggle();document.getElementById('navBarOpen').focus();" tabindex="-1">Toggle the menu with tap</button>
+      <div class="nav__search-box hide-without-js">
         <label for="search" class="show-for-sr">Type to search</label>
         <input id="search" placeholder="Search" class="nav__search-input">
         <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 183.792 183.792" xml:space="preserve" class="nav__search-box-icon" role="presentation">
@@ -151,31 +151,6 @@
           "title": "Ad hoc testing",
           "tags": ["OWASP","XSS","SQL Injection","Security","Authentication"]
         },{ 
-          "url": "/tags/OWASP/",
-          "title": "OWASP",
-          "tags": [],
-          "isTag": true
-        },{ 
-          "url": "/tags/XSS/",
-          "title": "XSS",
-          "tags": [],
-          "isTag": true
-        },{ 
-          "url": "/tags/SQL%20Injection/",
-          "title": "SQL Injection",
-          "tags": [],
-          "isTag": true
-        },{ 
-          "url": "/tags/Security/",
-          "title": "Security",
-          "tags": [],
-          "isTag": true
-        },{ 
-          "url": "/tags/Authentication/",
-          "title": "Authentication",
-          "tags": [],
-          "isTag": true
-        },{ 
           "url": "/tags/Task%20runners/",
           "title": "Task runners",
           "tags": [],
@@ -198,6 +173,31 @@
         },{ 
           "url": "/tags/SASS/",
           "title": "SASS",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/OWASP/",
+          "title": "OWASP",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/XSS/",
+          "title": "XSS",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/SQL%20Injection/",
+          "title": "SQL Injection",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Security/",
+          "title": "Security",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Authentication/",
+          "title": "Authentication",
           "tags": [],
           "isTag": true
         }

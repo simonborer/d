@@ -678,6 +678,10 @@ iframe {
   overflow-y: hidden;
 }
 
+.no-js .hide-without-js {
+  display: none !important;
+}
+
 .skip-link {
   background: var(--background);
 }
@@ -1002,6 +1006,9 @@ a[data-filter-option] {
   box-shadow: 0 0 1rem var(--foreground) inset;
   border-bottom: 0.125rem solid;
   display: flex;
+}
+.no-js .mock-nav {
+  display: none;
 }
 
 @media (prefers-color-scheme: dark) {

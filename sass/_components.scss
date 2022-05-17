@@ -5,6 +5,10 @@
     overflow-y: hidden;
 }
 
+.no-js .hide-without-js {
+    display: none !important;
+}
+
 .skip-link {
     background: var(--background);
 
@@ -420,6 +424,9 @@ a[data-filter-option] {
     @include mixins.null-3;
     border-bottom: .125rem solid;
     display: flex;
+    .no-js & {
+        display: none;
+    }
 }
 @media (prefers-color-scheme: dark) {
     .nav, .mock-nav {
