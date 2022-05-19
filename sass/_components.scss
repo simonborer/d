@@ -1,4 +1,4 @@
-@use './variables.scss'as var;
+@use './variables.scss' as var;
 @use './mixins.scss';
 
 .no-scroll {
@@ -379,7 +379,7 @@ a[data-filter-option] {
         &-icon {
             position: absolute;
             top: 0.5rem;
-            right: 0.5rem;
+            right: 1rem;
             height: 1.5rem;
         }
     }
@@ -419,7 +419,7 @@ a[data-filter-option] {
         // }
     }
 }
-.mock-nav {
+.nav__links-close-target {
     height: 3.33rem;
     @include mixins.null-3;
     border-bottom: .125rem solid;
@@ -429,7 +429,7 @@ a[data-filter-option] {
     }
 }
 @media (prefers-color-scheme: dark) {
-    .nav, .mock-nav {
+    .nav, .nav__links-close-target {
         box-shadow: 0 0 1rem var(--background--offset) inset;
     }
 }
@@ -471,7 +471,7 @@ a[data-filter-option] {
         border-bottom: none;
     }
 }
-
+// .nav__search-input
 #search {
     .no-js & {
         display: none;
@@ -481,10 +481,12 @@ a[data-filter-option] {
     display: block;
     padding: 0.5em;
     margin-bottom: .5em;
+    margin-right: 1rem;
     background-size: 1.5em;
     max-width: 100%;
 }
 
+// nav__search-results
 #searchResults {
     display: block;
     position: absolute;
@@ -797,4 +799,32 @@ a[data-filter-option] {
 [data-difficulty="3"] .svg-hero__path {
     fill: var(--alert);
     stroke: var(--alert);
+}
+
+.progress {
+  height: 3px;
+  width: 0%;
+  background-color: var(--foreground);
+  position: fixed;
+  top: 0;
+  left: 0;
+  // animation: progress 1s linear;
+    /* Pause the animation */
+    animation-name: progress;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-direction: normal;
+  animation-play-state: paused;
+  /* Bind the animation to scroll */
+  animation-delay: calc(var(--scroll) * -1s);
+  /* These last 2 properites clean up overshoot weirdness */
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
+}
+
+@keyframes progress {
+  to {
+    background-color: var(--null-1);
+    width: 100%;
+  }
 }

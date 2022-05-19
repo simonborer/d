@@ -1,4 +1,4 @@
-@use './variables.scss'as var;
+@use './variables.1.scss'as var;
 
 .show-for-sr {
     font-size: 0;
@@ -25,7 +25,7 @@
 }
 
 .row:not(.full-width), .col {
-    max-width: 60ch;
+    max-width: 50ch;
     margin: 0 auto;
 }
 

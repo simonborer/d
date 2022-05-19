@@ -44,6 +44,7 @@
   </head>
   <body{% if learningLevel %} data-difficulty="{{ learningLevel }}"{% endif %} x-data :class="$store.menuToggle.on && 'no-scroll'">
   <a href="#content" class="show-for-sr show-on-focus skip-link{% if home %} home{% endif %}">Skip navigation</a>
+  {% if not home %}<div class="progress"></div>{% endif %}
   <header class="header">
     <nav class="nav">
     

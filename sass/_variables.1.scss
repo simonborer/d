@@ -1,31 +1,4 @@
-$goldenRatio: 1.61803398875;
 $breakpoint: 599px;
-
-// @media (prefers-color-scheme: dark) {
-//   :root {
-//     --bg: #1e1a1a;
-//     --text: #fff464;
-//     --text-strong: #ffcd43;
-//     --highlight: #ff3f00;
-//     --lowlight: #080fff;
-//     --row-colour-offset: rgba(255,255,255,0.05);
-//   }
-// }
-
-// @media (prefers-color-scheme: light) {
-//   :root {
-//     --bg: #ffeca4;
-//     --text: #1e1a1a;
-//     --text-strong: #000000;
-//     --row-colour-offset: rgba(253,251,255,0.9);
-//     --highlight: yellow;
-//     --lowlight: lightblue;
-//   }
-// }
-
-@function opcty($color, $opacity) {
-  @return #{$color + $opacity};
-}
 
 $coral: #ff8080;
 $coral-10: #ffe6e6;
@@ -113,13 +86,8 @@ $brown-90: #2b1b0f;
   :root {
     --foreground: #fff9eb;
     --foreground--offset: #d2d2d2;
-    --background: #2a2222;
+    --background: #1e1818;
     --background--offset: #3a2b2b;
     --emphasis--text: #{$coral-30};
-  }
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
   }
 }

@@ -1,5 +1,5 @@
-
-
+{% set regExp = r/\.(gif|svg|jpe?g|tiff?|png|webp|bmp)\s*/gi %}
+{% set ytRegExp = r/\.(youtube.com\/embed)\s*/gi %}
 
 <!DOCTYPE html>
 <html lang="en" class="no-js">
@@ -11,14 +11,16 @@
       document.documentElement.classList.add('js');
     </script>
     
-    <title>Decent Internet</title>
-    <meta name="description" content="A place to learn how to make the internet decent and decently.">
-    <meta property="og:title" content="Decent Internet">
-    <meta property="og:description" content="A place to learn how to make the internet decent and decently.">
-    <meta property="og:url" content="">
-    <link rel="canonical" href="">
-
-    <meta property="og:image" content="https://meek-tarsier-01cebe.netlify.app/">
+    <title>{{ title }}</title>
+    <meta name="description" content="{{description | d(site.description)}}">
+    <meta property="og:title" content="{{title | d(site.name)}}">
+    <meta property="og:description" content="{{description | d(site.description)}}">
+    <meta property="og:url" content="{{url}}">
+    <link rel="canonical" href="{{url}}">
+{#   {#if $page.stuff.hasExamples}
+  <script async defer src="/js/prism.js"></script>
+  {/if} #}
+    <meta property="og:image" content="{{site.url}}{{tileImg}}">
     <meta property="og:image:alt" content="Decent Internet">
     <meta property="og:locale" content="en_CA">
     <meta property="og:type" content="website">
@@ -36,20 +38,28 @@
     <meta name="theme-color" content="#FFF464">
     <script src="/js/alpine.js" defer></script>
     <script src="/js/script.js" defer></script>
-    
+    {% if home %}
       <script defer src="/js/filter.js"></script>
-    
+    {% endif %}
   </head>
-  <body 
+  <body{% if learningLevel %}
+    data-difficulty="{{ learningLevel }}"{% endif %} 
     x-data 
     :class="$store.menuToggle.on && 'no-scroll'">
     <a href="#content" class="show-for-sr show-on-focus skip-link">Skip navigation</a>
-
-    
+{#     <svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg' role="presentation">
+      <defs>
+        <pattern id='aSvg' patternUnits='userSpaceOnUse' width='20' height='20' patternTransform='scale(2) rotate(0)'>
+          <path d='M 10,-2.55e-7 V 20 Z M -1.1677362e-8,10 H 20 Z'  stroke-width='1' class="svg-fill"/>
+        </pattern>
+      </defs>
+      <rect width='100%' height='100%' fill='url(#aSvg)'/>
+    </svg> #}
+    {% if not home %}<div class="progress" aria-hidden="true"></div>{% endif %}
     <header class="header">
     <div class="nav">
       <nav>
-        
+        {# Menu #}
         <button 
           x-data 
           @click="$store.menuToggle.toggle();document.getElementById('navBarClose').focus();" 
@@ -85,7 +95,7 @@
             </button>
           </div>          
           <ul>
-            
+            {% if not home %}<li><a href="/">Home</a></li>{% endif %}
             <li><a href="/about">About</a></li>
             <li><a href="/socials">Socials</a></li>
           </ul>
@@ -100,9 +110,9 @@
 
         </nav>
 
-        <h1 id="content" class="title">Decent Internet</h1>
+        <h1 id="content" class="title">{{title}}</h1>
 
-        
+        {# Search #}
         <div class="search__box hide-without-js">
           <label for="search" class="show-for-sr">Type to search</label>
           <input id="search" placeholder="Search" class="search__input hide-without-js">
@@ -120,14 +130,26 @@
       </div>
 
         
-        
+        {% if description and not home %}
+          <div class="callout summary-container">
+            {% if regExp.test(feature.src) %}
+              <div class="summary__image-container{% if feature.photo %} summary__image-container--photo" style="background-image:url('/images/{{ feature.src }}');"{% else %}"{% endif %}>
+              <img alt="{{feature.alt}}" class="summary__image{% if feature.needsPadding %} summary__image--padded{% endif %}" src="/images/{{ feature.src }}" height="{{ feature.height }}" width="{{ feature.width }}">
+              </div>
+            {% endif %}
+            {% if not home %}<span class="summary">{{description}}</span>{% endif %}
+          </div>
+        {% endif %}
     </header>
 
     <main>
-      
-        
+      {% if home %}
+        {# Post filter buttons #}
         <div class="filter-strip__wrapper">
-
+{#         <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <title>Filter</title>
+          <path class="svg-fill--no-stroke" d="M10 19h4v-2h-4v2zm-4-6h12v-2H6v2zM3 5v2h18V5H3z"/></g>
+        </svg> #}
         <ul 
           class="filter-strip hide-without-js" 
           data-filter 
@@ -167,162 +189,50 @@
         </ul>
         </div>
 
-        
+        {# Post list #}
       <ul 
         class="card-list card-list--learning-level--1" 
         aria-live="polite" 
         id="cardList">
-            
-              
-            
+        {%- for post in collections.all -%}
+          {% if not post.data.home and not post.data.exclude %}
+            {% if post.data.learningLevel %}
+              {% set learningLevel = post.data.learningLevel %}
+            {% else %}
+              {% set learningLevel = 0 %}
+            {% endif %}
             <li 
               class="card-list__item" 
-              data-learning-level="2">
+              data-learning-level="{{ learningLevel }}">
               <a 
-                href="/build-tools/" 
+                href="{{ post.url }}" 
                 class="card-list__link">
                 <div class="card-list__feature">
-              
-              
-              
-                <lite-youtube videoid="QPZ0pIK_wsc" style="background-image: url('https://i.ytimg.com/vi/QPZ0pIK_wsc/hqdefault.jpg');" params="controls=0&start=10&end=30&modestbranding=2&rel=0&enablejsapi=1"></lite-youtube>
-              
+              {# wtf, this was real weird - didn't work as an if else #}
+              {% if regExp.test(post.data.feature.src) %}
+                <img alt="{{post.data.feature.alt}}" class="card-list__image{% if post.data.feature.needsPadding %} card-list__image--padded{% endif %}" src="/images/{{ post.data.feature.src }}" height="{{ post.data.feature.height }}" width="{{ post.data.feature.width }}">
+              {% endif %}
+              {% if regExp.test(post.data.feature.src) %}{% elif ytRegExp.test(post.data.feature.src) %}
+                <lite-youtube videoid="{{post.data.feature.id}}" style="background-image: url('https://i.ytimg.com/vi/{{post.data.feature.id}}/hqdefault.jpg');" params="controls=0&start=10&end=30&modestbranding=2&rel=0&enablejsapi=1"></lite-youtube>
+              {% endif %}
                 </div>
                 <div class="card-list__text">
-              <div class="card-list__title">Build Tools</div>
-              <div class="card-list__summary">Today we look at introducing build tools in a modern development workflow, including task runners, toolchains, and bundlers. Then we get a project up and running using Vite.</div></div>
+              <div class="card-list__title">{{ post.data.title }}</div>
+              <div class="card-list__summary">{{ post.data.description }}</div></div>
               <div class="card-list__cta">
-                <span class="card-list__cta-text">Read on<span class="hide-for-sr">…</span><span class="show-for-sr"> about Build Tools</span></span></div>
+                <span class="card-list__cta-text">Read on<span class="hide-for-sr">…</span><span class="show-for-sr"> about {{ post.data.title }}</span></span></div>
             </a>
           </li>
-          
-            
-              
-            
-            <li 
-              class="card-list__item" 
-              data-learning-level="3">
-              <a 
-                href="/how-to-get-hacked/" 
-                class="card-list__link">
-                <div class="card-list__feature">
-              
-              
-                <img alt="Person with a blowtorch" class="card-list__image card-list__image--padded" src="/images/factory.svg" height="119" width="150">
-              
-              
-                </div>
-                <div class="card-list__text">
-              <div class="card-list__title">How to get hacked</div>
-              <div class="card-list__summary">Today we look at the OWASP Top 10 Web Application Security Risks.</div></div>
-              <div class="card-list__cta">
-                <span class="card-list__cta-text">Read on<span class="hide-for-sr">…</span><span class="show-for-sr"> about How to get hacked</span></span></div>
-            </a>
-          </li>
-          
-            
-              
-            
-            <li 
-              class="card-list__item" 
-              data-learning-level="3">
-              <a 
-                href="/encryption-and-hashing/" 
-                class="card-list__link">
-                <div class="card-list__feature">
-              
-              
-                <img alt="Person with a blowtorch" class="card-list__image card-list__image--padded" src="/images/password.svg" height="150" width="128">
-              
-              
-                </div>
-                <div class="card-list__text">
-              <div class="card-list__title">Encryption &amp; Hashing</div>
-              <div class="card-list__summary">Uses and praxis of encryption &amp; hashing in secure web applications.</div></div>
-              <div class="card-list__cta">
-                <span class="card-list__cta-text">Read on<span class="hide-for-sr">…</span><span class="show-for-sr"> about Encryption &amp; Hashing</span></span></div>
-            </a>
-          </li>
-          
-            
-              
-            
-            <li 
-              class="card-list__item" 
-              data-learning-level="2">
-              <a 
-                href="/es6/" 
-                class="card-list__link">
-                <div class="card-list__feature">
-              
-              
-                <img alt="Person with a blowtorch" class="card-list__image card-list__image--padded" src="/images/javascript.svg" height="150" width="150">
-              
-              
-                </div>
-                <div class="card-list__text">
-              <div class="card-list__title">ES6+</div>
-              <div class="card-list__summary">Modern JavaScript, and how to enforce quality through language features.</div></div>
-              <div class="card-list__cta">
-                <span class="card-list__cta-text">Read on<span class="hide-for-sr">…</span><span class="show-for-sr"> about ES6+</span></span></div>
-            </a>
-          </li>
-          
-            
-              
-            
-            <li 
-              class="card-list__item" 
-              data-learning-level="1">
-              <a 
-                href="/types-of-testing/" 
-                class="card-list__link">
-                <div class="card-list__feature">
-              
-              
-                <img alt="Person with a blowtorch" class="card-list__image card-list__image--padded" src="/images/testing.svg" height="165" width="150">
-              
-              
-                </div>
-                <div class="card-list__text">
-              <div class="card-list__title">What is &#39;Quality&#39; &#39;Assurance&#39;?</div>
-              <div class="card-list__summary">We can say that &#39;quality&#39; means meeting requirements, and &#39;assurance&#39; is proving that we&#39;ve met those requirements. Today, let&#39;s look at where requirements come from - the client, the user, standards specifications, and your team. And then: testing comes in all shapes and sizes. Today we&#39;ll also look at why we test, how we design our tests, what all the different types of testing are, and how they fit into a team&#39;s lifecycle.</div></div>
-              <div class="card-list__cta">
-                <span class="card-list__cta-text">Read on<span class="hide-for-sr">…</span><span class="show-for-sr"> about What is &#39;Quality&#39; &#39;Assurance&#39;?</span></span></div>
-            </a>
-          </li>
-          
-            
-              
-            
-            <li 
-              class="card-list__item" 
-              data-learning-level="1">
-              <a 
-                href="/ad-hoc-testing/" 
-                class="card-list__link">
-                <div class="card-list__feature">
-              
-              
-                <img alt="Person with a blowtorch" class="card-list__image card-list__image--padded" src="/images/adhoc.svg" height="150" width="224">
-              
-              
-                </div>
-                <div class="card-list__text">
-              <div class="card-list__title">Ad hoc testing</div>
-              <div class="card-list__summary">You&#39;re already testing! &#39;Ad hoc&#39; testing is the first type of testing every developer does, and it will likely become a permanent part of your workflow. Let&#39;s learn about some of the tools available to us that you can start using today (if you&#39;re not already).</div></div>
-              <div class="card-list__cta">
-                <span class="card-list__cta-text">Read on<span class="hide-for-sr">…</span><span class="show-for-sr"> about Ad hoc testing</span></span></div>
-            </a>
-          </li>
-          </ul>
-      
+          {% endif %}
+        {%- endfor -%}
+        </ul>
+      {% endif %}
 
-      
-      
-        
-        
-      
+      {# Page content #}
+      {% if not home %}<article>{% endif %}
+        {% if readingTime %}About {{ content | readingTime }} reading time{% endif %}
+        {{ content | safe }}
+      {% if not home %}</article>{% endif %}
 
     </main>
 
@@ -333,89 +243,17 @@
     <script src="/js/fuse.js"></script>
     <script>
       // Let 11ty populate an array of pages
-      const searchArray = [{ 
-          "url": "/",
-          "title": "Decent Internet",
-          "tags": []
-        },{ 
-          "url": "/build-tools/",
-          "title": "Build Tools",
-          "tags": ["Task runners","Toolchains","Bundlers","Vite","SASS"]
-        },{ 
-          "url": "/how-to-get-hacked/",
-          "title": "How to get hacked",
-          "tags": ["OWASP","XSS","SQL Injection","Security","Authentication"]
-        },{ 
-          "url": "/tags/all/",
-          "title": "",
-          "tags": []
-        },{ 
-          "url": "/encryption-and-hashing/",
-          "title": "Encryption &amp; Hashing",
-          "tags": ["OWASP","XSS","SQL Injection","Security","Authentication"]
-        },{ 
-          "url": "/es6/",
-          "title": "ES6+",
-          "tags": ["OWASP","XSS","SQL Injection","Security","Authentication"]
-        },{ 
-          "url": "/types-of-testing/",
-          "title": "What is &#39;Quality&#39; &#39;Assurance&#39;?",
-          "tags": ["OWASP","XSS","SQL Injection","Security","Authentication"]
-        },{ 
-          "url": "/ad-hoc-testing/",
-          "title": "Ad hoc testing",
-          "tags": ["OWASP","XSS","SQL Injection","Security","Authentication"]
-        },{ 
-          "url": "/tags/OWASP/",
-          "title": "OWASP",
+      const searchArray = [
+      {%- for page in collections.all %}{ 
+          "url": "{{ page.url }}",
+          "title": "{{ page.data.title }}",
+          "tags": [{%- for tag in page.data.tags %}"{{tag}}"{% if not loop.last %},{% endif %}{%- endfor %}]
+        },{%- endfor %}{% for tag in collections.tagsList %}{ 
+          "url": "/tags/{{ tag | replace(" ", "%20") }}/",
+          "title": "{{ tag }}",
           "tags": [],
           "isTag": true
-        },{ 
-          "url": "/tags/XSS/",
-          "title": "XSS",
-          "tags": [],
-          "isTag": true
-        },{ 
-          "url": "/tags/SQL%20Injection/",
-          "title": "SQL Injection",
-          "tags": [],
-          "isTag": true
-        },{ 
-          "url": "/tags/Security/",
-          "title": "Security",
-          "tags": [],
-          "isTag": true
-        },{ 
-          "url": "/tags/Authentication/",
-          "title": "Authentication",
-          "tags": [],
-          "isTag": true
-        },{ 
-          "url": "/tags/Task%20runners/",
-          "title": "Task runners",
-          "tags": [],
-          "isTag": true
-        },{ 
-          "url": "/tags/Toolchains/",
-          "title": "Toolchains",
-          "tags": [],
-          "isTag": true
-        },{ 
-          "url": "/tags/Bundlers/",
-          "title": "Bundlers",
-          "tags": [],
-          "isTag": true
-        },{ 
-          "url": "/tags/Vite/",
-          "title": "Vite",
-          "tags": [],
-          "isTag": true
-        },{ 
-          "url": "/tags/SASS/",
-          "title": "SASS",
-          "tags": [],
-          "isTag": true
-        }
+        }{% if not loop.last %},{% endif %}{%- endfor %}
     ];
 
     // Set fuse options

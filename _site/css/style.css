@@ -73,26 +73,6 @@ ol {
   padding-left: 1em;
 }
 
-ul ul > li {
-  list-style: circle;
-}
-
-ul ul ul > li {
-  list-style: square;
-}
-
-ol > li {
-  list-style: decimal;
-}
-
-ol ol > li {
-  list-style: lower-alpha;
-}
-
-ol ol ol > li {
-  list-style: lower-roman;
-}
-
 table {
   border-collapse: collapse;
 }
@@ -630,6 +610,29 @@ iframe {
     stroke: var(--foreground);
   }
 }
+:root {
+  --foreground: #2a2222;
+  --foreground--offset: #4d3f3f;
+  --background: #fff9eb;
+  --background--offset: #d2d2d2;
+  --emphasis: #1a6b75;
+  --emphasis--text: #005b66;
+  --warning: #ffd970;
+  --alert: #e67373;
+  --null-1: #005b66;
+  --null-2: #ffcd43;
+  --null-3: #ff8080;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground: #fff9eb;
+    --foreground--offset: #d2d2d2;
+    --background: #1e1818;
+    --background--offset: #3a2b2b;
+    --emphasis--text: #ffb3b3;
+  }
+}
 .show-for-sr {
   font-size: 0;
   height: 1px;
@@ -653,7 +656,7 @@ iframe {
 }
 
 .row:not(.full-width), .col {
-  max-width: 60ch;
+  max-width: 50ch;
   margin: 0 auto;
 }
 
@@ -977,7 +980,7 @@ a[data-filter-option] {
 .nav__search-box-icon {
   position: absolute;
   top: 0.5rem;
-  right: 0.5rem;
+  right: 1rem;
   height: 1.5rem;
 }
 .nav__search-input {
@@ -1000,19 +1003,19 @@ a[data-filter-option] {
   box-shadow: 0px 1px 3px 0 var(--background);
 }
 
-.mock-nav {
+.nav__links-close-target {
   height: 3.33rem;
   background: var(--null-3);
   box-shadow: 0 0 1rem var(--foreground) inset;
   border-bottom: 0.125rem solid;
   display: flex;
 }
-.no-js .mock-nav {
+.no-js .nav__links-close-target {
   display: none;
 }
 
 @media (prefers-color-scheme: dark) {
-  .nav, .mock-nav {
+  .nav, .nav__links-close-target {
     box-shadow: 0 0 1rem var(--background--offset) inset;
   }
 }
@@ -1054,6 +1057,7 @@ a[data-filter-option] {
   display: block;
   padding: 0.5em;
   margin-bottom: 0.5em;
+  margin-right: 1rem;
   background-size: 1.5em;
   max-width: 100%;
 }
@@ -1332,6 +1336,33 @@ a[data-filter-option] {
 [data-difficulty="3"] .svg-hero__path {
   fill: var(--alert);
   stroke: var(--alert);
+}
+
+.progress {
+  height: 3px;
+  width: 0%;
+  background-color: var(--foreground);
+  position: fixed;
+  top: 0;
+  left: 0;
+  /* Pause the animation */
+  animation-name: progress;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-direction: normal;
+  animation-play-state: paused;
+  /* Bind the animation to scroll */
+  animation-delay: calc(var(--scroll) * -1s);
+  /* These last 2 properites clean up overshoot weirdness */
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
+}
+
+@keyframes progress {
+  to {
+    background-color: var(--null-1);
+    width: 100%;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

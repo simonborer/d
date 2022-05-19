@@ -1,0 +1,77 @@
+@use './variables.1.scss' as var;
+
+.no-scroll {
+    overflow-y: hidden;
+}
+
+.no-js .hide-without-js {
+    display: none !important;
+}
+
+.show-for-sr {
+    font-size: 0;
+    height: 1px;
+    width: 1px;
+    position: absolute;
+    top: auto;
+    left: -10000px;
+    overflow: hidden;
+
+    &:focus {
+        position: static;
+        height: auto;
+        width: auto;
+        font-size: 1rem;
+    }
+
+    &:active {
+        position: static;
+        height: auto;
+        width: auto;
+        font-size: 1rem;
+    }
+}
+
+.svg-fill {
+    fill: var(--emphasis);
+    stroke: var(--emphasis);
+
+    &--inverted {
+        fill: var(--background);
+        stroke: var(--background);
+    }
+
+    &--no-stroke {
+        fill: var(--emphasis);
+        stroke: transparent;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .svg-fill {
+        fill: var(--warning);
+        stroke: var(--warning);
+
+        &--inverted {
+            fill: var(--background);
+            stroke: var(--background);
+        }
+&--no-stroke {
+        fill: var(--warning);
+        stroke: transparent;
+    }
+    }
+    [data-annotate]:not([data-ann-type]) {
+        color: var(--background);
+    }
+}
+
+@media (min-width: var.$breakpoint) {
+    .svg-fill {
+        &--inverted {
+            fill: var(--foreground);
+            stroke: var(--foreground);
+        }
+    }
+}
+

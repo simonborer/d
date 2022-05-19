@@ -1,0 +1,223 @@
+@use '../variables.1.scss' as var;
+
+$learning-level-colours: [var(--emphasis), var(--warning), var(--alert)];
+
+// Structure
+.filter-strip {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+
+    &__wrapper {
+        display: flex;
+        align-items: center;
+    }
+
+    & li {
+        &.active {
+            cursor: pointer;
+        }
+    }
+}
+
+.card-list {
+    display: flex;
+    flex-wrap: wrap;
+
+    &__item {
+        list-style: none;
+        max-width: 40ch;
+    }
+
+    &__link {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        text-decoration: none;
+    }
+}
+
+// Theme
+.filter-strip {
+    border-bottom: 0.125rem solid var(--background--offset);
+    border-right: 0.125rem solid var(--background--offset);
+    width: 100%;
+    & li {
+        & a {
+            text-decoration: none;
+            display: inline-block;
+            padding: .5rem 1rem;
+            width: 100%;
+        }
+    }
+
+    & .active a {
+        box-shadow: 0 0 0.4rem rgb(0 0 0 / 75%) inset;
+    }
+}
+
+@media (min-width: var.$breakpoint) {
+    .filter-strip {
+        margin-top: -1px;
+    }
+    .filter-strip__wrapper {
+        position: absolute;
+    }
+}
+
+@media (min-width: 1279px) {
+    .filter-strip {width: auto;}
+}
+
+$card-list-border-color: var(--foreground--offset);
+
+.card-list {
+    padding: 2rem;
+    gap: 2rem;
+    justify-self: space-evenly;
+    justify-content: center;
+    &__item {
+        transition: .2s all;
+        border: .25rem solid $card-list-border-color;
+        border-radius: 0.5rem;
+        box-shadow: 0 0 0.25rem rgb(0 0 0 / 25%);
+        backdrop-filter: brightness(1.025) hue-rotate(-20deg);
+        overflow: hidden;
+        &:hover {
+            transform: translate(0, -.125rem);
+            box-shadow: 0px .125rem 6px 1px rgb(0 0 0 / 25%);
+        }
+    }
+    &__feature {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 12rem;
+        min-width: 12rem;
+
+        & lite-youtube {
+            flex-basis: 100%;
+        }
+        @for $i from 1 through 3 {
+            [data-learning-level="#{$i}"] & {
+                background-color: nth($learning-level-colours, $i);
+            }
+        }
+    }
+    &__image {
+        &--padded {
+            padding: 1rem;
+        }
+    }
+    &__text {
+        padding: 1.5rem 2rem 2rem;
+        border-top: .25rem solid $card-list-border-color;
+    }
+    &__title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: .5rem;
+    }
+    &__summary {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 6;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+    &__cta {
+        align-self: flex-end;
+        width: 100%;
+        margin-top: auto;
+        text-align: right;
+        padding-top: .5rem;
+        @for $i from 1 through 3 {
+            [data-learning-level="#{$i}"] & {
+                background-color: nth($learning-level-colours, $i);
+            }
+        }
+        &-text {
+            border-top-left-radius: .5rem;
+            background: $card-list-border-color;
+            display: inline-block;
+            backdrop-filter: brightness(1.025) hue-rotate(-20deg);
+            padding: 0.5rem 1rem ;
+            color: var(--background);
+        }
+    }
+}
+
+@media (min-width: var.$breakpoint) {
+    .card-list {
+        margin-left: 14rem;
+    }
+}
+@media (min-width: 1279px) {
+    .card-list {
+        gap: 1rem;
+        &__link {
+            flex-direction: row;
+        }
+
+        &__item {
+            max-width: 100%;
+            width: clamp(40rem, 40vw, 64rem);
+        }
+        &__feature {
+            flex-basis: 25%;
+            & lite-youtube {
+                background-size: auto auto;
+            }
+        }
+        &__title {
+            font-size: 3rem;
+        }
+        &__text {
+            flex-basis: 40vw;
+            border-top: 0 solid transparent;
+            border-left: .25rem solid $card-list-border-color; 
+            max-width: 60ch;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        &__cta {
+            margin-top: 0;
+            padding-top: 0;
+            align-self: auto;
+            margin-left: auto;
+            flex-basis: calc(6.25% - .125rem);
+            &-text {
+                display: none;
+            }
+        }
+    }
+}
+
+@for $i from 1 through 3 {
+    [data-filter-option="#{$i}"] {
+        background: nth($learning-level-colours, $i);
+        @if nth($learning-level-colours, $i) == "var(--emphasis)" {
+            color: var(--background);
+        } @else {
+            color: var(--foreground);
+        }
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    @for $i from 1 through 3 {
+        [data-filter-option="#{$i}"] {
+            @if nth($learning-level-colours, $i) == "var(--warning)" or nth($learning-level-colours, $i) == "var(--alert)" {
+                color: var(--background);
+            } @else {
+                color: var(--foreground);
+            }
+        }
+    }
+    .filter-strip .active a {
+        box-shadow: 0 0 .25rem var(--background) inset;
+    }
+}

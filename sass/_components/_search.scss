@@ -1,0 +1,102 @@
+@use '../variables.1.scss' as var;
+
+// Structure
+.search {
+    &__input {
+        display: block;
+        width: 100%;
+        height: 4rem;
+        padding-left: 2rem;
+    }
+
+    &__box {
+        margin-left: auto;
+        position: relative;
+        flex-basis: calc(100% - 6rem);
+
+        &:focus-within {
+            &__search-input {
+                flex-basis: auto;
+            }
+        }
+
+        &-icon {
+            position: absolute;
+            top: 1.25rem;
+            right: 1rem;
+            height: 1.5rem;
+        }
+    }
+
+    &__results {
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 0;
+        overflow: hidden;
+
+        &:focus-within {
+            height: auto;
+        }
+
+        .search__box:focus-within & {
+            &:not(:empty) {
+                height: auto;
+                padding: 0;
+                box-shadow: 0px 1px 3px 0 var(--background);
+                z-index: 1;
+            }
+        }
+
+        & li {
+            width: 100%;
+
+            & a {
+                display: flex;
+                width: 100%;
+            }
+
+            & .pill {
+                margin-left: auto;
+                height: 50%;
+                align-self: center;
+            }
+        }
+    }
+}
+
+@media (min-width: var.$breakpoint) {
+    .search {
+        &__box {
+            flex-basis: auto;
+        }
+        &__input {
+            border-left: .125rem solid var(--background--offset);
+        }
+    }
+}
+
+// Theme
+.search {
+    &__results {
+        & .pill {
+            font-size: small;
+            padding: 0 .25rem;
+            border-radius: .25rem;
+            background-color: var(--background--offset);
+        }
+        & li {
+            background-color: var(--background);
+            padding: .5em;
+            z-index: 1;
+
+            &:nth-child(odd) {
+                background-color: var(--background--offset);
+
+                & .pill {
+                    background-color: var(--background);
+                }
+            }
+        }
+    }
+}

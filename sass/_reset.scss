@@ -73,24 +73,6 @@ ol {
   padding-left: 1em;
 }
 
-ul ul > li {
-  list-style: circle;
-}
-
-ul ul ul > li {
-  list-style: square;
-}
-ol > li {
-  list-style: decimal;
-}
-ol ol > li {
-  list-style: lower-alpha;
-}
-
-ol ol ol > li {
-  list-style: lower-roman;
-}
-
 table {
   border-collapse: collapse;
 }
