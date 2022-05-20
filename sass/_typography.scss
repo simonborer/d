@@ -107,22 +107,65 @@ dt:after {
     order: 1;
     flex-basis: 100%;
     background-color: var(--emphasis);
-    box-shadow: 0 0 .25rem black inset;
-    height: calc(6rem - (var(--scroll) * 250rem));
     overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 1rem .5rem;
+    .home & {
+        height: calc(6rem - (var(--scroll) * 250rem));
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+    @for $i from 1 through 3 {
+        [data-difficulty="#{$i}"] & {
+            background: nth(var.$learning-level-colours, $i);
+            @if nth(var.$learning-level-colours, $i) == "var(--emphasis)" {
+                color: var(--background);
+            } @else {
+                color: var(--foreground);
+            }
+        }
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    @for $i from 1 through 3 {
+        [data-difficulty="#{$i}"] .title {
+            @if nth(var.$learning-level-colours, $i) == "var(--warning)" or nth(var.$learning-level-colours, $i) == "var(--alert)" {
+                color: var(--background);
+            } @else {
+                color: var(--foreground);
+            }
+        }
+    }
 }
 
 @media (min-width: var.$breakpoint) {
     .title {
         order: 0;
         flex-basis: auto;
-        background-color: transparent;
+        color: var(--foreground) !important;
+        background-color: transparent !important;
         padding: 0;
         box-shadow: none;
-        height: auto;
         display: block;
+        overflow: visible;
+        .home & {
+            height: auto;
+        }
+    }
+}
+
+article {
+    font-size: 1.25rem;
+    & h2 {
+        margin-top: 4rem;
+        margin-bottom: 1rem;
+        font-size: max(2.5rem, 3vw);
+        border-bottom: 1px solid currentColor;
+    }
+    & p {
+        margin: 1rem 0;
     }
 }

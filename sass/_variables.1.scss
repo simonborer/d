@@ -91,3 +91,5 @@ $brown-90: #2b1b0f;
     --emphasis--text: #{$coral-30};
   }
 }
+
+$learning-level-colours: [var(--emphasis), var(--warning), var(--alert)];

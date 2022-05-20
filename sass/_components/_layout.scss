@@ -1,0 +1,7 @@
+.row:not(.full-width), .col {
+    max-width: 50ch;
+    margin: 0 auto;
+}
+.row:not(.full-width) {
+    padding: 0 1rem;
+}

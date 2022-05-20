@@ -56,10 +56,10 @@
             fill: var(--background);
             stroke: var(--background);
         }
-&--no-stroke {
-        fill: var(--warning);
-        stroke: transparent;
-    }
+        &--no-stroke {
+            fill: var(--warning);
+            stroke: transparent;
+        }
     }
     [data-annotate]:not([data-ann-type]) {
         color: var(--background);

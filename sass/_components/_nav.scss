@@ -5,7 +5,6 @@
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    border-bottom: .125rem solid var(--background--offset);
     & nav {
     	display: flex;
     }
@@ -65,6 +64,7 @@
 }
 @media (min-width: var.$breakpoint) {
 	.nav {
+    	border-bottom: .125rem solid var(--background--offset);
 		&__links {
 			width: max(20vw, 10rem);
         	transform: translateX(-30vw);

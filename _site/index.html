@@ -40,63 +40,65 @@
       <script defer src="/js/filter.js"></script>
     
   </head>
-  <body 
+  <body
+     
     x-data 
+    class="home"
     :class="$store.menuToggle.on && 'no-scroll'">
     <a href="#content" class="show-for-sr show-on-focus skip-link">Skip navigation</a>
 
     
     <header class="header">
-    <div class="nav">
-      <nav>
-        
-        <button 
-          x-data 
-          @click="$store.menuToggle.toggle();document.getElementById('navBarClose').focus();" 
-          id="navBarOpen" 
-          class="nav__toggle-button hide-without-js">
-          <svg 
-            width="48" 
-            height="48" 
-            viewBox="0 0 512 512" 
-            xmlns="http://www.w3.org/2000/svg" 
-            role="img">
-            <title>Show menu</title>
-            <path d="M32 96v64h448V96H32zm0 128v64h448v-64H32zm0 128v64h448v-64H32z" class="svg-fill" />
-          </svg>
-        </button>
+      <div class="nav">
+        <nav>
+          
+          <button 
+            x-data 
+            @click="$store.menuToggle.toggle();document.getElementById('navBarClose').focus();" 
+            id="navBarOpen" 
+            class="nav__toggle-button hide-without-js">
+            <svg 
+              width="48" 
+              height="48" 
+              viewBox="0 0 512 512" 
+              xmlns="http://www.w3.org/2000/svg" 
+              role="img">
+              <title>Show menu</title>
+              <path d="M32 96v64h448V96H32zm0 128v64h448v-64H32zm0 128v64h448v-64H32z" class="svg-fill" />
+            </svg>
+          </button>
 
-        <div 
-          x-data 
-          class="nav__links" 
-          :class="$store.menuToggle.on && 'nav__links--expanded'" 
-          :aria-expanded="$store.menuToggle.on ? 'true' : 'false'">
-          <div class="nav__links-close-target hide-without-js">
-            <button 
-              x-data 
-              @click="$store.menuToggle.toggle();document.getElementById('navBarOpen').focus();" 
-              id="navBarClose" 
-              class="nav__toggle-button nav__toggle-button--close">
-              <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" role="img">
-                <title>Hide menu</title>
-                <path d="M8 8L40 40" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="svg-fill--inverted"/>
-                <path d="M8 40L40 8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="svg-fill--inverted"/>
-              </svg>
-            </button>
-          </div>          
-          <ul>
-            
-            <li><a href="/about">About</a></li>
-            <li><a href="/socials">Socials</a></li>
-          </ul>
-        </div>
+          <div 
+            x-data 
+            class="nav__links" 
+            :class="$store.menuToggle.on && 'nav__links--expanded'" 
+            :aria-expanded="$store.menuToggle.on ? 'true' : 'false'">
+            <div class="nav__links-close-target hide-without-js">
+              <button 
+                x-data 
+                @click="$store.menuToggle.toggle();document.getElementById('navBarOpen').focus();" 
+                id="navBarClose" 
+                class="nav__toggle-button nav__toggle-button--close">
+                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" role="img">
+                  <title>Hide menu</title>
+                  <path d="M8 8L40 40" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="svg-fill--inverted"/>
+                  <path d="M8 40L40 8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="svg-fill--inverted"/>
+                </svg>
+              </button>
+            </div>          
+            <ul>
+              
+              <li><a href="/about">About</a></li>
+              <li><a href="/socials">Socials</a></li>
+            </ul>
+          </div>
 
-        <button 
-          x-data 
-          class="nav__toggle-tap-to-close hide-without-js" 
-          :class="$store.menuToggle.on && 'nav__toggle-tap-to-close--open'" 
-          @click="$store.menuToggle.toggle();document.getElementById('navBarOpen').focus();" 
-          tabindex="-1">Hide menu with tap</button>
+          <button 
+            x-data 
+            class="nav__toggle-tap-to-close hide-without-js" 
+            :class="$store.menuToggle.on && 'nav__toggle-tap-to-close--open'" 
+            @click="$store.menuToggle.toggle();document.getElementById('navBarOpen').focus();" 
+            tabindex="-1">Hide menu with tap</button>
 
         </nav>
 
@@ -119,56 +121,59 @@
         </div>
       </div>
 
-        
-        
+      
     </header>
 
     <main>
       
         
         <div class="filter-strip__wrapper">
-
-        <ul 
-          class="filter-strip hide-without-js" 
-          data-filter 
-          aria-label="Filter content by learning level.">
-          <li 
-            id="dataFilterListItem1" 
-            class="active">
-            <a 
-              href="#dataFilterListItem1" 
-              data-filter-option="-1" 
-              aria-controls="cardList">All</a>
+          <ul 
+            class="filter-strip hide-without-js" 
+            data-filter 
+            aria-label="Filter content by learning level."
+            id="filterList">
+            <li 
+              id="dataFilterListItem1" 
+              class="active">
+              <a 
+                href="#filterList" 
+                data-filter-option="-1" 
+                aria-controls="cardList">
+                <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="display: flex;">
+                  <title>Filter</title>
+                  <path class="svg-fill--no-stroke" d="M10 19h4v-2h-4v2zm-4-6h12v-2H6v2zM3 5v2h18V5H3z"/></g>
+                </svg> All</a>
             </li>
-          <li 
-            id="dataFilterListItem2" 
-            data-filter-list-item="1">
-            <a 
-              href="#dataFilterListItem2" 
-              data-filter-option="1" 
-              aria-controls="cardList">Stuff everyone can use</a>
-          </li>
-          <li 
-            id="dataFilterListItem3" 
-            data-filter-list-item="2">
-            <a 
-              href="#dataFilterListItem3" 
-              data-filter-option="2" 
-              aria-controls="cardList">Starting to code</a>
-          </li>
-          <li 
-            id="dataFilterListItem4" 
-            data-filter-list-item="3">
-            <a 
-              href="#dataFilterListItem4" 
-              data-filter-option="3" 
-              aria-controls="cardList">Advanced coding stuff</a>
-          </li>
-        </ul>
+            <li 
+              id="dataFilterListItem2" 
+              data-filter-list-item="1">
+              <a 
+                href="#filterList" 
+                data-filter-option="1" 
+                aria-controls="cardList">Stuff everyone can use</a>
+            </li>
+            <li 
+              id="dataFilterListItem3" 
+              data-filter-list-item="2">
+              <a 
+                href="#filterList" 
+                data-filter-option="2" 
+                aria-controls="cardList">Starting to code</a>
+            </li>
+            <li 
+              id="dataFilterListItem4" 
+              data-filter-list-item="3">
+              <a 
+                href="#filterList" 
+                data-filter-option="3" 
+                aria-controls="cardList">Advanced coding stuff</a>
+            </li>
+          </ul>
         </div>
 
         
-      <ul 
+        <ul 
         class="card-list card-list--learning-level--1" 
         aria-live="polite" 
         id="cardList">

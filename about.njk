@@ -1,6 +1,6 @@
 ---json
 {
-    "layout": "layout.njk",
+    "layout": "layout.1.njk",
     "title": "About",
     "feature": {
         "src": "me.jpeg",
@@ -12,24 +12,30 @@
     "description": "Who I am, why I'm doing this, who I'm doing this for, and how I'm trying to do it.",
     "type": "supplement",
     "readingTime": true,
-    "eleventyExcludeFromCollections": true
+    "eleventyExcludeFromCollections": true,
+    "toc": [
+        {
+            "href": "bonaFides",
+            "title": "My bona fides"
+        },
+        {
+            "href": "why",
+            "title": "Why I'm doing this"
+        },
+        {
+            "href": "who",
+            "title": "Who is this for"
+        },
+        {
+            "href": "how",
+            "title": "How I'm doing this"
+        }
+    ]
 }
 ---
-<nav class="toc row full-width">
+<section id="{{ toc[0].href }}" class="row">
     <div class="col">
-        <h2>Table of contents</h2>
-        <ol>
-        {# tldr #}
-            <li><a href="#bonaFides">My bona fides</a></li>
-            <li><a href="#why">Why I'm doing this</a></li>
-            <li><a href="#who">Who is this for</a></li>
-            <li><a href="#how">How I'm doing this</a></li>
-        </ol>
-    </div>
-</nav>
-<section id="bonaFides" class="row">
-    <div class="col">
-    <h2>Bona Fides</h2>
+    <h2>{{ toc[0].title }}</h2>
     <p>This part is the <em>least</em> exciting for me to write, but it's only fair you know who's giving you advice.</p>
     <p>My name is Simon Borer. I have been:</p>
     <ul>

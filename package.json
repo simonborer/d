@@ -9,7 +9,7 @@
     "watch:sass": "npx sass sass:_site/css --watch",
     "watch:esbuild": "npx esbuild js/app.js --outfile=js/script.js --bundle --watch",
     "start": "npm run watch:eleventy & npm run watch:sass && npm run watch:esbuild",
-    "build": "npx sass sass:_site/css && npx esbuild js/app.js --outfile=js/script.js --bundle --minify && npx @11ty/eleventy",
+    "build": "npx sass sass:_site/css && npx esbuild js/app.js --outfile=js/script.js --bundle --minify && npx @11ty/eleventy && npx postcss _site/css/*.css -r -m --verbose",
     "spellcheck": "node _utilities/turn.mjs"
   },
   "keywords": [],
@@ -18,15 +18,19 @@
   "dependencies": {
     "@11ty/eleventy": "^1.0.0",
     "alpinejs": "^3.10.2",
+    "autoprefixer": "^10.4.7",
     "eleventy-plugin-reading-time": "^0.0.1",
-    "esbuild": "^0.14.39",
     "rough-notation": "^0.5.1",
     "sass": "^1.50.0"
   },
   "devDependencies": {
     "@11ty/eleventy-img": "^2.0.1",
     "@11ty/eleventy-plugin-rss": "^1.1.2",
+    "@fullhuman/postcss-purgecss": "^4.1.3",
+    "esbuild": "^0.14.39",
     "fs-extra": "^10.1.0",
+    "postcss": "^8.4.14",
+    "postcss-cli": "^9.1.0",
     "spellchecker-cli": "^4.10.0",
     "turndown": "^7.1.1"
   }
