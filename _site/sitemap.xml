@@ -12,11 +12,6 @@
         </url>
     
         <url>
-            <loc>https://meek-tarsier-01cebe.netlify.app//how-to-get-hacked/</loc>
-            <lastmod>2022-04-13T15:31:35.000Z</lastmod>
-        </url>
-    
-        <url>
             <loc>https://meek-tarsier-01cebe.netlify.app//tags/all/</loc>
             <lastmod>2022-04-14T11:27:31.000Z</lastmod>
         </url>
@@ -39,6 +34,11 @@
         <url>
             <loc>https://meek-tarsier-01cebe.netlify.app//ad-hoc-testing/</loc>
             <lastmod>2022-05-12T19:18:22.000Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>https://meek-tarsier-01cebe.netlify.app//how-to-get-hacked/</loc>
+            <lastmod>2022-05-20T13:21:33.000Z</lastmod>
         </url>
     
 </urlset>
