@@ -42,111 +42,202 @@
       <script defer src="/js/filter.js"></script>
     {% endif %}
   </head>
-  <body{% if learningLevel %} data-difficulty="{{ learningLevel }}"{% endif %} x-data :class="$store.menuToggle.on && 'no-scroll'">
-  <a href="#content" class="show-for-sr show-on-focus skip-link{% if home %} home{% endif %}">Skip navigation</a>
-  {% if not home %}<div class="progress"></div>{% endif %}
-  <header class="header">
-    <nav class="nav">
-    
-    <button x-data @click="$store.menuToggle.toggle();document.getElementById('navBarClose').focus();" id="navBarOpen" class="nav__toggle-button hide-without-js">
-      <svg width="48" height="48" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" role="presentation"><path d="M32 96v64h448V96H32zm0 128v64h448v-64H32zm0 128v64h448v-64H32z" class="svg-fill" /></svg>
-      <span class="show-for-sr">Toggle the menu visibility on</span>
-    </button>
-
-    <div x-data class="nav__links" :class="$store.menuToggle.on && 'nav__links--expanded'">
-      <div class="mock-nav hide-without-js">
-        <button x-data @click="$store.menuToggle.toggle();document.getElementById('navBarOpen').focus();" id="navBarClose" class="nav__toggle-button nav__toggle-button--close">
-          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" role="presentation">
-            <path d="M8 8L40 40" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="svg-fill--inverted"/>
-            <path d="M8 40L40 8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="svg-fill--inverted"/>
-          </svg>
-          <span class="show-for-sr">Toggle the menu visibility off</span>
-        </button>
-      </div>
-      <ul>
-        {% if not home %}<li><a href="/">Home</a></li>{% endif %}
-        <li><a href="/about">About</a></li>
-        <li><a href="/socials">Socials</a></li>
-      </ul>
-    </div>
-    <button x-data class="nav__toggle-tap-to-close hide-without-js" :class="$store.menuToggle.on && 'nav__toggle-tap-to-close--open'" @click="$store.menuToggle.toggle();document.getElementById('navBarOpen').focus();" tabindex="-1">Toggle the menu with tap</button>
-      <div class="nav__search-box hide-without-js">
-        <label for="search" class="show-for-sr">Type to search</label>
-        <input id="search" placeholder="Search" class="nav__search-input">
-        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 183.792 183.792" xml:space="preserve" class="nav__search-box-icon" role="presentation">
-      <path class="svg-fill" d="M54.734,9.053C39.12,18.067,27.95,32.624,23.284,50.039c-4.667,17.415-2.271,35.606,6.743,51.22
-        c12.023,20.823,34.441,33.759,58.508,33.759c7.599,0,15.139-1.308,22.287-3.818l30.364,52.592l21.65-12.5l-30.359-52.583
-        c10.255-8.774,17.638-20.411,21.207-33.73c4.666-17.415,2.27-35.605-6.744-51.22C134.918,12.936,112.499,0,88.433,0
-        C76.645,0,64.992,3.13,54.734,9.053z M125.29,46.259c5.676,9.831,7.184,21.285,4.246,32.25c-2.938,10.965-9.971,20.13-19.802,25.806
-        c-6.462,3.731-13.793,5.703-21.199,5.703c-15.163,0-29.286-8.146-36.857-21.259c-5.676-9.831-7.184-21.284-4.245-32.25
-        c2.938-10.965,9.971-20.13,19.802-25.807C73.696,26.972,81.027,25,88.433,25C103.597,25,117.719,33.146,125.29,46.259z"/>
-      </svg>
-        <ul aria-live="polite" id="searchResults" class="nav__search-results"></ul>
-      </div>
-    </nav>
-    {# <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 220" preserveAspectRatio="none" role="presentation" class="svg-hero">
-      <path class="svg-fill" d="M0,192L34.3,192C68.6,192,137,192,206,176C274.3,160,343,128,411,138.7C480,149,549,203,617,213.3C685.7,224,754,192,823,149.3C891.4,107,960,53,1029,64C1097.1,75,1166,149,1234,181.3C1302.9,213,1371,203,1406,197.3L1440,192L1440,0L1405.7,0C1371.4,0,1303,0,1234,0C1165.7,0,1097,0,1029,0C960,0,891,0,823,0C754.3,0,686,0,617,0C548.6,0,480,0,411,0C342.9,0,274,0,206,0C137.1,0,69,0,34,0L0,0Z"></path>
-    </svg> #}
-    {% if type === "supplement" %}
-      <svg xmlns='http://www.w3.org/2000/svg' width="100%" height="250px" class="svg-hero svg-hero--honeycomb">
-        <pattern id="honeycomb" x="0" y="0" width="56" height="100" patternUnits="userSpaceOnUse">
-          <rect width='56' height='100' class="svg-fill--honeycomb"/>
-          <path d='M28 66L0 50L0 16L28 0L56 16L56 50L28 66L28 100' fill='none' stroke="#ffd970" stroke-width='2'/>
-          <path d='M28 0L28 34L0 50L0 84L28 100L56 84L56 50L28 34' fill='none' stroke="#ffd970" stroke-width='2'/>
+  <body
+    {% if learningLevel %}data-difficulty="{{ learningLevel }}"{% endif %} 
+    x-data 
+    {% if home %}class="home"{% endif %}
+    :class="$store.menuToggle.on && 'no-scroll'">
+    <a href="#content" class="show-for-sr show-on-focus skip-link">Skip navigation</a>
+{#     <svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg' role="presentation">
+      <defs>
+        <pattern id='aSvg' patternUnits='userSpaceOnUse' width='20' height='20' patternTransform='scale(2) rotate(0)'>
+          <path d='M 10,-2.55e-7 V 20 Z M -1.1677362e-8,10 H 20 Z'  stroke-width='1' class="svg-fill"/>
         </pattern>
-        <rect x="0" y="0" width="100%" height="100%" fill="url(#honeycomb)"></rect>
-      </svg>
+      </defs>
+      <rect width='100%' height='100%' fill='url(#aSvg)'/>
+    </svg> #}
+    {% if not home %}<div class="progress" aria-hidden="true"></div>{% endif %}
+    <header class="header">
+      <div class="nav">
+        <nav>
+          {# Menu #}
+          <button 
+            x-data 
+            @click="$store.menuToggle.toggle();document.getElementById('navBarClose').focus();" 
+            id="navBarOpen" 
+            class="nav__toggle-button hide-without-js">
+            <svg 
+              width="48" 
+              height="48" 
+              viewBox="0 0 512 512" 
+              xmlns="http://www.w3.org/2000/svg" 
+              role="img">
+              <title>Show menu</title>
+              <path d="M32 96v64h448V96H32zm0 128v64h448v-64H32zm0 128v64h448v-64H32z" class="svg-fill" />
+            </svg>
+          </button>
 
-      {# <svg xmlns='http://www.w3.org/2000/svg' width="100%" height="100%" class="svg-hero">
-    <pattern id="blueprint" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
-      <rect width='100' height='100' class="svg-fill" />
-      <g fill='#6494b7'>
-        <rect width='100' height='1' y='20' />
-        <rect width='100' height='1' y='40' />
-        <rect width='100' height='1' y='60' />
-        <rect width='100' height='1' y='80' />
-        <rect width='1' height='100' x='20' />
-        <rect width='1' height='100' x='40' />
-        <rect width='1' height='100' x='60' />
-        <rect width='1' height='100' x='80' />
-      </g>
-      <rect width='100' height='100' fill='none' stroke-width='2' stroke='#fff' />
-    </pattern>
-    <rect x="0" y="0" width="100%" height="100%" fill="url(#blueprint)"></rect> #}
-  </svg>
-    {% else %}
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 186" preserveAspectRatio="none" role="presentation" class="svg-hero svg-hero--waves">
-      <path class="svg-fill svg-hero__path svg-hero--waves__path" d="M0,128L30,144C60,160,120,192,180,176C240,160,300,96,360,90.7C420,85,480,139,540,149.3C600,160,660,128,720,122.7C780,117,840,139,900,154.7C960,171,1020,181,1080,154.7C1140,128,1200,64,1260,53.3C1320,43,1380,85,1410,106.7L1440,128L1440,0L1410,0C1380,0,1320,0,1260,0C1200,0,1140,0,1080,0C1020,0,960,0,900,0C840,0,780,0,720,0C660,0,600,0,540,0C480,0,420,0,360,0C300,0,240,0,180,0C120,0,60,0,30,0L0,0Z"></path></svg>
-    {% endif %}  
-    <div class="row full-width title-and-summary">
-    <h1 id="content" class="title">{{title}}</h1>
-    {% if description and not home %}
-    <div class="callout summary-container">
-      {% if regExp.test(feature.src) %}
-        <div class="summary__image-container{% if feature.photo %} summary__image-container--photo" style="background-image:url('/images/{{ feature.src }}');"{% else %}"{% endif %}>
-        <img alt="{{feature.alt}}" class="summary__image{% if feature.needsPadding %} summary__image--padded{% endif %}" src="/images/{{ feature.src }}" height="{{ feature.height }}" width="{{ feature.width }}">
+          <div 
+            x-data 
+            class="nav__links" 
+            :class="$store.menuToggle.on && 'nav__links--expanded'" 
+            :aria-expanded="$store.menuToggle.on ? 'true' : 'false'">
+            <div class="nav__links-close-target hide-without-js">
+              <button 
+                x-data 
+                @click="$store.menuToggle.toggle();document.getElementById('navBarOpen').focus();" 
+                id="navBarClose" 
+                class="nav__toggle-button nav__toggle-button--close">
+                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" role="img">
+                  <title>Hide menu</title>
+                  <path d="M8 8L40 40" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="svg-fill--inverted"/>
+                  <path d="M8 40L40 8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="svg-fill--inverted"/>
+                </svg>
+              </button>
+            </div>          
+            <ul>
+              {% if not home %}<li><a href="/">Home</a></li>{% endif %}
+              <li><a href="/about">About</a></li>
+              <li><a href="/socials">Socials</a></li>
+            </ul>
+          </div>
+
+          <button 
+            x-data 
+            class="nav__toggle-tap-to-close hide-without-js" 
+            :class="$store.menuToggle.on && 'nav__toggle-tap-to-close--open'" 
+            @click="$store.menuToggle.toggle();document.getElementById('navBarOpen').focus();" 
+            tabindex="-1">Hide menu with tap</button>
+
+        </nav>
+
+        <h1 id="content" class="title">{{title}}</h1>
+
+        {# Search #}
+        <div class="search__box hide-without-js">
+          <label for="search" class="show-for-sr">Type to search</label>
+          <input id="search" placeholder="Search" class="search__input hide-without-js">
+          <svg width="48" height="48" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 183.792 183.792" xml:space="preserve" class="search__box-icon" role="img">
+            <title>Search</title>
+            <path class="svg-fill" d="M54.734,9.053C39.12,18.067,27.95,32.624,23.284,50.039c-4.667,17.415-2.271,35.606,6.743,51.22
+              c12.023,20.823,34.441,33.759,58.508,33.759c7.599,0,15.139-1.308,22.287-3.818l30.364,52.592l21.65-12.5l-30.359-52.583
+              c10.255-8.774,17.638-20.411,21.207-33.73c4.666-17.415,2.27-35.605-6.744-51.22C134.918,12.936,112.499,0,88.433,0
+              C76.645,0,64.992,3.13,54.734,9.053z M125.29,46.259c5.676,9.831,7.184,21.285,4.246,32.25c-2.938,10.965-9.971,20.13-19.802,25.806
+              c-6.462,3.731-13.793,5.703-21.199,5.703c-15.163,0-29.286-8.146-36.857-21.259c-5.676-9.831-7.184-21.284-4.245-32.25
+              c2.938-10.965,9.971-20.13,19.802-25.807C73.696,26.972,81.027,25,88.433,25C103.597,25,117.719,33.146,125.29,46.259z"/>
+          </svg>
+          <ul aria-live="polite" id="searchResults" class="search__results"></ul>
+        </div>
+      </div>
+
+      {% if description and not home %}
+        <div class="callout summary-container">
+          {% if not home %}
+            <div class="summary">
+              <div class="summary__text-container">
+                <span class="summary__text">{{description}}</span>
+              </div>
+              <div class="summary__reading-time">{% if readingTime %}About {{ content | readingTime }} reading time{% endif %}</div>
+              <div class="summary__date">{{ page.date.toUTCString() }}</div>
+              {% if toc %}
+                <div class="toc">
+                  <h2>Table of contents</h2>
+                  <ol>
+                    {% for section in toc %}
+                      <li><a href="#{{ section.href }}">{{ section.title }}</a></li>
+                    {% endfor %}
+                  </ol>
+                </div>
+                {# <svg role="presentation" xmlns='http://www.w3.org/2000/svg' width="100%" height="100" class="toc__svg">
+                  <rect x="0" y="0" width="100%" height="100%" fill="url(#honeycomb)"></rect>
+                </svg> #}
+              {% endif %}
+            </div>
+          {% endif %}
+          {% if regExp.test(feature.src) %}
+            <div class="summary__image-container">
+            <img alt="{{feature.alt}}" class="summary__image{% if feature.needsPadding %} summary__image--padded{% endif %}" src="/images/{{ feature.src }}" height="{{ feature.height }}" width="{{ feature.width }}">
+            </div>
+          {% endif %}
         </div>
       {% endif %}
-      {% if not home %}<span class="summary">{{description}}</span>{% endif %}
-    </div>
-    {% endif %}
-    </div>
+      {# <svg role="presentation" xmlns='http://www.w3.org/2000/svg' width="100%" height="100" class="toc__svg">
+                  <pattern id="honeycomb" x="0" y="0" width="56" height="100" patternUnits="userSpaceOnUse">
+                    <rect width='56' height='100' fill="transparent" />
+                    <path d='M28 66L0 50L0 16L28 0L56 16L56 50L28 66L28 100' fill='none' stroke="#ffd970" stroke-width='2'/>
+                    <path d='M28 0L28 34L0 50L0 84L28 100L56 84L56 50L28 34' fill='none' stroke="#ffd970" stroke-width='2'/>
+                  </pattern>
+                  <rect x="0" y="0" width="100%" height="100%" fill="url(#honeycomb)"></rect>
+                </svg> #}
     </header>
+
     <main>
-    {% if home %}
-      <ul class="filter-strip hide-without-js" data-filter aria-label="Filter content by learning level.">
-        <li id="dataFilterListItem1" class="active"><a href="#dataFilterListItem1" data-filter-option="-1" aria-controls="cardList">All</a></li>
-        <li id="dataFilterListItem2" data-filter-list-item="1"><a href="#dataFilterListItem2" data-filter-option="1" aria-controls="cardList">Stuff everyone can use</a></li>
-        <li id="dataFilterListItem3" data-filter-list-item="2"><a href="#dataFilterListItem3" data-filter-option="2" aria-controls="cardList">Starting to code</a></li>
-        <li id="dataFilterListItem4" data-filter-list-item="3"><a href="#dataFilterListItem4" data-filter-option="3" aria-controls="cardList">Advanced coding stuff</a></li>
-      </ul>
-      <ul class="card-list card-list--learning-level--1" aria-live="polite" id="cardList">
-      {%- for post in collections.all -%}
-        {% if not post.data.home and not post.data.exclude %}
-          {% if post.data.learningLevel %}{% set learningLevel = post.data.learningLevel %}{%  else %}{% set learningLevel = 0 %}{% endif %}
-        <li class="card-list__item" data-learning-level="{{ learningLevel }}">
-          <a href="{{ post.url }}" class="card-list__link">
-            <div class="card-list__feature">
+      {% if home %}
+        {# Post filter buttons #}
+        <div class="filter-strip__wrapper">
+          <ul 
+            class="filter-strip hide-without-js" 
+            data-filter 
+            aria-label="Filter content by learning level."
+            id="filterList">
+            <li 
+              id="dataFilterListItem1" 
+              class="active">
+              <a 
+                href="#filterList" 
+                data-filter-option="-1" 
+                aria-controls="cardList">
+                <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="display: flex;">
+                  <title>Filter</title>
+                  <path class="svg-fill--no-stroke" d="M10 19h4v-2h-4v2zm-4-6h12v-2H6v2zM3 5v2h18V5H3z"/></g>
+                </svg> All</a>
+            </li>
+            <li 
+              id="dataFilterListItem2" 
+              data-filter-list-item="1">
+              <a 
+                href="#filterList" 
+                data-filter-option="1" 
+                aria-controls="cardList">Stuff everyone can use</a>
+            </li>
+            <li 
+              id="dataFilterListItem3" 
+              data-filter-list-item="2">
+              <a 
+                href="#filterList" 
+                data-filter-option="2" 
+                aria-controls="cardList">Starting to code</a>
+            </li>
+            <li 
+              id="dataFilterListItem4" 
+              data-filter-list-item="3">
+              <a 
+                href="#filterList" 
+                data-filter-option="3" 
+                aria-controls="cardList">Advanced coding stuff</a>
+            </li>
+          </ul>
+        </div>
+
+        {# Post list #}
+        <ul 
+        class="card-list card-list--learning-level--1" 
+        aria-live="polite" 
+        id="cardList">
+        {%- for post in collections.all -%}
+          {% if not post.data.home and not post.data.exclude %}
+            {% if post.data.learningLevel %}
+              {% set learningLevel = post.data.learningLevel %}
+            {% else %}
+              {% set learningLevel = 0 %}
+            {% endif %}
+            <li 
+              class="card-list__item" 
+              data-learning-level="{{ learningLevel }}">
+              <a 
+                href="{{ post.url }}" 
+                class="card-list__link">
+                <div class="card-list__feature">
               {# wtf, this was real weird - didn't work as an if else #}
               {% if regExp.test(post.data.feature.src) %}
                 <img alt="{{post.data.feature.alt}}" class="card-list__image{% if post.data.feature.needsPadding %} card-list__image--padded{% endif %}" src="/images/{{ post.data.feature.src }}" height="{{ post.data.feature.height }}" width="{{ post.data.feature.width }}">
@@ -154,26 +245,31 @@
               {% if regExp.test(post.data.feature.src) %}{% elif ytRegExp.test(post.data.feature.src) %}
                 <lite-youtube videoid="{{post.data.feature.id}}" style="background-image: url('https://i.ytimg.com/vi/{{post.data.feature.id}}/hqdefault.jpg');" params="controls=0&start=10&end=30&modestbranding=2&rel=0&enablejsapi=1"></lite-youtube>
               {% endif %}
-            </div>
-            <div class="card-list__title heading-style-5">{{ post.data.title }}</div>
-            <div class="card-list__summary">{{ post.data.description }}</div>
-            <div class="card-list__cta">Read on<span class="hide-for-sr">…</span><span class="show-for-sr"> about {{ post.data.title }}</span></div>
-          </a>
-        </li>
-        {% endif %}
-      {%- endfor -%}
-      </ul>
-    {% endif %}
-    {% if not home %}<article>{% endif %}
-      {% if readingTime %}<div class="row">About {{ content | readingTime }} reading time</div>{% endif %}
-    {{ content | safe }}
-    {% if not home %}</article>{% endif %}
+                </div>
+                <div class="card-list__text">
+              <div class="card-list__title">{{ post.data.title }}</div>
+              <div class="card-list__summary">{{ post.data.description }}</div></div>
+              <div class="card-list__cta">
+                {# <span class="card-list__cta-text">Read on<span class="hide-for-sr">…</span><span class="show-for-sr"> about {{ post.data.title }}</span></span> #}</div>
+            </a>
+          </li>
+          {% endif %}
+        {%- endfor -%}
+        </ul>
+      {% endif %}
+
+      {# Page content #}
+      {% if not home %}<article>{% endif %}
+        
+        {{ content | safe }}
+      {% if not home %}</article>{% endif %}
+
     </main>
+
     <footer>
-    <div class="row full-width">
-      &copy; 2022
-      </div>
+      
     </footer>
+
     <script src="/js/fuse.js"></script>
     <script>
       // Let 11ty populate an array of pages
@@ -206,27 +302,6 @@
     window.onload = () => (searchBox.value = ``);
 
     // Give results while typing
-    searchBox.addEventListener("keyup", function () {
-      const resultsList = document.getElementById("searchResults");
-      resultsList.innerHTML = ``;
-      const searchResults = fuse
-        .search(searchBox.value)
-        .sort((a, b) => a.score - b.score)
-        .slice(0, 3);
-
-      searchResults.forEach((result) => {
-        resultsList.innerHTML += `<li><a href="${result.item.url}" tabindex="0">${
-          result.item.title
-        }<span class="pill">${result.item.isTag ? `Tag` : `Page`}</span></a></li>`;
-      });
-
-      listenToResults();
-
-      if (resultsList.children.length > 0 && event.key === "ArrowDown") {
-        resultsList.firstChild.querySelector("a").focus();
-      }
-    });
-
     const listenToResults = () => {
       document
         .getElementById("searchResults")
@@ -251,10 +326,38 @@
                 .getElementById("searchResults")
                 .querySelectorAll("a")
                 [index + 1].focus();
+            } else if (event.key === "Escape") {
+              document
+                .getElementById("searchResults").innerHTML = ``;
             }
           });
         });
     };
+
+    searchBox.addEventListener("keyup", function () {
+      const resultsList = document.getElementById("searchResults");
+      resultsList.innerHTML = ``;
+      const searchResults = fuse
+        .search(searchBox.value)
+        .sort((a, b) => a.score - b.score)
+        .slice(0, 3);
+
+        if (event.key !== "Escape") {
+          searchResults.forEach((result) => {
+            resultsList.innerHTML += `<li><a href="${result.item.url}" tabindex="0">${
+              result.item.title
+            }<span class="pill">${result.item.isTag ? `Tag` : `Page`}</span></a></li>`;
+          });
+
+          listenToResults();
+
+          if (resultsList.children.length > 0 && event.key === "ArrowDown") {
+            resultsList.firstChild.querySelector("a").focus();
+          }
+        } else {
+          resultsList.innerHTML = ``;
+        }
+        });
 
     // Use Alpine to toggle the menu
     document.addEventListener("alpine:init", () => {
@@ -294,4 +397,4 @@
     </script>
     <script src="/js/instantpage-5.1.0.js" type="module" defer></script>
   </body>
-</html>
+  </html>

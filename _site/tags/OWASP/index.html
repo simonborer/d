@@ -38,68 +38,112 @@
     <script src="/js/script.js" defer></script>
     
   </head>
-  <body x-data :class="$store.menuToggle.on && 'no-scroll'">
-  <a href="#content" class="show-for-sr show-on-focus skip-link">Skip navigation</a>
-  <div class="progress"></div>
-  <header class="header">
-    <nav class="nav">
+  <body
+     
+    x-data 
     
-    <button x-data @click="$store.menuToggle.toggle();document.getElementById('navBarClose').focus();" id="navBarOpen" class="nav__toggle-button hide-without-js">
-      <svg width="48" height="48" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" role="presentation"><path d="M32 96v64h448V96H32zm0 128v64h448v-64H32zm0 128v64h448v-64H32z" class="svg-fill" /></svg>
-      <span class="show-for-sr">Toggle the menu visibility on</span>
-    </button>
+    :class="$store.menuToggle.on && 'no-scroll'">
+    <a href="#content" class="show-for-sr show-on-focus skip-link">Skip navigation</a>
 
-    <div x-data class="nav__links" :class="$store.menuToggle.on && 'nav__links--expanded'">
-      <div class="mock-nav hide-without-js">
-        <button x-data @click="$store.menuToggle.toggle();document.getElementById('navBarOpen').focus();" id="navBarClose" class="nav__toggle-button nav__toggle-button--close">
-          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" role="presentation">
-            <path d="M8 8L40 40" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="svg-fill--inverted"/>
-            <path d="M8 40L40 8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="svg-fill--inverted"/>
+    <div class="progress" aria-hidden="true"></div>
+    <header class="header">
+      <div class="nav">
+        <nav>
+          
+          <button 
+            x-data 
+            @click="$store.menuToggle.toggle();document.getElementById('navBarClose').focus();" 
+            id="navBarOpen" 
+            class="nav__toggle-button hide-without-js">
+            <svg 
+              width="48" 
+              height="48" 
+              viewBox="0 0 512 512" 
+              xmlns="http://www.w3.org/2000/svg" 
+              role="img">
+              <title>Show menu</title>
+              <path d="M32 96v64h448V96H32zm0 128v64h448v-64H32zm0 128v64h448v-64H32z" class="svg-fill" />
+            </svg>
+          </button>
+
+          <div 
+            x-data 
+            class="nav__links" 
+            :class="$store.menuToggle.on && 'nav__links--expanded'" 
+            :aria-expanded="$store.menuToggle.on ? 'true' : 'false'">
+            <div class="nav__links-close-target hide-without-js">
+              <button 
+                x-data 
+                @click="$store.menuToggle.toggle();document.getElementById('navBarOpen').focus();" 
+                id="navBarClose" 
+                class="nav__toggle-button nav__toggle-button--close">
+                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" role="img">
+                  <title>Hide menu</title>
+                  <path d="M8 8L40 40" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="svg-fill--inverted"/>
+                  <path d="M8 40L40 8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="svg-fill--inverted"/>
+                </svg>
+              </button>
+            </div>          
+            <ul>
+              <li><a href="/">Home</a></li>
+              <li><a href="/about">About</a></li>
+              <li><a href="/socials">Socials</a></li>
+            </ul>
+          </div>
+
+          <button 
+            x-data 
+            class="nav__toggle-tap-to-close hide-without-js" 
+            :class="$store.menuToggle.on && 'nav__toggle-tap-to-close--open'" 
+            @click="$store.menuToggle.toggle();document.getElementById('navBarOpen').focus();" 
+            tabindex="-1">Hide menu with tap</button>
+
+        </nav>
+
+        <h1 id="content" class="title"></h1>
+
+        
+        <div class="search__box hide-without-js">
+          <label for="search" class="show-for-sr">Type to search</label>
+          <input id="search" placeholder="Search" class="search__input hide-without-js">
+          <svg width="48" height="48" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 183.792 183.792" xml:space="preserve" class="search__box-icon" role="img">
+            <title>Search</title>
+            <path class="svg-fill" d="M54.734,9.053C39.12,18.067,27.95,32.624,23.284,50.039c-4.667,17.415-2.271,35.606,6.743,51.22
+              c12.023,20.823,34.441,33.759,58.508,33.759c7.599,0,15.139-1.308,22.287-3.818l30.364,52.592l21.65-12.5l-30.359-52.583
+              c10.255-8.774,17.638-20.411,21.207-33.73c4.666-17.415,2.27-35.605-6.744-51.22C134.918,12.936,112.499,0,88.433,0
+              C76.645,0,64.992,3.13,54.734,9.053z M125.29,46.259c5.676,9.831,7.184,21.285,4.246,32.25c-2.938,10.965-9.971,20.13-19.802,25.806
+              c-6.462,3.731-13.793,5.703-21.199,5.703c-15.163,0-29.286-8.146-36.857-21.259c-5.676-9.831-7.184-21.284-4.245-32.25
+              c2.938-10.965,9.971-20.13,19.802-25.807C73.696,26.972,81.027,25,88.433,25C103.597,25,117.719,33.146,125.29,46.259z"/>
           </svg>
-          <span class="show-for-sr">Toggle the menu visibility off</span>
-        </button>
+          <ul aria-live="polite" id="searchResults" class="search__results"></ul>
+        </div>
       </div>
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/socials">Socials</a></li>
-      </ul>
-    </div>
-    <button x-data class="nav__toggle-tap-to-close hide-without-js" :class="$store.menuToggle.on && 'nav__toggle-tap-to-close--open'" @click="$store.menuToggle.toggle();document.getElementById('navBarOpen').focus();" tabindex="-1">Toggle the menu with tap</button>
-      <div class="nav__search-box hide-without-js">
-        <label for="search" class="show-for-sr">Type to search</label>
-        <input id="search" placeholder="Search" class="nav__search-input">
-        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 183.792 183.792" xml:space="preserve" class="nav__search-box-icon" role="presentation">
-      <path class="svg-fill" d="M54.734,9.053C39.12,18.067,27.95,32.624,23.284,50.039c-4.667,17.415-2.271,35.606,6.743,51.22
-        c12.023,20.823,34.441,33.759,58.508,33.759c7.599,0,15.139-1.308,22.287-3.818l30.364,52.592l21.65-12.5l-30.359-52.583
-        c10.255-8.774,17.638-20.411,21.207-33.73c4.666-17.415,2.27-35.605-6.744-51.22C134.918,12.936,112.499,0,88.433,0
-        C76.645,0,64.992,3.13,54.734,9.053z M125.29,46.259c5.676,9.831,7.184,21.285,4.246,32.25c-2.938,10.965-9.971,20.13-19.802,25.806
-        c-6.462,3.731-13.793,5.703-21.199,5.703c-15.163,0-29.286-8.146-36.857-21.259c-5.676-9.831-7.184-21.284-4.245-32.25
-        c2.938-10.965,9.971-20.13,19.802-25.807C73.696,26.972,81.027,25,88.433,25C103.597,25,117.719,33.146,125.29,46.259z"/>
-      </svg>
-        <ul aria-live="polite" id="searchResults" class="nav__search-results"></ul>
-      </div>
-    </nav>
-    
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 186" preserveAspectRatio="none" role="presentation" class="svg-hero svg-hero--waves">
-      <path class="svg-fill svg-hero__path svg-hero--waves__path" d="M0,128L30,144C60,160,120,192,180,176C240,160,300,96,360,90.7C420,85,480,139,540,149.3C600,160,660,128,720,122.7C780,117,840,139,900,154.7C960,171,1020,181,1080,154.7C1140,128,1200,64,1260,53.3C1320,43,1380,85,1410,106.7L1440,128L1440,0L1410,0C1380,0,1320,0,1260,0C1200,0,1140,0,1080,0C1020,0,960,0,900,0C840,0,780,0,720,0C660,0,600,0,540,0C480,0,420,0,360,0C300,0,240,0,180,0C120,0,60,0,30,0L0,0Z"></path></svg>
+
       
-    <div class="row full-width title-and-summary">
-    <h1 id="content" class="title"></h1>
-    
-    <div class="callout summary-container">
+        <div class="callout summary-container">
+          
+            <div class="summary">
+              <div class="summary__text-container">
+                <span class="summary__text">List of tagged pages</span>
+              </div>
+              <div class="summary__reading-time"></div>
+              <div class="summary__date">Thu, 14 Apr 2022 11:27:31 GMT</div>
+              
+            </div>
+          
+          
+        </div>
       
-      <span class="summary">List of tagged pages</span>
-    </div>
-    
-    </div>
+      
     </header>
+
     <main>
-    
-    <article>
       
-    <h1>Tagged “OWASP”</h1>
+
+      
+      <article>
+        
+        <h1>Tagged “OWASP”</h1>
 
 <ol class="row">
 
@@ -115,13 +159,14 @@
   <li><a href="/encryption-and-hashing/">Encryption &amp; Hashing</a></li>
 
 </ol>
-    </article>
+      </article>
+
     </main>
+
     <footer>
-    <div class="row full-width">
-      &copy; 2022
-      </div>
+      
     </footer>
+
     <script src="/js/fuse.js"></script>
     <script>
       // Let 11ty populate an array of pages
@@ -158,31 +203,6 @@
           "title": "How to get hacked",
           "tags": ["OWASP","XSS","SQL Injection","Security","Authentication"]
         },{ 
-          "url": "/tags/Task%20runners/",
-          "title": "Task runners",
-          "tags": [],
-          "isTag": true
-        },{ 
-          "url": "/tags/Toolchains/",
-          "title": "Toolchains",
-          "tags": [],
-          "isTag": true
-        },{ 
-          "url": "/tags/Bundlers/",
-          "title": "Bundlers",
-          "tags": [],
-          "isTag": true
-        },{ 
-          "url": "/tags/Vite/",
-          "title": "Vite",
-          "tags": [],
-          "isTag": true
-        },{ 
-          "url": "/tags/SASS/",
-          "title": "SASS",
-          "tags": [],
-          "isTag": true
-        },{ 
           "url": "/tags/OWASP/",
           "title": "OWASP",
           "tags": [],
@@ -207,6 +227,31 @@
           "title": "Authentication",
           "tags": [],
           "isTag": true
+        },{ 
+          "url": "/tags/Task%20runners/",
+          "title": "Task runners",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Toolchains/",
+          "title": "Toolchains",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Bundlers/",
+          "title": "Bundlers",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Vite/",
+          "title": "Vite",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/SASS/",
+          "title": "SASS",
+          "tags": [],
+          "isTag": true
         }
     ];
 
@@ -226,27 +271,6 @@
     window.onload = () => (searchBox.value = ``);
 
     // Give results while typing
-    searchBox.addEventListener("keyup", function () {
-      const resultsList = document.getElementById("searchResults");
-      resultsList.innerHTML = ``;
-      const searchResults = fuse
-        .search(searchBox.value)
-        .sort((a, b) => a.score - b.score)
-        .slice(0, 3);
-
-      searchResults.forEach((result) => {
-        resultsList.innerHTML += `<li><a href="${result.item.url}" tabindex="0">${
-          result.item.title
-        }<span class="pill">${result.item.isTag ? `Tag` : `Page`}</span></a></li>`;
-      });
-
-      listenToResults();
-
-      if (resultsList.children.length > 0 && event.key === "ArrowDown") {
-        resultsList.firstChild.querySelector("a").focus();
-      }
-    });
-
     const listenToResults = () => {
       document
         .getElementById("searchResults")
@@ -271,10 +295,38 @@
                 .getElementById("searchResults")
                 .querySelectorAll("a")
                 [index + 1].focus();
+            } else if (event.key === "Escape") {
+              document
+                .getElementById("searchResults").innerHTML = ``;
             }
           });
         });
     };
+
+    searchBox.addEventListener("keyup", function () {
+      const resultsList = document.getElementById("searchResults");
+      resultsList.innerHTML = ``;
+      const searchResults = fuse
+        .search(searchBox.value)
+        .sort((a, b) => a.score - b.score)
+        .slice(0, 3);
+
+        if (event.key !== "Escape") {
+          searchResults.forEach((result) => {
+            resultsList.innerHTML += `<li><a href="${result.item.url}" tabindex="0">${
+              result.item.title
+            }<span class="pill">${result.item.isTag ? `Tag` : `Page`}</span></a></li>`;
+          });
+
+          listenToResults();
+
+          if (resultsList.children.length > 0 && event.key === "ArrowDown") {
+            resultsList.firstChild.querySelector("a").focus();
+          }
+        } else {
+          resultsList.innerHTML = ``;
+        }
+        });
 
     // Use Alpine to toggle the menu
     document.addEventListener("alpine:init", () => {
@@ -314,4 +366,4 @@
     </script>
     <script src="/js/instantpage-5.1.0.js" type="module" defer></script>
   </body>
-</html>
+  </html>

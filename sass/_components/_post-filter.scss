@@ -1,4 +1,4 @@
-@use '../variables.1.scss' as var;
+@use '../variables.scss' as var;
 
 // Structure
 .filter-strip {
@@ -55,13 +55,26 @@
     }
 
     & .active a {
-        box-shadow: 0 0 0.4rem rgb(0 0 0 / 75%) inset;
+        box-shadow: 0 0 0.4rem rgb(0 0 0 / 25%) inset;
     }
 }
 
 @media (min-width: var.$breakpoint) {
     .filter-strip {
         margin-top: -1px;
+        &:after {
+            $border-width: .0625rem;
+            $height: 1.25rem;
+            $width: .75rem;
+            content: " ";
+            position: absolute;
+            height: $height;
+            width: $width;
+            border-top: $border-width solid var(--background--offset);
+            border-left: $border-width solid var(--background--offset);
+            bottom: calc(-#{$height} + #{$border-width});
+            right: calc(-#{$width} + #{$border-width});
+        }
     }
     .filter-strip__wrapper {
         position: absolute;
@@ -78,8 +91,8 @@ $card-list-border-color: var(--foreground--offset);
     padding-top: 2rem;
     padding-bottom: 2rem;
     padding-left: 0;
-    gap: 2rem;
-    justify-self: space-evenly;
+    gap: 1rem;
+    // justify-self: space-evenly;
     justify-content: center;
     &__item {
         transition: .2s all;
@@ -88,9 +101,9 @@ $card-list-border-color: var(--foreground--offset);
         box-shadow: 0 0 0.25rem rgb(0 0 0 / 25%);
         backdrop-filter: brightness(1.75) hue-rotate(-20deg);
         overflow: hidden;
-        margin-left: 1rem;
-        margin-right: 1rem; 
-        border-radius: .5rem;
+        // margin-left: 1rem;
+        // margin-right: 1rem; 
+        // border-radius: .5rem;
         &:hover {
             transform: translate(0, -.125rem);
             box-shadow: 0px .125rem 6px 1px rgb(0 0 0 / 25%);
@@ -99,7 +112,7 @@ $card-list-border-color: var(--foreground--offset);
     &__feature {
         display: flex;
         justify-content: center;
-        align-items: center;
+        align-items: flex-start;
         min-height: 12rem;
         min-width: 12rem;
 
@@ -120,6 +133,7 @@ $card-list-border-color: var(--foreground--offset);
     &__text {
         padding: 1.5rem;
         border-top: .25rem solid $card-list-border-color;
+        border-bottom: .25rem solid $card-list-border-color;
     }
     &__title {
         font-size: 1.5rem;
@@ -139,6 +153,7 @@ $card-list-border-color: var(--foreground--offset);
         margin-top: auto;
         text-align: right;
         padding-top: .5rem;
+        flex-grow: 1;
         @for $i from 1 through 3 {
             [data-learning-level="#{$i}"] & {
                 background-color: nth(var.$learning-level-colours, $i);
@@ -160,12 +175,13 @@ $card-list-border-color: var(--foreground--offset);
         padding-left: 2rem;
         padding-right: 2rem;
         &__item {
-            border: .25rem solid $card-list-border-color;
-            border-radius: 0.5rem;
+            // border: .25rem solid $card-list-border-color;
+            // border-radius: 0.5rem;
         }
         &__text {
             padding-left: 2rem;
             padding-right: 2rem;
+            border-bottom: 0 solid transparent;
         }
     }
 }
@@ -187,12 +203,14 @@ $card-list-border-color: var(--foreground--offset);
             }
         }
         &__title {
-            font-size: 3rem;
+            font-size: 2.5rem;
+            line-height: 1.1;
         }
         &__text {
             flex-basis: 40vw;
             border-top: 0 solid transparent;
             border-left: .25rem solid $card-list-border-color; 
+            border-right: .25rem solid $card-list-border-color; 
             max-width: 60ch;
             display: flex;
             flex-direction: column;

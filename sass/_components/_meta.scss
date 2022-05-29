@@ -1,7 +1,8 @@
-@use '../variables.1.scss' as var;
+@use '../variables.scss' as var;
 
 .summary {
 	max-width: 60ch;
+	background: var.$white;
 	&__reading-time {
 		border-top: 1px solid var(--foreground);
 		margin: .5rem 1rem 0;
@@ -15,7 +16,7 @@
 	&-container {
 		display: flex;
 		flex-wrap: wrap;
-		justify-content: space-between;
+		justify-content: center;
 	}
 	&__text {
 		font-size: 1.25rem;
@@ -37,6 +38,8 @@
             padding: .5em;
         }
         &-container {
+        	background: var.$white;
+        	display: flex;
             [data-difficulty="1"] & {
                 background: var(--emphasis);
             }
@@ -54,6 +57,7 @@
 
 @media (prefers-color-scheme: dark) {
 	.summary {
+		background: var(--background--offset);
 		&__text {
 			background: var(--warning);
 			color: var(--background);
@@ -63,16 +67,54 @@
 
 @media (min-width: var.$breakpoint) {
 	.summary {
+		max-width: min(calc(100vw - 12rem), 60ch);
+		border-top: .125rem solid var(--background--offset);
+		border-left: .125rem solid var(--background--offset);
+		border-bottom: .125rem solid var(--background--offset);
+		position: relative;
+		&:before {
+			content: " ";
+		    height: 2rem;
+		    width: 2rem;
+		    position: absolute;
+		    border-right: 2px solid var(--background--offset);
+		    border-bottom: 2px solid var(--background--offset);
+		    left: -2rem;
+		    top: -2rem;
+		}
+		&:after {
+			content: " ";
+			position: absolute;
+			border-left: 2px solid var(--background--offset);
+		    height: 2rem;
+		    right: 0;
+		}
+		&-container {
+			margin-top: 12rem;
+			margin-bottom: 14rem;
+		}
 		&__image {
+			border-right: .125rem solid var(--background--offset);
+			border-bottom: .125rem solid var(--background--offset);
+			border-top: .125rem solid var(--background--offset);
+			padding-right: 1rem;
+			padding-left: 1rem;
 			&-container {
 				flex-basis: 20vw;
+				&:after {
+					content: " ";
+				    position: absolute;
+				    width: 10rem;
+				    border-top: 2px solid var(--background--offset);
+				    right: 0;
+				}
 			}
 		}
 	}
 }
 
 .toc {
-	margin: 2rem 1rem;
+	margin: 6rem 1rem;
 	text-align: center;
 	& h2 {
 		font-size: 1.5rem;
@@ -82,6 +124,9 @@
 		margin-top: 1.5rem;
 		transform: translateX(50%);
 	}
+	& ol {
+		padding-left: 0;
+	}
 	& li {
 		list-style-position: inside;
 	}
@@ -89,6 +134,7 @@
 
 @media (min-width: var.$breakpoint) {
 	.toc {
+		margin: 2rem 1rem;
 		&__svg {
 			display: none;
 		}

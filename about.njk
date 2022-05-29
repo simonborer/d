@@ -1,6 +1,6 @@
 ---json
 {
-    "layout": "layout.1.njk",
+    "layout": "layout.njk",
     "title": "About",
     "feature": {
         "src": "me.jpeg",
@@ -24,7 +24,7 @@
         },
         {
             "href": "who",
-            "title": "Who is this for"
+            "title": "Who this is for"
         },
         {
             "href": "how",
@@ -49,11 +49,12 @@
 </section>
 <section id="why" class="row">
 <h2>The 'Why'</h2>
+    <p>Every day the internet feels a little less 'by the people', and a lot less 'for the people'. <span data-annotate data-ann-color="var(--alert)">Wouldn't it be nice if the internet, and the tools that make it, were accessible to everybody?</span></p>
      <p>On the internet, accessibility can refer to particular responsible building practices, but I'm using it here in a broader sense. Over the years, I've seen {% ext "https://www.washingtonpost.com/education/2019/11/16/todays-kids-may-be-digital-natives-new-study-shows-they-arent-close-being-computer-literate/" %}computer literacy decline{% endext %} even as middle-class jobs depend increasingly on digital skills. While many of my friends dabbled in computer languages by hacking their MySpace or LiveJournal pages, that in-road has been closed off by the "walled gardens" of closed-source apps. Meanwhile the learning curve for building web content that "feels" modern has gotten steeper, and the main tools people have for learning about computers and computer languages (i.e. Google searches, online documentation) have been declining in quality for a few years.</p>
      <p>In many ways, there are many more tools now that <em>could</em> be helping regular folks with their daily lives, and {% ext "https://blog.mozilla.org/en/mozilla/gender-bias-code-reviews/" %}levelling the playing field for marginalized people{% endext %}, but instead we get distractions that scream for our attention, and fancy gadgets that only kind of work.</p>
      <p>At the same time that the digital world gets more inaccessible and annoying, and abstracted further away from the understanding of the average person, the stakes keep getting higher.</p>
      <p>The economic, socio-political and {% ext "https://www.theverge.com/2021/3/15/22328203/nft-cryptoart-ethereum-blockchain-climate-change" %}environmental{% endext %} footprints of the digital world get bigger every year, and have been {% ext "https://www150.statcan.gc.ca/n1/pub/45-28-0001/2021001/article/00027-eng.htm" %}multiplied by the global impacts of a world-wide pandemic{% endext %}.</p>
-     <p>I thought it would be nice to offer some of my experience to help understand this thing called the internet a bit better, to provide some resources on how to make stuff on the web (hopefully in a way that's a bit more approachable than a lot of what's out there already), and spend a little time thinking and learning about the ethical questions that come up when we're dealing with the infrastructure of our daily lives.</p>
+     <p>I thought it would be nice to offer some of my experience to help understand this thing called the internet a bit better, to provide some resources on how to make stuff on the web (hopefully in a way that's a bit more approachable than a lot of what's out there already), and spend a little time thinking and learning about the <span data-annotate>ethical questions</span> that come up when we're dealing with the infrastructure of our daily lives.</p>
     </div>
 </section>
 <section id="what" class="row">
@@ -65,10 +66,10 @@
         <p>Once I have some content together, I'd like to start engaging with people interactively, whether that's on a Discord server, a Twitch stream, or in online classes (either live, like in the college courses I teach, or asynchronously, like a Wes Bos or Udemy course).</p>
         <p>I also want to be transparent - I'd love to pay my bills. But I'm commited to doing this in a non-shitty way. To me this means:</p>
         <ul>
-            <li>no selling of personal data, ever,</li>
-            <li>for anything that isn't free, a <abbr title="Pay what you can">PWYC</abbr> or sliding-scale model,</li>
-            <li>transparency around any sponsorship,</li>
-            <li>if ads ever get involved, they will have the absolute bare minimum impact on user experience (I think {% ext "https://kottke.org/" %}Jason Kottke{% endext %} sets a lovely example).</li>
+            <li data-annotate>no selling of personal data, ever,</li>
+            <li data-annotate>for anything that isn't free, a <abbr title="Pay what you can">PWYC</abbr> or sliding-scale model,</li>
+            <li data-annotate>transparency around any sponsorship,</li>
+            <li data-annotate>if ads ever get involved, they will have the absolute bare minimum impact on user experience (I think {% ext "https://kottke.org/" %}Jason Kottke{% endext %} sets a lovely example).</li>
         </ul>
         <p>My best-case scenario is a sponsor/membership model, but I'm going to withhold judgement until I get a fuller picture.</p>
     </div>
@@ -76,6 +77,10 @@
 <section id="who" class="row">
     <div class="col">
     <h2>The 'Who'</h2>
+    <p>People who care about <span data-annotate data-ann-color="var(--alert)" data-ann-type="underline">the ethics of the internet</span>.</p>
+    <p>People who would like the internet to be a little <span  data-annotate data-ann-color="var(--alert)" data-ann-type="underline">less annoying</span> and a little <span data-annotate data-ann-color="var(--alert)" data-ann-type="underline">more useful</span> in their daily lives.</p>
+    <p>People who <span data-annotate data-ann-color="var(--alert)" data-ann-type="underline">want a job</span> that involves making stuff on the internet.</p>
+    <p>People who <em>have</em> a job making stuff on the internet, and want to <span data-annotate data-ann-color="var(--alert)" data-ann-type="underline">get better</span> at <span data-annotate data-ann-color="var(--alert)" data-ann-type="underline">making stuff that works for people</span>.</p>
     </div>
 </section>
 <section id="how" class="row">
@@ -90,7 +95,7 @@
     <p>The site is generated using {% ext "https://www.11ty.dev/" %}Eleventy{% endext %} using the {% ext "https://mozilla.github.io/nunjucks/" %}Nunjucks{% endext %} templating engine, with {% ext "https://sass-lang.com/" %}SCSS{% endext %} to build my styles.</p>
     <p>The site uses {% ext "https://alpinejs.dev/" %}Alpine.js{% endext %} to help with passing state data between elements, {% ext "https://fusejs.io/" %}Fuse.js{% endext %} for fuzzy searching, {% ext "https://prismjs.com/" %}Prism{% endext %} to highlight code, Paul Irish's {% ext "https://github.com/paulirish/lite-youtube-embed" %}Lite YouTube Embed{% endext %} for video "facades", and {% ext "https://instant.page/" %}instant.page{% endext %} for preloading links.</p>
     <p>To see how I'm doing, I check my work in {% ext "https://developers.google.com/web/tools/lighthouse" %}Lighthouse{% endext %}, {% ext "https://www.deque.com/axe/browser-extensions/" %}axe DevTools{% endext %}, {% ext "https://accessibilityinsights.io/" %}Accessibility Insights{% endext %}, developer tools in {% ext "https://developer.chrome.com/docs/devtools/" %}Chrome{% endext %}, {% ext "https://firefox-source-docs.mozilla.org/devtools-user/index.html" %}Firefox{% endext %}, and {% ext "https://developer.apple.com/safari/" %}Safari{% endext %}, {% ext "https://github.com/tbroadley/spellchecker-cli" %}spellchecker-cli{% endext %} and {% ext "https://github.com/amperser/proselint" %}proselint{% endext %}.</p>
-    <p>And here's my favourite part - I get inspiration from:</p>
+    <p>And here's <span data-annotate>my favourite part</span> - I get inspiration from:</p>
     <ul>
         <li>{% ext "https://jvns.ca/" %}Julia Evans{% endext %}, who makes internet technologies feel approachable (even fun!) with a mix of curiousity, enthusiasm, and fearlessness.</li>
         <li>{% ext "https://kaomorphism.com/" %}Zi Chong Kao{% endext %}, whose {% ext "https://selectstarsql.com/" %}Select Star SQL{% endext %} is, bar none, the best tech tutorial I've ever come across.</li>

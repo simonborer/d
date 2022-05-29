@@ -1,4 +1,4 @@
-@use '../variables.1.scss' as var;
+@use '../variables.scss' as var;
 
 // Structure
 .nav {
@@ -71,15 +71,18 @@
 
 	        &--expanded {
 	            transform: translateX(0);
-	            box-shadow: 0 0 6vw var(--foreground);
+	            box-shadow: 0 0 2vw var(--foreground);
 	            background: var(--background);
 	            color: var(--foreground);
-	            border-right: .5rem solid var(--foreground);
+	            border-right: .125rem solid var(--foreground);
 	        }
 		}
         & ul {
             padding-top: 1rem;
             padding-right: 2rem;
+            & li {
+            	line-height: 2;
+            }
         }
 	}
 }

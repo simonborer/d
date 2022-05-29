@@ -1,4 +1,4 @@
-@use '../variables.1.scss' as var;
+@use '../variables.scss' as var;
 
 // Structure
 .search {
@@ -98,5 +98,17 @@
                 }
             }
         }
+    }
+}
+@media (min-width: var.$breakpoint) {
+    .search {
+            &__box {
+        &:after {
+            content: " ";
+            position: absolute;
+            height: 1rem;
+            border: .0625rem solid var(--background--offset);
+        }
+    }
     }
 }

@@ -1,4 +1,4 @@
-@use './variables.1.scss' as var;
+@use './variables.scss' as var;
 
 ::selection:not(img, iframe) {
     background: var(--alert);
@@ -107,15 +107,16 @@ dt:after {
     order: 1;
     flex-basis: 100%;
     background-color: var(--emphasis);
+    color: var(--background);
     overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 1rem .5rem;
     .home & {
-        height: calc(6rem - (var(--scroll) * 250rem));
-        padding-top: 0;
-        padding-bottom: 0;
+        // height: calc(6rem - (var(--scroll) * 250rem));
+        // padding-top: 0;
+        // padding-bottom: 0;
     }
     @for $i from 1 through 3 {
         [data-difficulty="#{$i}"] & {
@@ -130,6 +131,10 @@ dt:after {
 }
 
 @media (prefers-color-scheme: dark) {
+    .title {
+        color: var(--foreground);
+    box-shadow: 0 0 .5rem var(--background--offset) inset;
+    }
     @for $i from 1 through 3 {
         [data-difficulty="#{$i}"] .title {
             @if nth(var.$learning-level-colours, $i) == "var(--warning)" or nth(var.$learning-level-colours, $i) == "var(--alert)" {
@@ -161,9 +166,10 @@ article {
     font-size: 1.25rem;
     & h2 {
         margin-top: 4rem;
-        margin-bottom: 1rem;
+        margin-bottom: 2rem;
         font-size: max(2.5rem, 3vw);
-        border-bottom: 1px solid currentColor;
+        border-bottom: 2px solid currentColor;
+        line-height: 2;
     }
     & p {
         margin: 1rem 0;
