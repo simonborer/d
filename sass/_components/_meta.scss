@@ -3,6 +3,7 @@
 .summary {
 	max-width: 60ch;
 	background: var.$white;
+	padding-top: 4rem;
 	&__reading-time {
 		border-top: 1px solid var(--foreground);
 		margin: .5rem 1rem 0;
@@ -10,7 +11,7 @@
 	}
 	&__date {
 		border-top: 1px solid var(--foreground);
-		margin: .5rem 1rem 0;
+		margin: .5rem 1rem 4rem;
 		text-align: right;
 	}
 	&-container {
@@ -26,7 +27,7 @@
 		line-height: 2;
 		padding-top: .25rem;
 		&-container {
-			margin: 1rem 1rem 0;
+			margin: 1rem;
 		}
 	}
 	&__image {
@@ -72,6 +73,7 @@
 		border-left: .125rem solid var(--background--offset);
 		border-bottom: .125rem solid var(--background--offset);
 		position: relative;
+		padding-top: 0;
 		&:before {
 			content: " ";
 		    height: 2rem;
@@ -92,6 +94,9 @@
 		&-container {
 			margin-top: 12rem;
 			margin-bottom: 14rem;
+		}
+		&__date {
+			margin-bottom: 0;
 		}
 		&__image {
 			border-right: .125rem solid var(--background--offset);
@@ -114,15 +119,14 @@
 }
 
 .toc {
-	margin: 6rem 1rem;
+	margin: 4rem 1rem 8rem;
 	text-align: center;
 	& h2 {
 		font-size: 1.5rem;
 		margin-bottom: 1rem;
 	}
 	&__svg {
-		margin-top: 1.5rem;
-		transform: translateX(50%);
+		height: 4rem;
 	}
 	& ol {
 		padding-left: 0;

@@ -79,8 +79,8 @@
                 class="nav__toggle-button nav__toggle-button--close">
                 <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" role="img">
                   <title>Hide menu</title>
-                  <path d="M8 8L40 40" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="svg-fill--inverted"/>
-                  <path d="M8 40L40 8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="svg-fill--inverted"/>
+                  <path d="M8 8L40 40" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="svg-fill"/>
+                  <path d="M8 40L40 8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="svg-fill"/>
                 </svg>
               </button>
             </div>          
@@ -129,7 +129,16 @@
               <div class="summary__reading-time">About 4 min reading time</div>
               <div class="summary__date">Fri, 20 May 2022 13:21:33 GMT</div>
               
-                <div class="toc">
+                <svg width='0' height='0' xmlns='http://www.w3.org/2000/svg' role="presentation">
+                  <defs>
+                    <pattern id='a' patternUnits='userSpaceOnUse' width='20' height='20'>
+                      <rect x='0' y='0' width='100%' />
+                      <path d='M 10,-2.55e-7 V 20 Z M -1.1677362e-8,10 H 20 Z' stroke-width='0.5' class="svg-fill" fill='none' />
+                    </pattern>
+                  </defs>
+                </svg>
+
+                <div class="toc" data-annotate data-ann-type="box" data-ann-mobile-only>
                   <h2>Table of contents</h2>
                   <ol>
                     
@@ -143,7 +152,8 @@
                     
                   </ol>
                 </div>
-                
+
+
               
             </div>
           
@@ -151,10 +161,13 @@
             <div class="summary__image-container">
             <img alt="Simon Borer" class="summary__image" src="/images/me.jpeg" height="735" width="786">
             </div>
+            <svg width='100%' height='100%' xmlns='http://www.w3.org/2000/svg' role="presentation" class="toc__svg">
+              <rect width='100%' height='100%' fill='url(#a)' />
+            </svg>
           
         </div>
       
-      
+
     </header>
 
     <main>
@@ -279,31 +292,6 @@
           "title": "How to get hacked",
           "tags": ["OWASP","XSS","SQL Injection","Security","Authentication"]
         },{ 
-          "url": "/tags/Task%20runners/",
-          "title": "Task runners",
-          "tags": [],
-          "isTag": true
-        },{ 
-          "url": "/tags/Toolchains/",
-          "title": "Toolchains",
-          "tags": [],
-          "isTag": true
-        },{ 
-          "url": "/tags/Bundlers/",
-          "title": "Bundlers",
-          "tags": [],
-          "isTag": true
-        },{ 
-          "url": "/tags/Vite/",
-          "title": "Vite",
-          "tags": [],
-          "isTag": true
-        },{ 
-          "url": "/tags/SASS/",
-          "title": "SASS",
-          "tags": [],
-          "isTag": true
-        },{ 
           "url": "/tags/OWASP/",
           "title": "OWASP",
           "tags": [],
@@ -326,6 +314,31 @@
         },{ 
           "url": "/tags/Authentication/",
           "title": "Authentication",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Task%20runners/",
+          "title": "Task runners",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Toolchains/",
+          "title": "Toolchains",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Bundlers/",
+          "title": "Bundlers",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Vite/",
+          "title": "Vite",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/SASS/",
+          "title": "SASS",
           "tags": [],
           "isTag": true
         }

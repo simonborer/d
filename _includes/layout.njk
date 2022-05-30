@@ -90,8 +90,8 @@
                 class="nav__toggle-button nav__toggle-button--close">
                 <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" role="img">
                   <title>Hide menu</title>
-                  <path d="M8 8L40 40" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="svg-fill--inverted"/>
-                  <path d="M8 40L40 8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="svg-fill--inverted"/>
+                  <path d="M8 8L40 40" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="svg-fill"/>
+                  <path d="M8 40L40 8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="svg-fill"/>
                 </svg>
               </button>
             </div>          
@@ -140,7 +140,16 @@
               <div class="summary__reading-time">{% if readingTime %}About {{ content | readingTime }} reading time{% endif %}</div>
               <div class="summary__date">{{ page.date.toUTCString() }}</div>
               {% if toc %}
-                <div class="toc">
+                <svg width='0' height='0' xmlns='http://www.w3.org/2000/svg' role="presentation">
+                  <defs>
+                    <pattern id='a' patternUnits='userSpaceOnUse' width='20' height='20'>
+                      <rect x='0' y='0' width='100%' />
+                      <path d='M 10,-2.55e-7 V 20 Z M -1.1677362e-8,10 H 20 Z' stroke-width='0.5' class="svg-fill" fill='none' />
+                    </pattern>
+                  </defs>
+                </svg>
+
+                <div class="toc" data-annotate data-ann-type="box" data-ann-mobile-only>
                   <h2>Table of contents</h2>
                   <ol>
                     {% for section in toc %}
@@ -148,8 +157,9 @@
                     {% endfor %}
                   </ol>
                 </div>
-                {# <svg role="presentation" xmlns='http://www.w3.org/2000/svg' width="100%" height="100" class="toc__svg">
-                  <rect x="0" y="0" width="100%" height="100%" fill="url(#honeycomb)"></rect>
+
+{#                 <svg width='100%' height='100%' xmlns='http://www.w3.org/2000/svg' role="presentation" class="toc__svg">
+                  <rect width='100%' height='100%' fill='url(#a)' />
                 </svg> #}
               {% endif %}
             </div>
@@ -158,17 +168,13 @@
             <div class="summary__image-container">
             <img alt="{{feature.alt}}" class="summary__image{% if feature.needsPadding %} summary__image--padded{% endif %}" src="/images/{{ feature.src }}" height="{{ feature.height }}" width="{{ feature.width }}">
             </div>
+            <svg width='100%' height='100%' xmlns='http://www.w3.org/2000/svg' role="presentation" class="toc__svg">
+              <rect width='100%' height='100%' fill='url(#a)' />
+            </svg>
           {% endif %}
         </div>
       {% endif %}
-      {# <svg role="presentation" xmlns='http://www.w3.org/2000/svg' width="100%" height="100" class="toc__svg">
-                  <pattern id="honeycomb" x="0" y="0" width="56" height="100" patternUnits="userSpaceOnUse">
-                    <rect width='56' height='100' fill="transparent" />
-                    <path d='M28 66L0 50L0 16L28 0L56 16L56 50L28 66L28 100' fill='none' stroke="#ffd970" stroke-width='2'/>
-                    <path d='M28 0L28 34L0 50L0 84L28 100L56 84L56 50L28 34' fill='none' stroke="#ffd970" stroke-width='2'/>
-                  </pattern>
-                  <rect x="0" y="0" width="100%" height="100%" fill="url(#honeycomb)"></rect>
-                </svg> #}
+
     </header>
 
     <main>

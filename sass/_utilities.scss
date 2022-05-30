@@ -73,5 +73,9 @@
             stroke: var(--foreground);
         }
     }
+    [data-ann-mobile-only] + .rough-annotation {
+        display: none;
+    }
 }
+
 

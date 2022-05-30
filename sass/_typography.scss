@@ -133,7 +133,7 @@ dt:after {
 @media (prefers-color-scheme: dark) {
     .title {
         color: var(--foreground);
-    box-shadow: 0 0 .5rem var(--background--offset) inset;
+    // box-shadow: 0 0 .5rem var(--background--offset) inset;
     }
     @for $i from 1 through 3 {
         [data-difficulty="#{$i}"] .title {
