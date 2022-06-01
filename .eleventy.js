@@ -3,7 +3,8 @@ const { EleventyRenderPlugin } = require("@11ty/eleventy");
 const readingTime = require("eleventy-plugin-reading-time");
 const Image = require("@11ty/eleventy-img");
 
-async function imageShortcode(src, alt, sizes) {
+// Avif was being weeeeird
+async function imageShortcode(src, alt, sizes, title = ``) {
   let metadata = await Image(src, {
     widths: [300, 600, 1200],
     formats: ["avif", "webp", "jpeg"]
@@ -12,11 +13,11 @@ async function imageShortcode(src, alt, sizes) {
   let imageAttributes = {
     alt,
     sizes,
+    title,
     loading: "lazy",
     decoding: "async",
   };
 
-  // You bet we throw an error on missing alt in `imageAttributes` (alt="" works okay)
   return Image.generateHTML(metadata, imageAttributes);
 }
 
@@ -26,6 +27,7 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.addPlugin(readingTime);
 
     eleventyConfig.addPassthroughCopy("images");
+    eleventyConfig.addPassthroughCopy("img");
     eleventyConfig.addPassthroughCopy("icons");
     eleventyConfig.addPassthroughCopy("js");
     eleventyConfig.addPassthroughCopy("site.webmanifest");

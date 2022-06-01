@@ -8,8 +8,9 @@
     "watch:eleventy": "npx @11ty/eleventy --serve",
     "watch:sass": "npx sass sass:_site/css --watch",
     "watch:esbuild": "npx esbuild js/app.js --outfile=js/script.js --bundle --watch",
-    "start": "npm run watch:eleventy & npm run watch:sass && npm run watch:esbuild",
-    "build": "npx sass sass:_site/css && npx esbuild js/app.js --outfile=js/script.js --bundle --minify && npx @11ty/eleventy && npx postcss _site/css/*.css -r -m --verbose",
+    "start": "LAYOUT=layout.njk npm run watch:eleventy & npm run watch:sass && npm run watch:esbuild",
+    "start:slides": "LAYOUT=slide.njk npm run watch:eleventy & npm run watch:sass && npm run watch:esbuild",
+    "build": "npx sass sass:_site/css && npx esbuild js/app.js --outfile=js/script.js --bundle --minify && LAYOUT=layout.njk npx @11ty/eleventy && LAYOUT=slide.njk npx @11ty/eleventy && npx postcss _site/css/*.css -r -m --verbose",
     "spellcheck": "node _utilities/turn.mjs"
   },
   "keywords": [],

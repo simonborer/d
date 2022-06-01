@@ -156,6 +156,9 @@ dt:after {
         box-shadow: none;
         display: block;
         overflow: visible;
+        max-width: calc(100% - 1.5rem - 48px - 224px);
+        padding: 1rem;
+        font-size: clamp(1rem, 3vw, 2.5rem);
         .home & {
             height: auto;
         }

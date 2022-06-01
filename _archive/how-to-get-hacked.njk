@@ -1,0 +1,274 @@
+---json
+{
+    "layout": "layout.njk",
+    "title": "How to get hacked",
+    "feature": {
+        "src": "factory.svg",
+        "alt": "Person with a blowtorch",
+        "needsPadding": true,
+        "height": 119,
+        "width": 150
+    },
+    "description": "Today we look at the OWASP Top 10 Web Application Security Risks.",
+    "tags": ["OWASP", "XSS", "SQL Injection", "Security", "Authentication"],
+    "eleventyExcludeFromCollections": true,
+    "learningLevel": 3
+}
+---
+<div class="body-spacer--small"></div>
+<p style="margin-bottom: 1rem;">{{summary}}</p>
+<section class="row">
+    <div class="toc">
+    <h2 class="heading-style-5">Table of Contents</h2>
+    <ul>
+        <li><a href="#who-is-owasp">Who is OWASP</a></li>
+        <li><a href="#the-top-ten">The Top Ten</a>
+            <ul>
+                <li><a href="#injection">Injection</a></li>
+                <li><a href="#broken-authentication">Broken Authentication</a></li>
+                <li><a href="#sensitive-data-exposure">Sensitive Data Exposure</a></li>
+                <li><a href="#xml-external-entities-xxe">XML External Entities (XXE)</a></li>
+                <li><a href="#broken-access-control">Broken Access Control</a></li>
+                <li><a href="#security-misconfiguration">Security Misconfiguration</a></li>
+                <li><a href="#cross-site-scripting-xss">Cross-Site Scripting (XSS)</a></li>
+                <li><a href="#insecure-deserialization">Insecure Deserialization</a></li>
+                <li><a href="#using-components-with-known-vulnerabilities">Using Components with Known Vulnerabilities</a></li>
+                <li><a href="#insufficient-logging-monitoring">Insufficient Logging & Monitoring</a></li>
+            </ul>
+        </li>
+    </ul>
+    </div>
+</section>
+<div class="body-spacer"></div>
+<section id="who-is-owasp"><img class="body-icon body-icon--white-bg" alt="" src="/images/owasp.png">
+    <h2>Who is OWASP</h2>
+</section>
+<section class="row">
+    <p>OWASP, or the "<strong>Open Web Application Security Project</strong>", is a non-profit community with >10,000 volunteers dedicated to finding, documenting, and providing solutions to web security issues.</p>
+    <p class="callout primary">You should totally <a href="https://owasp.org/www-chapter-toronto/" target="_blank" rel="noopener noreferrer">check out a meeting of the Toronto chapter<span class="show-for-sr"> Opens in a new window</span></a>.</p>
+    <p>Since 2003, they've been publishing their "Top 10 Web Application Security Risks". Today's lesson is based on familiarizing yourself with the current top ten (as of 2021) so that you can keep your users safer.</p>
+</section>
+<section class="row">
+    <p>Next week, we'll be talking about where you're most likely to find these problems, and <strong>how to prevent or solve them</strong>. Today we're just looking at the <em>types</em> of vulnerabilities that can pop up in different places in your application.</p>
+    <div class="callout alert"><p>None of these security risks are particular to a specific language or any other point-of-entry. These are concepts that will pop up in different ways in different situations.</p><p class="post-only">If we were talking about home security instead of web security, these security risks would be a lock-picking set - tools for malicious actors ("bad guys") that can be adapted to different situations.</p></div>
+</section>
+<section class="row">
+    <p class="slide-only">If we were talking about home security instead of web security, these security risks would be a lock-picking set - tools for malicious actors ("bad guys") that can be adapted to different situations.</p>
+    <figure>
+        <img class="body-icon" src="/images/home-alone-trap-map.jpeg" alt="Kevin's 'trap map' from Home Alone">
+        <figcaption>You've got to think like Kevin McCallister</figcaption>
+    </figure>
+    <!-- The Open Web Application Security Project (OWASP) is an open community dedicated to finding and fighting the causes of insecure software. The OWASP Foundation is the not for profit (501c3) entity that provides the infrastructure for the OWASP community. -->
+<!-- 
+    Pillars:
+        Confidentiality
+        Integrity
+        Availability
+    Dependencies:
+        Authentication
+        Authorization
+        Auditing
+    Enforcement:
+        Policies
+        Standards
+        Guidelines
+        Procedures
+    Management Tiers:
+        Acceptance; this is where the business is aware of the risk, but has decided that no action will be taken against the risk.
+        Mitigation; this is when security controls are implemented to remove the risk.
+        Transference (Insurance)
+        Elimination
+    Training:
+        OWASP
+        SANS
+        ISC2 -->
+</section>
+<div class="body-spacer"></div>
+<section id="the-top-ten"><img class="body-icon body-icon--white-bg" alt="" src="/images/ten.svg">
+    <h2>The Top Ten</h2>
+</section>
+<section id="injection">
+    <h3 class="text-center">Injection</h3>
+    <blockquote>Injection flaws, such as SQL, NoSQL, OS, and LDAP injection, occur when untrusted data is sent to an interpreter as part of a command or query. The attacker’s hostile data can trick the interpreter into executing unintended commands or accessing data without proper authorization.</blockquote>
+</section>
+<section class="row">
+    <figure>
+        <a href="/images/exploits_of_a_mom.png" target="_blank"><img src="/images/exploits_of_a_mom.png" alt="XKCD comic 'Exploits of a Mom'"></a>
+        <figcaption>Her daughter is named Help I'm trapped in a driver's license factory. <span class="font-style:normal;"> <a href="https://xkcd.com/327/" target="_blank" rel="noopener noreferrer">XKCD<span class="show-for-sr"> Opens in a new window</span></a></span></figcaption>
+    </figure>
+</section>
+<section class="row">
+    <p>We use our backend code to interact with a data source.</p>
+    <pre><code class="language-php">$query = "SELECT * FROM articles";</code></pre>
+    <p>Injection becomes an issue when we use data that the user can edit - for example, if we were to take data from a form and insert it directly into the database, or if we were to use query parameters from the URL in a <code class="language-sql">SELECT</code> statement:</p>
+    <pre><code class="language-php">// mysite.com/index.php?article=1234
+$articleId = $_GET['article'];
+// Gets '1234'        
+$query = "SELECT * FROM articles 
+    WHERE articleId = $articleId";
+// Database runs `SELECT * FROM articles 
+//  WHERE articleId = 1234`</code></pre>
+</section>
+<section class="row">
+    <p>Since the url is something a user can edit, some user could alter the URL to something like this:</p>
+    <pre><code class="language-php">// mysite.com/index.php?article=1234;DELETE FROM articles
+$articleId = $_GET['article'];
+// Gets '1234;DELETE FROM articles'        
+$query = "SELECT * FROM articles 
+    WHERE articleId = $articleId";
+// Database runs `SELECT * FROM articles 
+//    WHERE articleId = 1234;DELETE FROM articles`</code></pre>
+</section>
+<section class="row">
+    <p>Now, this is a bit of a silly example, but the point stands - the php and database server are just going to shrug and run the code you're providing. Like a dumb news anchor from San Diego.</p>
+    <video style="width:480px;height:270px;margin-bottom: .5rem" name="media" controls>
+        <track kind="captions" srclang="en" src="/images/captions/ron.vtt">
+        <source src="/images/ron.mp4" type="video/mp4"></video>
+    <p>The solution for this is to make sure that <strong>nothing provided by public users can be executed as code</strong>. We'll look at techniques for this next week.</p>
+</section>
+<div class="body-spacer--small"></div>
+<section id="broken-authentication">
+    <h3 class="text-center">Broken Authentication</h3>
+    <blockquote>Application functions related to authentication and session management are often implemented incorrectly, allowing attackers to compromise passwords, keys, or session tokens, or to exploit other implementation flaws to assume other users’ identities temporarily or permanently.</blockquote>
+</section>
+<section class="row">
+    <p>Broken authentication could mean a great number of things. Here are some of the examples OWASP provides:</p>
+    <ul>
+        <li>Not protecting against <strong>brute force</strong> attacks</li>
+        <li>Allowing users to use <strong>default, weak, or well-known passwords</strong>, such as "Password1" or "admin/admin"</li>
+        <li>Using weak or ineffective username/password <strong>recovery and forgot-password processes</strong>, such as “knowledge-based answers”</li>
+        <li>Doesn't use <strong>multi-factor authentication</strong></li>
+        <li>Doesn't properly <strong>log a user out</strong> when they log out or are inactive for a long period</li>
+    </ul>
+</section>
+<hr>
+<div class="further-reading">
+<strong>Further Reading:</strong>
+<ul>
+    <li><a href="https://www.troyhunt.com/reckon-youve-seen-some-stupid-security-things-here-hold-my-beer/" target="_blank" rel="noreferrer">Reckon you've seen some stupid security things? Here, hold my beer...<span class="show-for-sr"> Opens in a new window</span></a>, <em>Troy Hunt</em> of "<a href="https://haveibeenpwned.com/" target="_blank" rel="noopener noreferrer">Have I Been Pwned<span class="show-for-sr"> Opens in a new window</span></a>"</li>
+</ul>
+</div>
+<div class="body-spacer--small"></div>
+<section id="sensitive-data-exposure">
+    <h3 class="text-center">Sensitive Data Exposure</h3>
+    <blockquote>Many web applications and APIs do not properly protect sensitive data, such as financial, healthcare, and PII. Attackers may steal or modify such weakly protected data to conduct credit card fraud, identity theft, or other crimes. Sensitive data may be compromised without extra protection, such as encryption at rest or in transit, and requires special precautions when exchanged with the browser.</blockquote>
+</section>
+<section class="row">
+    <p>This one's a simple idea - <strong>any unencrypted sensitive data is a security risk</strong>, particularly when that data is moving from one place to another.</p>
+    <p>There are some easy solutions (mandatory HTTPS for everything, use up-to-date cryptography), but there are also some weak points that are technically challenging.</p>
+</section>
+<div class="body-spacer--small"></div>
+<section id="xml-external-entities-xxe">
+    <h3 class="text-center">XML External Entities (XXE)</h3>
+    <blockquote>Many older or poorly configured XML processors evaluate external entity references within XML documents. External entities can be used to disclose internal files using the file URI handler, internal file shares, internal port scanning, remote code execution, and denial of service attacks.</blockquote>
+</section>
+<section class="row">
+    <p>Essentially, <strong>the application that processes an XML file can be exploited</strong> to do bad stuff (like <a href="https://github.com/ManhNho/OWASP-Testing-Guide-v5/blob/master/document/4%20Web%20Application%20Security%20Testing/4.8%20Input%20Validation%20Testing/4.8.8%20Testing%20for%20XML%20Injection%20(OTG-INPVAL-008).md" target="_blank" rel="noopener noreferrer">read system files<span class="show-for-sr"> Opens in a new window</span></a>, or detonate an <a href="https://en.wikipedia.org/wiki/Billion_laughs_attack" target="_blank" rel="noopener noreferrer">XML Bomb<span class="show-for-sr"> Opens in a new window</span></a>).</p>
+    <p>Some might argue that this is a type of "injection", but it's a type that's significant enough to get it's own entry in the top 10.</p>
+</section>
+<div class="body-spacer--small"></div>
+<section id="broken-access-control">
+    <h3 class="text-center">Broken Access Control</h3>
+    <blockquote>Restrictions on what authenticated users are allowed to do are often not properly enforced. Attackers can exploit these flaws to access unauthorized functionality and/or data, such as access other users’ accounts, view sensitive files, modify other users’ data, change access rights, etc.</blockquote>
+</section>
+<section class="row">
+    <p>This is a catchall for whenever <strong>a user can do something they're not supposed to be able to do</strong>. Ever edit the URL of a website and end up someplace that obviously isn't for public users? That's one type of Broken Access Control.</p>
+</section>
+<section id="security-misconfiguration">
+    <h3 class="text-center">Security Misconfiguration</h3>
+    <blockquote>Security misconfiguration is the most commonly seen issue. This is commonly a result of insecure default configurations, incomplete or ad hoc configurations, open cloud storage, misconfigured HTTP headers, and verbose error messages containing sensitive information. Not only must all operating systems, frameworks, libraries, and applications be securely configured, but they must be patched/upgraded in a timely fashion.</blockquote>
+</section>
+<section class="row">
+    <p>This is another catchall for any part of the application that's <strong>not set up properly</strong> (we're going to spend a lot of time on HTTP headers next week), or is <strong>out-of-date</strong>. Time to turn on those automatic updates in your Wordpress site!</p>
+</section>
+<div class="body-spacer--small"></div>
+<section id="cross-site-scripting-xss">
+    <h3 class="text-center">Cross-Site Scripting (XSS)</h3>
+    <blockquote>XSS flaws occur whenever an application includes untrusted data in a new web page without proper validation or escaping, or updates an existing web page with user-supplied data using a browser API that can create HTML or JavaScript. XSS allows attackers to execute scripts in the victim’s browser which can hijack user sessions, deface web sites, or redirect the user to malicious sites.</blockquote>
+</section>
+<section class="row">
+    <p>OWASP identifies three types of XSS:</p>
+</section>
+<ul>
+    <li><strong>Reflected XSS</strong> <pre><code class="language-html">Please click on this link: &lt;a href='http://example.com/index.php?user=&lt;script>window.onload = function() {var AllLinks=document.getElementsByTagName("a");AllLinks[0].href = "http://badexample.com/malicious.exe";}&lt;/script>'>example.com&lt;/a></code></pre> If someone clicked on this link and went to a site that was pulling the user's name directly from the query parameter, it could inject a script that would change the first link on the page into something nefarious!</li>
+    <li><strong>Stored XSS</strong> The bigger, meaner brother of the above is when a user can use a similar technique to submit data to a website containing a malicious script (injection), which then gets executed when other users visit the site. The previous example relies on social engineering (encouraging someone to click your sketchy link), whereas Stored XSS is dangerous for a much wider audience.</li>
+    <li><strong>DOM XSS</strong> Similar to the above, except taking advantage of client-side DOM rendering, like when a single-page application (React, for example), puts together the web page based on data the user can edit (the simplest example being URL parameters, as above). Not terribly different from either of the first two, describing this category serves to remind us that SPAs have added new ways for XSS to happen.</li>
+</ul>
+<section class="slide-only"><strong>Reflected XSS</strong> <p><pre><code class="language-html">Please click on this link: &lt;a href='http://example.com/index.php?user=&lt;script>window.onload = function() {var AllLinks=document.getElementsByTagName("a");AllLinks[0].href = "http://badexample.com/malicious.exe";}&lt;/script>'>example.com&lt;/a></code></pre></p> <p>If someone clicked on this link and went to a site that was pulling the user's name directly from the query parameter, it could <strong>inject a script</strong> that would change the first link on the page into something nefarious!</p></section>
+<section class="slide-only"><strong>Stored XSS</strong> <p>The bigger, meaner brother of the above is when a user can use a similar technique to <strong>submit data to a website containing a malicious script</strong> (injection), which then gets <strong>executed when other users visit the site</strong>. The previous example relies on social engineering (encouraging someone to click your sketchy link), whereas Stored XSS is dangerous for a much wider audience.</p></section>
+<section class="slide-only"><strong>DOM XSS</strong> <p>Similar to the above, except taking advantage of <strong>client-side DOM rendering</strong>, like when a single-page application (React, for example), puts together the web page based on data the user can edit (the simplest example being URL parameters, as above). Not terribly different from either of the first two, describing this category serves to remind us that SPAs have added new ways for XSS to happen.</p></section>
+<div class="body-spacer--small"></div>
+<section id="insecure-deserialization">
+    <h3 class="text-center">Insecure Deserialization</h3>
+    <blockquote>Insecure deserialization often leads to remote code execution. Even if deserialization flaws do not result in remote code execution, they can be used to perform attacks, including replay attacks, injection attacks, and privilege escalation attacks.</blockquote>
+</section>
+<section class="row">
+    <p>Okay, so - full disclosure, I do not have a computer science degree. One of the challenges of putting together the materials for the security portion of this course is that we talk about programming concepts that could apply to many different computer languages (that's kind of what CompSci is about). Sometimes I want to talk about this stuff by putting it into the context of a particular language, but that might not capture the whole concept. The alternative is using CompSci language that I'm not totally comfortable with. I'm just throwing that out there if we have any CompSci people in the class who know more than I do about something like deserialization. To those people, I apologize, and please let me know how I can make this better!</p>
+    <p>Okay, so let's first talk about serialization:</p>
+</section>
+<section class="row">
+    <h4>Serialization</h4>
+    <p>Serialization is when you <strong>turn complex things</strong> (like objects or functions) <strong>into something simple</strong>, like a string.</p>
+</section>
+<section class="row">
+    <pre><code class="language-javascript">let myFunc = function(a,b) {
+  return a + b;
+}
+console.log(myFunc(1,2));  // 3
+// Serialize the function
+myFunc = myFunc.toString();
+console.log(myFunc(1,2));
+// Uncaught TypeError: myFunc is not a function 
+console.log(myFunc)
+// "function (a, b) {
+//   return a + b;
+// }"</code></pre>
+</section>
+<section class="row">
+    <p>Serialization is pretty common, as it lets us <strong>store code and other data efficiently in a database</strong>.</p>
+    <p>To retrieve that code from the database and then run it, we'd need to turn it <em>back</em> into a function (or object, or what have you). <strong>That process is called deserialization</strong>.</p>
+</section>
+<section class="row">
+    <h4>Deserialization</h4>
+    <p>Deserialization is the process of <strong>turning "flat" data</strong> (think of it as plain text) <strong>into code</strong> that a computer can understand.</p>
+</section>
+<section class="row">
+    <pre><code class="language-javascript">let json = '{"result":true, "count":42}';
+console.log(json.count);
+// undefined
+&nbsp;
+// Deserialize JSON
+json = JSON.parse(json);
+console.log(json.count);
+// 42</code></pre>
+</section>
+<section class="row">
+    <p>If a malicious user can get <strong>nasty code into your serialized data</strong>, then it can get <strong>executed when the data is deserialized</strong> if that process is not secured.</p>
+</section>
+<section class="row">
+    <div class="callout warning"><p>Personally, I think deserialization attacks have the coolest names: <a href="https://github.com/NetSPI/JavaSerialKiller" target="_blank" rel="noopener noreferrer">Java Serial Killer<span class="show-for-sr"> Opens in a new window</span></a> <a href="https://www.blackhat.com/docs/us-17/thursday/us-17-Munoz-Friday-The-13th-JSON-Attacks-wp.pdf" target="_blank" rel="noopener noreferrer">Friday the 13th JSON Attacks<span class="show-for-sr">PDF - Opens in a new window</span></a></p><p>I'm also a fan of the method names in the <a href="https://docs.python.org/3/library/pickle.html" target="_blank" rel="noopener noreferrer">Python de/serialization module<span class="show-for-sr"> Opens in a new window</span></a> which allows you to "pickle" (serialize) and "unpickle" (deserialize) your data.</p><img src="/images/pickle.svg" alt="" class="body-icon body-icon--small">&nbsp;
+        </div>
+</section>
+<div class="body-spacer--small"></div>
+<section id="using-components-with-known-vulnerabilities">
+    <h3 class="text-center">Using Components with Known Vulnerabilities</h3>
+    <blockquote>Components, such as libraries, frameworks, and other software modules, run with the same privileges as the application. If a vulnerable component is exploited, such an attack can facilitate serious data loss or server takeover. Applications and APIs using components with known vulnerabilities may undermine application defenses and enable various attacks and impacts.</blockquote>
+</section>
+<section class="row">
+    <p>11 years ago, back when jQuery was a big deal, a fella named Paul Irish (one of the people who brought us the Chrome DevTools) <a href="https://www.youtube.com/watch?v=i_qE1iAmjFg" target="_blank" rel="noopener noreferrer">read jQuery<span class="show-for-sr"> Opens in a new window</span></a>. All 7179 lines of it (as of jQuery v1.4).</p>
+    <p>I thought this was incredibly impressive - <strong>reading the code you're running on your website</strong>.</p>
+</section>
+<section class="row">
+    <p>When I make a website, <strong>I'm certainly not reading all the code</strong> of all the libraries I use to compile it. So how do I know it's safe? How do I know there isn't a vulnerability in there, just waiting to get exploited? How much worse would it be if, instead of a website, I was running software on a device that's hard to patch, like medical equipment, or a tractor?</p>
+    <p>Even more than serving users malicious scripts, this is a particular point of vulnerability on your server, because we tend to let <strong>our libraries have the same permissions</strong> as our handwritten code <strong>on the machine where we do sensitive stuff</strong>, like processing credit card information.</p>
+</section>
+<div class="body-spacer--small"></div>
+<section id="insufficient-logging-monitoring">
+    <h3 class="text-center">Insufficient Logging & Monitoring</h3>
+    <blockquote>Insufficient logging and monitoring, coupled with missing or ineffective integration with incident response, allows attackers to further attack systems, maintain persistence, pivot to more systems, and tamper, extract, or destroy data. Most breach studies show time to detect a breach is over 200 days, typically detected by external parties rather than internal processes or monitoring.</blockquote>
+</section>
+<section class="row">
+    <p>This one's pretty easy to understand - it's just <strong>not paying attention</strong> and <strong>not keeping track</strong>. If you're not monitoring your website or keeping records of what your server is doing, it's going to be a <a href="https://en.wikipedia.org/wiki/Force_multiplication" target="_blank" rel="noopener noreferrer">force multiplier<span class="show-for-sr"> Opens in a new window</span></a> for malicious code.</p>
+</section>
+<div class="body-spacer"></div>
+<section class="row"><span style="font-size: 4em;">10 / 10!</span></section>

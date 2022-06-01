@@ -3,7 +3,7 @@
 .summary {
 	max-width: 60ch;
 	background: var.$white;
-	padding-top: 4rem;
+	padding-top: 3rem;
 	&__reading-time {
 		border-top: 1px solid var(--foreground);
 		margin: .5rem 1rem 0;
@@ -18,29 +18,31 @@
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: center;
+		background: var.$white;
 	}
 	&__text {
 		font-size: 1.25rem;
-		background: var(--emphasis);
-		color: var(--background);
+		// background: var(--emphasis);
+		// color: var(--background);
 		font-style: italic;
-		line-height: 2;
+		line-height: 1.9;
 		padding-top: .25rem;
 		&-container {
 			margin: 1rem;
 		}
 	}
 	&__image {
-		margin: 0;
-        object-fit: contain;
-        margin-top: 0;
-        min-width: 12rem;
-        &--padded {
-            padding: .5em;
-        }
         &-container {
         	background: var.$white;
         	display: flex;
+        	& picture {
+				margin: 0;
+		        min-width: 12rem;
+		        & img {
+			        object-fit: contain;
+			        margin-top: 0;
+		        }
+        	}
             [data-difficulty="1"] & {
                 background: var(--emphasis);
             }
@@ -58,10 +60,13 @@
 
 @media (prefers-color-scheme: dark) {
 	.summary {
+		&-container {
+			background: var(--background--offset);
+		}
 		background: var(--background--offset);
 		&__text {
-			background: var(--warning);
-			color: var(--background);
+			// background: var(--warning);
+			// color: var(--background);
 		}
 	}
 }
@@ -94,6 +99,7 @@
 		&-container {
 			margin-top: 12rem;
 			margin-bottom: 14rem;
+			background: transparent;
 		}
 		&__date {
 			margin-bottom: 0;
@@ -119,7 +125,7 @@
 }
 
 .toc {
-	margin: 4rem 1rem 8rem;
+	margin: 1rem 1rem 4rem;
 	text-align: center;
 	& h2 {
 		font-size: 1.5rem;
@@ -127,6 +133,7 @@
 	}
 	&__svg {
 		height: 4rem;
+		background: var(--background);
 	}
 	& ol {
 		padding-left: 0;

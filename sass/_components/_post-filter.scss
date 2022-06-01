@@ -42,6 +42,18 @@
     border-bottom: 0.125rem solid var(--background--offset);
     border-right: 0.125rem solid var(--background--offset);
     width: 100%;
+    &__svg {
+        display: none;
+        .active & {
+            display: flex;
+        }
+        .active [data-filter-option="1"] & {
+            & path {
+                fill: var(--background);
+            }
+        }
+    }
+
     & li {
         & a {
             text-decoration: none;
@@ -91,19 +103,15 @@ $card-list-border-color: var(--foreground--offset);
     padding-top: 2rem;
     padding-bottom: 2rem;
     padding-left: 0;
-    gap: 1rem;
+    gap: 3rem;
     // justify-self: space-evenly;
     justify-content: center;
     &__item {
         transition: .2s all;
         border-top: .25rem solid $card-list-border-color;
-        // border-bottom: .25rem solid $card-list-border-color;
         box-shadow: 0 0 0.25rem rgb(0 0 0 / 25%);
         backdrop-filter: brightness(1.75) hue-rotate(-20deg);
         overflow: hidden;
-        // margin-left: 1rem;
-        // margin-right: 1rem; 
-        // border-radius: .5rem;
         &:hover {
             transform: translate(0, -.125rem);
             box-shadow: 0px .125rem 6px 1px rgb(0 0 0 / 25%);
@@ -118,6 +126,18 @@ $card-list-border-color: var(--foreground--offset);
 
         & lite-youtube {
             flex-basis: 100%;
+        }
+        & picture {
+            height: 100%;
+            overflow: hidden;
+            display: flex;
+            justify-content: flex-end;
+        }
+        & img {
+            height: 100%;
+            margin: 0 auto;
+            max-width: max-content;
+            flex: 0 0 auto;
         }
         @for $i from 1 through 3 {
             [data-learning-level="#{$i}"] & {
@@ -174,7 +194,9 @@ $card-list-border-color: var(--foreground--offset);
         margin-left: 14rem;
         padding-left: 2rem;
         padding-right: 2rem;
+        gap: 1rem;
         &__item {
+            height: fit-content;
             // border: .25rem solid $card-list-border-color;
             // border-radius: 0.5rem;
         }
@@ -193,6 +215,7 @@ $card-list-border-color: var(--foreground--offset);
         }
 
         &__item {
+            height: auto;
             max-width: 100%;
             width: clamp(40rem, 40vw, 64rem);
         }
@@ -252,5 +275,13 @@ $card-list-border-color: var(--foreground--offset);
     }
     .filter-strip .active a {
         box-shadow: 0 0 .25rem var(--background) inset;
+    }
+    .filter-strip .active {
+        & [data-filter-option="1"] path {
+            fill: var(--warning);
+        }
+        & [data-filter-option="2"] path {
+            fill: var(--background);
+        }
     }
 }

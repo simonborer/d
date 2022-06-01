@@ -1,6 +1,26 @@
 main {
     padding-bottom: 20vh;
 }
+footer {
+    display: flex;
+    position: relative;
+    padding: 10vh 1rem 5vh;
+    margin-top: 10vh;
+}
+.footer-bg {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    height: 100%;
+}
+.copyright {
+    display: flex;
+    flex-grow: 1;
+    &__info {
+        background: var(--background);
+    }
+}
 .row:not(.full-width), .col {
     max-width: 50ch;
     margin: 0 auto;

@@ -1,4 +1,5 @@
-{% set regExp = r/\.(gif|svg|jpe?g|tiff?|png|webp|bmp)\s*/gi %}
+{% set regExp = r/\.(jpe?g|avif|tiff?|png|webp|bmp)\s*/gi %}
+{% set svgRegExp = r/\.(gif|svg)\s*/i %}
 {% set ytRegExp = r/\.(youtube.com\/embed)\s*/gi %}
 
 <!DOCTYPE html>
@@ -11,7 +12,7 @@
       document.documentElement.classList.add('js');
     </script>
     
-    <title>{{ title }}</title>
+    <title>{{ title | striptags }}</title>
     <meta name="description" content="{{description | d(site.description)}}">
     <meta property="og:title" content="{{title | d(site.name)}}">
     <meta property="og:description" content="{{description | d(site.description)}}">
@@ -48,14 +49,7 @@
     {% if home %}class="home"{% endif %}
     :class="$store.menuToggle.on && 'no-scroll'">
     <a href="#content" class="show-for-sr show-on-focus skip-link">Skip navigation</a>
-{#     <svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg' role="presentation">
-      <defs>
-        <pattern id='aSvg' patternUnits='userSpaceOnUse' width='20' height='20' patternTransform='scale(2) rotate(0)'>
-          <path d='M 10,-2.55e-7 V 20 Z M -1.1677362e-8,10 H 20 Z'  stroke-width='1' class="svg-fill"/>
-        </pattern>
-      </defs>
-      <rect width='100%' height='100%' fill='url(#aSvg)'/>
-    </svg> #}
+
     {% if not home %}<div class="progress" aria-hidden="true"></div>{% endif %}
     <header class="header">
       <div class="nav">
@@ -111,7 +105,7 @@
 
         </nav>
 
-        <h1 id="content" class="title">{{title}}</h1>
+        <h1 id="content" class="title">{{title | safe}}</h1>
 
         {# Search #}
         <div class="search__box hide-without-js">
@@ -130,26 +124,27 @@
         </div>
       </div>
 
+      <svg width='0' height='0' xmlns='http://www.w3.org/2000/svg' role="presentation">
+        <defs>
+          <pattern id='a' patternUnits='userSpaceOnUse' width='20' height='20'>
+            <rect x='0' y='0' width='100%' />
+            <path d='M 10,-2.55e-7 V 20 Z M -1.1677362e-8,10 H 20 Z' stroke-width='0.5' class="svg-fill" fill='none' />
+          </pattern>
+        </defs>
+      </svg>
+
       {% if description and not home %}
         <div class="callout summary-container">
           {% if not home %}
             <div class="summary">
               <div class="summary__text-container">
-                <span class="summary__text">{{description}}</span>
+                <span class="summary__text" data-annotate>{{description}}</span>
               </div>
               <div class="summary__reading-time">{% if readingTime %}About {{ content | readingTime }} reading time{% endif %}</div>
               <div class="summary__date">{{ page.date.toUTCString() }}</div>
               {% if toc %}
-                <svg width='0' height='0' xmlns='http://www.w3.org/2000/svg' role="presentation">
-                  <defs>
-                    <pattern id='a' patternUnits='userSpaceOnUse' width='20' height='20'>
-                      <rect x='0' y='0' width='100%' />
-                      <path d='M 10,-2.55e-7 V 20 Z M -1.1677362e-8,10 H 20 Z' stroke-width='0.5' class="svg-fill" fill='none' />
-                    </pattern>
-                  </defs>
-                </svg>
 
-                <div class="toc" data-annotate data-ann-type="box" data-ann-mobile-only>
+                <div class="toc" data-annotate data-ann-type="box" data-ann-color="var(--emphasis)" data-ann-mobile-only>
                   <h2>Table of contents</h2>
                   <ol>
                     {% for section in toc %}
@@ -157,16 +152,13 @@
                     {% endfor %}
                   </ol>
                 </div>
-
-{#                 <svg width='100%' height='100%' xmlns='http://www.w3.org/2000/svg' role="presentation" class="toc__svg">
-                  <rect width='100%' height='100%' fill='url(#a)' />
-                </svg> #}
               {% endif %}
             </div>
           {% endif %}
           {% if regExp.test(feature.src) %}
             <div class="summary__image-container">
-            <img alt="{{feature.alt}}" class="summary__image{% if feature.needsPadding %} summary__image--padded{% endif %}" src="/images/{{ feature.src }}" height="{{ feature.height }}" width="{{ feature.width }}">
+            {# <img alt="{{feature.alt}}" class="summary__image{% if feature.needsPadding %} summary__image--padded{% endif %}" src="/images/{{ feature.src }}" height="{{ feature.height }}" width="{{ feature.width }}"> #}
+            {% image "images/" + feature.src, feature.alt, "(min-width: 30em) 300px, 100vw", feature.title %}
             </div>
             <svg width='100%' height='100%' xmlns='http://www.w3.org/2000/svg' role="presentation" class="toc__svg">
               <rect width='100%' height='100%' fill='url(#a)' />
@@ -193,7 +185,7 @@
                 href="#filterList" 
                 data-filter-option="-1" 
                 aria-controls="cardList">
-                <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="display: flex;">
+                <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="filter-strip__svg">
                   <title>Filter</title>
                   <path class="svg-fill--no-stroke" d="M10 19h4v-2h-4v2zm-4-6h12v-2H6v2zM3 5v2h18V5H3z"/></g>
                 </svg> All</a>
@@ -204,7 +196,10 @@
               <a 
                 href="#filterList" 
                 data-filter-option="1" 
-                aria-controls="cardList">Stuff everyone can use</a>
+                aria-controls="cardList"><svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="filter-strip__svg">
+                  <title>Filter</title>
+                  <path class="svg-fill--no-stroke" d="M10 19h4v-2h-4v2zm-4-6h12v-2H6v2zM3 5v2h18V5H3z"/></g>
+                </svg> Stuff everyone can use</a>
             </li>
             <li 
               id="dataFilterListItem3" 
@@ -212,7 +207,10 @@
               <a 
                 href="#filterList" 
                 data-filter-option="2" 
-                aria-controls="cardList">Starting to code</a>
+                aria-controls="cardList"><svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="filter-strip__svg">
+                  <title>Filter</title>
+                  <path class="svg-fill--no-stroke" d="M10 19h4v-2h-4v2zm-4-6h12v-2H6v2zM3 5v2h18V5H3z"/></g>
+                </svg> Starting to code</a>
             </li>
             <li 
               id="dataFilterListItem4" 
@@ -220,7 +218,10 @@
               <a 
                 href="#filterList" 
                 data-filter-option="3" 
-                aria-controls="cardList">Advanced coding stuff</a>
+                aria-controls="cardList"><svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="filter-strip__svg">
+                  <title>Filter</title>
+                  <path class="svg-fill--no-stroke" d="M10 19h4v-2h-4v2zm-4-6h12v-2H6v2zM3 5v2h18V5H3z"/></g>
+                </svg> Advanced coding stuff</a>
             </li>
           </ul>
         </div>
@@ -246,6 +247,9 @@
                 <div class="card-list__feature">
               {# wtf, this was real weird - didn't work as an if else #}
               {% if regExp.test(post.data.feature.src) %}
+                {% image "images/" + post.data.feature.src, post.data.feature.alt, "(min-width: 30em) 200px, 100vw", post.data.feature.title %}
+              {% endif %}
+              {% if svgRegExp.test(post.data.feature.src) %}
                 <img alt="{{post.data.feature.alt}}" class="card-list__image{% if post.data.feature.needsPadding %} card-list__image--padded{% endif %}" src="/images/{{ post.data.feature.src }}" height="{{ post.data.feature.height }}" width="{{ post.data.feature.width }}">
               {% endif %}
               {% if regExp.test(post.data.feature.src) %}{% elif ytRegExp.test(post.data.feature.src) %}
@@ -253,7 +257,7 @@
               {% endif %}
                 </div>
                 <div class="card-list__text">
-              <div class="card-list__title">{{ post.data.title }}</div>
+              <div class="card-list__title">{{ post.data.title | safe }}</div>
               <div class="card-list__summary">{{ post.data.description }}</div></div>
               <div class="card-list__cta">
                 {# <span class="card-list__cta-text">Read on<span class="hide-for-sr">…</span><span class="show-for-sr"> about {{ post.data.title }}</span></span> #}</div>
@@ -273,7 +277,14 @@
     </main>
 
     <footer>
-      
+      <svg width='100%' height='100%' xmlns='http://www.w3.org/2000/svg' role="presentation" class="footer-bg">
+        <rect width='100%' height='100%' fill='url(#a)' />
+      </svg>
+      <div class="copyright row">
+        <div class="copyright__info">
+        &copy;&nbsp;2022 Simon&nbsp;Borer
+        </div>
+      </div>
     </footer>
 
     <script src="/js/fuse.js"></script>

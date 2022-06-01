@@ -1,6 +1,7 @@
 
 
 
+
 <!DOCTYPE html>
 <html lang="en" class="no-js">
   <head>
@@ -121,6 +122,15 @@
         </div>
       </div>
 
+      <svg width='0' height='0' xmlns='http://www.w3.org/2000/svg' role="presentation">
+        <defs>
+          <pattern id='a' patternUnits='userSpaceOnUse' width='20' height='20'>
+            <rect x='0' y='0' width='100%' />
+            <path d='M 10,-2.55e-7 V 20 Z M -1.1677362e-8,10 H 20 Z' stroke-width='0.5' class="svg-fill" fill='none' />
+          </pattern>
+        </defs>
+      </svg>
+
       
 
     </header>
@@ -141,7 +151,7 @@
                 href="#filterList" 
                 data-filter-option="-1" 
                 aria-controls="cardList">
-                <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="display: flex;">
+                <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="filter-strip__svg">
                   <title>Filter</title>
                   <path class="svg-fill--no-stroke" d="M10 19h4v-2h-4v2zm-4-6h12v-2H6v2zM3 5v2h18V5H3z"/></g>
                 </svg> All</a>
@@ -152,7 +162,10 @@
               <a 
                 href="#filterList" 
                 data-filter-option="1" 
-                aria-controls="cardList">Stuff everyone can use</a>
+                aria-controls="cardList"><svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="filter-strip__svg">
+                  <title>Filter</title>
+                  <path class="svg-fill--no-stroke" d="M10 19h4v-2h-4v2zm-4-6h12v-2H6v2zM3 5v2h18V5H3z"/></g>
+                </svg> Stuff everyone can use</a>
             </li>
             <li 
               id="dataFilterListItem3" 
@@ -160,7 +173,10 @@
               <a 
                 href="#filterList" 
                 data-filter-option="2" 
-                aria-controls="cardList">Starting to code</a>
+                aria-controls="cardList"><svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="filter-strip__svg">
+                  <title>Filter</title>
+                  <path class="svg-fill--no-stroke" d="M10 19h4v-2h-4v2zm-4-6h12v-2H6v2zM3 5v2h18V5H3z"/></g>
+                </svg> Starting to code</a>
             </li>
             <li 
               id="dataFilterListItem4" 
@@ -168,7 +184,10 @@
               <a 
                 href="#filterList" 
                 data-filter-option="3" 
-                aria-controls="cardList">Advanced coding stuff</a>
+                aria-controls="cardList"><svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="filter-strip__svg">
+                  <title>Filter</title>
+                  <path class="svg-fill--no-stroke" d="M10 19h4v-2h-4v2zm-4-6h12v-2H6v2zM3 5v2h18V5H3z"/></g>
+                </svg> Advanced coding stuff</a>
             </li>
           </ul>
         </div>
@@ -183,11 +202,12 @@
             
             <li 
               class="card-list__item" 
-              data-learning-level="2">
+              data-learning-level="3">
               <a 
                 href="/build-tools/" 
                 class="card-list__link">
                 <div class="card-list__feature">
+              
               
               
               
@@ -207,44 +227,21 @@
             
             <li 
               class="card-list__item" 
-              data-learning-level="3">
-              <a 
-                href="/encryption-and-hashing/" 
-                class="card-list__link">
-                <div class="card-list__feature">
-              
-              
-                <img alt="Person with a blowtorch" class="card-list__image card-list__image--padded" src="/images/password.svg" height="150" width="128">
-              
-              
-                </div>
-                <div class="card-list__text">
-              <div class="card-list__title">Encryption &amp; Hashing</div>
-              <div class="card-list__summary">Uses and praxis of encryption &amp; hashing in secure web applications.</div></div>
-              <div class="card-list__cta">
-                </div>
-            </a>
-          </li>
-          
-            
-              
-            
-            <li 
-              class="card-list__item" 
               data-learning-level="2">
               <a 
-                href="/es6/" 
+                href="/rough-guide-to-getting-a-job/" 
                 class="card-list__link">
                 <div class="card-list__feature">
               
               
-                <img alt="Person with a blowtorch" class="card-list__image card-list__image--padded" src="/images/javascript.svg" height="150" width="150">
+                <picture><source type="image/avif" srcset="/img/ugGBAv79YQ-300.avif 300w, /img/ugGBAv79YQ-600.avif 600w" sizes="(min-width: 30em) 200px, 100vw"><source type="image/webp" srcset="/img/ugGBAv79YQ-300.webp 300w, /img/ugGBAv79YQ-600.webp 600w" sizes="(min-width: 30em) 200px, 100vw"><source type="image/jpeg" srcset="/img/ugGBAv79YQ-300.jpeg 300w, /img/ugGBAv79YQ-600.jpeg 600w" sizes="(min-width: 30em) 200px, 100vw"><img alt="Alice (Betsy) E. D. Gillies and Donald B. Gillies with the ILLIAC I at the Digital Computer Lab, Urbana Illinois, circa 1957." title="Photo credit: https://commons.wikimedia.org/wiki/File:Donald_Betsy_Gillies_Illiac_I.jpg" loading="lazy" decoding="async" src="/img/ugGBAv79YQ-300.jpeg" width="600" height="576"></picture>
+              
               
               
                 </div>
                 <div class="card-list__text">
-              <div class="card-list__title">ES6+</div>
-              <div class="card-list__summary">Modern JavaScript, and how to enforce quality through language features.</div></div>
+              <div class="card-list__title">Rough Guide: How To Get a Job <wbr>as a Web Developer <wbr>in&nbsp;2022</div>
+              <div class="card-list__summary">Choosing a career path on the web in 2022</div></div>
               <div class="card-list__cta">
                 </div>
             </a>
@@ -257,18 +254,19 @@
               class="card-list__item" 
               data-learning-level="1">
               <a 
-                href="/types-of-testing/" 
+                href="/web-life-cycle/slides/" 
                 class="card-list__link">
                 <div class="card-list__feature">
               
               
-                <img alt="Person with a blowtorch" class="card-list__image card-list__image--padded" src="/images/testing.svg" height="165" width="150">
+                <picture><source type="image/avif" srcset="/img/r__Ja0jj4p-300.avif 300w, /img/r__Ja0jj4p-600.avif 600w, /img/r__Ja0jj4p-1200.avif 1200w" sizes="(min-width: 30em) 200px, 100vw"><source type="image/webp" srcset="/img/r__Ja0jj4p-300.webp 300w, /img/r__Ja0jj4p-600.webp 600w, /img/r__Ja0jj4p-1200.webp 1200w" sizes="(min-width: 30em) 200px, 100vw"><source type="image/jpeg" srcset="/img/r__Ja0jj4p-300.jpeg 300w, /img/r__Ja0jj4p-600.jpeg 600w, /img/r__Ja0jj4p-1200.jpeg 1200w" sizes="(min-width: 30em) 200px, 100vw"><img alt="Rooftop garden" title="Image credit: Rhododendrites, CC BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0, via Wikimedia Commons" loading="lazy" decoding="async" src="/img/r__Ja0jj4p-300.jpeg" width="1200" height="1180"></picture>
+              
               
               
                 </div>
                 <div class="card-list__text">
-              <div class="card-list__title">What is &#39;Quality&#39; &#39;Assurance&#39;?</div>
-              <div class="card-list__summary">We can say that &#39;quality&#39; means meeting requirements, and &#39;assurance&#39; is proving that we&#39;ve met those requirements. Today, let&#39;s look at where requirements come from - the client, the user, standards specifications, and your team. And then: testing comes in all shapes and sizes. Today we&#39;ll also look at why we test, how we design our tests, what all the different types of testing are, and how they fit into a team&#39;s lifecycle.</div></div>
+              <div class="card-list__title">Different jobs in a web&nbsp;project</div>
+              <div class="card-list__summary">How does work actually get done on the web? Let&#39;s learn about the lifecycle of a web-based project. Most projects on the web are done according to these steps, and any one of these steps could be a full-time job for you!</div></div>
               <div class="card-list__cta">
                 </div>
             </a>
@@ -281,42 +279,19 @@
               class="card-list__item" 
               data-learning-level="1">
               <a 
-                href="/ad-hoc-testing/" 
+                href="/carbon-footprint/" 
                 class="card-list__link">
                 <div class="card-list__feature">
               
               
-                <img alt="Person with a blowtorch" class="card-list__image card-list__image--padded" src="/images/adhoc.svg" height="150" width="224">
+                <picture><source type="image/avif" srcset="/img/PTo0QQeFV3-300.avif 300w, /img/PTo0QQeFV3-600.avif 600w, /img/PTo0QQeFV3-1200.avif 1200w" sizes="(min-width: 30em) 200px, 100vw"><source type="image/webp" srcset="/img/PTo0QQeFV3-300.webp 300w, /img/PTo0QQeFV3-600.webp 600w, /img/PTo0QQeFV3-1200.webp 1200w" sizes="(min-width: 30em) 200px, 100vw"><source type="image/jpeg" srcset="/img/PTo0QQeFV3-300.jpeg 300w, /img/PTo0QQeFV3-600.jpeg 600w, /img/PTo0QQeFV3-1200.jpeg 1200w" sizes="(min-width: 30em) 200px, 100vw"><img alt="Quilt, Spiderweb pattern" title="Image credit: https://commons.wikimedia.org/wiki/File:Quilt,_Spiderweb_pattern_MET_DP142720.jpg" loading="lazy" decoding="async" src="/img/PTo0QQeFV3-300.jpeg" width="1200" height="1100"></picture>
               
-              
-                </div>
-                <div class="card-list__text">
-              <div class="card-list__title">Ad hoc testing</div>
-              <div class="card-list__summary">You&#39;re already testing! &#39;Ad hoc&#39; testing is the first type of testing every developer does, and it will likely become a permanent part of your workflow. Let&#39;s learn about some of the tools available to us that you can start using today (if you&#39;re not already).</div></div>
-              <div class="card-list__cta">
-                </div>
-            </a>
-          </li>
-          
-            
-              
-            
-            <li 
-              class="card-list__item" 
-              data-learning-level="3">
-              <a 
-                href="/how-to-get-hacked/" 
-                class="card-list__link">
-                <div class="card-list__feature">
-              
-              
-                <img alt="Person with a blowtorch" class="card-list__image card-list__image--padded" src="/images/factory.svg" height="119" width="150">
               
               
                 </div>
                 <div class="card-list__text">
-              <div class="card-list__title">How to get hacked</div>
-              <div class="card-list__summary">Today we look at the OWASP Top 10 Web Application Security Risks.</div></div>
+              <div class="card-list__title">The carbon footprint of the internet</div>
+              <div class="card-list__summary">Today we learn about the lifecycle of a web-based project. We&#39;ll look at all the possible stages of a project, whether big or small.</div></div>
               <div class="card-list__cta">
                 </div>
             </a>
@@ -333,7 +308,14 @@
     </main>
 
     <footer>
-      
+      <svg width='100%' height='100%' xmlns='http://www.w3.org/2000/svg' role="presentation" class="footer-bg">
+        <rect width='100%' height='100%' fill='url(#a)' />
+      </svg>
+      <div class="copyright row">
+        <div class="copyright__info">
+        &copy;&nbsp;2022 Simon&nbsp;Borer
+        </div>
+      </div>
     </footer>
 
     <script src="/js/fuse.js"></script>
@@ -352,25 +334,42 @@
           "title": "",
           "tags": []
         },{ 
-          "url": "/encryption-and-hashing/",
-          "title": "Encryption &amp; Hashing",
+          "url": "/rough-guide-to-getting-a-job/",
+          "title": "Rough Guide: How To Get a Job &lt;wbr&gt;as a Web Developer &lt;wbr&gt;in&amp;nbsp;2022",
           "tags": ["OWASP","XSS","SQL Injection","Security","Authentication"]
         },{ 
-          "url": "/es6/",
-          "title": "ES6+",
+          "url": "/web-life-cycle/slides/",
+          "title": "Different jobs in a web&amp;nbsp;project",
+          "tags": ["Market research","Personas","Requirements","Design","Wireframes","Development","Unit testing","Code review","Version control","QA","Quality assurance","Analytics"]
+        },{ 
+          "url": "/carbon-footprint/",
+          "title": "The carbon footprint of the internet",
           "tags": ["OWASP","XSS","SQL Injection","Security","Authentication"]
         },{ 
-          "url": "/types-of-testing/",
-          "title": "What is &#39;Quality&#39; &#39;Assurance&#39;?",
-          "tags": ["OWASP","XSS","SQL Injection","Security","Authentication"]
+          "url": "/tags/Task%20runners/",
+          "title": "Task runners",
+          "tags": [],
+          "isTag": true
         },{ 
-          "url": "/ad-hoc-testing/",
-          "title": "Ad hoc testing",
-          "tags": ["OWASP","XSS","SQL Injection","Security","Authentication"]
+          "url": "/tags/Toolchains/",
+          "title": "Toolchains",
+          "tags": [],
+          "isTag": true
         },{ 
-          "url": "/how-to-get-hacked/",
-          "title": "How to get hacked",
-          "tags": ["OWASP","XSS","SQL Injection","Security","Authentication"]
+          "url": "/tags/Bundlers/",
+          "title": "Bundlers",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Vite/",
+          "title": "Vite",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/SASS/",
+          "title": "SASS",
+          "tags": [],
+          "isTag": true
         },{ 
           "url": "/tags/OWASP/",
           "title": "OWASP",
@@ -397,28 +396,63 @@
           "tags": [],
           "isTag": true
         },{ 
-          "url": "/tags/Task%20runners/",
-          "title": "Task runners",
+          "url": "/tags/Market%20research/",
+          "title": "Market research",
           "tags": [],
           "isTag": true
         },{ 
-          "url": "/tags/Toolchains/",
-          "title": "Toolchains",
+          "url": "/tags/Personas/",
+          "title": "Personas",
           "tags": [],
           "isTag": true
         },{ 
-          "url": "/tags/Bundlers/",
-          "title": "Bundlers",
+          "url": "/tags/Requirements/",
+          "title": "Requirements",
           "tags": [],
           "isTag": true
         },{ 
-          "url": "/tags/Vite/",
-          "title": "Vite",
+          "url": "/tags/Design/",
+          "title": "Design",
           "tags": [],
           "isTag": true
         },{ 
-          "url": "/tags/SASS/",
-          "title": "SASS",
+          "url": "/tags/Wireframes/",
+          "title": "Wireframes",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Development/",
+          "title": "Development",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Unit%20testing/",
+          "title": "Unit testing",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Code%20review/",
+          "title": "Code review",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Version%20control/",
+          "title": "Version control",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/QA/",
+          "title": "QA",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Quality%20assurance/",
+          "title": "Quality assurance",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Analytics/",
+          "title": "Analytics",
           "tags": [],
           "isTag": true
         }

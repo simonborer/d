@@ -1,0 +1,430 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script type="module">
+      document.documentElement.classList.remove('no-js');
+      document.documentElement.classList.add('js');
+    </script>
+    
+    <title></title>
+    <meta name="description" content="List of tagged pages">
+    <meta property="og:title" content="Decent internet">
+    <meta property="og:description" content="List of tagged pages">
+    <meta property="og:url" content="">
+    <link rel="canonical" href="">
+
+    <meta property="og:image" content="https://meek-tarsier-01cebe.netlify.app/">
+    <meta property="og:image:alt" content="Decent Internet">
+    <meta property="og:locale" content="en_CA">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" href="/icons/favicon.ico">
+    <link rel="icon" href="/icons/d-i.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=swap" rel="stylesheet">
+    <meta name="theme-color" content="#FFF464">
+    <script src="/js/alpine.js" defer></script>
+    <script src="/js/script.js" defer></script>
+    
+  </head>
+  <body
+     
+    x-data 
+    
+    :class="$store.menuToggle.on && 'no-scroll'">
+    <a href="#content" class="show-for-sr show-on-focus skip-link">Skip navigation</a>
+
+    <div class="progress" aria-hidden="true"></div>
+    <header class="header">
+      <div class="nav">
+        <nav>
+          
+          <button 
+            x-data 
+            @click="$store.menuToggle.toggle();document.getElementById('navBarClose').focus();" 
+            id="navBarOpen" 
+            class="nav__toggle-button hide-without-js">
+            <svg 
+              width="48" 
+              height="48" 
+              viewBox="0 0 512 512" 
+              xmlns="http://www.w3.org/2000/svg" 
+              role="img">
+              <title>Show menu</title>
+              <path d="M32 96v64h448V96H32zm0 128v64h448v-64H32zm0 128v64h448v-64H32z" class="svg-fill" />
+            </svg>
+          </button>
+
+          <div 
+            x-data 
+            class="nav__links" 
+            :class="$store.menuToggle.on && 'nav__links--expanded'" 
+            :aria-expanded="$store.menuToggle.on ? 'true' : 'false'">
+            <div class="nav__links-close-target hide-without-js">
+              <button 
+                x-data 
+                @click="$store.menuToggle.toggle();document.getElementById('navBarOpen').focus();" 
+                id="navBarClose" 
+                class="nav__toggle-button nav__toggle-button--close">
+                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" role="img">
+                  <title>Hide menu</title>
+                  <path d="M8 8L40 40" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="svg-fill"/>
+                  <path d="M8 40L40 8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="svg-fill"/>
+                </svg>
+              </button>
+            </div>          
+            <ul>
+              <li><a href="/">Home</a></li>
+              <li><a href="/about">About</a></li>
+              <li><a href="/socials">Socials</a></li>
+            </ul>
+          </div>
+
+          <button 
+            x-data 
+            class="nav__toggle-tap-to-close hide-without-js" 
+            :class="$store.menuToggle.on && 'nav__toggle-tap-to-close--open'" 
+            @click="$store.menuToggle.toggle();document.getElementById('navBarOpen').focus();" 
+            tabindex="-1">Hide menu with tap</button>
+
+        </nav>
+
+        <h1 id="content" class="title"></h1>
+
+        
+        <div class="search__box hide-without-js">
+          <label for="search" class="show-for-sr">Type to search</label>
+          <input id="search" placeholder="Search" class="search__input hide-without-js">
+          <svg width="48" height="48" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 183.792 183.792" xml:space="preserve" class="search__box-icon" role="img">
+            <title>Search</title>
+            <path class="svg-fill" d="M54.734,9.053C39.12,18.067,27.95,32.624,23.284,50.039c-4.667,17.415-2.271,35.606,6.743,51.22
+              c12.023,20.823,34.441,33.759,58.508,33.759c7.599,0,15.139-1.308,22.287-3.818l30.364,52.592l21.65-12.5l-30.359-52.583
+              c10.255-8.774,17.638-20.411,21.207-33.73c4.666-17.415,2.27-35.605-6.744-51.22C134.918,12.936,112.499,0,88.433,0
+              C76.645,0,64.992,3.13,54.734,9.053z M125.29,46.259c5.676,9.831,7.184,21.285,4.246,32.25c-2.938,10.965-9.971,20.13-19.802,25.806
+              c-6.462,3.731-13.793,5.703-21.199,5.703c-15.163,0-29.286-8.146-36.857-21.259c-5.676-9.831-7.184-21.284-4.245-32.25
+              c2.938-10.965,9.971-20.13,19.802-25.807C73.696,26.972,81.027,25,88.433,25C103.597,25,117.719,33.146,125.29,46.259z"/>
+          </svg>
+          <ul aria-live="polite" id="searchResults" class="search__results"></ul>
+        </div>
+      </div>
+
+      <svg width='0' height='0' xmlns='http://www.w3.org/2000/svg' role="presentation">
+        <defs>
+          <pattern id='a' patternUnits='userSpaceOnUse' width='20' height='20'>
+            <rect x='0' y='0' width='100%' />
+            <path d='M 10,-2.55e-7 V 20 Z M -1.1677362e-8,10 H 20 Z' stroke-width='0.5' class="svg-fill" fill='none' />
+          </pattern>
+        </defs>
+      </svg>
+
+      
+        <div class="callout summary-container">
+          
+            <div class="summary">
+              <div class="summary__text-container">
+                <span class="summary__text" data-annotate>List of tagged pages</span>
+              </div>
+              <div class="summary__reading-time"></div>
+              <div class="summary__date">Thu, 14 Apr 2022 11:27:31 GMT</div>
+              
+            </div>
+          
+          
+        </div>
+      
+
+    </header>
+
+    <main>
+      
+
+      
+      <article>
+        
+        <h1>Tagged “Wireframes”</h1>
+
+<ol class="row">
+
+
+  <li><a href="/web-life-cycle/slides/">Different jobs in a web&amp;nbsp;project</a></li>
+
+</ol>
+      </article>
+
+    </main>
+
+    <footer>
+      <svg width='100%' height='100%' xmlns='http://www.w3.org/2000/svg' role="presentation" class="footer-bg">
+        <rect width='100%' height='100%' fill='url(#a)' />
+      </svg>
+      <div class="copyright row">
+        <div class="copyright__info">
+        &copy;&nbsp;2022 Simon&nbsp;Borer
+        </div>
+      </div>
+    </footer>
+
+    <script src="/js/fuse.js"></script>
+    <script>
+      // Let 11ty populate an array of pages
+      const searchArray = [{ 
+          "url": "/",
+          "title": "Decent Internet",
+          "tags": []
+        },{ 
+          "url": "/build-tools/",
+          "title": "Build Tools",
+          "tags": ["Task runners","Toolchains","Bundlers","Vite","SASS"]
+        },{ 
+          "url": "/tags/all/",
+          "title": "",
+          "tags": []
+        },{ 
+          "url": "/rough-guide-to-getting-a-job/",
+          "title": "Rough Guide: How To Get a Job &lt;wbr&gt;as a Web Developer &lt;wbr&gt;in&amp;nbsp;2022",
+          "tags": ["OWASP","XSS","SQL Injection","Security","Authentication"]
+        },{ 
+          "url": "/web-life-cycle/slides/",
+          "title": "Different jobs in a web&amp;nbsp;project",
+          "tags": ["Market research","Personas","Requirements","Design","Wireframes","Development","Unit testing","Code review","Version control","QA","Quality assurance","Analytics"]
+        },{ 
+          "url": "/carbon-footprint/",
+          "title": "The carbon footprint of the internet",
+          "tags": ["OWASP","XSS","SQL Injection","Security","Authentication"]
+        },{ 
+          "url": "/tags/Task%20runners/",
+          "title": "Task runners",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Toolchains/",
+          "title": "Toolchains",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Bundlers/",
+          "title": "Bundlers",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Vite/",
+          "title": "Vite",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/SASS/",
+          "title": "SASS",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/OWASP/",
+          "title": "OWASP",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/XSS/",
+          "title": "XSS",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/SQL%20Injection/",
+          "title": "SQL Injection",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Security/",
+          "title": "Security",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Authentication/",
+          "title": "Authentication",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Market%20research/",
+          "title": "Market research",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Personas/",
+          "title": "Personas",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Requirements/",
+          "title": "Requirements",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Design/",
+          "title": "Design",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Wireframes/",
+          "title": "Wireframes",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Development/",
+          "title": "Development",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Unit%20testing/",
+          "title": "Unit testing",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Code%20review/",
+          "title": "Code review",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Version%20control/",
+          "title": "Version control",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/QA/",
+          "title": "QA",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Quality%20assurance/",
+          "title": "Quality assurance",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Analytics/",
+          "title": "Analytics",
+          "tags": [],
+          "isTag": true
+        }
+    ];
+
+    // Set fuse options
+    const options = {
+      includeScore: true,
+      keys: [
+        { name: "title", weight: 0.9 },
+        { name: "tags", weight: 1 },
+      ],
+    };
+
+    // Create instance of fuse
+    const fuse = new Fuse(searchArray, options);
+
+    const searchBox = document.getElementById("search");
+    window.onload = () => (searchBox.value = ``);
+
+    // Give results while typing
+    const listenToResults = () => {
+      document
+        .getElementById("searchResults")
+        .querySelectorAll("a")
+        .forEach((searchResultLink, index) => {
+          searchResultLink.addEventListener("keyup", function () {
+            if (
+              (index === 0 && event.key === "ArrowUp") ||
+              (index + 1 ===
+                document.getElementById("searchResults").querySelectorAll("a")
+                  .length &&
+                event.key === "ArrowDown")
+            ) {
+              searchBox.focus();
+            } else if (event.key === "ArrowUp") {
+              document
+                .getElementById("searchResults")
+                .querySelectorAll("a")
+                [index - 1].focus();
+            } else if (event.key === "ArrowDown") {
+              document
+                .getElementById("searchResults")
+                .querySelectorAll("a")
+                [index + 1].focus();
+            } else if (event.key === "Escape") {
+              document
+                .getElementById("searchResults").innerHTML = ``;
+            }
+          });
+        });
+    };
+
+    searchBox.addEventListener("keyup", function () {
+      const resultsList = document.getElementById("searchResults");
+      resultsList.innerHTML = ``;
+      const searchResults = fuse
+        .search(searchBox.value)
+        .sort((a, b) => a.score - b.score)
+        .slice(0, 3);
+
+        if (event.key !== "Escape") {
+          searchResults.forEach((result) => {
+            resultsList.innerHTML += `<li><a href="${result.item.url}" tabindex="0">${
+              result.item.title
+            }<span class="pill">${result.item.isTag ? `Tag` : `Page`}</span></a></li>`;
+          });
+
+          listenToResults();
+
+          if (resultsList.children.length > 0 && event.key === "ArrowDown") {
+            resultsList.firstChild.querySelector("a").focus();
+          }
+        } else {
+          resultsList.innerHTML = ``;
+        }
+        });
+
+    // Use Alpine to toggle the menu
+    document.addEventListener("alpine:init", () => {
+      Alpine.store("menuToggle", {
+        on: false,
+        toggle() {
+          this.on = !this.on;
+        },
+      });
+    });
+
+    // Close menu on left swipe
+    const touchableElement = document.querySelectorAll(".nav__links")[0];
+
+    touchableElement.addEventListener(
+      "touchstart",
+      (event) => {
+        touchstartX = event.changedTouches[0].screenX;
+        touchstartY = event.changedTouches[0].screenY;
+      },
+      { passive: true }
+    );
+
+    touchableElement.addEventListener(
+      "touchend",
+      (event) => {
+        touchendX = event.changedTouches[0].screenX;
+        touchendY = event.changedTouches[0].screenY;
+        if (touchendX < touchstartX && touchstartX - touchendX > 75) {
+          Alpine.store("menuToggle").toggle();
+          document.getElementById("navBarOpen").focus();
+        }
+      },
+      { passive: true }
+    );
+
+    </script>
+    <script src="/js/instantpage-5.1.0.js" type="module" defer></script>
+  </body>
+  </html>

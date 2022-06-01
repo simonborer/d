@@ -1,6 +1,7 @@
 
 
 
+
 <!DOCTYPE html>
 <html lang="en" class="no-js">
   <head>
@@ -119,26 +120,27 @@
         </div>
       </div>
 
+      <svg width='0' height='0' xmlns='http://www.w3.org/2000/svg' role="presentation">
+        <defs>
+          <pattern id='a' patternUnits='userSpaceOnUse' width='20' height='20'>
+            <rect x='0' y='0' width='100%' />
+            <path d='M 10,-2.55e-7 V 20 Z M -1.1677362e-8,10 H 20 Z' stroke-width='0.5' class="svg-fill" fill='none' />
+          </pattern>
+        </defs>
+      </svg>
+
       
         <div class="callout summary-container">
           
             <div class="summary">
               <div class="summary__text-container">
-                <span class="summary__text">Who I am, why I&#39;m doing this, who I&#39;m doing this for, and how I&#39;m trying to do it.</span>
+                <span class="summary__text" data-annotate>Who I am, why I&#39;m doing this, who I&#39;m doing this for, and how I&#39;m trying to do it.</span>
               </div>
               <div class="summary__reading-time">About 4 min reading time</div>
               <div class="summary__date">Fri, 20 May 2022 13:21:33 GMT</div>
               
-                <svg width='0' height='0' xmlns='http://www.w3.org/2000/svg' role="presentation">
-                  <defs>
-                    <pattern id='a' patternUnits='userSpaceOnUse' width='20' height='20'>
-                      <rect x='0' y='0' width='100%' />
-                      <path d='M 10,-2.55e-7 V 20 Z M -1.1677362e-8,10 H 20 Z' stroke-width='0.5' class="svg-fill" fill='none' />
-                    </pattern>
-                  </defs>
-                </svg>
 
-                <div class="toc" data-annotate data-ann-type="box" data-ann-mobile-only>
+                <div class="toc" data-annotate data-ann-type="box" data-ann-color="var(--emphasis)" data-ann-mobile-only>
                   <h2>Table of contents</h2>
                   <ol>
                     
@@ -152,14 +154,13 @@
                     
                   </ol>
                 </div>
-
-
               
             </div>
           
           
             <div class="summary__image-container">
-            <img alt="Simon Borer" class="summary__image" src="/images/me.jpeg" height="735" width="786">
+            
+            <picture><source type="image/avif" srcset="/img/cIaB_34O7k-300.avif 300w, /img/cIaB_34O7k-600.avif 600w" sizes="(min-width: 30em) 300px, 100vw"><source type="image/webp" srcset="/img/cIaB_34O7k-300.webp 300w, /img/cIaB_34O7k-600.webp 600w" sizes="(min-width: 30em) 300px, 100vw"><source type="image/jpeg" srcset="/img/cIaB_34O7k-300.jpeg 300w, /img/cIaB_34O7k-600.jpeg 600w" sizes="(min-width: 30em) 300px, 100vw"><img alt="Simon Borer" title="" loading="lazy" decoding="async" src="/img/cIaB_34O7k-300.jpeg" width="600" height="561"></picture>
             </div>
             <svg width='100%' height='100%' xmlns='http://www.w3.org/2000/svg' role="presentation" class="toc__svg">
               <rect width='100%' height='100%' fill='url(#a)' />
@@ -235,8 +236,8 @@
     <p>I use <a href="https://iterm2.com/" target="_blank" rel="noreferrer">iTerm</a> as my terminal.</p>
     <p>Once I write stuff, it gets version-controlled in <a href="https://github.com/" target="_blank" rel="noreferrer">Github</a>, from which it's published to the internet through <a href="https://www.netlify.com/" target="_blank" rel="noreferrer">Netlify</a>.</p>
     <p>My runtime environment is <a href="https://nodejs.org/en/" target="_blank" rel="noreferrer">Node.js</a>, with <a href="https://www.npmjs.com/" target="_blank" rel="noreferrer">NPM</a> managing the packages.</p>
-    <p>The site is generated using <a href="https://www.11ty.dev/" target="_blank" rel="noreferrer">Eleventy</a> using the <a href="https://mozilla.github.io/nunjucks/" target="_blank" rel="noreferrer">Nunjucks</a> templating engine, with <a href="https://sass-lang.com/" target="_blank" rel="noreferrer">SCSS</a> to build my styles.</p>
-    <p>The site uses <a href="https://alpinejs.dev/" target="_blank" rel="noreferrer">Alpine.js</a> to help with passing state data between elements, <a href="https://fusejs.io/" target="_blank" rel="noreferrer">Fuse.js</a> for fuzzy searching, <a href="https://prismjs.com/" target="_blank" rel="noreferrer">Prism</a> to highlight code, Paul Irish's <a href="https://github.com/paulirish/lite-youtube-embed" target="_blank" rel="noreferrer">Lite YouTube Embed</a> for video "facades", and <a href="https://instant.page/" target="_blank" rel="noreferrer">instant.page</a> for preloading links.</p>
+    <p>The site is generated using <a href="https://www.11ty.dev/" target="_blank" rel="noreferrer">Eleventy</a> using the <a href="https://mozilla.github.io/nunjucks/" target="_blank" rel="noreferrer">Nunjucks</a> templating engine, with <a href="https://sass-lang.com/" target="_blank" rel="noreferrer">SCSS</a> to build my styles. I'm using <a href="https://esbuild.github.io/" target="_blank" rel="noreferrer">esbuild</a> to bundle my JavaScript libraries (although any JS I write myself I leave un-minified so you can read it yourself). I use <a href="https://postcss.org/" target="_blank" rel="noreferrer">PostCSS</a> to run <a href="https://github.com/postcss/autoprefixer" target="_blank" rel="noreferrer">Autoprefixer</a> and <a href="https://purgecss.com/" target="_blank" rel="noreferrer">PurgeCSS</a>.</p>
+    <p>The site uses <a href="https://alpinejs.dev/" target="_blank" rel="noreferrer">Alpine.js</a> to help with passing state data between elements, <a href="https://fusejs.io/" target="_blank" rel="noreferrer">Fuse.js</a> for fuzzy searching, <a href="https://prismjs.com/" target="_blank" rel="noreferrer">Prism</a> to highlight code, <a href="https://github.com/rough-stuff/rough-notation" target="_blank" rel="noreferrer">Rough Notation </a> to "sketchily" underline and highlight text, Paul Irish's <a href="https://github.com/paulirish/lite-youtube-embed" target="_blank" rel="noreferrer">Lite YouTube Embed</a> for video "facades", and <a href="https://instant.page/" target="_blank" rel="noreferrer">instant.page</a> for preloading links.</p>
     <p>To see how I'm doing, I check my work in <a href="https://developers.google.com/web/tools/lighthouse" target="_blank" rel="noreferrer">Lighthouse</a>, <a href="https://www.deque.com/axe/browser-extensions/" target="_blank" rel="noreferrer">axe DevTools</a>, <a href="https://accessibilityinsights.io/" target="_blank" rel="noreferrer">Accessibility Insights</a>, developer tools in <a href="https://developer.chrome.com/docs/devtools/" target="_blank" rel="noreferrer">Chrome</a>, <a href="https://firefox-source-docs.mozilla.org/devtools-user/index.html" target="_blank" rel="noreferrer">Firefox</a>, and <a href="https://developer.apple.com/safari/" target="_blank" rel="noreferrer">Safari</a>, <a href="https://github.com/tbroadley/spellchecker-cli" target="_blank" rel="noreferrer">spellchecker-cli</a> and <a href="https://github.com/amperser/proselint" target="_blank" rel="noreferrer">proselint</a>.</p>
     <p>And here's <span data-annotate>my favourite part</span> - I get inspiration from:</p>
     <ul>
@@ -253,7 +254,14 @@
     </main>
 
     <footer>
-      
+      <svg width='100%' height='100%' xmlns='http://www.w3.org/2000/svg' role="presentation" class="footer-bg">
+        <rect width='100%' height='100%' fill='url(#a)' />
+      </svg>
+      <div class="copyright row">
+        <div class="copyright__info">
+        &copy;&nbsp;2022 Simon&nbsp;Borer
+        </div>
+      </div>
     </footer>
 
     <script src="/js/fuse.js"></script>
@@ -272,25 +280,42 @@
           "title": "",
           "tags": []
         },{ 
-          "url": "/encryption-and-hashing/",
-          "title": "Encryption &amp; Hashing",
+          "url": "/rough-guide-to-getting-a-job/",
+          "title": "Rough Guide: How To Get a Job &lt;wbr&gt;as a Web Developer &lt;wbr&gt;in&amp;nbsp;2022",
           "tags": ["OWASP","XSS","SQL Injection","Security","Authentication"]
         },{ 
-          "url": "/es6/",
-          "title": "ES6+",
+          "url": "/web-life-cycle/slides/",
+          "title": "Different jobs in a web&amp;nbsp;project",
+          "tags": ["Market research","Personas","Requirements","Design","Wireframes","Development","Unit testing","Code review","Version control","QA","Quality assurance","Analytics"]
+        },{ 
+          "url": "/carbon-footprint/",
+          "title": "The carbon footprint of the internet",
           "tags": ["OWASP","XSS","SQL Injection","Security","Authentication"]
         },{ 
-          "url": "/types-of-testing/",
-          "title": "What is &#39;Quality&#39; &#39;Assurance&#39;?",
-          "tags": ["OWASP","XSS","SQL Injection","Security","Authentication"]
+          "url": "/tags/Task%20runners/",
+          "title": "Task runners",
+          "tags": [],
+          "isTag": true
         },{ 
-          "url": "/ad-hoc-testing/",
-          "title": "Ad hoc testing",
-          "tags": ["OWASP","XSS","SQL Injection","Security","Authentication"]
+          "url": "/tags/Toolchains/",
+          "title": "Toolchains",
+          "tags": [],
+          "isTag": true
         },{ 
-          "url": "/how-to-get-hacked/",
-          "title": "How to get hacked",
-          "tags": ["OWASP","XSS","SQL Injection","Security","Authentication"]
+          "url": "/tags/Bundlers/",
+          "title": "Bundlers",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Vite/",
+          "title": "Vite",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/SASS/",
+          "title": "SASS",
+          "tags": [],
+          "isTag": true
         },{ 
           "url": "/tags/OWASP/",
           "title": "OWASP",
@@ -317,28 +342,63 @@
           "tags": [],
           "isTag": true
         },{ 
-          "url": "/tags/Task%20runners/",
-          "title": "Task runners",
+          "url": "/tags/Market%20research/",
+          "title": "Market research",
           "tags": [],
           "isTag": true
         },{ 
-          "url": "/tags/Toolchains/",
-          "title": "Toolchains",
+          "url": "/tags/Personas/",
+          "title": "Personas",
           "tags": [],
           "isTag": true
         },{ 
-          "url": "/tags/Bundlers/",
-          "title": "Bundlers",
+          "url": "/tags/Requirements/",
+          "title": "Requirements",
           "tags": [],
           "isTag": true
         },{ 
-          "url": "/tags/Vite/",
-          "title": "Vite",
+          "url": "/tags/Design/",
+          "title": "Design",
           "tags": [],
           "isTag": true
         },{ 
-          "url": "/tags/SASS/",
-          "title": "SASS",
+          "url": "/tags/Wireframes/",
+          "title": "Wireframes",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Development/",
+          "title": "Development",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Unit%20testing/",
+          "title": "Unit testing",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Code%20review/",
+          "title": "Code review",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Version%20control/",
+          "title": "Version control",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/QA/",
+          "title": "QA",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Quality%20assurance/",
+          "title": "Quality assurance",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Analytics/",
+          "title": "Analytics",
           "tags": [],
           "isTag": true
         }

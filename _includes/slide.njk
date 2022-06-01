@@ -1,0 +1,55 @@
+---
+permalink: "{{ page.filePathStem }}/slides/index.html"
+---
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script type="module">
+        document.documentElement.classList.remove('no-js');
+      document.documentElement.classList.add('js');
+    </script>
+    <title>{{ title | striptags }}</title>
+    <meta name="description" content="{{description | d(site.description)}}">
+    <meta property="og:title" content="{{title | d(site.name)}}">
+    <meta property="og:description" content="{{description | d(site.description)}}">
+    <meta property="og:url" content="{{url}}">
+    <link rel="canonical" href="{{url}}">
+    <meta property="og:image" content="{{site.url}}{{tileImg}}">
+    <meta property="og:image:alt" content="Decent Internet">
+    <meta property="og:locale" content="en_CA">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="/icons/favicon.ico">
+    <link rel="icon" href="/icons/d-i.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="stylesheet" href="/css/slides.css">
+    <meta name="theme-color" content="#FFF464">
+</head>
+
+<body>
+    <main class="reveal">
+      <div class="slides">
+          {{ content | safe }}
+      </div>
+    </main>
+    <script src="/js/reveal.js"></script>
+    <script>
+    Reveal.initialize({
+        dependencies: [{
+            src: '/js/reveal.a11y.js',
+            async: true,
+            condition: function() {
+                return !!document.body.classList;
+            }
+        }]
+    });
+    </script>
+</body>
+
+</html>

@@ -243,7 +243,8 @@ img:before {
 img:after {
   content: "🏞 Broken Image of " attr(alt);
   display: block;
-  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.2;
   font-style: normal;
   color: var(--foreground);
   position: absolute;
@@ -435,6 +436,9 @@ dt:after {
     box-shadow: none;
     display: block;
     overflow: visible;
+    max-width: calc(100% - 1.5rem - 48px - 224px);
+    padding: 1rem;
+    font-size: clamp(1rem, 3vw, 2.5rem);
   }
   .home .title {
     height: auto;
@@ -456,6 +460,29 @@ article p {
 
 main {
   padding-bottom: 20vh;
+}
+
+footer {
+  display: flex;
+  position: relative;
+  padding: 10vh 1rem 5vh;
+  margin-top: 10vh;
+}
+
+.footer-bg {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  height: 100%;
+}
+
+.copyright {
+  display: flex;
+  flex-grow: 1;
+}
+.copyright__info {
+  background: var(--background);
 }
 
 .row:not(.full-width), .col {
@@ -671,6 +698,15 @@ main {
   border-right: 0.125rem solid var(--background--offset);
   width: 100%;
 }
+.filter-strip__svg {
+  display: none;
+}
+.active .filter-strip__svg {
+  display: flex;
+}
+.active [data-filter-option="1"] .filter-strip__svg path {
+  fill: var(--background);
+}
 .filter-strip li a {
   text-decoration: none;
   display: flex;
@@ -712,7 +748,7 @@ main {
   padding-top: 2rem;
   padding-bottom: 2rem;
   padding-left: 0;
-  gap: 1rem;
+  gap: 3rem;
   justify-content: center;
 }
 .card-list__item {
@@ -737,6 +773,20 @@ main {
 .card-list__feature lite-youtube {
   flex-basis: 100%;
 }
+.card-list__feature picture {
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: flex-end;
+}
+.card-list__feature img {
+  height: 100%;
+  margin: 0 auto;
+  max-width: -webkit-max-content;
+  max-width: -moz-max-content;
+  max-width: max-content;
+  flex: 0 0 auto;
+}
 [data-learning-level="1"] .card-list__feature {
   background-color: var(--emphasis);
 }
@@ -745,9 +795,6 @@ main {
 }
 [data-learning-level="3"] .card-list__feature {
   background-color: var(--alert);
-}
-.card-list__image--padded {
-  padding: 1rem;
 }
 .card-list__text {
   padding: 1.5rem;
@@ -789,6 +836,12 @@ main {
     margin-left: 14rem;
     padding-left: 2rem;
     padding-right: 2rem;
+    gap: 1rem;
+  }
+  .card-list__item {
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
   }
   .card-list__text {
     padding-left: 2rem;
@@ -804,6 +857,7 @@ main {
     flex-direction: row;
   }
   .card-list__item {
+    height: auto;
     max-width: 100%;
     width: clamp(40rem, 40vw, 64rem);
   }
@@ -866,11 +920,18 @@ main {
   .filter-strip .active a {
     box-shadow: 0 0 0.25rem var(--background) inset;
   }
+
+  .filter-strip .active [data-filter-option="1"] path {
+    fill: var(--warning);
+  }
+  .filter-strip .active [data-filter-option="2"] path {
+    fill: var(--background);
+  }
 }
 .summary {
   max-width: 60ch;
   background: #f9f9f9;
-  padding-top: 4rem;
+  padding-top: 3rem;
 }
 .summary__reading-time {
   border-top: 1px solid var(--foreground);
@@ -886,31 +947,29 @@ main {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  background: #f9f9f9;
 }
 .summary__text {
   font-size: 1.25rem;
-  background: var(--emphasis);
-  color: var(--background);
   font-style: italic;
-  line-height: 2;
+  line-height: 1.9;
   padding-top: 0.25rem;
 }
 .summary__text-container {
   margin: 1rem;
 }
-.summary__image {
-  margin: 0;
-  -o-object-fit: contain;
-     object-fit: contain;
-  margin-top: 0;
-  min-width: 12rem;
-}
-.summary__image--padded {
-  padding: 0.5em;
-}
 .summary__image-container {
   background: #f9f9f9;
   display: flex;
+}
+.summary__image-container picture {
+  margin: 0;
+  min-width: 12rem;
+}
+.summary__image-container picture img {
+  -o-object-fit: contain;
+     object-fit: contain;
+  margin-top: 0;
 }
 [data-difficulty="1"] .summary__image-container {
   background: var(--emphasis);
@@ -926,9 +985,8 @@ main {
   .summary {
     background: var(--background--offset);
   }
-  .summary__text {
-    background: var(--warning);
-    color: var(--background);
+  .summary-container {
+    background: var(--background--offset);
   }
 }
 @media (min-width: 599px) {
@@ -960,16 +1018,10 @@ main {
   .summary-container {
     margin-top: 12rem;
     margin-bottom: 14rem;
+    background: transparent;
   }
   .summary__date {
     margin-bottom: 0;
-  }
-  .summary__image {
-    border-right: 0.125rem solid var(--background--offset);
-    border-bottom: 0.125rem solid var(--background--offset);
-    border-top: 0.125rem solid var(--background--offset);
-    padding-right: 1rem;
-    padding-left: 1rem;
   }
   .summary__image-container {
     flex-basis: 20vw;
@@ -983,7 +1035,7 @@ main {
   }
 }
 .toc {
-  margin: 4rem 1rem 8rem;
+  margin: 1rem 1rem 4rem;
   text-align: center;
 }
 .toc h2 {
@@ -992,6 +1044,7 @@ main {
 }
 .toc__svg {
   height: 4rem;
+  background: var(--background);
 }
 .toc ol {
   padding-left: 0;
@@ -1059,6 +1112,47 @@ main {
 
   [data-annotate]:not([data-ann-type]) {
     color: var(--background);
+  }
+}
+.progress {
+  height: 3px;
+  width: 0%;
+  background-color: var(--emphasis);
+  position: fixed;
+  top: 0;
+  left: 0;
+  /* Pause the animation */
+  -webkit-animation-name: progress;
+          animation-name: progress;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-direction: normal;
+          animation-direction: normal;
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
+  /* Bind the animation to scroll */
+  -webkit-animation-delay: calc(var(--scroll) * -1s);
+          animation-delay: calc(var(--scroll) * -1s);
+  /* These last 2 properites clean up overshoot weirdness */
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+}
+
+@-webkit-keyframes progress {
+  to {
+    background-color: var(--null-1);
+    width: 100%;
+  }
+}
+
+@keyframes progress {
+  to {
+    background-color: var(--null-1);
+    width: 100%;
   }
 }
 
