@@ -457,6 +457,9 @@ article h2 {
 article p {
   margin: 1rem 0;
 }
+article a {
+  background: rgba(84, 185, 210, 0.4196078431);
+}
 
 main {
   padding-bottom: 20vh;
@@ -1121,7 +1124,6 @@ footer {
   position: fixed;
   top: 0;
   left: 0;
-  /* Pause the animation */
   -webkit-animation-name: progress;
           animation-name: progress;
   -webkit-animation-duration: 1s;
@@ -1132,10 +1134,8 @@ footer {
           animation-direction: normal;
   -webkit-animation-play-state: paused;
           animation-play-state: paused;
-  /* Bind the animation to scroll */
   -webkit-animation-delay: calc(var(--scroll) * -1s);
           animation-delay: calc(var(--scroll) * -1s);
-  /* These last 2 properites clean up overshoot weirdness */
   -webkit-animation-iteration-count: 1;
           animation-iteration-count: 1;
   -webkit-animation-fill-mode: both;

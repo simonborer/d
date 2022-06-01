@@ -1,4 +1,4 @@
-@use './variables.scss' as var;
+@use './variables.scss'as var;
 
 .no-scroll {
     overflow-y: hidden;
@@ -56,11 +56,13 @@
             fill: var(--background);
             stroke: var(--background);
         }
+
         &--no-stroke {
             fill: var(--warning);
             stroke: transparent;
         }
     }
+
     [data-annotate]:not([data-ann-type]) {
         color: var(--background);
     }
@@ -73,35 +75,32 @@
             stroke: var(--foreground);
         }
     }
+
     [data-ann-mobile-only] + .rough-annotation {
         display: none;
     }
 }
 
 .progress {
-  height: 3px;
-  width: 0%;
-  background-color: var(--emphasis);
-  position: fixed;
-  top: 0;
-  left: 0;
-  // animation: progress 1s linear;
-    /* Pause the animation */
+    height: 3px;
+    width: 0%;
+    background-color: var(--emphasis);
+    position: fixed;
+    top: 0;
+    left: 0;
     animation-name: progress;
     animation-duration: 1s;
     animation-timing-function: linear;
     animation-direction: normal;
-  animation-play-state: paused;
-  /* Bind the animation to scroll */
-  animation-delay: calc(var(--scroll) * -1s);
-  /* These last 2 properites clean up overshoot weirdness */
-  animation-iteration-count: 1;
-  animation-fill-mode: both;
+    animation-play-state: paused;
+    animation-delay: calc(var(--scroll) * -1s);
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
 }
 
 @keyframes progress {
-  to {
-    background-color: var(--null-1);
-    width: 100%;
-  }
+    to {
+        background-color: var(--null-1);
+        width: 100%;
+    }
 }

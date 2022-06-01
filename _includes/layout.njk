@@ -158,7 +158,7 @@
           {% if regExp.test(feature.src) %}
             <div class="summary__image-container">
             {# <img alt="{{feature.alt}}" class="summary__image{% if feature.needsPadding %} summary__image--padded{% endif %}" src="/images/{{ feature.src }}" height="{{ feature.height }}" width="{{ feature.width }}"> #}
-            {% image "images/" + feature.src, feature.alt, "(min-width: 30em) 300px, 100vw", feature.title %}
+            {% image "images/" + feature.src, feature.alt, "(min-width: 30em) 1200px, 100vw", feature.title %}
             </div>
             <svg width='100%' height='100%' xmlns='http://www.w3.org/2000/svg' role="presentation" class="toc__svg">
               <rect width='100%' height='100%' fill='url(#a)' />
@@ -247,7 +247,7 @@
                 <div class="card-list__feature">
               {# wtf, this was real weird - didn't work as an if else #}
               {% if regExp.test(post.data.feature.src) %}
-                {% image "images/" + post.data.feature.src, post.data.feature.alt, "(min-width: 30em) 200px, 100vw", post.data.feature.title %}
+                {% image "images/" + post.data.feature.src, post.data.feature.alt, "(min-width: 30em) 300px, 100vw", post.data.feature.title %}
               {% endif %}
               {% if svgRegExp.test(post.data.feature.src) %}
                 <img alt="{{post.data.feature.alt}}" class="card-list__image{% if post.data.feature.needsPadding %} card-list__image--padded{% endif %}" src="/images/{{ post.data.feature.src }}" height="{{ post.data.feature.height }}" width="{{ post.data.feature.width }}">
