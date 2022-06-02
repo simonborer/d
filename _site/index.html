@@ -124,9 +124,21 @@
 
       <svg width='0' height='0' xmlns='http://www.w3.org/2000/svg' role="presentation">
         <defs>
-          <pattern id='a' patternUnits='userSpaceOnUse' width='20' height='20'>
+          <pattern id='grid' patternUnits='userSpaceOnUse' width='20' height='20'>
             <rect x='0' y='0' width='100%' />
             <path d='M 10,-2.55e-7 V 20 Z M -1.1677362e-8,10 H 20 Z' stroke-width='0.5' class="svg-fill" fill='none' />
+          </pattern>
+          <pattern id='waves' patternUnits='userSpaceOnUse' width='80' height='60' patternTransform='scale(2.5) rotate(0)'><rect x='0' y='0' width='100%' height='100%' fill='hsla(0, 0%, 100%, 0)'/>
+            <path d='M-20.133 4.568C-13.178 4.932-6.452 7.376 0 10c6.452 2.624 13.036 5.072 20 5 6.967-.072 13.56-2.341 20-5 6.44-2.659 13.033-4.928 20-5 6.964-.072 13.548 2.376 20 5s13.178 5.068 20.133 5.432'  stroke-width='1' stroke='hsla(186, 100%, 20%, 1)' fill='none'/><path d='M-20.133 24.568C-13.178 24.932-6.452 27.376 0 30c6.452 2.624 13.036 5.072 20 5 6.967-.072 13.56-2.341 20-5 6.44-2.659 13.033-4.928 20-5 6.964-.072 13.548 2.376 20 5s13.178 5.068 20.133 5.432'  stroke-width='1' stroke='hsla(44, 100%, 63%, 1)' fill='none'/><path d='M-20.133 44.568C-13.178 44.932-6.452 47.376 0 50c6.452 2.624 13.036 5.072 20 5 6.967-.072 13.56-2.341 20-5 6.44-2.659 13.033-4.928 20-5 6.964-.072 13.548 2.376 20 5s13.178 5.068 20.133 5.432'  stroke-width='1' stroke='hsla(0, 100%, 75%, 1)' fill='none'/></pattern>
+          <pattern id='dots' patternUnits='userSpaceOnUse' width='40' height='40' patternTransform='scale(1.5) rotate(0) translate(0,10)'>
+            <rect x='0' y='0' width='100%' height='100%' fill='hsla(0, 0%, 100%, 0)' />
+            <path d='M40 45a5 5 0 110-10 5 5 0 010 10zM0 45a5 5 0 110-10 5 5 0 010 10zM0 5A5 5 0 110-5 5 5 0 010 5zm40 0a5 5 0 110-10 5 5 0 010 10z' stroke-width='1' stroke='#6cc3d9' fill='none' />
+            <path d='M20 25a5 5 0 110-10 5 5 0 010 10z' stroke-width='1' stroke='#ff8080' fill='none' />
+          </pattern>
+          <pattern id='chevrons' patternUnits='userSpaceOnUse' width='40' height='60' patternTransform='scale(2.5) rotate(0)'>
+            <path d='M-10 7.5l20 5 20-5 20 5' stroke-linecap='square' stroke-width='1' stroke='hsla(186, 100%, 20%, 1)' fill='none'/>
+            <path d='M-10 27.5l20 5 20-5 20 5' stroke-linecap='square' stroke-width='1' stroke='hsla(0, 100%, 75%, 1)' fill='none'/>
+            <path d='M-10 47.5l20 5 20-5 20 5' stroke-linecap='square' stroke-width='1' stroke='hsla(192, 59%, 64%, 1)' fill='none'/>
           </pattern>
         </defs>
       </svg>
@@ -284,7 +296,7 @@
 
     <footer>
       <svg width='100%' height='100%' xmlns='http://www.w3.org/2000/svg' role="presentation" class="footer-bg">
-        <rect width='100%' height='100%' fill='url(#a)' />
+        <rect width='100%' height='100%' fill='url(#grid)' />
       </svg>
       <div class="copyright row">
         <div class="copyright__info">

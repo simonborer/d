@@ -823,22 +823,8 @@
   max-width: 10vw;
 }
 
-.reveal .body-icon--xl {
-  max-width: 50vw;
-  max-height: 20vh;
-  min-height: 10vh;
-  min-width: 20vw;
-  border: 0 solid transparent;
-  max-height: 40vh;
-}
-
 .reveal strong {
   color: #ffc4b1;
-}
-
-.reveal .slide-block {
-  display: block;
-  margin-top: 1em;
 }
 
 /*# sourceMappingURL=slides.css.map */

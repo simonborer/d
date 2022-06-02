@@ -10,7 +10,7 @@ const turndownService = new TurndownService();
 
 const args = process.argv.slice(2);
 const file = `_copywriting/${args[0]}.md`;
-const spell = exec(`spellchecker -f '${file}' -l en-CA --no-gitignore -d _utilities/dictionary.txt`);
+const spell = exec(`spellchecker -f '${file}' -l en-CA --no-gitignore -d ./_utilities/dictionary.txt`);
 const prose = exec(`proselint ${file}`);
 
 const readTheFiles = async () => {

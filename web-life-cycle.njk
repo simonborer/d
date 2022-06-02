@@ -59,854 +59,697 @@
     ]
 }
 ---
-{# <section>
-    <div class="grid-x">
-        <div class="cell large-10 large-offset-1">
-            <ol class="toc">
-                <li><a href="#research">Market research</a>
-                    <ol class="post-only">
-                        <li><a href="#personas">Personas</a></li>
-                    </ol>
-                </li>
-                <li><a href="#ideation">Ideation</a>
-                    <ol class="post-only">
-                        <li><a href="#brainstorming">Brainstorming</a></li>
-                        <li><a href="#turning-goals-into-strategies">Turning goals into strategies</a></li>
-                    </ol>
-                </li>
-                <li><a href="#requirements">Requirements / Timeline</a></li>
-                <li><a href="#content">Content</a></li>
-                <li><a href="#visual-interaction-design">Design</a>
-                    <ol class="post-only">
-                        <li><a href="#style-guide">Style Guide</a></li>
-                        <li><a href="#wireframes-mockups">Wireframes, wireflows, mockups & prototypes</a></li>
-                        <li><a href="#design-conventions">Design conventions</a></li>
-                    </ol>
-                </li>
-                <li><a href="#development">Development</a>
-                    <ol class="post-only">
-                        <li><a href="#unit-testing">Unit testing</a></li>
-                        <li><a href="#code-review">Code Review</a></li>
-                        <li><a href="#version-control">Version control</a></li>
-                    </ol>
-                </li>
-                <li><a href="#qa">QA</a></li>
-                <li><a href="#client-acceptance">Client Acceptance</a></li>
-                <li><a href="#deployment">Deployment</a></li>
-                <li><a href="#analytics-user-testing">Analytics/User testing</a></li>
-                <li><a href="#iteration">Iteration</a></li>
-            </ol>
-        </div>
-    </div>
-</section>
-<div class="body-spacer"></div> #}
-<div data-slide class="row">
+
+{% import "macros.njk" as macro with context %}
+
+{% slide %}
     <p>For each stage of the workflow, we'll look at the disciplines involved. For a large team, these might be different people with different titles.</p>
     <p>On a smaller team, they might be different "<strong>hats</strong>" worn by the same person (a common term when one person takes on multiple responsibilities).</p>
+{% endslide %}
+{% slide %}
     <p>We'll also look at the <strong>tools</strong> commonly used in the industry, <strong>techniques</strong> for getting the best results, and what <strong>deliverables</strong> (generated materials) are involved for each stage.</p>
     <p>These stages aren't always performed in this order! Research, for example, can happen as a result of analytics (once the users are using the product), requirements can be generated as part of the QA process, and all these steps may just be one cycle in a larger project.</p>
-</div>
-<section data-slide>
-    <span class="slide-only"><img src="/images/recycle.svg" alt="" class="body-icon body-icon--white-bg slide-only"></span>
+{% endslide %}
+{% slide %}
+    <img src="/images/recycle.svg" alt="Recycling triangle" height="150" width="150" class="body-icon body-icon--b-w">
     <p class="callout primary">These stages aren't always performed in this order! Research, for example, can happen as a result of analytics (once the users are using the product), requirements can be generated as part of the QA process, and all these steps may just be one cycle in a larger project.</p>
-</section>
-<div class="body-spacer"></div>
-<section id="research">
-    <img class="body-icon" src="/images/seo.svg">
-    <h2>Market research</h2>
-</section>
-<hr>
-<section>
-    <div><strong class="slide-block">Hats/Disciplines:</strong>
+{% endslide %}
+{% separator "waves" %}
+
+{% section toc[0].href %}
+    {% slide %}
+        {% sectionImg "seo", "Search Engine Optimization", 150, 177 %}
+        <h2>{{ toc[0].title }}</h2>
+        {{ macro.sectionCard(hats=["Product Owner", "UX Researcher"], tools=["Market analysis", "Analytics", "User surveys"], deliverables=["Research report", "Personas"]) }}
+    {% endslide %}
+    <hr>
+    {% slide %}
+        <p>Typically, market research is done by the <strong>Product Owner</strong>, not someone on the design and development team. However, if the team has done similar work for the client, they often have insights, through analytics and user outreach, that can be invaluable during this stage.</p>
+        <p>The purpose of this stage is to understand <strong>who your audience is</strong>, <strong>how it can be segmented</strong> (broken down into user types), and <strong>what value you can offer</strong>.</p>
+        <p>There are a number of strategies for creating tools based on your audience. Probably the most popular is the '<strong>persona</strong>'.</p>
+    {% endslide %}
+
+    {% slide %}
+        <h3 id="personas">Personas</h3>
+        <p>Personas are a tool for creating a design. A persona is <strong>a fake person you use to represent a major user group</strong> for your product.</p>
+        <p class="post-only">Let's say you're a library, and you're creating a form to get people to sign up for an online account. You would create personas based on your current users, and any group that you want to target as a user (maybe you've got an ad campaign to drive new users to the website, for example).</p>
+        <p class="post-only">Based on the information you have, you might create personas for an elderly person, a parent with children, and a student. </p>
+    {% endslide %}
+    {% slide %}
+        <p>Personas generally include the following key pieces of information:</p>
         <ul>
-            <li>Product Owner</li>
-            <li>UX Researcher</li>
+            <li>Persona Group (i.e. web manager) </li>
+            <li>Fictional name</li>
+            <li>Job titles and major responsibilities</li>
+            <li>Demographics such as age, education, ethnicity, and family status</li>
+            <li>The goals and tasks they are trying to complete using the site</li>
+            <li>Their physical, social, and technological environment</li>
+            <li>A quote that sums up what matters most to the persona as it relates to your site </li>
+            <li>Casual pictures representing that user group</li>
         </ul>
-    </div>
-    <div>
-        <strong class="slide-block">Tools/Techniques:</strong>
+    {% endslide %}
+    {% slide %}
+        <p>The purpose of making up a fake person, rather than simply pointing to your analytics data, is to <strong>facilitate design discussions</strong> (particularly with people who don't deal with analytics on the regular).</p>
+    {% endslide %}
+    {{ macro.furtherReading([{
+        href: "https://alistapart.com/article/discovery-on-a-budget-part-i/",
+        title: "Discovery on a budget",
+        source: "A List Apart"
+    },{
+        href: "https://analytics.google.com/analytics/academy/course/6",
+        title: "Google Analytics for Beginners",
+        source: "Google"
+    },{
+        href: "https://www.usability.gov/how-to-and-tools/methods/personas.html",
+        title: "Personas",
+        source: "Usability.gov"
+    }]) }}
+{% endsection %}
+{% separator "dots" %}
+
+{% section toc[1].href %}
+    {% slide %}
+        {% sectionImg "brainstorm", "Ideation session", 150, 176 %}
+        <h2>{{ toc[1].title }}</h2>
+        <p>The ideation phase is when you have ideas!</p>
+        <p>If you're coming up with an idea from scratch, whether building your own app, or just proposing some strategies to a client, this is your chance to brainstorm all kinds of wild ideas - or maybe just turn your client's goals into a strategy.</p>
+    {% endslide %}
+    {% slide %}
+    <div class="section-card">
+        <strong>Tools/Techniques:</strong>
         <ul>
-            <li>Market analysis</li>
-            <li>Analytics</li>
-            <li>User surveys</li>
+            <li>Brainstorming</li>
+            <li>Whiteboarding</li>
+            <li>Client Meetings</li>
         </ul>
-    </div>
-    <div><strong class="slide-block">Deliverables:</strong>
+        <strong>Hats/Disciplines:</strong>
+        <div>This depends on the size of the team, and the scope of the idea you're coming up with. Typically you'll have a:</div>
         <ul>
-            <li>Research report</li>
-            <li>Personas</li>
+            <li>Product Owner (usually the client, or someone representing them)</li>
         </ul>
-    </div>
-</section>
-<hr>
-<section>
-    <p>Typically, market research is done by the <strong>Product Owner</strong>, not someone on the design and development team. However, if the team has done similar work for the client, they often have insights, through analytics and user outreach, that can be invaluable during this stage.</p>
-    <p>The purpose of this stage is to understand <strong>who your audience is</strong>, <strong>how it can be segmented</strong> (broken down into user types), and <strong>what value you can offer</strong>.</p>
-    <p>There are a number of strategies for creating tools based on your audience. Probably the most popular is the '<strong>persona</strong>'.</p>
-</section>
-<section id="personas">
-    <h3 class="text-center">Personas</h3>
-    <p>Personas are a tool for creating a design. A persona is <strong>a fake person you use to represent a major user group</strong> for your product.</p>
-    <p class="post-only">Let's say you're a library, and you're creating a form to get people to sign up for an online account. You would create personas based on your current users, and any group that you want to target as a user (maybe you've got an ad campaign to drive new users to the website, for example).</p>
-    <p class="post-only">Based on the information you have, you might create personas for an elderly person, a parent with children, and a student. </p>
-</section>
-<section>
-    <p>Personas generally include the following key pieces of information:</p>
-    <ul>
-        <li>Persona Group (i.e. web manager) </li>
-        <li>Fictional name</li>
-        <li>Job titles and major responsibilities</li>
-        <li>Demographics such as age, education, ethnicity, and family status</li>
-        <li>The goals and tasks they are trying to complete using the site</li>
-        <li>Their physical, social, and technological environment</li>
-        <li>A quote that sums up what matters most to the persona as it relates to your site </li>
-        <li>Casual pictures representing that user group</li>
-    </ul>
-</section>
-<section>
-    <p>The purpose of making up a fake person, rather than simply pointing to your analytics data, is to <strong>facilitate design discussions</strong> (particularly with people who don't deal with analytics on the regular).</p>
-</section>
-<hr>
-<strong>Further Reading:</strong>
-<ul>
-    <li><a href="https://alistapart.com/article/discovery-on-a-budget-part-i/" target="_blank" rel="noreferrer">Discovery on a budget<span class="show-for-sr"> Opens in a new window</span></a>, <em>A List Apart</em></li>
-    <li><a href="https://analytics.google.com/analytics/academy/course/6" target="_blank" rel="noreferrer">Google Analytics for Beginners<span class="show-for-sr"> Opens in a new window</span></a>, <em>Google</em></li>
-    <li><a href="https://www.usability.gov/how-to-and-tools/methods/personas.html" target="_blank" rel="noreferrer">Personas<span class="show-for-sr"> Opens in a new window</span></a>, <em>Usability.gov</em></li>
-</ul>
-<div class="body-spacer"></div>
-<section id="ideation"><img class="body-icon" src="/images/brainstorm.svg">
-    <h2>Ideation</h2>
-    <p>The ideation phase is when you have ideas!</p>
-    <p>If you're coming up with an idea from scratch, whether building your own app, or just proposing some strategies to a client, this is your chance to brainstorm all kinds of wild ideas - or maybe just turn your client's goals into a strategy.</p>
-</section>
-<hr>
-<section>
-    <strong class="slide-block">Tools/Techniques:</strong>
-    <ul>
-        <li>Brainstorming</li>
-        <li>Whiteboarding</li>
-        <li>Client Meetings</li>
-    </ul>
-    <strong class="slide-block">Hats/Disciplines:</strong>
-    <ul class="slide-only">
-        <li>Product Owner</li>
-        <li>Scrum Master</li>
-        <li>Content Lead</li>
-        <li>Design Lead</li>
-        <li>Development Lead</li>
-    </ul>
-    <div class="post-only">This depends on the size of the team, and the scope of the idea you're coming up with. Typically you'll have a:</div>
-    <ul class="post-only" style="margin-bottom: 0">
-        <li><strong>Product Owner</strong> (usually the client, or someone representing them)</li>
-    </ul>
-    <div class="post-only">...and some combination of:</div>
-    <ul class="post-only" style="margin-bottom: 0">
-        <li>a <strong>Scrum Master</strong> (to determine the team's capacity),</li>
-        <li>a <strong>Content Lead</strong>,</li>
-        <li>a <strong>Design Lead</strong>, and</li>
-        <li>a <strong>Development Lead</strong>,</li>
-    </ul>
-    <div class="post-only" style="margin-bottom: 1rem;">... all of whom offer their expertise on what is possible.</div>
-</section>
-<hr>
-<section id="brainstorming">
-    <span class="slide-only"><img src="/images/brains.svg" alt="" class="body-icon"></span>
-    <h3 class="text-center">Brainstorming</h3>
-    <p>Brainstorming is when you <strong>generate</strong> lots of ideas - quantity over quality!</p>
-    <p>Brainstorming sessions are not the time for criticism. There's time for that later. This is the "no bad ideas" part.</p>
-</section>
-<section>
-    <p>Brainstorming should always be "time-boxed". If there are no bad ideas, then generally people can keep throwing out uncritical nonsense until the caffeine wears off.</p>
-    <p>There are a number of wonderful techniques for running brainstorming sessions (see "Further Reading"), but this can be as simple as writing down ideas on a whiteboard.</p>
-</section>
-<section id="turning-goals-into-strategies">
-    <h3 class="text-center">Turning goals into strategies</h3>
-    <p>If you're working for a client, they might already have firm ideas about what they want. Depending on the circumstances, and your relationship with the client, it might be a good idea to review their goals. Is what they're asking for the best way to get what they want?</p>
-    <p>Remember that you are an expert in your medium - you might be aware of opportunities they don't know are available!</p>
-</section>
-<hr><strong>Further Reading:</strong>
-<ul>
-    <li><a href="https://www.smashingmagazine.com/2019/03/conducting-brainstorming-workshops/" target="_blank">Conducting Brainstorming Workshops<span class="show-for-sr"> Opens in a new window</span></a>, <em>Smashing Magazine</em></li>
-    <li><a href="https://alistapart.com/column/i-dont-like-it/" target="_blank">I Don't Like It<span class="show-for-sr"> Opens in a new window</span></a>, <em>A List Apart</em></li>
-</ul>
-<div class="body-spacer"></div>
-<section id="requirements"><img class="body-icon" src="/images/collection.svg">
-    <h2>Requirements / Timeline</h2>
-</section>
-<hr>
-<section>
-    <div><strong class="slide-block">Hats/Disciplines:</strong>
+        <div>…and some combination of:</div>
         <ul>
-            <li>Product Owner</li>
-            <li>Project Manager/Scrum Master</li>
-            <li>a <strong>Content Lead</strong>,</li>
-            <li>a <strong>Design Lead</strong>, and</li>
-            <li>a <strong>Development Lead</strong>,</li>
+            <li>a Scrum Master (to determine the team's capacity),</li>
+            <li>a Content Lead,</li>
+            <li>a Design Lead, and</li>
+            <li>a Development Lead,</li>
         </ul>
-    </div>
-    <div>
-        <strong class="slide-block">Tools/Techniques:</strong>
+        <div>… all of whom offer their expertise on what is possible.</div>
+    {% endslide %}
+    <hr>
+    {% slide %}
+        {% sectionImg "brains", "Thunderstorm", 150, 177 %}
+        <h3 id="brainstorming">Brainstorming</h3>
+        <p>Brainstorming is when you <strong>generate</strong> lots of ideas - quantity over quality!</p>
+        <p>Brainstorming sessions are not the time for criticism. There's time for that later. This is the "no bad ideas" part.</p>
+    {% endslide %}
+    {% slide %}
+        <p>Brainstorming should always be "time-boxed". If there are no bad ideas, then generally people can keep throwing out uncritical nonsense until the caffeine wears off.</p>
+        <p>There are a number of wonderful techniques for running brainstorming sessions (see "<a href="#furtherReadingIdeation">Further Reading</a>"), but this can be as simple as writing down ideas on a whiteboard.</p>
+    {% endslide %}
+    {% slide %}
+        <h3 id="turning-goals-into-strategies">Turning goals into strategies</h3>
+        <p>If you're working for a client, they might already have firm ideas about what they want. Depending on the circumstances, and your relationship with the client, it might be a good idea to review their goals. Is what they're asking for the best way to get what they want?</p>
+        <p>Remember that you are an expert in your medium - you might be aware of opportunities they don't know are available!</p>
+    {% endslide %}
+    <span id="furtherReadingIdeation"></span>
+    {{ macro.furtherReading([{
+        href: "https://www.smashingmagazine.com/2019/03/conducting-brainstorming-workshops/",
+        title: "Conducting Brainstorming Workshops",
+        source: "Smashing Magazine"
+    },{
+        href: "https://alistapart.com/column/i-dont-like-it/",
+        title: "I Don't Like It",
+        source: "A List Apart"
+    }]) }}
+{% endsection %}
+{% separator "chevrons" %}
+
+{% section toc[2].href %}
+    {% slide %}
+    {% sectionImg "collection", "Using a giant magnet", 150, 200 %}
+    <h2>{{ toc[2].title }}</h2>
+    {% endslide %}
+    {% slide %}
+        {{ macro.sectionCard(
+            hats=[
+                "Product Owner",
+                "Project Manager/Scrum Master",
+                "a <strong>Content Lead</strong>",
+                "a <strong>Design Lead</strong>",
+                "a <strong>Development Lead</strong>"
+            ],
+            tools=[
+                "Meetings (sometimes lots of meetings)",
+                "Project management software (JIRA, Asana, Trello, etc.)"
+            ], 
+            deliverables=[
+                "Project timeline",
+                "Feature breakdown"
+            ]) 
+        }}
+    {% endslide %}
+    <hr>
+    {% slide %}
+        <p>At this point, you should know your strategy for achieving your goals with your users. This is the point at which you decide what is necessary for achieving those goals, break down those necessities into "<strong>features</strong>" (parts of the whole that can be worked on separately), and then a <strong>timeline</strong> is agreed upon.</p>
+        <p>This is your first line of defence against "<strong>scope creep</strong>" (the tendency for people to ask for more than what was agreed upon). Clarity at this stage on what is "in scope" (working that is being taken on) and "out of scope" (work that is not being taken on) is very important to <strong>maintaining good relationships</strong> and <strong>delivering on schedule</strong>.</p>
+    {% endslide %}
+    {{ macro.furtherReading([
+        {
+            href: "https://usabilitygeek.com/requirements-gathering-user-experience-pt1/",
+            title: "Requirements Gathering: A Step By Step Approach For A Better User Experience",
+            source: "Usability Geek"
+        },
+        {
+            href: "https://alistapart.com/article/what-really-matters-focusing-on-top-tasks/",
+            title: "What Really Matters: Focusing on Top Tasks",
+            source: "A List Apart"
+        },
+        {
+            href: "https://asana.com/resources/create-project-management-timeline-template",
+            title: "How to create a project timeline in 7 simple steps",
+            source: "Asana"
+        }
+    ]) }}
+{% endsection %}
+{% separator "waves" %}
+
+{% section toc[3].href %}
+    {% slide %}
+        {% sectionImg "content", "Post-it notes", 96, 128 %}
+        <h2>{{ toc[3].title }}</h2>
+    {% endslide %}
+    {% slide %}
+        {{ macro.sectionCard(hats=["Content team", "Design team"]) }}
+    {% endslide %}
+    {% slide %}
+        {{ macro.sectionCard(
+            tools=[
+                "Copywriting<ul><li>Content library (for aligning new work with existing guidelines)</li><li>Google Trends (for generating SEO-optimized copy)</li><li>GatherContent (for staying organized)</li></ul>", "Design<ul><li>Style guide (for aligning new work with existing guidelines)</li><li>Photoshop (for creating/manipulating images)</li><li>InDesign (for creating/manipulating vector graphics)</li><li>Figma (for creating an asset library for the project)</li></ul>"]) }}
+    {% endslide %}
+    {% slide %}
+        {{ macro.sectionCard(deliverables=["Copy deck", "Image files"]) }}
+    {% endslide %}
+    <hr>
+    {% slide %}
+        <p>The content stage might be done before, after, or in parallel with the Visual/Interaction Design stage.</p>
+        <p>In this stage, the team generates <strong>images</strong> (both pictures and graphics), and <strong>copy</strong> (the words that go on the page).</p>
+        <p>Both of these processes are usually guided by <strong>style guides</strong> - established patterns for creating content that will be "on brand" for the client.</p>
+        <p>Other consideration include the project goals and requirements, and <strong>optimizing SEO</strong> by choosing words (and, increasingly, images) that will rank highly in search.</p>
+    {% endslide %}
+    {{ macro.furtherReading([
+        {
+            href: "https://alistapart.com/article/the-hidden-work-of-content/",
+            title: "How the Sausage Gets Made: The Hidden Work of Content",
+            source: "A List Apart"
+        },
+        {
+            href: "https://www.campaignmonitor.com/blog/email-marketing/2019/02/copywriting-vs-seo-writing-whats-the-difference/",
+            title: "Copywriting Vs. SEO Writing: What’s the Difference?",
+            source: "Campaign Monitor"
+        },
+        {
+            href: "https://www.smashingmagazine.com/2012/05/quick-course-on-effective-website-copywriting/",
+            title: "Quick Course On Effective Website Copywriting",
+            source: "Smashing Magazine"
+        },
+        {
+            href: "https://yoast.com/complete-guide-seo-copywriting/",
+            title: "SEO copywriting: The ultimate guide",
+            source: "Yoast"
+        }
+    ]) }}
+{% endsection %}
+{% separator "dots" %}
+
+{% section toc[4].href %}
+    {% slide %}
+        {% sectionImg "designer", "Search Engine Optimization", 150, 200 %}
+        <h2>{{ toc[4].title }}</h2>
+    {% endslide %}
+    {% slide %}
+        {{ macro.sectionCard(hats=["Web Designer", "User Experience Designer", "Interaction Designer", "…and other sub-disciplines of design"], tools=["Balsamiq (free, for beginners)", "Figma", "Sketch", "Adobe XD", "InVision"], deliverables=["Style guide", "User journey map", "Wireframes", "Prototype"]) }}
+    {% endslide %}
+    <hr>
+    {% slide %}
+        <p>The design phase of a project can look very different from project to project, and from team to team.</p>
+        <p>Those responsible for this phase could be…</p>
         <ul>
-            <li>Meetings (sometimes lots of meetings)</li>
-            <li>Project management software (JIRA, Asana, Trello, etc.)</li>
+            <li>a <strong>graphic designer</strong> (who knows a little code),</li>
+            <li>a <strong>developer</strong> (who knows a little about visual design),</li>
         </ul>
-    </div>
-    <div>
-        <strong class="slide-block">Deliverables:</strong>
+        <p>…or it could involve different specialists who focus on things like… </p>
         <ul>
-            <li>Project timeline</li>
-            <li>Feature breakdown</li>
+            <li><strong>User Experience</strong> (how users feel about the experience of using the application),</li>
+            <li><strong>Customer Experience</strong> (how users feel about the web site owner while using the application)</li>
+            <li><strong>Interaction Design</strong> (how things behave when you interact with them)</li>
+            <li>etc., etc.</li>
         </ul>
-    </div>
-</section>
-<hr>
-<section>
-    <p>At this point, you should know your strategy for achieving your goals with your users. This is the point at which you decide what is necessary for achieving those goals, break down those necessities into "<strong>features</strong>" (parts of the whole that can be worked on separately), and then a <strong>timeline</strong> is agreed upon.</p>
-    <p>This is your first line of defence against "<strong>scope creep</strong>" (the tendency for people to ask for more than what was agreed upon). Clarity at this stage on what is "in scope" (working that is being taken on) and "out of scope" (work that is not being taken on) is very important to <strong>maintaining good relationships</strong> and <strong>delivering on schedule</strong>.</p>
-</section>
-<hr><strong>Further Reading:</strong>
-<ul>
-    <li><a href="https://usabilitygeek.com/requirements-gathering-user-experience-pt1/" target="_blank" rel="noreferrer">Requirements Gathering: A Step By Step Approach For A Better User Experience<span class="show-for-sr"> Opens in a new window</span></a>, <em>Usability Geek</em></li>
-    <li><a href="https://alistapart.com/article/what-really-matters-focusing-on-top-tasks/" target="_blank" rel="noreferrer">What Really Matters: Focusing on Top Tasks<span class="show-for-sr"> Opens in a new window</span></a>, <em>A List Apart</em></li>
-    <li><a href="https://asana.com/resources/create-project-management-timeline-template" target="_blank" rel="noreferrer">How to create a project timeline in 7 simple steps<span class="show-for-sr"> Opens in a new window</span></a>, <em>Asana</em></li>
-</ul>
-<div class="body-spacer"></div>
-<section id="content"><img class="body-icon" src="/images/content.svg">
-    <h2>Content</h2>
-</section>
-<hr>
-<section>
-    <div><strong class="slide-block">Hats/Disciplines:</strong>
+    {% endslide %}
+    {% slide %}
+        <p>Depending on what is being designed, this process could take months, a day or two, or it could be overseen by an automated process, without any human involvement!</p>
+        <p>If the project is <strong>starting from scratch</strong>, this process will include generating a <strong>style guide</strong>.</p>
+        <p>If the project will <strong>allow the user to do something they couldn't do before</strong>, this process will include <strong>mapping the user journey</strong>.</p>
+        <p>If the project will generate <strong>new page templates</strong> (i.e. you can't just take an existing page layout and put the content in), this process will include <strong>wireframes & mockups</strong>.</p>
+    {% endslide %}
+    {% slide %}
+        <h3 id="style-guide">Style guide</h3>
+        <p>A style guide is the documentation that serves as the "source of truth" (i.e. the winner if something conflicts with it) for all other design and development work.</p>
+        <p>It documents styles <em>and when to use them</em>.</p>
+        <p>The most basic style guide would document colours, plus their meaning.</p>
+    {% endslide %}
+    {% slide %}
+        <p>For example:</p>
+        <table class="demo-style-guide">
+            <thead>
+                <tr>
+                    <th>Swatch</th>
+                    <th>Hex</th>
+                    <th>Name</th>
+                    <th>Purpose</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <div style="background:#191919"></div>
+                    </td>
+                    <td>#191919</td>
+                    <td>Cod Gray</td>
+                    <td>Text</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div style="background:#F4F3F1"></div>
+                    </td>
+                    <td>#F4F3F1</td>
+                    <td>Cararra</td>
+                    <td>Background</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div style="background:#DB2522"></div>
+                    </td>
+                    <td>#DB2522</td>
+                    <td>Alizarin Crimson</td>
+                    <td>Alerts</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div style="background:#EF8F24"></div>
+                    </td>
+                    <td>#EF8F24</td>
+                    <td>Carrot Orange</td>
+                    <td>Warnings</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div style="background:#309B76"></div>
+                    </td>
+                    <td>#309B76</td>
+                    <td>Lochinvar</td>
+                    <td>Confirmations</td>
+                </tr>
+            </tbody>
+        </table>
+    {% endslide %}
+    {% slide %}
+        <p>Basic style guides typically include:</p>
         <ul>
-            <li>Content team</li>
-            <li>Design team</li>
+            <li>Colours</li>
+            <li>Fonts</li>
+            <li>Heading sizes</li>
+            <li>Styles for small components, like buttons</li>
+            <li>Common design patterns, like menus</li>
         </ul>
-    </div>
-</section>
-<section>
-    <div>
-        <strong class="slide-block">Tools/Techniques:</strong>
+    {% endslide %}
+    {% slide %}
+        <p>A full style guide should include headers, footers, page layouts, forms… basically everything a designer might need, including responsive designs and variations for different types of content.</p>
+        <p>A style guide should be "living", meaning that it can be amended and added to whenever necessary.</p>
+        <p>A good style guide should <strong>minimize client approvals</strong>, since styles in the style guide should be "pre-approved".</p>
+        <p>A good style guide should also <strong>minimize development time</strong>. If all the elements are built already, developers should be able to simply include a templated component or add a class. Better yet, a content editor can simply add the elements through a CMS.</p>
+    {% endslide %}
+    {% slide %}
+        <h3 id="userJourneys">User journeys</h3>
+        <p>If the project is adding a new user capability, this should be mapped out in a User Journey map. (If this is a whole new project, then a User Journey map should be created for each goal a different set of users might have.)</p>
+    {% endslide %}
+    {% slide %}
+        <figure>
+            <img src="/images/norm-niel.png" alt="">
+            <figcaption>An example journey map from Norman Nielsen Group</figcaption>
+        </figure>
+    {% endslide %}
+    {% slide %}
+        <p>Websites have <strong>different types of users</strong> with <strong>different goals</strong>. Every website has at least one page that is trying to be useful to more than one type of user.</p>
+        <p>Creating user journey maps (following one user type through one goal) should be referenced while creating wireframes, so that different journeys don't conflict, and the right goals are given the right priority.</p>
+    {% endslide %}
+    {% slide %}
+        <p>Think of the homepage of a library's website. One goal is to login and renew books. Another goal is to check the library's hours. If I visit www.local-library.com, and the site immediately opens a full-page login pop-up, that may be a bad experience for me - I'm just trying to check the hours!</p>     
+    {% endslide %} 
+    {% slide %}
+        <h3 id="wireframes-mockups">Wireframes, wireflows, mockups & prototypes</h3>
+    {% endslide %}
+    {% slide %}
+        <p><strong>Wireframes</strong> are "sketches" of the website layout.</p>
+        <figure>
+            <img src="/images/balsamiq.jpg" alt="">
+            <figcaption>A wireframe example from Balsamiq</figcaption>
+        </figure>
+    {% endslide %}
+    {% slide %}
+        <p><strong>Wireflows</strong> are compilations of wireframes that show the user journey.</p>
+        <figure>
+            <a target="_blank" href="/images/norm-niel-wireflow.png">
+                <img src="/images/norm-niel-wireflow.png" alt="">
+            </a>
+            <figcaption>A wireflow example from Norman Nielsen Group</figcaption>
+        </figure>
+    {% endslide %}
+    {% slide %}
+        <p><strong>Mockups</strong> are high resolution renderings of what the application will look like.</p>
+        <figure>
+            <img src="/images/uxpin.jpg" alt="">
+            <figcaption>A mockup in UXPin</figcaption>
+        </figure>
+    {% endslide %}
+    {% slide %}
+        <p><strong>Prototypes</strong> can be quick-and-dirty coded versions of the feature, or interactive mockups that include animations and the user journey.</p>
+        <figure>
+            <img src="/images/xd.jpg" alt="">
+            <figcaption>A prototype in Adobe XD</figcaption>
+        </figure>
+    {% endslide %}
+    {% slide %}
+        <div class="related-post">
+            <strong>Related post: <em>Design conventions</em></strong>
+            <p>Sometimes the person tasked with the web design phase finds themselves without a proper style guide, appropriate existing layouts, or explicit layout requirements.</p>
+            <p>In times like those, it pays to stick to proven solutions. To learn about users <em>expect</em> your web content to work, check out our related post:{% br %}<a class="related-post__link" href="/design-no-brainers/">Web Design No-Brainers <img src="/images/page-link.svg" alt="Link to another page" class="related-post__icon" height="150" width="150"></a></p>
+        </div>
+    {% endslide %}
+        {{ macro.furtherReading([{
+        href: "http://styleguides.io/examples",
+        title: "239 style guides including Apple, IBM, and Starbucks.",
+        source: "Styleguides.io"
+    },{
+        href: "https://www.nngroup.com/articles/journey-mapping-101/",
+        title: "Journey Mapping 101",
+        source: "Norman Nielsen Group"
+    },{
+        href: "https://blog.adobe.com/en/2017/10/30/everything-you-need-to-know-about-wireframes-and-prototypes.html",
+        title: "Everything You Need To Know About Wireframes And Prototypes",
+        source: "Adobe"
+    }]) }}
+{% endsection %}
+{% separator "chevrons" %}
+
+{% section toc[5].href %}
+    {% slide %}
+        {% sectionImg "dev", "Developer", 150, 200 %}
+        <h2>{{ toc[5].title }}</h2>
+    {% endslide %}
+    {% slide %}
+        {{ macro.sectionCard(hats=["Developer"], tools=["Code editor","Code audits","Code review","Version control"], deliverables=["The application itself","Pages","Features","Internal tools"]) }}
+    {% endslide %}
+    <hr>
+    {% slide %}
+        <p>Once all the content, requirements and designs have been delivered, the process of turning designs into working code can be pretty simple.</p>
+        <p>In the practice, this tends to be a stage where "<strong>the rubber meets the road</strong>" - ideas may turn out to be more challenging to implement than assumed, and important things may have been simply forgotten. There tends to be a lot of spirited back-and-forth at this stage.</p>
+    {% endslide %}
+    {% slide %}
+        <p>Depending on the project and the team, there may be a significant codebase to work with, meaning two things:</p>
+        <ol>
+            <li>A lot of your work may be done for you, and</li>
+            <li>You have to be familiar with the codebase in order to avoid duplicating work.</li>
+        </ol>
+    {% endslide %}
+    {% slide %}
+        <p>The developer is also responsible for being familiar with a bevy of <strong>technical requirements</strong> (accessibility, performance, etc.) that may not have been accounted for in the design process.</p>
+        <p>Luckily, if anything gets left out, there are numerous opportunities to catch mistakes and omissions through automated and manual testing - <strong>provided those processes are set up and enforced properly</strong>.</p>
+    {% endslide %}
+    {% slide %}
+        <img src="/images/test.svg" alt="" class="body-icon body-icon--small" />
+        <h3 id="unit-testing">Unit testing</h3>
+        <p>Without getting into the weeds, unit testing is the process of making your code do a bunch of stuff to make sure it <strong>behaves the way you think it will</strong>.</p>
+    {% endslide %}
+    {% slide %}
+        <p>This is most common with programming languages (like JavaScript, and as opposed to markup languages like HTML), where your code will accept inputs and return outputs. A typical unit test will see if your code produces the right outputs for the corresponding inputs.</p>
+        <p>Your team may already have a library of unit tests, or you may need to write your own custom tests, depending on what you are building.</p>
+    {% endslide %}
+    {% slide %}
+        <img src="/images/review.svg" alt="" class="body-icon body-icon--small">
+        <h3 id="code-review">Code review</h3>
+        <p>Code review is a common practice where another member of your team <strong>double-checks your code</strong> before it is allowed to co-mingle with the rest of the codebase.</p>
+    {% endslide %}
+    {% slide %}
+        <img src="/images/version.svg" alt="" class="body-icon body-icon--small">
+        <h3 id="version-control">Version control</h3>
+        <p>Version control is a type of tool that <strong>allows lots of developers to work on the same codebase</strong>, while building different (potentially conflicting) features at the same time.</p>
+    {% endslide %}
+    {% slide %}
+        <p>In its simplest form, version control lets you create a copy of the main codebase on your machine, and "<strong>branch</strong>" off from the main version (even creating remote backups of your code), until you're done working on your feature, at which point it can be <strong>merged</strong> back into the main codebase.</p>
+        <p>There can be many levels of branching, and there may be requirements you have to meet before merging, including automated testing and manual code review.</p>
+    {% endslide %}
+    {{ macro.furtherReading([{
+        href: "https://www.freecodecamp.org/news/how-to-start-unit-testing-javascript/",
+        title: "How to Start Unit Testing Your JavaScript Code",
+        source: "Free Code Camp"
+    },{
+        href: "https://google.github.io/eng-practices/review/reviewer/",
+        title: "How to do a code review",
+        source: "Google Engineering"
+    },{
+        href: "https://try.github.io/",
+        title: "Resources to learn Git",
+        source: "Github"
+    }]) }}
+{% endsection %}
+{% separator "waves" %}
+
+{% section toc[6].href %}
+    {% slide %}
+        {% sectionImg "testing", "Testing session", 150, 200 %}
+        <h2>{{ toc[6].title }}</h2>
+    {% endslide %}
+    {% slide %}
+        {{ macro.sectionCard(
+            hats=[
+                "Quality Assurance Tester"
+            ],
+            tools=[
+                "Automated browser testing",
+                "Visual diffs",
+                "Manual testing"
+            ], 
+            deliverables=[
+                "Test documentation"
+            ]) 
+        }}
+    {% endslide %}
+    <hr>
+    {% slide %}
+        <p>As a developer, QA testers have both saved my job, and nearly drove me quit.</p>
+        <p>QA testers employ a number of techniques, both automated and manual, to make sure that features meet both project requirements and technical requirements. And that the developer didn't break anything.</p>
+    {% endslide %}
+    {% slide %}
+        <p>QA testers frequently employ "<strong>headless browsers</strong>" - browsers that run in the background, are programmed to simulate a user, and report back on whether links went to the right URL, buttons performed the correct actions, and images loaded properly.</p>
+        <p>They may also use "visual <strong>regression testing</strong>", capturing screenshots of a web page before and after a new feature is added, to see if there were any unexpected consequences.</p>
+    {% endslide %}
+    {% slide %}
+        <figure>
+            <a target="_blank" href="/images/vis-diff.jpg"><img src="/images/vis-diff.jpg" alt=""></a>
+            <figcaption>Visual regression, by <a href="https://markus.oberlehner.net/blog/visual-regression-tests-for-vue-applications-with-jest-and-puppeteer/" target="_blank">Markus Oberlehner<span class="show-for-sr"> Opens in a new window</span></a></figcaption>
+        </figure>
+    {% endslide %}
+    {% slide %}
+        <p>QA testing often involves testing on multiple device types and browsers, either real or simulated.</p>
+        <p>QA testers have to be the "designated drivers" of the process: unfazed by deadlines; unafraid to make a grown man cry; thoroughly versed in, and committed to all requirements, like a lawyer in a John Grisham novel.</p>
+        <a href="https://www.justwatch.com/ca/movie/the-pelican-brief" target="_blank"><img src="/images/pelican.jpg" alt="Julia Roberts & Denzel Washington in The Pelican Brief"><span class="show-for-sr"> Opens in a new window</span></a>
+    {% endslide %}
+    {{ macro.furtherReading([{
+        href: "https://www.smashingmagazine.com/2019/08/testing-framework-minimalism-software-architecture/",
+        title: "Testing Made Easier Via Framework Minimalism And Software Architecture",
+        source: "Smashing Magazine"
+    }]) }}
+{% endsection %}
+{% separator "dots" %}
+
+{% section toc[7].href %}
+    {% slide %}
+        {% sectionImg "firefighter", "Firefighter", 150, 151 %}
+        <h2>{{ toc[2].title }}</h2>
+    {% endslide %}
+    {% slide %}
+        {{ macro.sectionCard(
+            hats=[
+                "Product Owner",
+                "Project Manager"
+            ],
+            tools=[
+                "Begging",
+                "Pleading",
+                "A little crying"
+            ], 
+            deliverables=[
+                "Changes",
+                "Lots of changes"
+            ]) 
+        }}
+    {% endslide %}
+    <hr>
+    {% slide %}
+        <p>After you've made your glorious… thing, it's time to remind the client that this is, in fact, exactly what they asked for.</p>
+        <p>Very rarely are they entirely happy about it.</p>
+        <p>If you're lucky, you've got a project manager who's willing, on occasion, to tell the client that they can make changes, just not today.</p>
+        <p><em>The team's asleep. Please don't make me wake them. They look so peaceful.</em></p>
+    {% endslide %}
+    {{ macro.furtherReading([
+        {
+            href: "https://alistapart.com/article/difficultclients/",
+            title: "In Defense of Difficult Clients",
+            source: "A List Apart"
+        }
+    ]) }}
+{% endsection %}
+{% separator "chevrons" %}
+
+{% section toc[8].href %}
+    {% slide %}
+        {% sectionImg "deliver", "Processing packages", 150, 200 %}
+        <h2>{{ toc[8].title }}</h2>
+    {% endslide %}
+    {% slide %}
+        {{ macro.sectionCard(
+            hats=[
+                "DevOps"
+            ],
+            tools=[
+                "Amazon Web Services",
+                "Web hook automation",
+                "Docker",
+                "Jenkins",
+                "Kubernetes",
+                "…and so many more."
+            ], 
+            deliverables=[
+                "Automated processes.",
+                "The code, publicly."
+            ]) 
+        }}
+    {% endslide %}
+    <hr>
+    {% slide %}
+        <p>Deployment can be as simple a process as dropping a file into a folder, and checking it in your browser afterwards.</p>
+        <p>Most website hosting works in this file-and-folder system.</p>
+        <p>For static sites (like this one!) where there is no database attached, services like Github Pages and Netlify will build from a git branch.</p>
+    {% endslide %}
+    {% slide %}
+        <p>But all that simplicity comes with risks not many medium-to-large organizations are willing to take. Enter the role of <strong>devOps</strong>.</p>
+    {% endslide %}
+    {% slide %}
+        <p>Reddit user Seref15 describes the role of devOps thusly:</p>
+        <blockquote>Developers create new bugs and I make sure they are delivered to our infrastructure in an extremely timely and non-interruptive fashion.</blockquote>
+    {% endslide %}
+    {% slide %}
+        <p>The role of devOps (short for "development" and "operations") is to deploy code quickly and safely.</p>
+        <p>In practice, it means creating <strong>a pipeline of different services</strong> in an automated workflow from <strong>version control</strong> (automatically starting a deployment on changes to the master branch, for example), to different <strong>testing</strong> types (like integration tests, which make sure that everything continues working after it's all been put together), to <strong>staging</strong> (putting the code in different environments for other testing types, including client acceptance), to <strong>backups</strong>, to <strong>containerization</strong> (running light-weight virtual environments), to <strong>monitoring</strong> the application in the wild.</p>
+    {% endslide %}
+    {% slide %}
+        <p>If I'm being honest, DevOps is a jungle. It's also the fastest legal way I know of getting to a six-figure salary.</p>
+    {% endslide %}
+    {{ macro.furtherReading([
+        {
+            href: "https://github.com/sk3pp3r/cheat-sheet-pdf",
+            title: "DevOps Cheat Sheet",
+            source: "Haim Cohen"
+        },
+        {
+            href: "https://alistapart.com/article/what-really-matters-focusing-on-top-tasks/",
+            title: "What Really Matters: Focusing on Top Tasks",
+            source: "A List Apart"
+        },
+        {
+            href: "https://asana.com/resources/create-project-management-timeline-template",
+            title: "How to create a project timeline in 7 simple steps",
+            source: "Asana"
+        }
+    ]) }}
+{% endsection %}
+{% separator "waves" %}
+
+{% section toc[9].href %}
+    {% slide %}
+        {% sectionImg "analyze", "Using a giant magnifying glass", 150, 200 %}
+        <h2>{{ toc[9].title }}</h2>
+    {% endslide %}
+    {% slide %}
+        {{ macro.sectionCard(
+            hats=[
+                "Digital analyst"
+            ],
+            tools=[
+                "Analytics software",
+                "A/B testing software"
+            ], 
+            deliverables=[
+                "Analytics report & analysis"
+            ]) 
+        }}
+    {% endslide %}
+    <hr>
+    {% slide %}
+        <img src="/images/keyhole.svg" class="body-icon body-icon--small" alt="" >
+        <p>Once your site is out in the wild, you can start <del>spying on your users</del> tracking visitors.</p>
+    {% endslide %}
+    {% slide %}
+        <p>Depending on how they're configured, analytics can tell you:</p>
         <ul>
-            <li>Copywriting
-                <ul style="list-style: circle">
-                    <li>Content library (for aligning new work with existing guidelines)</li>
-                    <li>Google Trends (for generating SEO-optimized copy)</li>
-                    <li>GatherContent (for staying organized)</li>
-                </ul>
-            </li>
-            <li>Design
-                <ul style="list-style: circle;">
-                    <li>Style guide (for aligning new work with existing guidelines)</li>
-                    <li>Photoshop (for creating/manipulating images)</li>
-                    <li>InDesign (for creating/manipulating vector graphics)</li>
-                    <li>Figma (for creating an asset library for the project)</li>
-                </ul>
-            </li>
+            <li>how many people visit your website</li>
+            <li>where they live</li>
+            <li>what websites send traffic to your website</li>
+            <li>what marketing tactics drive the most traffic to you</li>
+            <li>which pages are most popular</li>
+            <li>who clicks on what</li>
+            <li>where visitors went afterwards</li>
+            <li>how long people spent doing different tasks</li>
         </ul>
-    </div>
-    <div>
-        <strong class="slide-block">Deliverables:</strong>
-        <ul>
-            <li>Copy deck</li>
-            <li>Image files</li>
-        </ul>
-    </div>
-</section>
-<hr>
-<section>
-    <p>The content stage might be done before, after, or in parallel with the Visual/Interaction Design stage.</p>
-    <p>In this stage, the team generates <strong>images</strong> (both pictures and graphics), and <strong>copy</strong> (the words that go on the page).</p>
-    <p>Both of these processes are usually guided by <strong>style guides</strong> - established patterns for creating content that will be "on brand" for the client.</p>
-    <p>Other consideration include the project goals and requirements, and <strong>optimizing SEO</strong> by choosing words (and, increasingly, images) that will rank highly in search.</p>
-</section>
-<hr><strong>Further Reading:</strong>
-<ul>
-    <li><a href="https://alistapart.com/article/the-hidden-work-of-content/" target="_blank" rel="noreferrer">How the Sausage Gets Made: The Hidden Work of Content<span class="show-for-sr"> Opens in a new window</span></a>, <em>A List Apart</em></li>
-    <li><a href="https://www.campaignmonitor.com/blog/email-marketing/2019/02/copywriting-vs-seo-writing-whats-the-difference/" target="_blank" rel="noreferrer">Copywriting Vs. SEO Writing: What’s the Difference?<span class="show-for-sr"> Opens in a new window</span></a>, <em>Campaign Monitor</em></li>
-    <li><a href="https://www.smashingmagazine.com/2012/05/quick-course-on-effective-website-copywriting/" target="_blank" rel="noreferrer">Quick Course On Effective Website Copywriting<span class="show-for-sr"> Opens in a new window</span></a>, <em>Smashing Magazine</em></li>
-    <li><a href="
-		https://yoast.com/complete-guide-seo-copywriting/" target="_blank" rel="noreferrer">SEO copywriting: The ultimate guide<span class="show-for-sr"> Opens in a new window</span></a>, <em>Yoast</em></li>
-</ul>
-<div class="body-spacer"></div>
-<section id="visual-interaction-design"><img class="body-icon" src="/images/designer.svg">
-    <h2>Design</h2>
-</section>
-<hr>
-<section>
-    <div><strong class="slide-block">Hats/Disciplines:</strong>
-        <ul>
-            <li>Web Designer</li>
-            <li>User Experience Designer</li>
-            <li>Interaction Designer</li>
-            <li>... and other sub-disciplines of design</li>
-        </ul>
-    </div>
-    <div>
-        <strong class="slide-block">Tools/Techniques:</strong>
-        <ul>
-            <li>Balsamiq (free, for beginners)</li>
-            <li>Figma</li>
-            <li>Sketch</li>
-            <li>Adobe XD</li>
-            <li>InVision</li>
-        </ul>
-    </div>
-</section>
-<section>
-    <div>
-        <strong class="slide-block">Deliverables:</strong>
-        <ul>
-            <li>Style guide</li>
-            <li>User journey map</li>
-            <li>Wireframes</li>
-            <li>Prototype</li>
-        </ul>
-    </div>
-</section>
-<hr>
-<section>
-    <p>The design phase of a project can look very different from project to project, and from team to team.</p>
-    <p>Those responsible for this phase could be...</p>
-    <ul>
-        <li>a <strong>graphic designer</strong> (who knows a little code),</li>
-        <li>a <strong>developer</strong> (who knows a little about visual design),</li>
-    </ul>
-    <p>...or it could involve different specialists who focus on things like... </p>
-    <ul>
-        <li><strong>User Experience</strong> (how users feel about the experience of using the application),</li>
-        <li><strong>Customer Experience</strong> (how users feel about the web site owner while using the application)</li>
-        <li><strong>Interaction Design</strong> (how things behave when you interact with them)</li>
-        <li>etc., etc.</li>
-    </ul>
-</section>
-<section>
-    <p>Depending on what is being designed, this process could take months, a day or two, or it could be overseen by an automated process, without any human involvement!</p>
-    <p>If the project is <strong>starting from scratch</strong>, this process will include generating a <strong>style guide</strong>.</p>
-    <p>If the project will <strong>allow the user to do something they couldn't do before</strong>, this process will include <strong>mapping the user journey</strong>.</p>
-    <p>If the project will generate <strong>new page templates</strong> (i.e. you can't just take an existing page layout and put the content in), this process will include <strong>wireframes & mockups</strong>.</p>
-</section>
-<section id="style-guide">
-    <h3 class="text-center">Style guide</h3>
-    <p>A style guide is the documentation that serves as the "source of truth" (i.e. the winner if something conflicts with it) for all other design and development work.</p>
-    <p>It documents styles <em>and when to use them</em>.</p>
-    <p>The most basic style guide would document colours, plus their meaning.</p>
-</section>
-<section>
-    <p>For example:</p>
-    <table>
-        <thead>
-            <tr>
-                <th style="padding-right:.125rem;">Swatch</th>
-                <th style="padding-right:.125rem;">Hex</th>
-                <th style="padding-right:.125rem;">Name</th>
-                <th style="padding-right:.125rem;">Purpose</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td style="background:#fff;">
-                    <div style="height:1rem;width:100%;background:#191919"></div>
-                </td>
-                <td>#191919</td>
-                <td>Cod Gray</td>
-                <td>Text</td>
-            </tr>
-            <tr>
-                <td style="background:#fff;">
-                    <div style="height:1rem;width:100%;background:#F4F3F1"></div>
-                </td>
-                <td>#F4F3F1</td>
-                <td>Cararra</td>
-                <td>Background</td>
-            </tr>
-            <tr>
-                <td style="background:#fff;">
-                    <div style="height:1rem;width:100%;background:#DB2522"></div>
-                </td>
-                <td>#DB2522</td>
-                <td>Alizarin Crimson</td>
-                <td>Alerts</td>
-            </tr>
-            <tr>
-                <td style="background:#fff;">
-                    <div style="height:1rem;width:100%;background:#EF8F24"></div>
-                </td>
-                <td>#EF8F24</td>
-                <td>Carrot Orange</td>
-                <td>Warnings</td>
-            </tr>
-            <tr>
-                <td style="background:#fff;">
-                    <div style="height:1rem;width:100%;background:#309B76"></div>
-                </td>
-                <td>#309B76</td>
-                <td>Lochinvar</td>
-                <td>Confirmations</td>
-            </tr>
-        </tbody>
-    </table>
-</section>
-<section>
-    <p>Basic style guides typically include:</p>
-    <ul>
-        <li>Colours</li>
-        <li>Fonts</li>
-        <li>Heading sizes</li>
-        <li>Styles for small components, like buttons</li>
-        <li>Common design patterns, like menus</li>
-    </ul>
-</section>
-<section>
-    <p>A full style guide should include headers, footers, page layouts, forms... basically everything a designer might need, including responsive designs and variations for different types of content.</p>
-    <p>A style guide should be "living", meaning that it can be amended and added to whenever necessary.</p>
-    <p>A good style guide should <strong>minimize client approvals</strong>, since styles in the style guide should be "pre-approved".</p>
-    <p>A good style guide should also <strong>minimize development time</strong>. If all the elements are built already, developers should be able to simply include a templated component or add a class. Better yet, a content editor can simply add the elements through a CMS.</p>
-</section>
-<section>
-    <h3 class="text-center">User journeys</h3>
-    <p>If the project is adding a new user capability, this should be mapped out in a User Journey map. (If this is a whole new project, then a User Journey map should be created for each goal a different set of users might have.)</p>
-</section>
-<section>
-    <figure>
-        <img src="/images/norm-niel.png" alt="">
-        <figcaption>An example journey map from Norman Nielsen Group</figcaption>
-    </figure>
-</section>
-<section>
-    <p>Websites have <strong>different types of users</strong> with <strong>different goals</strong>. Every website has at least one page that is trying to be useful to more than one type of user.</p>
-    <p>Creating user journey maps (following one user type through one goal) should be referenced while creating wireframes, so that different journeys don't conflict, and the right goals are given the right priority.</p>
-</section>
-<section>
-    <p>Think of the homepage of a library's website. One goal is to login and renew books. Another goal is to check the library's hours. If I visit www.local-library.com, and the site immediately opens a full-page login pop-up, that may be a bad experience for me - I'm just trying to check the hours!</p>
-</section>
-<section id="wireframes-mockups">
-    <h3 class="text-center">Wireframes, wireflows, mockups & prototypes</h3>
-</section>
-<section>
-    <p><strong>Wireframes</strong> are "sketches" of the website layout.</p>
-    <figure>
-        <img src="/images/balsamiq.jpg" alt="" class="body-icon--xl">
-        <figcaption>A wireframe example from Balsamiq</figcaption>
-    </figure>
-</section>
-<section>
-    <p><strong>Wireflows</strong> are compilations of wireframes that show the user journey.</p>
-    <figure>
-        <a target="_blank" href="/images/norm-niel-wireflow.png"><img src="/images/norm-niel-wireflow.png" alt="" class="body-icon--xl"></a>
-        <figcaption>A wireflow example from Norman Nielsen Group</figcaption>
-    </figure>
-</section>
-<section>
-    <p><strong>Mockups</strong> are high resolution renderings of what the application will look like.</p>
-    <figure>
-        <img src="/images/uxpin.jpg" alt="" class="body-icon--xl">
-        <figcaption>A mockup in UXPin</figcaption>
-    </figure>
-</section>
-<section>
-    <p><strong>Prototypes</strong> can be quick-and-dirty coded versions of the feature, or interactive mockups that include animations and the user journey.</p>
-    <figure>
-        <img src="/images/xd.jpg" alt="" class="body-icon--xl">
-        <figcaption>A prototype in Adobe XD</figcaption>
-    </figure>
-</section>
-<section id="design-conventions">
-    <h3 class="text-center">Design conventions</h3>
-    <p>Sometimes the person tasked with the web design phase finds themselves without a proper style guide, appropriate existing layouts, or explicit layout requirements.</p>
-    <p>Non-traditional, experimental design can be wonderful, exciting, and rewarding. However, you also have to contend with deadlines, client expectations, and users who just want to find out what time the library closes, goshdarnit.</p>
-    <p>It's at this point that a web designer asks - <strong>what is the normal thing to do?</strong></p>
-</section>
-<section>
-    <p>As a rule, users are best served by designs and layouts that are <strong>intuitive</strong> - meaning that they can easily recognize interactive elements, and where to find the information they're looking for.</p>
-</section>
-<section>
-    <p>Most of these conventions are not just tried-and-true, they're based on a simple principle: <strong>people scan site content in a particular order</strong>.</p>
-    <figure>
-        <img src="/images/norm-niel-f.jpg" alt="">
-        <figcaption>Eyetracking studies pioneered by the Norman Nielsen Group</figcaption>
-    </figure>
-</section>
-<section>
-    <p>People will scan your website starting in the corner where they would start reading a page of text. They continue scanning from the initial side, going less and less far across the page the further down they go. This is know as the '<strong>F-Pattern</strong>'.</p>
-    <p class="callout warning">Remember that <strong>not all people read from left to right</strong>! Readers of Arabic, Hebrew, Pashto, Persian, Urdu, and Sindhi read horizontally right to left, and readers of Chinese, Japanese and Korean scripts read vertically from right to left. <strong>Know your audience.</strong></p>
-</section>
-<section>
-    <h4 style="font-size: 1.125em;margin-top: 2rem">Web design no-brainers</h4>
-    <ol>
-        <li><strong>Put the logo in the top left</strong>, and make it a link to the home page.</li>
-    </ol>
-    <figure>
-        <img src="/images/cl.png" alt="" style="max-height: 35vh;">
-        <figcaption>Craigslist, brutalists that they are, do nothing unnecessarily.</figcaption>
-    </figure>
-</section>
-<section>
-    <ol start="2">
-        <li><strong>Put the navigation prominently in the header</strong>.</li>
-        <li><strong>Put important actions in the top right</strong>.</li>
-    </ol>
-    <figure>
-        <a href="/images/ms.png" target="_blank"><img src="/images/ms.png" alt=""></a>
-        <figcaption>Microsoft, not always guilty of great user interfaces, plays it safe on their home page.</figcaption>
-    </figure>
-</section>
-<section>
-    <ol start="4">
-        <li><strong>Stick to the grid</strong>. Using a grid to guide your content placement creates a consistent, predicatable experience.</li>
-    </ol>
-    <figure>
-        <a href="/images/grid.png" target="_blank"><img src="/images/grid.png" alt=""></a>
-        <figcaption><a href="https://uxdesign.cc/" rel="noreferrer" target="_blank">uxdesign.cc<span class="show-for-sr"> Opens in a new window</span></a> grid demo</figcaption>
-    </figure>
-</section>
-<section>
-    <ol start="5">
-        <li>
-            <p><strong>Prioritize content in highly read areas</strong>. One guide for this could be the F-pattern we discussed earlier. Another high-priority pattern is choosing what content should be "above the fold".</p>
-            <p>This is a term that dates back to newprint - top headlines were kept in the top half of the page, above where the newspaper would be folded in half horizontally. In the early days of the web, people <em>did not scroll</em> web pages. Like, at all, basically.</p>
-            <p class="post-only">This has changed somewhat.</p>
-            <blockquote class="post-only" style="display: block;">In 2010, 80% of the viewing time was spent above the fold. Today, that number is only 57%.<footer><cite><a href="https://www.nngroup.com/articles/scrolling-and-attention/" target="_blank">Norman Nielsen<span class="show-for-sr"> Opens in a new window</span></a>.</cite></footer></blockquote>
-            <p class="post-only">Add to that the fact that responsive design means there is no exact spot where the "fold" will be for users. Nonetheless, it's a good rule to follow that the higher up the content is, the better the chance users will actually see it.</p>
-        </li>
-    </ol>
-</section>
-<section>
-    <p class="slide-only">This has changed somewhat.</p>
-    <blockquote class="slide-only" style="display: block;">In 2010, 80% of the viewing time was spent above the fold. Today, that number is only 57%.<footer><cite><a href="https://www.nngroup.com/articles/scrolling-and-attention/" target="_blank">Norman Nielsen<span class="show-for-sr"> Opens in a new window</span></a>.</cite></footer></blockquote>
-    <p class="slide-only">Add to that the fact that responsive design means there is no exact spot where the "fold" will be for users. Nonetheless, it's a good rule to follow that the higher up the content is, the better the chance users will actually see it.</p>
-</section>
-<section>
-    <figure>
-        <a href="/images/atf.png" target="_blank"><img src="/images/atf.png" alt=""></a>
-        <figcaption><a href="https://css-tricks.com/" rel="noreferrer" target="_blank">CSS Tricks<span class="show-for-sr"> Opens in a new window</span></a> looks at where the fold <em>might</em> be.</figcaption>
-    </figure>
-</section>
-<section>
-    <ol start="6">
-        <li><strong>Boring stuff goes in the footer</strong>. Sitemaps, contact forms, social media links, copyright - all the stuff the client requires but no user would ever actually need.</li>
-    </ol>
-    <figure>
-        <img src="/images/css-tricks-footer.png" alt="" style="max-height: 40vh">
-        <figcaption><a href="https://css-tricks.com/" rel="noreferrer" target="_blank">CSS Tricks<span class="show-for-sr"> Opens in a new window</span></a>: stuff that's even less important than the comments.</figcaption>
-    </figure>
-</section>
-<section>
-    <p>Those are the big ones! Web design truisms that you can hang your hat on. Of course, there are all kinds of smaller conventions that we can take for granted (☰&nbsp;hamburger menu, anyone?), but these 6 standard approaches to page design are enough to get you started.</p>
-</section>
-<strong>Further Reading:</strong>
-<ul>
-    <li><a href="http://styleguides.io/examples" target="_blank" rel="noreferrer">239 style guides including Apple, IBM, and Starbucks.<span class="show-for-sr"> Opens in a new window</span></a>, <em>Styleguides.io</em></li>
-    <li><a href="https://www.nngroup.com/articles/journey-mapping-101/" target="_blank" rel="noreferrer">Journey Mapping 101<span class="show-for-sr"> Opens in a new window</span></a>, <em>Norman Nielsen Group</em></li>
-    <li><a href="https://blog.adobe.com/en/2017/10/30/everything-you-need-to-know-about-wireframes-and-prototypes.html" target="_blank" rel="noreferrer">Everything You Need To Know About Wireframes And Prototypes<span class="show-for-sr"> Opens in a new window</span></a>, <em>Adobe</em></li>
-    <li><a href="https://www.interaction-design.org/literature/article/visual-hierarchy-organizing-content-to-follow-natural-eye-movement-patterns" target="_blank" rel="noreferrer">Visual Hierarchy: Organizing content to follow natural eye movement patterns<span class="show-for-sr"> Opens in a new window</span></a>, <em>Interaction Design Foundation</em></li>
-    <li><a href="https://www.nngroup.com/articles/f-shaped-pattern-reading-web-content/" target="_blank" rel="noreferrer">F-Shaped Pattern of Reading on the Web: Misunderstood, But Still Relevant (Even on Mobile)<span class="show-for-sr"> Opens in a new window</span></a>, <em>Norman Nielsen Group</em></li>
-    <li><a href="https://www.smashingmagazine.com/2017/12/building-better-ui-designs-layout-grids/" target="_blank" rel="noreferrer">Building Better UI Designs With Layout Grids<span class="show-for-sr"> Opens in a new window</span></a>, <em>Smashing Magazine</em></li>
-    <li><a href="https://www.nngroup.com/articles/scrolling-and-attention/" target="_blank" rel="noreferrer">Scrolling and Attention<span class="show-for-sr"> Opens in a new window</span></a>, <em>Norman Nielsen Group</em></li>
-    <li><a href="https://css-tricks.com/responsive-web-above-the-fold/" target="_blank" rel="noreferrer">Responsive Web Above The Fold<span class="show-for-sr"> Opens in a new window</span></a>, <em>CSS Tricks</em></li>
-</ul>
-<div class="body-spacer"></div>
-<section id="development"><img class="body-icon" src="/images/dev.svg">
-    <h2>Development</h2>
-</section>
-<hr>
-<section>
-    <div>
-        <strong class="slide-block">Hats/Disciplines:</strong>
-        <ul>
-            <li>Developer</li>
-        </ul>
-    </div>
-    <div>
-        <strong class="slide-block">Tools/Techniques:</strong>
-        <ul>
-            <li>Code editor</li>
-            <li>Code audits</li>
-            <li>Code review</li>
-            <li>Version control</li>
-        </ul>
-    </div>
-    <div>
-        <strong class="slide-block">Deliverables:</strong>
-        <ul>
-            <li>The application itself</li>
-            <li>Pages</li>
-            <li>Features</li>
-            <li>Internal tools</li>
-        </ul>
-    </div>
-</section>
-<hr>
-<section>
-    <p>Once all the content, requirements and designs have been delivered, the process of turning designs into working code can be pretty simple.</p>
-    <p>In the practice, this tends to be a stage where "<strong>the rubber meets the road</strong>" - ideas may turn out to be more challenging to implement than assumed, and important things may have been simply forgotten. There tends to be a lot of spirited back-and-forth at this stage.</p>
-</section>
-<section>
-    <p>Depending on the project and the team, there may be a significant codebase to work with, meaning two things:</p>
-    <ol>
-        <li>A lot of your work may be done for you, and</li>
-        <li>You have to be familiar with the codebase in order to avoid duplicating work.</li>
-    </ol>
-</section>
-<section>
-    <p>The developer is also responsible for being familiar with a bevy of <strong>technical requirements</strong> (accessibility, performance, etc.) that may not have been accounted for in the design process.</p>
-    <p>Luckily, if anything gets left out, there are numerous opportunities to catch mistakes and omissions through automated and manual testing - <strong>provided those processes are set up and enforced properly</strong>.</p>
-</section>
-<section id="unit-testing">
-	<span class="slide-only"><img src="/images/test.svg" alt="" class="body-icon"></span>
-    <h3 class="text-center">Unit testing</h3>
-    <p>Without getting into the weeds, unit testing is the process of making your code do a bunch of stuff to make sure it <strong>behaves the way you think it will</strong>.</p>
-</section>
-<section>
-	<p>This is most common with programming languages (like javaScript, and as opposed to markup languages like HTML), where your code will accept inputs and return outputs. A typical unit test will see if your code produces the right outputs for the corresponding inputs.</p>
-    <p>Your team may already have a library of unit tests, or you may need to write your own custom tests, depending on what you are building.</p>
-</section>
-<section id="code-review">
-	<span class="slide-only"><img src="/images/review.svg" alt="" class="body-icon"></span>
-    <h3 class="text-center">Code review</h3>
-    <p>Code review is a common practice where another member of your team <strong>double-checks your code</strong> before it is allowed to co-mingle with the rest of the codebase.</p>
-</section>
-<section id="version-control">
-	<span class="slide-only"><img src="/images/version.svg" alt="" class="body-icon"></span>
-    <h3 class="text-center">Version control</h3>
-    <p>Version control is a type of tool that <strong>allows lots of developers to work on the same codebase</strong>, while building different (potentially conflicting) features at the same time.</p>
-</section>
-<section>
-    <p>In its simplest form, version control lets you create a copy of the main codebase on your machine, and "<strong>branch</strong>" off from the main version (even creating remote backups of your code), until you're done working on your feature, at which point it can be <strong>merged</strong> back into the main codebase.</p>
-    <p>There can be many levels of branching, and there may be requirements you have to meet before merging, including automated testing and manual code review.</p>
-</section>
-<strong>Further Reading:</strong>
-<ul>
-    <li><a href="https://www.freecodecamp.org/news/how-to-start-unit-testing-javascript/" target="_blank" rel="noreferrer">How to Start Unit Testing Your JavaScript Code<span class="show-for-sr"> Opens in a new window</span></a>, <em>Free Code Camp</em></li>
-    <li><a href="https://google.github.io/eng-practices/review/reviewer/" target="_blank" rel="noreferrer">How to do a code review<span class="show-for-sr"> Opens in a new window</span></a>, <em>Google Engineering</em></li>
-    <li><a href="https://try.github.io/" target="_blank" rel="noreferrer">Resources to learn Git<span class="show-for-sr"> Opens in a new window</span></a>, <em>Github</em></li>
-</ul>
-<div class="body-spacer"></div>
-<section id="qa"><img class="body-icon" src="/images/testing.svg">
-    <h2>QA</h2>
-</section>
-<hr>
-<section>
-    <div>
-        <strong class="slide-block">Hats/Disciplines:</strong>
-        <ul>
-            <li>Quality Assurance Tester</li>
-        </ul>
-    </div>
-    <div>
-        <strong class="slide-block">Tools/Techniques:</strong>
-        <ul>
-            <li>Automated browser testing</li>
-            <li>Visual diffs</li>
-            <li>Manual testing</li>
-        </ul>
-    </div>
-    <div>
-        <strong class="slide-block">Deliverables:</strong>
-        <ul>
-            <li>Test documentation</li>
-        </ul>
-    </div>
-</section>
-<hr>
-<section>
-    <p>As a developer, QA testers have both saved my job, and nearly drove me quit.</p>
-    <p>QA testers employ a number of techniques, both automated and manual, to make sure that features meet both project requirements and technical requirements. And that the developer didn't break anything.</p>
-</section>
-<section>
-    <p>QA testers frequently employ "<strong>headless browsers</strong>" - browsers that run in the background, are programmed to simulate a user, and report back on whether links went to the right URL, buttons performed the correct actions, and images loaded properly.</p>
-    <p>They may also use "visual <strong>regression testing</strong>", capturing screenshots of a web page before and after a new feature is added, to see if there were any unexpected consequences.</p>
-</section>
-<section>
-    <figure>
-        <a target="_blank" href="/images/vis-diff.jpg"><img src="/images/vis-diff.jpg" alt=""></a>
-        <figcaption>Visual regression, by <a href="https://markus.oberlehner.net/blog/visual-regression-tests-for-vue-applications-with-jest-and-puppeteer/" target="_blank">Markus Oberlehner<span class="show-for-sr"> Opens in a new window</span></a></figcaption>
-    </figure>
-</section>
-<section>
-    <p>QA testing often involves testing on multiple device types and browsers, either real or simulated.</p>
-    <p>QA testers have to be the "designated drivers" of the process: unphased by deadlines; unafraid to make a grown man cry; thoroughly versed in, and commited to all requirements, like a lawyer in a John Grisham novel.</p>
-    <a href="https://www.justwatch.com/ca/movie/the-pelican-brief" target="_blank"><img style="max-height:30vh;" src="/images/pelican.jpg" alt="Julia Roberts & Denzel Washington in The Pelican Brief"><span class="show-for-sr"> Opens in a new window</span></a>
-</section>
-<strong>Further Reading:</strong>
-<ul>
-    <li><a href="https://www.smashingmagazine.com/2019/08/testing-framework-minimalism-software-architecture/" target="_blank" rel="noreferrer">Testing Made Easier Via Framework Minimalism And Software Architecture<span class="show-for-sr"> Opens in a new window</span></a>, <em>Smashing Magazine</em></li>
-</ul>
-<div class="body-spacer"></div>
-<section id="client-acceptance"><img class="body-icon" src="/images/firefighter.svg">
-    <h2>Client Acceptance</h2>
-</section>
-<hr>
-<section>
-    <div>
-        <strong class="slide-block">Hats/Disciplines:</strong>
-        <ul>
-            <li>Product owner</li>
-            <li>Project manager</li>
-        </ul>
-    </div>
-    <div>
-        <strong class="slide-block">Tools/Techniques:</strong>
-        <ul>
-            <li>Begging</li>
-            <li>Pleading</li>
-            <li>Crying</li>
-        </ul>
-    </div>
-    <div>
-        <strong class="slide-block">Deliverables:</strong>
-        <ul>
-            <li>Changes</li>
-            <li>Lots of changes</li>
-        </ul>
-    </div>
-</section>
-<hr>
-<section>
-    <p>After you've made your glorious... thing, it's time to remind the client that this is, in fact, exactly what they asked for.</p>
-    <p>Very rarely are they entirely happy about it.</p>
-    <p>If you're lucky, you've got a project manager who's willing, on occasion, to tell the client that they can make changes, just not today.</p> <p><em>The team's asleep. Please don't make me wake them. They look so peaceful.</em></p>
-</section>
-<strong>Further Reading:</strong>
-<ul>
-    <li><a href="https://alistapart.com/article/difficultclients/" target="_blank" rel="noreferrer">In Defense of Difficult Clients<span class="show-for-sr"> Opens in a new window</span></a>, <em>A List Apart</em></li>
-</ul>
-<div class="body-spacer"></div>
-<section id="deployment"><img class="body-icon" src="/images/delivery.svg">
-    <h2>Deployment</h2>
-</section>
-<hr>
-<section>
-    <div><strong class="slide-block">Hats/Disciplines:</strong>
-        <ul>
-            <li>DevOps</li>
-        </ul>
-    </div>
-    <div>
-        <strong class="slide-block">Tools/Techniques:</strong>
-        <ul>
-            <li>Docker</li>
-            <li>Kubernetes</li>
-            <li>Jenkins</li>
-            <li>Amazon Web Services</li>
-            <li>Web hook automation</li>
-            <li>And so many more<span class="post-only"> - DevOps is all about getting different tools working together.</span></li>
-        </ul>
-    </div>
-    <div>
-        <strong class="slide-block">Deliverables:</strong>
-        <ul>
-            <li>Automated processes.</li>
-            <li>The code, publicly.</li>
-        </ul>
-    </div>
-</section>
-<hr>
-<section>
-    <p>Deployment can be as simple a process as dropping a file into a folder, and checking it in your browser afterwards.</p>
-    <p>Most website hosting works in this file-and-folder system.</p>
-    <p>For static sites (like this one!) where there is no database attached, services like Github Pages and Netlify will build from a git branch.</p>
-    </section>
-<section>
-    <p>But all that simplicity comes with risks not many medium-to-large organizations are willing to take. Enter the role of <strong>devOps</strong>.</p>
-    </section>
-<section>
-    <p>Reddit user Seref15 describes the role of devOps thusly:</p>
-    <blockquote>Developers create new bugs and I make sure they are delivered to our infrastructure in an extremely timely and non-interruptive fashion.</blockquote>
-</section>
-<section>
-    <p>The role of devOps (short for "development" and "operations") is to deploy code quickly and safely.</p>
-    <p>In practice, it means creating <strong>a pipeline of different services</strong> in an automated workflow from <strong>version control</strong> (automatically starting a deployment on changes to the master branch, for example), to different <strong>testing</strong> types (like integration tests, which make sure that everything continues working after it's all been put together), to <strong>staging</strong> (putting the code in different environments for other testing types, including client acceptance), to <strong>backups</strong>, to <strong>containerization</strong> (running light-weight virtual environments), to <strong>monitoring</strong> the application in the wild.</p>
-</section>
-<section>
-    <p>If I'm being honest, DevOps is a jungle. It's also the fastest legal way I know of getting to a six-figure salary.</p>
-</section>
-<strong>Further Reading:</strong>
-<ul>
-    <li><a href="https://github.com/sk3pp3r/cheat-sheet-pdf" target="_blank" rel="noreferrer">DevOps Cheat Sheet<span class="show-for-sr"> Opens in a new window</span></a>, <em>Haim Cohen</em></li>
-</ul>
-<div class="body-spacer"></div>
-<section id="analytics-user-testing"><img class="body-icon" src="/images/analyze.svg">
-    <h2>Analytics/User testing</h2>
-</section>
-<hr>
-<section>
-    <div><strong class="slide-block">Hats/Disciplines:</strong>
-        <ul>
-            <li>Digital analyst</li>
-        </ul>
-    </div>
-    <div><strong class="slide-block">Tools/Techniques:</strong>
-        <ul>
-            <li>Analytics software</li>
-            <li>A/B testing software</li>
-        </ul>
-    </div>
-    <div><strong class="slide-block">Deliverables:</strong>
-        <ul>
-            <li>Analytics report & analysis</li>
-        </ul>
-    </div>
-</section>
-<hr>
-<section>
-	<span class="slide-only"><img src="/images/keyhole.svg" alt="" class="body-icon"></span>
-    <p>Once your site is out in the wild, you can start <del>spying on your users</del> tracking visitors.</p>
-</section>
-<section>
-    <p>Depending on how they're configured, analytics can tell you:</p>
-    <ul>
-        <li>how many people visit your website</li>
-        <li>where they live</li>
-        <li>what websites send traffic to your website</li>
-        <li>what marketing tactics drive the most traffic to you</li>
-        <li>which pages are most popular</li>
-        <li>who clicks on what</li>
-        <li>where visitors went afterwards</li>
-        <li>how long people spent doing different tasks</li>
-    </ul>
-    <p>...and oh so much more.</p>
-</section>
-<section>
-    <p>Other types of user testing can be performed on real-world users as well. <strong>A/B testing</strong> lets you serve different versions of a page or component to users to see how they react.</p>
-    <p>This research is put towards refining the things you build, giving you <strong>real evidence</strong> of what works (and what doesn't).</p>
-    <p>It's also more data to feed into the gaping maw of the <a href="https://crm.org/crmland/what-is-a-crm"><abbr title="Customer Relationship Management Software">CRM</abbr></a>, but that's a different topic entirely.</p>
-</section>
-<strong>Further Reading:</strong>
-<ul>
-    <li><a href="https://www.shopify.ca/blog/the-complete-guide-to-ab-testing" target="_blank" rel="noreferrer">The Complete Guide to A/B Testing: Expert Tips from Google, HubSpot and More<span class="show-for-sr"> Opens in a new window</span></a>, <em>Shopify</em></li>
-    <li><a href="https://analytics.google.com/analytics/academy/course/6" target="_blank" rel="noreferrer">Google Analytics for Beginners<span class="show-for-sr"> Opens in a new window</span></a>, <em>Google Analytics</em></li>
-</ul>
-<div class="body-spacer"></div>
-<section id="iteration"><img class="body-icon" src="/images/lightbulb.svg">
-    <h2>Iteration</h2>
-</section>
-<hr>
-<section>
-    <div><strong class="slide-block">Hats/Disciplines:</strong>
-        <ul>
-            <li>Everyone</li>
-        </ul>
-    </div>
-    <div><strong class="slide-block">Tools/Techniques:</strong>
-        <ul>
-            <li>Everything</li>
-        </ul>
-    </div>
-    <div><strong class="slide-block">Deliverables:</strong>
-        <ul>
-            <li>The same thing, only different</li>
-        </ul>
-    </div>
-</section>
-<hr>
-<section>
-</section>
-<div class="body-spacer"></div>
-<h2 id="lab">Here's today's exercise:</h2>
-<ol>
-    <li>Choose a website you enjoy using.</li>
-    <li>In writing, define two possible user types for this website, and their different goals while using the website. <br><strong>What is a user type?</strong><br>A user type is a group of users who have a shared interest in using your website. Different user types will have different interests and goals.<br><strong>What is a goal?</strong><br>A goal is a distinct outcome while using your website, like signing up for a class, or renewing a library book.</li>
-    <li>Describe the <strong>individual</strong> steps (clicks, navigation, form fields, etc.) that they would have to take to achieve (one of) their goals.</li>
-    <li>Does anything occur to you that could make things easier for them, that is achievable by the website's team? What is it? Or, if you can't think of anything, what designs or features are already in place that make those goals easy to achieve?</li>
-</ol>
-<div class="body-spacer"></div>
+        <p>…and oh so much more.</p>
+    {% endslide %}
+    {% slide %}
+        <p>Other types of user testing can be performed on real-world users as well. <strong>A/B testing</strong> lets you serve different versions of a page or component to users to see how they react.</p>
+        <p>This research is put towards refining the things you build, giving you <strong>real evidence</strong> of what works (and what doesn't).</p>
+        <p>It's also more data to feed into the gaping maw of the <a href="https://crm.org/crmland/what-is-a-crm"><abbr title="Customer Relationship Management Software">CRM</abbr></a>, but that's a different topic entirely.</p>
+    {% endslide %}
+    {{ macro.furtherReading([
+        {
+            href: "https://www.shopify.ca/blog/the-complete-guide-to-ab-testing",
+            title: "The Complete Guide to A/B Testing: Expert Tips from Google, HubSpot and More",
+            source: "Shopify"
+        },
+        {
+            href: "https://analytics.google.com/analytics/academy/course/6",
+            title: "Google Analytics for Beginners",
+            source: "Google Analytics"
+        }
+    ]) }}
+{% endsection %}
+{% separator "dots" %}
+
+{% section toc[10].href %}
+    {% slide %}
+        {% sectionImg "lightbulb", "Lightbulb moment", 150, 187 %}
+        <h2>{{ toc[10].title }}</h2>
+    {% endslide %}
+    {% slide %}
+        {{ macro.sectionCard(
+            hats=[
+                "Everyone"
+            ],
+            tools=[
+                "Everything"
+            ], 
+            deliverables=[
+                "The same thing, only different"
+            ]) 
+        }}
+    {% endslide %}
+{% endsection %}

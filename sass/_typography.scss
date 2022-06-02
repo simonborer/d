@@ -113,11 +113,6 @@ dt:after {
     justify-content: center;
     align-items: center;
     padding: 1rem .5rem;
-    .home & {
-        // height: calc(6rem - (var(--scroll) * 250rem));
-        // padding-top: 0;
-        // padding-bottom: 0;
-    }
     @for $i from 1 through 3 {
         [data-difficulty="#{$i}"] & {
             background: nth(var.$learning-level-colours, $i);
@@ -170,9 +165,25 @@ article {
     & h2 {
         margin-top: 4rem;
         margin-bottom: 2rem;
+        padding-bottom: .5em;
         font-size: max(2.5rem, 3vw);
         border-bottom: 2px solid currentColor;
-        line-height: 2;
+        line-height: 1.2;
+    }
+    & h3 {
+        text-align: center;
+        font-size: max(2.125rem, 2.75vw);
+        border-bottom: 2px dashed currentColor;
+        line-height: 1.2;
+        margin-bottom: 1.75rem;
+        margin-top: 1em;
+        padding-bottom: .5em;
+    }
+    & h4 {
+        font-size: max(2rem, 2.5vw);
+        border-bottom: 2px dotted currentColor;
+        line-height: 1.5;
+        margin-bottom: 1.5rem;
     }
     & p {
         margin: 1rem 0;

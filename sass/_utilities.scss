@@ -82,7 +82,7 @@
 }
 
 .progress {
-    height: 3px;
+    height: .5rem;
     width: 0%;
     background-color: var(--emphasis);
     position: fixed;
@@ -102,5 +102,81 @@
     to {
         background-color: var(--null-1);
         width: 100%;
+    }
+}
+
+.body-icon {
+    margin: 0 auto 1rem;
+    width: 8rem;
+    &--b-w {
+        padding: 2rem;
+        background: var(--null-2);
+    }
+    &--small {
+        width: 2rem;
+        margin-top: 4rem;
+        & + h3 {
+            margin-top: 0;
+        }
+    }
+    &--x-large {
+        width: 50%;
+    }
+    &--full-width {
+        width: 100%;
+    }
+}
+
+.section-separator {
+    margin-top: 8rem;
+}
+
+.slide-only {
+    display: none;
+}
+
+.demo-style-guide {
+    background: var(--background--offset);
+    font-size: min(1.5rem, 3.25vw);
+    margin-bottom: 2rem;
+    & th {
+        padding: .5rem;
+    }
+    & td {
+        padding: .5rem;
+        border: 1px solid;
+    }
+    & div {
+        height: 1rem;
+    }
+}
+
+.related-post {
+    background: var(--emphasis);
+    color: var.$white;
+    border-radius: 0.25rem;
+    padding: 2rem 2rem 1rem;
+    margin-top: 2rem;
+    & strong {
+        color: var.$white;
+    }
+    &__link {
+        background: var(--alert);
+        font-size: 1.5rem;
+        border-radius: 0.5rem;
+        text-align: center;
+        text-decoration: none;
+        padding: 1rem;
+        margin-top: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+    }
+    &__icon {
+        height: 1.5em;
+        flex-basis: 1.5em;
+        min-height: fit-content;
+        margin: 0;
     }
 }

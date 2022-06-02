@@ -165,7 +165,7 @@ lite-youtube > iframe {
   --foreground: #2a2222;
   --foreground--offset: #4d3f3f;
   --background: #fff9eb;
-  --background--offset: #d2d2d2;
+  --background--offset: #e9f2ea;
   --emphasis: #1a6b75;
   --emphasis--text: #005b66;
   --warning: #ffd970;
@@ -256,7 +256,10 @@ img:after {
 
 blockquote {
   border-left: 0.25em solid;
-  padding-left: 0.5em;
+  font-size: 1.1em;
+  font-style: italic;
+  background: var(--background--offset);
+  padding: 1rem;
 }
 
 hr {
@@ -279,6 +282,13 @@ code:not([class*=language-]) {
 
 iframe {
   max-width: 100%;
+}
+
+figcaption {
+  margin-top: 1em;
+  text-align: right;
+  font-style: italic;
+  font-size: 0.8em;
 }
 
 ::-moz-selection:not(img, iframe) {
@@ -450,9 +460,25 @@ article {
 article h2 {
   margin-top: 4rem;
   margin-bottom: 2rem;
+  padding-bottom: 0.5em;
   font-size: max(2.5rem, 3vw);
   border-bottom: 2px solid currentColor;
-  line-height: 2;
+  line-height: 1.2;
+}
+article h3 {
+  text-align: center;
+  font-size: max(2.125rem, 2.75vw);
+  border-bottom: 2px dashed currentColor;
+  line-height: 1.2;
+  margin-bottom: 1.75rem;
+  margin-top: 1em;
+  padding-bottom: 0.5em;
+}
+article h4 {
+  font-size: max(2rem, 2.5vw);
+  border-bottom: 2px dotted currentColor;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
 }
 article p {
   margin: 1rem 0;
@@ -488,13 +514,20 @@ footer {
   background: var(--background);
 }
 
-.row:not(.full-width), .col {
+.row, .col {
   max-width: 50ch;
   margin: 0 auto;
 }
 
-.row:not(.full-width) {
+.row {
   padding: 0 1rem;
+}
+.row .row {
+  padding: 0;
+}
+
+.row--section {
+  margin-top: 12rem;
 }
 
 .nav {
@@ -964,10 +997,15 @@ footer {
 .summary__image-container {
   background: #f9f9f9;
   display: flex;
+  background-size: cover;
+  background-position: center;
 }
 .summary__image-container picture {
   margin: 0;
   min-width: 12rem;
+  -webkit-backdrop-filter: blur(1rem) saturate(0.25);
+          backdrop-filter: blur(1rem) saturate(0.25);
+  display: flex;
 }
 .summary__image-container picture img {
   -o-object-fit: contain;
@@ -1019,8 +1057,8 @@ footer {
     right: 0;
   }
   .summary-container {
-    margin-top: 12rem;
-    margin-bottom: 14rem;
+    margin-top: 8rem;
+    margin-bottom: 8rem;
     background: transparent;
   }
   .summary__date {
@@ -1035,6 +1073,9 @@ footer {
     width: 10rem;
     border-top: 2px solid var(--background--offset);
     right: 0;
+  }
+  .summary__image-container picture {
+    padding: 1rem;
   }
 }
 .toc {
@@ -1061,9 +1102,28 @@ footer {
     margin: 2rem 1rem;
   }
   .toc__svg {
-    display: none;
+    margin-top: 6rem;
   }
 }
+.section-card {
+  display: flex;
+  flex-direction: column;
+}
+.section-card strong {
+  margin-top: 1rem;
+}
+.section-card ul {
+  list-style-position: inside;
+  padding-left: 0;
+  margin: 0.5rem 0;
+}
+.section-card ul ul {
+  padding-left: 2rem;
+}
+.section-card ul ul li {
+  list-style-type: circle;
+}
+
 .no-scroll {
   overflow-y: hidden;
 }
@@ -1118,7 +1178,7 @@ footer {
   }
 }
 .progress {
-  height: 3px;
+  height: 0.5rem;
   width: 0%;
   background-color: var(--emphasis);
   position: fixed;
@@ -1154,6 +1214,80 @@ footer {
     background-color: var(--null-1);
     width: 100%;
   }
+}
+.body-icon {
+  margin: 0 auto 1rem;
+  width: 8rem;
+}
+.body-icon--b-w {
+  padding: 2rem;
+  background: var(--null-2);
+}
+.body-icon--small {
+  width: 2rem;
+  margin-top: 4rem;
+}
+.body-icon--small + h3 {
+  margin-top: 0;
+}
+.body-icon--x-large {
+  width: 50%;
+}
+
+.section-separator {
+  margin-top: 8rem;
+}
+
+.slide-only {
+  display: none;
+}
+
+.demo-style-guide {
+  background: var(--background--offset);
+  font-size: min(1.5rem, 3.25vw);
+  margin-bottom: 2rem;
+}
+.demo-style-guide th {
+  padding: 0.5rem;
+}
+.demo-style-guide td {
+  padding: 0.5rem;
+  border: 1px solid;
+}
+.demo-style-guide div {
+  height: 1rem;
+}
+
+.related-post {
+  background: var(--emphasis);
+  color: #f9f9f9;
+  border-radius: 0.25rem;
+  padding: 2rem 2rem 1rem;
+  margin-top: 2rem;
+}
+.related-post strong {
+  color: #f9f9f9;
+}
+.related-post__link {
+  background: var(--alert);
+  font-size: 1.5rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  text-decoration: none;
+  padding: 1rem;
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.related-post__icon {
+  height: 1.5em;
+  flex-basis: 1.5em;
+  min-height: -webkit-fit-content;
+  min-height: -moz-fit-content;
+  min-height: fit-content;
+  margin: 0;
 }
 
 /*# sourceMappingURL=style.css.map */

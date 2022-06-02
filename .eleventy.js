@@ -41,9 +41,21 @@ module.exports = function(eleventyConfig) {
         return `<br aria-hidden="true">`;
     });
 
+    eleventyConfig.addShortcode("separator", function(id) {
+        return `<svg class="section-separator" width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><rect width='800%' height='800%' transform='translate(0,0)' fill='url(#${id})'/></svg>`;
+    });
+
+    eleventyConfig.addPairedNunjucksShortcode("section", function(content, id) {return `<section id="${id}" class="row row--section">${content}</section>`});
+
+    eleventyConfig.addPairedNunjucksShortcode("slide", function(content) {return `<div data-slide class="row">${content}</div>`});
+    
+    eleventyConfig.addShortcode("sectionImg", function(src, alt, height, width) {
+        return `<img class="body-icon body-icon--x-large" height="${height}" width="${width}" alt="${alt}" src="/images/${src}.svg">`;
+    });
+
     eleventyConfig.addNunjucksAsyncShortcode("image", imageShortcode);
 
-    eleventyConfig.addPairedNunjucksShortcode("ext", function(content, href) {return `<a href="${href}" target="_blank" rel="noreferrer">${content}</a>`});
+    eleventyConfig.addPairedNunjucksShortcode("ext", function(content, href) {return `<a href="${href}" target="_blank" rel="noreferrer">${content}<span class="show-for-sr"> Opens in a new window</span></a>`});
 
     eleventyConfig.addCollection('tagsList', (collectionApi) => {
         const tagsSet = new Set()

@@ -21,10 +21,23 @@ footer {
         background: var(--background);
     }
 }
-.row:not(.full-width), .col {
+.row, .col {
     max-width: 50ch;
     margin: 0 auto;
 }
-.row:not(.full-width) {
+
+.row.full-width {
+    max-width: none;
+}
+.row {
     padding: 0 1rem;
+    & .row {
+        padding: 0;
+    }
+}
+
+.row {
+    &--section {
+        margin-top: 12rem;
+    }
 }

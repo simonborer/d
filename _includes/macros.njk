@@ -1,0 +1,40 @@
+{% macro sectionCard(hats, tools, deliverables) %}
+<div class="section-card">
+    {% if hats %}
+    <strong>Hats/Disciplines:</strong>
+    <ul>
+    {% for hat in hats %}
+      <li>{{ hat | safe }}</li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+    {% if tools %}
+    <strong>Tools/Techniques:</strong>
+    <ul>
+    {% for tool in tools %}
+      <li>{{ tool | safe }}</li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+    {% if deliverables %}
+    <strong>Deliverables:</strong>
+    <ul>
+    {% for deliverable in deliverables %}
+      <li>{{ deliverable | safe }}</li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+</div>
+{% endmacro %}
+
+{% macro furtherReading(links) %}
+<hr>
+<div class="row">
+<strong>Further Reading:</strong>
+<ul>
+  {% for link in links %}
+    <li>{% ext link.href %}{{ link.title }}{% endext %}, <em>{{ link.source }}</em></li>
+  {% endfor %}
+</ul>
+</div>
+{% endmacro %}

@@ -94,7 +94,10 @@ details {
 
 blockquote {
     border-left: .25em solid;
-    padding-left: .5em;
+    font-size: 1.1em;
+    font-style: italic;
+    background: var(--background--offset);
+    padding: 1rem;
 }
 
 
@@ -119,4 +122,11 @@ code:not([class*=language-]) {
 
 iframe {
     max-width: 100%;
+}
+
+figcaption {
+    margin-top: 1em;
+    text-align: right;
+    font-style: italic;
+    font-size: .8em;
 }

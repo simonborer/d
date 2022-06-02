@@ -35,9 +35,13 @@
         &-container {
         	background: var.$white;
         	display: flex;
+        	background-size: cover;
+        	background-position: center;
         	& picture {
 				margin: 0;
 		        min-width: 12rem;
+		        backdrop-filter: blur(1rem) saturate(.25);
+		        display: flex;
 		        & img {
 			        object-fit: contain;
 			        margin-top: 0;
@@ -97,8 +101,8 @@
 		    right: 0;
 		}
 		&-container {
-			margin-top: 12rem;
-			margin-bottom: 14rem;
+			margin-top: 8rem;
+			margin-bottom: 8rem;
 			background: transparent;
 		}
 		&__date {
@@ -118,6 +122,9 @@
 				    width: 10rem;
 				    border-top: 2px solid var(--background--offset);
 				    right: 0;
+				}
+				& picture {
+					padding: 1rem;
 				}
 			}
 		}
@@ -147,7 +154,26 @@
 	.toc {
 		margin: 2rem 1rem;
 		&__svg {
-			display: none;
+			margin-top: 6rem;
+		}
+	}
+}
+
+.section-card {
+	display: flex;
+	flex-direction: column;
+	& strong {
+		margin-top: 1rem;
+	}
+	& ul {
+		list-style-position: inside;
+		padding-left: 0;
+		margin: .5rem 0;
+		& ul {
+			padding-left: 2rem;
+			& li {
+				list-style-type: circle;
+			}
 		}
 	}
 }
