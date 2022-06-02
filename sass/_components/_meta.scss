@@ -19,6 +19,11 @@
 		flex-wrap: wrap;
 		justify-content: center;
 		background: var.$white;
+		& lite-youtube {
+			max-width: 100vw;
+			width: 24rem;
+			margin: auto 0;
+		}
 	}
 	&__text {
 		font-size: 1.25rem;
@@ -47,6 +52,7 @@
 			        margin-top: 0;
 		        }
         	}
+
             [data-difficulty="1"] & {
                 background: var(--emphasis);
             }

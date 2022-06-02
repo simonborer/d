@@ -33,7 +33,7 @@
 <strong>Further Reading:</strong>
 <ul>
   {% for link in links %}
-    <li>{% ext link.href %}{{ link.title }}{% endext %}, <em>{{ link.source }}</em></li>
+    <li>{% ext link.href %}{{ link.title }}{% endext %}{% if link.source %}, <em>{{ link.source | safe }}</em>{% endif %}</li>
   {% endfor %}
 </ul>
 </div>

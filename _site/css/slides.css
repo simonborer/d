@@ -610,6 +610,10 @@
   display: inline-block;
 }
 
+.reveal q {
+  font-style: italic;
+}
+
 .reveal pre {
   display: block;
   position: relative;

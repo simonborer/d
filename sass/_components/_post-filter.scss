@@ -104,8 +104,7 @@ $card-list-border-color: var(--foreground--offset);
     padding-bottom: 2rem;
     padding-left: 0;
     gap: 3rem;
-    // justify-self: space-evenly;
-    justify-content: center;
+    justify-content: flex-start;
     &__item {
         transition: .2s all;
         border-top: .25rem solid $card-list-border-color;
