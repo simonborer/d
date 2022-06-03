@@ -7,6 +7,11 @@
         </url>
     
         <url>
+            <loc>https://meek-tarsier-01cebe.netlify.app//build-tools/</loc>
+            <lastmod>2022-04-13T15:22:02.000Z</lastmod>
+        </url>
+    
+        <url>
             <loc>https://meek-tarsier-01cebe.netlify.app//tags/all/</loc>
             <lastmod>2022-04-14T11:27:31.000Z</lastmod>
         </url>
@@ -17,8 +22,18 @@
         </url>
     
         <url>
+            <loc>https://meek-tarsier-01cebe.netlify.app//web-life-cycle/</loc>
+            <lastmod>2022-05-30T23:52:49.000Z</lastmod>
+        </url>
+    
+        <url>
             <loc>https://meek-tarsier-01cebe.netlify.app//carbon-footprint/</loc>
             <lastmod>2022-05-31T14:13:20.000Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>https://meek-tarsier-01cebe.netlify.app//design-no-brainers/</loc>
+            <lastmod>2022-06-02T13:28:33.000Z</lastmod>
         </url>
     
 </urlset>
