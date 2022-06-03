@@ -1140,32 +1140,6 @@ blockquote footer {
   overflow-y: hidden;
 }
 
-.no-js .hide-without-js {
-  display: none !important;
-}
-
-.show-for-sr {
-  font-size: 0;
-  height: 1px;
-  width: 1px;
-  position: absolute;
-  top: auto;
-  left: -10000px;
-  overflow: hidden;
-}
-.show-for-sr:focus {
-  position: static;
-  height: auto;
-  width: auto;
-  font-size: 1rem;
-}
-.show-for-sr:active {
-  position: static;
-  height: auto;
-  width: auto;
-  font-size: 1rem;
-}
-
 .svg-fill {
   fill: var(--emphasis);
   stroke: var(--emphasis);
@@ -1248,10 +1222,6 @@ blockquote footer {
 
 .section-separator {
   margin-top: 8rem;
-}
-
-.slide-only {
-  display: none;
 }
 
 .demo-style-guide {

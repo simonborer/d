@@ -24,7 +24,50 @@
     <meta property="og:locale" content="en_CA">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
+    <style>
+      /* Styles if the stylesheet fails to load */
+      body {
+        font-family: sans-serif;
+        margin: 2rem auto;
+        max-width: 50ch;
+        line-height: 1.4;
+        padding: 0 1rem;
+      }
+    </style>
     <link rel="stylesheet" href="/css/style.css">
+    <style>
+      .no-js .hide-without-js {
+          display: none !important;
+      }
+
+      .show-for-sr {
+          font-size: 0;
+          height: 1px;
+          width: 1px;
+          position: absolute;
+          top: auto;
+          left: -10000px;
+          overflow: hidden;
+      }
+      
+      .show-for-sr:focus {
+        position: static;
+        height: auto;
+        width: auto;
+        font-size: 1rem;
+      }
+
+      .show-for-sr:active {
+        position: static;
+        height: auto;
+        width: auto;
+        font-size: 1rem;
+      }
+
+      .slide-only {
+          display: none;
+      }
+    </style>
     <link rel="icon" href="/icons/favicon.ico">
     <link rel="icon" href="/icons/d-i.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
@@ -632,6 +675,31 @@ npm run preview</code></pre>
           "title": "Web Design No-Brainers",
           "tags": ["Design","conventions"]
         },{ 
+          "url": "/tags/Task%20runners/",
+          "title": "Task runners",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Toolchains/",
+          "title": "Toolchains",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Bundlers/",
+          "title": "Bundlers",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Vite/",
+          "title": "Vite",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/SASS/",
+          "title": "SASS",
+          "tags": [],
+          "isTag": true
+        },{ 
           "url": "/tags/OWASP/",
           "title": "OWASP",
           "tags": [],
@@ -664,31 +732,6 @@ npm run preview</code></pre>
         },{ 
           "url": "/tags/conventions/",
           "title": "conventions",
-          "tags": [],
-          "isTag": true
-        },{ 
-          "url": "/tags/Task%20runners/",
-          "title": "Task runners",
-          "tags": [],
-          "isTag": true
-        },{ 
-          "url": "/tags/Toolchains/",
-          "title": "Toolchains",
-          "tags": [],
-          "isTag": true
-        },{ 
-          "url": "/tags/Bundlers/",
-          "title": "Bundlers",
-          "tags": [],
-          "isTag": true
-        },{ 
-          "url": "/tags/Vite/",
-          "title": "Vite",
-          "tags": [],
-          "isTag": true
-        },{ 
-          "url": "/tags/SASS/",
-          "title": "SASS",
           "tags": [],
           "isTag": true
         },{ 

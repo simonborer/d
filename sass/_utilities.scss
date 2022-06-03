@@ -4,34 +4,6 @@
     overflow-y: hidden;
 }
 
-.no-js .hide-without-js {
-    display: none !important;
-}
-
-.show-for-sr {
-    font-size: 0;
-    height: 1px;
-    width: 1px;
-    position: absolute;
-    top: auto;
-    left: -10000px;
-    overflow: hidden;
-
-    &:focus {
-        position: static;
-        height: auto;
-        width: auto;
-        font-size: 1rem;
-    }
-
-    &:active {
-        position: static;
-        height: auto;
-        width: auto;
-        font-size: 1rem;
-    }
-}
-
 .svg-fill {
     fill: var(--emphasis);
     stroke: var(--emphasis);
@@ -131,9 +103,6 @@
     margin-top: 8rem;
 }
 
-.slide-only {
-    display: none;
-}
 
 .demo-style-guide {
     background: var(--background--offset);
