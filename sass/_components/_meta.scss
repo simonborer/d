@@ -3,7 +3,6 @@
 .summary {
 	max-width: 60ch;
 	background: var.$white;
-	padding-top: 3rem;
 	&__reading-time {
 		border-top: 1px solid var(--foreground);
 		margin: .5rem 1rem 0;
@@ -11,7 +10,7 @@
 	}
 	&__date {
 		border-top: 1px solid var(--foreground);
-		margin: .5rem 1rem 4rem;
+		margin: .5rem 1rem 3rem;
 		text-align: right;
 	}
 	&-container {
@@ -27,8 +26,6 @@
 	}
 	&__text {
 		font-size: 1.25rem;
-		// background: var(--emphasis);
-		// color: var(--background);
 		font-style: italic;
 		line-height: 1.9;
 		padding-top: .25rem;
@@ -74,10 +71,6 @@
 			background: var(--background--offset);
 		}
 		background: var(--background--offset);
-		&__text {
-			// background: var(--warning);
-			// color: var(--background);
-		}
 	}
 }
 
@@ -88,28 +81,31 @@
 		border-left: .125rem solid var(--background--offset);
 		border-bottom: .125rem solid var(--background--offset);
 		position: relative;
-		padding-top: 0;
-		&:before {
-			content: " ";
-		    height: 2rem;
-		    width: 2rem;
-		    position: absolute;
-		    border-right: 2px solid var(--background--offset);
-		    border-bottom: 2px solid var(--background--offset);
-		    left: -2rem;
-		    top: -2rem;
-		}
 		&:after {
 			content: " ";
 			position: absolute;
-			border-left: 2px solid var(--background--offset);
-		    height: 2rem;
+			border-left: 2px dashed var(--background--offset);
+		    height: 5vh;
 		    right: 0;
 		}
 		&-container {
-			margin-top: 8rem;
+			margin-top: 6rem;
 			margin-bottom: 8rem;
 			background: transparent;
+			&:before {
+				content: " ";
+				position: absolute;
+				width: 10vw;
+				border-top: 2px dashed var(--background--offset);
+				left: 0;
+			}
+			&:after {
+				content: " ";
+			    position: absolute;
+			    width: 10vw;
+			    border-top: 2px dashed var(--background--offset);
+			    right: 0;
+			}
 		}
 		&__date {
 			margin-bottom: 0;
@@ -122,13 +118,19 @@
 			padding-left: 1rem;
 			&-container {
 				flex-basis: 20vw;
-				&:after {
+				position: relative;
+				&:before {
+					--size: 2.5vw;
 					content: " ";
+				    height: var(--size);
+				    width: var(--size);
 				    position: absolute;
-				    width: 10rem;
-				    border-top: 2px solid var(--background--offset);
-				    right: 0;
+				    border-right: 2px dashed var(--background--offset);
+				    border-bottom: 2px dashed var(--background--offset);
+				    left: calc(-1 * var(--size));
+				    top: calc(-1 * var(--size));
 				}
+
 				& picture {
 					padding: 1rem;
 				}
@@ -139,9 +141,12 @@
 
 .toc {
 	margin: 1rem 1rem 4rem;
+	padding-top: 3rem;
 	text-align: center;
+	border-top: .25rem dashed;
+	font-size: 1.25rem;
 	& h2 {
-		font-size: 1.5rem;
+		font-size: 1.5em;
 		margin-bottom: 1rem;
 	}
 	&__svg {
@@ -159,6 +164,8 @@
 @media (min-width: var.$breakpoint) {
 	.toc {
 		margin: 2rem 1rem;
+		padding-top: 0;
+		border-top: 0 solid transparent;
 		&__svg {
 			margin-top: 6rem;
 		}

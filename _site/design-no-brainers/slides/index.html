@@ -143,6 +143,15 @@
 </section>
       </div>
     </main>
+    <script>
+        // Whelp, should probably refactor reveal so this isn't necessary
+        document.querySelectorAll("[data-slide]").forEach((slide, index) => {
+            if (!slide.parentNode.classList.contains('slides')) {
+                document.querySelectorAll('.slides')[0].appendChild(slide);
+            }
+
+        });
+    </script>
     <script src="/js/reveal.js"></script>
     <script>
     Reveal.initialize({

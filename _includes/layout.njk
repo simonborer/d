@@ -28,8 +28,10 @@
     <meta name="twitter:card" content="summary_large_image">
     <style>
       /* Styles if the stylesheet fails to load */
-      body {
+      html {
         font-family: sans-serif;
+      }
+      body {
         margin: 2rem auto;
         max-width: 50ch;
         line-height: 1.4;
@@ -148,7 +150,7 @@
 
         </nav>
 
-        <h1 id="content" class="title">{{title | safe}}</h1>
+        <h1 id="content" class="title">{{title | allGas | safe}}</h1>
 
         {# Search #}
         <div class="search__box hide-without-js">
@@ -190,6 +192,14 @@
 
       {% if description and not home %}
         <div class="callout summary-container">
+          {% if regExp.test(feature.src) %}
+            <div class="summary__image-container" style="background-image:url('/images/{{feature.src}}');">
+            {% image "images/" + feature.src, feature.alt, "(min-width: 30em) 1200px, 100vw", feature.title %}
+            </div>
+          {% endif %}
+          {% if ytRegExp.test(feature.src) %}
+            <lite-youtube videoid="{{feature.id}}" style="background-image: url('https://i.ytimg.com/vi/{{feature.id}}/hqdefault.jpg');" params="controls=0&start=10&end=30&modestbranding=2&rel=0&enablejsapi=1"></lite-youtube>
+          {% endif %}
           {% if not home %}
             <div class="summary">
               <div class="summary__text-container">
@@ -198,8 +208,7 @@
               <div class="summary__reading-time">{% if readingTime %}About {{ content | readingTime }} reading time{% endif %}</div>
               <div class="summary__date">{{ page.date.toUTCString() }}</div>
               {% if toc %}
-
-                <div class="toc" data-annotate data-ann-type="box" data-ann-color="var(--emphasis)" data-ann-mobile-only>
+                <div class="toc">
                   <h2>Table of contents</h2>
                   <ol>
                     {% for section in toc %}
@@ -210,14 +219,6 @@
               {% endif %}
             </div>
           {% endif %}
-          {% if regExp.test(feature.src) %}
-            <div class="summary__image-container" style="background-image:url('/images/{{feature.src}}');">
-            {% image "images/" + feature.src, feature.alt, "(min-width: 30em) 1200px, 100vw", feature.title %}
-            </div>
-          {% endif %}
-          {% if ytRegExp.test(feature.src) %}
-            <lite-youtube videoid="{{feature.id}}" style="background-image: url('https://i.ytimg.com/vi/{{feature.id}}/hqdefault.jpg');" params="controls=0&start=10&end=30&modestbranding=2&rel=0&enablejsapi=1"></lite-youtube>
-            {% endif %}
           <svg width='100%' height='100%' xmlns='http://www.w3.org/2000/svg' role="presentation" class="toc__svg">
             <rect width='100%' height='100%' fill='url(#grid)' />
           </svg>
@@ -314,10 +315,10 @@
               {% endif %}
                 </div>
                 <div class="card-list__text">
-              <div class="card-list__title">{{ post.data.title | safe }}</div>
-              <div class="card-list__summary">{{ post.data.description }}</div></div>
-              <div class="card-list__cta">
-                {# <span class="card-list__cta-text">Read on<span class="hide-for-sr">…</span><span class="show-for-sr"> about {{ post.data.title }}</span></span> #}</div>
+                  <div class="card-list__title">{{ post.data.title | allGas | safe }}</div>
+                  <div class="card-list__summary">{{ post.data.description }}</div>
+                </div>
+                <div class="card-list__cta"></div>
             </a>
           </li>
           {% endif %}

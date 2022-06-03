@@ -196,8 +196,6 @@ $card-list-border-color: var(--foreground--offset);
         gap: 1rem;
         &__item {
             height: fit-content;
-            // border: .25rem solid $card-list-border-color;
-            // border-radius: 0.5rem;
         }
         &__text {
             padding-left: 2rem;

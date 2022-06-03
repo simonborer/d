@@ -9,7 +9,6 @@
     	display: flex;
     }
     &__links {
-    	background: var(--background);
         position: absolute;
         top: 0;
         width: 100vw;
@@ -31,6 +30,7 @@
 	    	align-self: center;
 	        padding: .5rem .75rem;
 	        align-self: stretch;
+	        background: var(--background);
 	        &--close {
 	            align-self: stretch;
 	        }
@@ -39,7 +39,7 @@
 	        font-size: 0;
 
 	        &--open {
-	            width: 70vw;
+	            width: 80vw;
 	            height: 100vw;
 	            opacity: 0;
 	            right: 0;
@@ -59,34 +59,48 @@
 		}
 		& ul {
 			font-size: 1.5rem;
-			padding-left: 1rem;
-			margin-top: 1rem;
+			padding:0;
+			margin: 0;
+			background: var(--background);
+        	border-bottom: .125rem solid var(--background--offset);
             & li {
             	line-height: 2;
+            	margin: 0;
+            	&:nth-child(even) {
+            		background: var(--background--offset);
+            	}
+            }
+            & a {
+            	display: block;
+            	padding: 1rem 3rem;
             }
 		}
+	}
+	&__toggle-button {
+		background: var(--background);
+		border-right: .125rem solid var(--background--offset);
 	}
 }
 @media (min-width: var.$breakpoint) {
 	.nav {
     	border-bottom: .125rem solid var(--background--offset);
 		&__links {
-			width: max(20vw, 10rem);
-        	transform: translateX(-30vw);
+			width: max(20vw, 20rem);
+        	transform: translateX(-100vw);
 
 	        &--expanded {
 	            transform: translateX(0);
 	            box-shadow: 0 0 2vw var(--foreground);
-	            background: var(--background);
+	            backdrop-filter: blur(1rem);
 	            color: var(--foreground);
-	            border-right: .125rem solid var(--foreground);
+	            border-right: .125rem solid var(--background--offset);
 	        }
 		}
-        & ul {
-        	margin-top: 0;
-            padding-top: 1rem;
-            padding-right: 2rem;
-        }
+        // & ul {
+        // 	margin-top: 0;
+        //     padding-top: 1rem;
+        //     padding-right: 2rem;
+        // }
 	}
 }
 

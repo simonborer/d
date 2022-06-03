@@ -65,4 +65,10 @@ module.exports = function(eleventyConfig) {
         })
         return tagsSet
     });
+
+    eleventyConfig.addFilter("allGas", function(str) {
+        if (typeof str !== 'undefined') {
+        return str.trim().replace(/\s([^\s]*)$/, '&nbsp;' + '$1').replace(/\s/, "&nbsp;").replace("-", "&#8209;");
+        }
+    });
 };

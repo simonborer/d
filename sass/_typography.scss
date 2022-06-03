@@ -101,7 +101,7 @@ dt:after {
 }
 
 .title {
-    line-height: 1;
+    line-height: 1.1;
     font-size: 2.5rem;
     text-align: center;
     order: 1;
@@ -128,7 +128,6 @@ dt:after {
 @media (prefers-color-scheme: dark) {
     .title {
         color: var(--foreground);
-    // box-shadow: 0 0 .5rem var(--background--offset) inset;
     }
     @for $i from 1 through 3 {
         [data-difficulty="#{$i}"] .title {
@@ -152,8 +151,9 @@ dt:after {
         display: block;
         overflow: visible;
         max-width: calc(100% - 1.5rem - 48px - 224px);
-        padding: 1rem;
-        font-size: clamp(1rem, 3vw, 2.5rem);
+        padding: .75rem;
+        font-size: clamp(1rem, 2.5vw, 2.5rem);
+        line-height: 1;
         .home & {
             height: auto;
         }
