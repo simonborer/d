@@ -41,9 +41,10 @@
         	background-position: center;
         	& picture {
 				margin: 0;
-		        min-width: 12rem;
-		        backdrop-filter: blur(1rem) saturate(.25);
+		        min-width: max(20vw, 12rem);
+		        backdrop-filter: blur(.75rem) saturate(.25);
 		        display: flex;
+		        justify-content: center;
 		        & img {
 			        object-fit: contain;
 			        margin-top: 0;
@@ -117,7 +118,6 @@
 			padding-right: 1rem;
 			padding-left: 1rem;
 			&-container {
-				flex-basis: 20vw;
 				position: relative;
 				&:before {
 					--size: 2.5vw;
@@ -158,6 +158,24 @@
 	}
 	& li {
 		list-style-position: inside;
+	}
+	& a {
+		text-decoration: none;
+	    border-bottom: 2px solid var(--emphasis);
+	    padding-bottom: 0.125rem;
+	    display: inline-block;
+	    margin-bottom: 0.5rem;
+	    transition: all .25s;
+	    &:hover {
+	    	border-bottom-style: dotted;
+	    	border-color: var(--foreground);
+	    }
+	    &:focus {
+	    	border-bottom-style: dotted;
+	    	border-color: var(--foreground);
+		    outline: 0.0625rem dotted var(--foreground--offset);
+		    outline-offset: 0.25rem;
+	    }
 	}
 }
 

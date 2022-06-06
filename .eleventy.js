@@ -68,7 +68,9 @@ module.exports = function(eleventyConfig) {
 
     eleventyConfig.addFilter("allGas", function(str) {
         if (typeof str !== 'undefined') {
-        return str.trim().replace(/\s([^\s]*)$/, '&nbsp;' + '$1').replace(/\s/, "&nbsp;").replace("-", "&#8209;");
+            str = str.trim().replace("-", "&#8209;");
+            str = str.split(" ").length - 1 > 2 ? str.replace(/\s([^\s]*)$/, '&nbsp;' + '$1').replace(/\s/, "&nbsp;") : str.replace(/\s/, "&nbsp;");
+            return str;
         }
     });
 };

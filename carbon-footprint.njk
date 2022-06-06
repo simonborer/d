@@ -1,21 +1,91 @@
----json
+---js
 {
-    "layout": "layout.njk",
+    "layout": process.env.LAYOUT,
     "title": "The carbon footprint of the internet",
     "feature": {
-        "src": "quilt.jpeg",
-        "alt": "Quilt, Spiderweb pattern",
-        "title": "Image credit: https://commons.wikimedia.org/wiki/File:Quilt,_Spiderweb_pattern_MET_DP142720.jpg"
+        "src": "robot-traffic.png",
+        "alt": "Robot in traffic",
+        "title": "Image credit: https://replicate.com/jack000/glid-3-xl"
     },
     "readingTime": true,
-    "description": "Today we learn about the lifecycle of a web-based project. We'll look at all the possible stages of a project, whether big or small.",
-    "tags": ["OWASP", "XSS", "SQL Injection", "Security", "Authentication"],
-    "learningLevel": 1
+    "description": "How big is the internet's impact on the environment? Can you go carbon-neutral by working from home? What's worse, watching Netflix or buying Bitcoin? Can you run a website off of solar power?",
+    "tags": ["Ethics", "Climate Change", "Bitcoin", "Ethereum", "Carbon Footprint", "Optimization", "Streaming"],
+    "learningLevel": 1,
+    "toc": [{
+        "href": "yourJob",
+        "title": "Personal responsibility and climate change"
+    },{
+        "href": "howMuch",
+        "title": "Just how much carbon are we talking?"
+    }, {
+        "href": "contributors",
+        "title": "The biggest factors in the internet's carbon emissions"
+    }, {
+        "href": "action",
+        "title": "What can we do about it?"
+    }, {
+        "href": "solarPowered",
+        "title": "A solar-powered website"
+    }]
 }
 ---
-<section id='the-web-s-carbon-footprint'><img class='body-icon' src='/images/ecology.svg'>
+{% section toc[0].href %}
+    {% slide %}
+        <p>Climate change is a <em>massive</em> topic, so I feel inclined to frame the conversation a bit. When talking about a globe- and epoch-spanning issue, there are things we can affect, and things we can't. Most conversations around climate change are specifically about this: <span data-annotate>what, if anything, can be done, and by whom?</span></p>
+    {% endslide %}
+    {% slide %}
+        <h2>{{ toc[0].title }}</h2>
+        - you have more reason to be hopeful than you might think
+        <lite-youtube videoid="LxgMdjyw8uw" style="background-image: url('https://i.ytimg.com/vi/LxgMdjyw8uw/hqdefault.jpg');" params="controls=0&start=10&end=30&modestbranding=2&rel=0&enablejsapi=1"></lite-youtube>
+        {# https://www.nytimes.com/2022/03/22/climate/climate-change-ok-doomer.html #}
+        - you have less reason to feel guilty than you might think
+            - personal responsibility is a PR scam by big oil {% ext "https://mashable.com/feature/carbon-footprint-pr-campaign-sham" %}The carbon footprint sham{% endext %}
+    {% endslide %}
+{% endsection %}
+{% separator "waves" %}
+{% section toc[1].href %}
+    {% slide %}
+        <h2>{{ toc[1].title }}</h2>
+        <p>Four years ago, Mozilla reported that the internet was producing <strong>more carbon emissions than <a href="https://internethealthreport.org/2018/the-internet-uses-more-electricity-than/" target="_blank">the airline industry<span class="show-for-sr"> Opens in a new window</span></a></strong>.</p>
+        ? how has this changed through the pandemic?
+
+    {% endslide %}
+{% endsection %}
+{% separator "dots" %}
+{% section toc[2].href %}
+    {% slide %}
+        <h2>{{ toc[2].title }}</h2>
+        - blockchain
+            - crypto
+                https://digiconomist.net/bitcoin-energy-consumption
+            - nfts
+                https://www.wired.com/story/nfts-hot-effect-earth-climate/
+                https://www.theverge.com/2021/3/15/22328203/nft-cryptoart-ethereum-blockchain-climate-change
+    {% endslide %}
+{% endsection %}
+{% separator "chevrons" %}
+{% section toc[3].href %}
+    {% slide %}
+        <h2>{{ toc[3].title }}</h2>
+                {% ext "https://www.websitecarbon.com/" %}Carbon calculator{% endext %}
+        <div id="wcb" class="carbonbadge wcb-d"></div>
+        <script src="https://unpkg.com/website-carbon-badges@1.1.3/b.min.js" defer></script>
+        {% ext "https://davidsuzuki.org/science-learning-centre-article/purchasing-carbon-offsets-a-guide-for-canadian-consumers-businesses-and-organizations/" %}Purchase carbon offsets{% endext %}
+        {% ext "https://en.wikipedia.org/wiki/Individual_action_on_climate_change" %}Individual action on climate change{% endext %}
+    {% endslide %}
+{% endsection %}
+{% separator "waves" %}
+{% section toc[4].href %}
+    {% slide %}
+        <h2>{{ toc[4].title }}</h2>
+
+        {% ext "https://solar.lowtechmagazine.com/about.html" %}solar.lowtechmagazine.com{% endext %}
+    {% endslide %}
+{% endsection %}
+{# <section id='the-web-s-carbon-footprint'>
+    <img class='body-icon' src='/images/ecology.svg'>
     <h2>The web's carbon footprint</h2>
-    <p>A couple years ago, Mozilla reported that the internet was producing <strong>more carbon emissions than <a href="https://internethealthreport.org/2018/the-internet-uses-more-electricity-than/" target="_blank">the airline industry<span class="show-for-sr"> Opens in a new window</span></a></strong>.</p>
+    <p>Four years ago, Mozilla reported that the internet was producing <strong>more carbon emissions than <a href="https://internethealthreport.org/2018/the-internet-uses-more-electricity-than/" target="_blank">the airline industry<span class="show-for-sr"> Opens in a new window</span></a></strong>.</p>
 </section>
 <section>
     <p>I'm personally of the opinion that any solution that begins with, "If everybody would just..." is no solution at all.</p>
@@ -25,4 +95,4 @@
 <section>
     <img src="/images/scale.svg" alt="" class="body-icon body-icon--white-bg slide-only" style="width: 180px;padding:2rem;border-radius: 1rem;margin-bottom: 0;">
     <p>When I say "smaller", I don't mean a smaller font-size, or even less content, I mean in terms of "page weight" - <strong>smaller file sizes for your code and assets</strong>.</p>
-</section>
+</section> #}
