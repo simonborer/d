@@ -194,7 +194,7 @@
         <div class="callout summary-container">
           {% if regExp.test(feature.src) %}
             <div class="summary__image-container" style="background-image:url('/images/{{feature.src}}');">
-            {% image "images/" + feature.src, feature.alt, "(min-width: 30em) 1200px, 100vw", feature.title %}
+            {% image "images/" + feature.src, feature.alt, "(min-width: 30em) 1200px, 100vw", feature.title, "eager" %}
             </div>
           {% endif %}
           {% if ytRegExp.test(feature.src) %}
@@ -305,7 +305,7 @@
                 <div class="card-list__feature">
               {# wtf, this was real weird - didn't work as an if else #}
               {% if regExp.test(post.data.feature.src) %}
-                {% image "images/" + post.data.feature.src, post.data.feature.alt, "(min-width: 30em) 300px, 100vw", post.data.feature.title %}
+                {% image "images/" + post.data.feature.src, post.data.feature.alt, "(min-width: 30em) 300px, 100vw", post.data.feature.title, "eager" %}
               {% endif %}
               {% if svgRegExp.test(post.data.feature.src) %}
                 <img alt="{{post.data.feature.alt}}" class="card-list__image{% if post.data.feature.needsPadding %} card-list__image--padded{% endif %}" src="/images/{{ post.data.feature.src }}" height="{{ post.data.feature.height }}" width="{{ post.data.feature.width }}">

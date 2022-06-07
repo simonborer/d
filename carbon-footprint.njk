@@ -29,17 +29,61 @@
     }]
 }
 ---
+{% import "macros.njk" as macro with context %}
+{% slide %}
+    <p>Climate change is a <em>massive</em> topic, so I feel inclined to frame the conversation a bit. When talking about a globe- and epoch-spanning issue, there are things we can affect, and things we can't. Most conversations around climate change are specifically about this: <span data-annotate>what, if anything, can be done, and by whom?</span></p>
+{% endslide %}
+{% slide %}
+    <blockquote>On the last day of the world<br>I would want to plant a tree<footer>- W.S. Merwin,&#32;"{% ext "https://merwinconservancy.org/2015/04/place-by-ws-merwin/"%}Place{% endext %}"</footer></blockquote>
+    <p>We don't have time to conclusively answer these questions today, but I can tell you where I'm coming from.</p>
+{% endslide %}
 {% section toc[0].href %}
     {% slide %}
-        <p>Climate change is a <em>massive</em> topic, so I feel inclined to frame the conversation a bit. When talking about a globe- and epoch-spanning issue, there are things we can affect, and things we can't. Most conversations around climate change are specifically about this: <span data-annotate>what, if anything, can be done, and by whom?</span></p>
+        {% image "images/climate-action.jpeg", "Indigenous climate activists", "(min-width: 30em) 600px, 100vw", "Fabrice Florin from Mill Valley, USA, CC BY-SA 2.0 <https://creativecommons.org/licenses/by-sa/2.0>, via Wikimedia Commons" %}
+        <h2>{{ toc[0].title }}</h2>
     {% endslide %}
     {% slide %}
-        <h2>{{ toc[0].title }}</h2>
-        - you have more reason to be hopeful than you might think
-        <lite-youtube videoid="LxgMdjyw8uw" style="background-image: url('https://i.ytimg.com/vi/LxgMdjyw8uw/hqdefault.jpg');" params="controls=0&start=10&end=30&modestbranding=2&rel=0&enablejsapi=1"></lite-youtube>
-        {# https://www.nytimes.com/2022/03/22/climate/climate-change-ok-doomer.html #}
-        - you have less reason to feel guilty than you might think
-            - personal responsibility is a PR scam by big oil {% ext "https://mashable.com/feature/carbon-footprint-pr-campaign-sham" %}The carbon footprint sham{% endext %}
+        <p>Have you been {% ext "https://en.wikipedia.org/wiki/Doomscrolling" %}doomscrolling{% endext %} for the last few years? You may have missed some important developments.</p>
+    {% endslide %}
+    {% slide %}
+        <h3>You have more reason to be hopeful than you might think.</h3>
+        <p>The first decade of the 20th century didn't bode well for our future, and a lot of very thoughtful people easily imagined a near future without people in it.</p>
+        <p>Thanks to a lot of hard work from a lot of people all over the world, the future we're looking at now isn't apocalyptic. <span data-annotate>It's not exactly <em>awesome</em>, but it's <em>something</em>.</span></p>
+    {% endslide %}
+    {% slide %}
+        <p>I won't go into all the reasons why, since that was so wonderfully covered in this video from the great folks at {% ext "https://www.youtube.com/user/Kurzgesagt" %}Kurzgesagt{%endext %}:</p>
+        <lite-youtube videoid="LxgMdjyw8uw" style="background-image: url('https://i.ytimg.com/vi/LxgMdjyw8uw/hqdefault.jpg');" params="controls=0&modestbranding=2&rel=0&enablejsapi=1"></lite-youtube>
+    {% endslide %}
+    {% slide %}
+        <p>Suffice it to say that if you've ever wanted to live in a time where your actions could potentially improve the lives of people for generations to come, now is the perfect time.</p>
+    {% endslide %}
+    {{ macro.furtherReading([{
+        href: "https://www.nytimes.com/2022/03/22/climate/climate-change-ok-doomer.html",
+        title: "‘OK Doomer’ and the Climate Advocates Who Say It’s Not Too Late",
+        source: "The New York Times"
+    }, {
+        href: "https://www.penguinrandomhouse.com/books/647141/generation-dread-by-britt-wray/",
+        title: "Generation Dread: Finding Purpose in an Age of <br class='hide-for-mobile'>Climate Crisis",
+        source: "Britt Wray"
+    }, {
+        href: "https://michaelmann.net/books/climate-war",
+        title: "The New Climate War: The Fight to Take Back Our Planet",
+        source: "Michael Mann"
+    }]) }}
+    {% slide %}
+        <p>...so are we all switching to paper straws, or...?</p>
+        <h3>Lifestyle activism is pretty much a scam.</h3>
+        <p>In case you weren't aware, the idea of the "Personal Carbon Footprint" is {% ext "https://mashable.com/feature/carbon-footprint-pr-campaign-sham" %}Big Oil propaganda{% endext %} meant to shift the blame off of super-polluting corporations and on to you and me.</p>
+    {% endslide %}
+    {% slide %}
+        <p>Now <em>of course</em> there are things we can do in our own lives that will reduce the amount of carbon emitted by people - mostly {% ext "https://www.lunduniversity.lu.se/article/four-lifestyle-choices-most-reduce-your-carbon-footprint" %}avoiding flying, driving, and eating meat{% endext %}.</p>
+    {% endslide %}
+    {% slide %}
+        <p>But the biggest impact we can have is to make systemic changes, using {% ext "https://en.wikipedia.org/wiki/Climate_movement#Activities" %}collective{% endext %}, {% ext "https://en.wikipedia.org/wiki/Carbon_tax" %}economic{% endext %}, {% ext "https://www.simonandschuster.com/books/On-Fire/Naomi-Klein/9781982129910" %}political{% endext %}, and {% ext "https://www.unep.org/news-and-stories/story/battle-against-climate-change-courts-become-new-frontier" %}legal{% endext %} actions.</p>
+    {% endslide %}
+    {% slide %}
+        <p>So we can say that what we do matters, and that systemic changes have an exponentially bigger return on effort. Now <span data-annotate data-ann-color="var(--alert)">let's apply that to the web</span>!</p>
+        <p>Let's look at the <span data-annotate data-ann-type="underline">total carbon footprint</span> of the web, the <span data-annotate data-ann-type="underline">biggest contributors</span> to the web's carbon emissions, and then <span data-annotate data-ann-type="underline">how we can impact them</span>.</p>
     {% endslide %}
 {% endsection %}
 {% separator "waves" %}

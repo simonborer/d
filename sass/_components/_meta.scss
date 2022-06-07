@@ -48,6 +48,7 @@
 		        & img {
 			        object-fit: contain;
 			        margin-top: 0;
+			        width: 100vw;
 		        }
         	}
 
@@ -133,6 +134,10 @@
 
 				& picture {
 					padding: 1rem;
+					& img {
+						width: fit-content;
+						max-width: 20vw;
+					}
 				}
 			}
 		}
@@ -158,21 +163,18 @@
 	}
 	& li {
 		list-style-position: inside;
+	    padding-bottom: 0.125rem;
+	    margin-bottom: 0.5rem;
 	}
 	& a {
-		text-decoration: none;
 	    border-bottom: 2px solid var(--emphasis);
-	    padding-bottom: 0.125rem;
-	    display: inline-block;
-	    margin-bottom: 0.5rem;
-	    transition: all .25s;
+		text-decoration: none;
+	    transition: all .5s;
 	    &:hover {
 	    	border-bottom-style: dotted;
-	    	border-color: var(--foreground);
 	    }
 	    &:focus {
 	    	border-bottom-style: dotted;
-	    	border-color: var(--foreground);
 		    outline: 0.0625rem dotted var(--foreground--offset);
 		    outline-offset: 0.25rem;
 	    }

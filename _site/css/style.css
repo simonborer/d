@@ -474,15 +474,15 @@ article h2 {
 }
 article h3 {
   text-align: center;
-  font-size: max(2.125rem, 2.75vw);
+  font-size: max(2rem, 2.5vw);
   border-bottom: 2px dashed currentColor;
   line-height: 1.2;
   margin-bottom: 1.75rem;
-  margin-top: 1em;
+  margin-top: 2em;
   padding-bottom: 0.5em;
 }
 article h4 {
-  font-size: max(2rem, 2.5vw);
+  font-size: max(1.5rem, 2.25vw);
   border-bottom: 2px dotted currentColor;
   line-height: 1.5;
   margin-bottom: 1.5rem;
@@ -1040,6 +1040,7 @@ blockquote footer {
   -o-object-fit: contain;
      object-fit: contain;
   margin-top: 0;
+  width: 100vw;
 }
 [data-difficulty="1"] .summary__image-container {
   background: var(--emphasis);
@@ -1113,6 +1114,12 @@ blockquote footer {
   .summary__image-container picture {
     padding: 1rem;
   }
+  .summary__image-container picture img {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    max-width: 20vw;
+  }
 }
 .toc {
   margin: 1rem 1rem 4rem;
@@ -1134,22 +1141,19 @@ blockquote footer {
 }
 .toc li {
   list-style-position: inside;
+  padding-bottom: 0.125rem;
+  margin-bottom: 0.5rem;
 }
 .toc a {
-  text-decoration: none;
   border-bottom: 2px solid var(--emphasis);
-  padding-bottom: 0.125rem;
-  display: inline-block;
-  margin-bottom: 0.5rem;
-  transition: all 0.25s;
+  text-decoration: none;
+  transition: all 0.5s;
 }
 .toc a:hover {
   border-bottom-style: dotted;
-  border-color: var(--foreground);
 }
 .toc a:focus {
   border-bottom-style: dotted;
-  border-color: var(--foreground);
   outline: 0.0625rem dotted var(--foreground--offset);
   outline-offset: 0.25rem;
 }
@@ -1317,6 +1321,16 @@ blockquote footer {
   min-height: -moz-fit-content;
   min-height: fit-content;
   margin: 0;
+}
+
+.hide-for-mobile {
+  display: none;
+}
+
+@media (min-width: 599px) {
+  .hide-for-mobile {
+    display: inline;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

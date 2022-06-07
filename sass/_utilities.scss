@@ -149,3 +149,13 @@
         margin: 0;
     }
 }
+
+.hide-for-mobile {
+    display: none;
+}
+
+@media (min-width: var.$breakpoint) {
+    .hide-for-mobile {
+        display: inline;
+    }
+}
