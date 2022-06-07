@@ -493,6 +493,9 @@ article p {
 article a {
   background: rgba(84, 185, 210, 0.4196078431);
 }
+article strong a {
+  color: var(--foreground);
+}
 
 main {
   padding-bottom: 20vh;

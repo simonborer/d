@@ -191,4 +191,7 @@ article {
     & a {
         background: #54b9d26b;
     }
+    & strong a {
+        color: var(--foreground);
+    }
 }
