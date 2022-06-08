@@ -60,6 +60,7 @@
     position: fixed;
     top: 0;
     left: 0;
+    transition: none 0s linear;
     animation-name: progress;
     animation-duration: 1s;
     animation-timing-function: linear;

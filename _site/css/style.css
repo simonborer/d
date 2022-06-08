@@ -1224,6 +1224,7 @@ blockquote footer {
   position: fixed;
   top: 0;
   left: 0;
+  transition: none 0s linear;
   -webkit-animation-name: progress;
           animation-name: progress;
   -webkit-animation-duration: 1s;
