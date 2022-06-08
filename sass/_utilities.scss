@@ -69,6 +69,7 @@
     animation-delay: calc(var(--scroll) * -1s);
     animation-iteration-count: 1;
     animation-fill-mode: both;
+    z-index: 1;
 }
 
 @keyframes progress {
@@ -158,5 +159,24 @@
 @media (min-width: var.$breakpoint) {
     .hide-for-mobile {
         display: inline;
+    }
+}
+
+.callout {
+    padding: 1em;
+    background: var(--background--offset);
+    border-radius: 0.25em;
+    font-size: .9em;
+    &.emphasis {
+        background: var(--emphasis);
+        color: var.$background;
+    }
+    &.warning {
+        background: var(--warning);
+        color: var.$foreground;
+    }
+    &.alert {
+        background: var(--alert);
+        color: var.$foreground;
     }
 }

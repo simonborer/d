@@ -292,9 +292,15 @@ iframe {
 figcaption {
   margin-top: 1em;
   margin-bottom: 1em;
+  padding: 0 1em 0 2em;
   text-align: right;
   font-style: italic;
   font-size: 0.8em;
+}
+
+sup {
+  font-size: x-small;
+  line-height: 1;
 }
 
 ::-moz-selection:not(img, iframe) {
@@ -482,10 +488,12 @@ article h3 {
   padding-bottom: 0.5em;
 }
 article h4 {
-  font-size: max(1.5rem, 2.25vw);
+  font-size: max(1.5rem, 1.5vw);
   border-bottom: 2px dotted currentColor;
-  line-height: 1.5;
+  line-height: 1.2;
   margin-bottom: 1.5rem;
+  margin-top: 2rem;
+  padding-bottom: 0.5em;
 }
 article p {
   margin: 1rem 0;
@@ -1241,6 +1249,7 @@ blockquote footer {
           animation-iteration-count: 1;
   -webkit-animation-fill-mode: both;
           animation-fill-mode: both;
+  z-index: 1;
 }
 
 @-webkit-keyframes progress {
@@ -1335,6 +1344,20 @@ blockquote footer {
   .hide-for-mobile {
     display: inline;
   }
+}
+.callout {
+  padding: 1em;
+  background: var(--background--offset);
+  border-radius: 0.25em;
+  font-size: 0.9em;
+}
+.callout.warning {
+  background: var(--warning);
+  color: #2a2222;
+}
+.callout.alert {
+  background: var(--alert);
+  color: #2a2222;
 }
 
 /*# sourceMappingURL=style.css.map */

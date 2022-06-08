@@ -191,7 +191,7 @@
       </svg>
 
       {% if description and not home %}
-        <div class="callout summary-container">
+        <div class="summary-container">
           {% if regExp.test(feature.src) %}
             <div class="summary__image-container" style="background-image:url('/images/{{feature.src}}');">
             {% image "images/" + feature.src, feature.alt, "(min-width: 30em) 1200px, 100vw", feature.title, "eager" %}

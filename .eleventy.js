@@ -6,7 +6,7 @@ const Image = require("@11ty/eleventy-img");
 // Avif was being weeeeird
 async function imageShortcode(src, alt, sizes, title = ``, loading = `lazy`) {
   let metadata = await Image(src, {
-    widths: [300, 600, 1200],
+    widths: [300, 614, 1200],
     formats: ["avif", "webp", "jpeg"]
   });
 

@@ -180,10 +180,12 @@ article {
         padding-bottom: .5em;
     }
     & h4 {
-        font-size: max(1.5rem, 2.25vw);
+        font-size: max(1.5rem, 1.5vw);
         border-bottom: 2px dotted currentColor;
-        line-height: 1.5;
+        line-height: 1.2;
         margin-bottom: 1.5rem;
+        margin-top: 2rem;
+        padding-bottom: .5em;
     }
     & p {
         margin: 1rem 0;
