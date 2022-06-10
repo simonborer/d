@@ -207,3 +207,15 @@
     max-height: 1.5rem;
     height: calc(1vh * 75 * var(--scroll));
 }
+
+.margin-vertical-extra {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.centred {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}

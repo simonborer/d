@@ -568,10 +568,16 @@ blockquote footer {
 }
 
 .row--section {
-  margin-top: 6rem;
-  padding-top: 6rem;
+  margin-top: 2rem;
+  padding-top: 2rem;
 }
 
+@media (min-width: 599px) {
+  .row--section {
+    margin-top: 6rem;
+    padding-top: 6rem;
+  }
+}
 .nav {
   display: flex;
   align-items: center;
@@ -1022,13 +1028,17 @@ blockquote footer {
 }
 .summary__reading-time {
   border-top: 1px solid var(--foreground);
-  margin: 0.5rem 1rem 0;
+  margin-top: 0.5rem;
   text-align: right;
+  color: #fff9eb;
+  border-color: #fff9eb;
 }
 .summary__date {
   border-top: 1px solid var(--foreground);
-  margin: 0.5rem 1rem 3rem;
+  margin-top: 0.5rem;
   text-align: right;
+  color: #fff9eb;
+  border-color: #fff9eb;
 }
 .summary-container {
   display: flex;
@@ -1044,17 +1054,22 @@ blockquote footer {
 .summary__text {
   font-size: 1.25rem;
   font-style: italic;
-  line-height: 1.9;
+  line-height: 1.8;
   padding-top: 0.25rem;
+  color: #fff9eb;
+  margin-bottom: 1rem;
+  display: block;
 }
 .summary__text-container {
-  margin: 1rem;
+  background: var(--emphasis);
+  padding: 1rem;
 }
 .summary__image-container {
   background: #f9f9f9;
   display: flex;
   background-size: cover;
   background-position: center;
+  order: -1;
 }
 .summary__image-container picture {
   margin: 0;
@@ -1130,11 +1145,12 @@ blockquote footer {
     border-top: 2px dashed var(--background--offset);
     right: 0;
   }
-  .summary__date {
-    margin-bottom: 0;
+  .summary__text-container {
+    padding: 2rem 2rem 1rem 2rem;
   }
   .summary__image-container {
     position: relative;
+    order: 0;
   }
   .summary__image-container:after {
     content: " ";
@@ -1147,21 +1163,19 @@ blockquote footer {
     right: -2rem;
   }
   .summary__image-container picture {
-    padding: 1rem;
+    max-height: 40vh;
   }
   .summary__image-container picture img {
-    width: -webkit-fit-content;
-    width: -moz-fit-content;
-    width: fit-content;
-    max-width: 20vw;
+    -o-object-fit: cover;
+       object-fit: cover;
   }
 }
 .toc {
-  margin: 1rem 1rem 4rem;
+  margin: 2rem 0 0;
   padding-top: 3rem;
   text-align: center;
-  border-top: 0.25rem dashed;
   font-size: 1.25rem;
+  padding-top: 0;
 }
 .toc h2 {
   font-size: 1.5em;
@@ -1172,7 +1186,7 @@ blockquote footer {
   background: var(--background);
 }
 .toc ol {
-  padding-left: 0;
+  padding: 1rem 1rem 0.5rem;
 }
 .toc li {
   list-style-position: inside;
@@ -1194,11 +1208,6 @@ blockquote footer {
 }
 
 @media (min-width: 599px) {
-  .toc {
-    margin: 2rem 1rem;
-    padding-top: 0;
-    border-top: 0 solid transparent;
-  }
   .toc__svg {
     margin-top: 6rem;
   }
@@ -1239,7 +1248,7 @@ blockquote footer {
   background: var(--alert);
   text-align: center;
   padding: 0.25rem;
-  margin-top: auto;
+  margin-top: 2rem;
 }
 
 .no-scroll {
@@ -1427,6 +1436,18 @@ blockquote footer {
   z-index: 2;
   max-height: 1.5rem;
   height: calc(75vh * var(--scroll));
+}
+
+.margin-vertical-extra {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.centred {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 /*# sourceMappingURL=style.css.map */
