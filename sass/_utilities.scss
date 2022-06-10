@@ -19,6 +19,10 @@
     }
 }
 
+[data-ann-color="var(--emphasis)"]:not([data-ann-type]) {
+    color: var.$background;
+}
+
 @media (prefers-color-scheme: dark) {
     .svg-fill {
         fill: var(--warning);
@@ -35,10 +39,12 @@
         }
     }
 
-    [data-annotate]:not([data-ann-type]) {
+    [data-annotate]:not([data-ann-type]):not([data-ann-color="var(--emphasis)"]) {
         color: var(--background);
     }
 }
+
+
 
 @media (min-width: var.$breakpoint) {
     .svg-fill {
@@ -167,6 +173,9 @@
     background: var(--background--offset);
     border-radius: 0.25em;
     font-size: .9em;
+    & p:last-child {
+        margin-bottom: 0;
+    }
     &.emphasis {
         background: var(--emphasis);
         color: var.$background;
@@ -179,4 +188,22 @@
         background: var(--alert);
         color: var.$foreground;
     }
+}
+
+.flex {
+    display: flex;
+}
+
+.btt {
+    right: 0;
+    bottom: 0;
+    font-size: small;
+    position: fixed;
+    padding: 0 0.5rem;
+    border-top-left-radius: 0.25rem;
+    background: var(--emphasis);
+    color: var.$background;
+    z-index: 2;
+    max-height: 1.5rem;
+    height: calc(1vh * 75 * var(--scroll));
 }

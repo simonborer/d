@@ -311,6 +311,9 @@ figcaption {
   font-style: italic;
   font-size: 0.8em;
 }
+figcaption a {
+  white-space: pre-wrap;
+}
 
 sup {
   font-size: x-small;
@@ -1088,9 +1091,6 @@ blockquote footer {
 @media (min-width: 599px) {
   .summary {
     max-width: min(100vw - 12rem, 60ch);
-    border-top: 0.125rem solid var(--background--offset);
-    border-left: 0.125rem solid var(--background--offset);
-    border-bottom: 0.125rem solid var(--background--offset);
     position: relative;
   }
   .summary:after {
@@ -1099,6 +1099,17 @@ blockquote footer {
     border-left: 2px dashed var(--background--offset);
     height: 5vh;
     right: 0;
+  }
+  .summary:before {
+    --size: 2.5vw;
+    content: " ";
+    height: var(--size);
+    width: var(--size);
+    position: absolute;
+    border-right: 2px dashed var(--background--offset);
+    border-bottom: 2px dashed var(--background--offset);
+    left: calc(-1 * var(--size));
+    top: calc(-1 * var(--size));
   }
   .summary-container {
     margin-top: 6rem;
@@ -1125,16 +1136,15 @@ blockquote footer {
   .summary__image-container {
     position: relative;
   }
-  .summary__image-container:before {
-    --size: 2.5vw;
+  .summary__image-container:after {
     content: " ";
-    height: var(--size);
-    width: var(--size);
+    border-top: 2px dashed var(--background--offset);
+    border-left: 2px dashed var(--background--offset);
+    height: 2rem;
+    width: 2rem;
     position: absolute;
-    border-right: 2px dashed var(--background--offset);
-    border-bottom: 2px dashed var(--background--offset);
-    left: calc(-1 * var(--size));
-    top: calc(-1 * var(--size));
+    bottom: -2rem;
+    right: -2rem;
   }
   .summary__image-container picture {
     padding: 1rem;
@@ -1212,6 +1222,26 @@ blockquote footer {
   list-style-type: circle;
 }
 
+.tldr {
+  background: var(--null-1);
+  color: #fff9eb;
+  padding: max(4vw, 2rem) max(2vw, 1rem);
+  margin-top: 4rem;
+}
+.tldr h2 {
+  margin-top: 0;
+}
+.tldr abbr {
+  text-decoration: none;
+}
+.tldr-link {
+  display: block;
+  background: var(--alert);
+  text-align: center;
+  padding: 0.25rem;
+  margin-top: auto;
+}
+
 .no-scroll {
   overflow-y: hidden;
 }
@@ -1235,7 +1265,7 @@ blockquote footer {
     stroke: transparent;
   }
 
-  [data-annotate]:not([data-ann-type]) {
+  [data-annotate]:not([data-ann-type]):not([data-ann-color="var(--emphasis)"]) {
     color: var(--background);
   }
 }
@@ -1365,6 +1395,13 @@ blockquote footer {
   border-radius: 0.25em;
   font-size: 0.9em;
 }
+.callout p:last-child {
+  margin-bottom: 0;
+}
+.callout.emphasis {
+  background: var(--emphasis);
+  color: #fff9eb;
+}
 .callout.warning {
   background: var(--warning);
   color: #2a2222;
@@ -1372,6 +1409,24 @@ blockquote footer {
 .callout.alert {
   background: var(--alert);
   color: #2a2222;
+}
+
+.flex {
+  display: flex;
+}
+
+.btt {
+  right: 0;
+  bottom: 0;
+  font-size: small;
+  position: fixed;
+  padding: 0 0.5rem;
+  border-top-left-radius: 0.25rem;
+  background: var(--emphasis);
+  color: #fff9eb;
+  z-index: 2;
+  max-height: 1.5rem;
+  height: calc(75vh * var(--scroll));
 }
 
 /*# sourceMappingURL=style.css.map */

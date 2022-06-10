@@ -88,7 +88,8 @@
     data-difficulty="1" 
     x-data 
     
-    :class="$store.menuToggle.on && 'no-scroll'">
+    :class="$store.menuToggle.on && 'no-scroll'"
+    id="body">
     <a href="#content" class="show-for-sr show-on-focus skip-link">Skip navigation</a>
 
     <div class="progress" aria-hidden="true"></div>
@@ -188,9 +189,7 @@
 
       
         <div class="summary-container">
-          
-          
-          
+
             <div class="summary">
               <div class="summary__text-container">
                 <span class="summary__text" data-annotate>We can say that &#39;quality&#39; means meeting requirements, and &#39;assurance&#39; is proving that we&#39;ve met those requirements. Today, let&#39;s look at where requirements come from - the client, the user, standards specifications, and your team. And then: testing comes in all shapes and sizes. Today we&#39;ll also look at why we test, how we design our tests, what all the different types of testing are, and how they fit into a team&#39;s lifecycle.</span>
@@ -198,11 +197,16 @@
               <div class="summary__reading-time"></div>
               <div class="summary__date">Thu, 28 Apr 2022 13:09:04 GMT</div>
               
+              
             </div>
+
           
+          
+
           <svg width='100%' height='100%' xmlns='http://www.w3.org/2000/svg' role="presentation" class="toc__svg">
             <rect width='100%' height='100%' fill='url(#grid)' />
           </svg>
+
         </div>
       
 
@@ -938,16 +942,6 @@ module.exports = addStuff;
           "tags": [],
           "isTag": true
         },{ 
-          "url": "/tags/Design/",
-          "title": "Design",
-          "tags": [],
-          "isTag": true
-        },{ 
-          "url": "/tags/conventions/",
-          "title": "conventions",
-          "tags": [],
-          "isTag": true
-        },{ 
           "url": "/tags/Ethics/",
           "title": "Ethics",
           "tags": [],
@@ -980,6 +974,16 @@ module.exports = addStuff;
         },{ 
           "url": "/tags/Streaming/",
           "title": "Streaming",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Design/",
+          "title": "Design",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/conventions/",
+          "title": "conventions",
           "tags": [],
           "isTag": true
         },{ 

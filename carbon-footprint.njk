@@ -8,6 +8,8 @@
         "title": "Image credit: https://replicate.com/jack000/glid-3-xl"
     },
     "readingTime": true,
+    "tldr": true,
+    "btt": true,
     "description": "How big is the internet's impact on the environment? Can you go carbon-neutral by working from home? What's worse, watching Netflix or buying Bitcoin? Can you run a website off of solar power?",
     "tags": ["Ethics", "Climate Change", "Bitcoin", "Ethereum", "Carbon Footprint", "Optimization", "Streaming"],
     "learningLevel": 1,
@@ -197,37 +199,98 @@
         <p>Overall, I love {% ext "https://www.drawdown.org/solutions/table-of-solutions" %}this list of ranked solutions{% endext %} from Project Drawdown.</p>
         <h3>Get to the part about more sustainable internet already!</h3>
         <p>Okay, yeesh. Let's talk about <em>systemic</em> changes that we can advocate for:</p>
+        <h4>Changing the system</h4>
         <p>The most powerful tools we have in our toolbox are not {% ext "https://www.vox.com/the-goods/22585831/starbucks-bathroom-privatization-government" %}hoping that corporations will be nice to us{% endext %}, but {% ext "https://theconversation.com/the-paris-agreement-is-working-as-intended-but-weve-still-got-a-long-way-to-go-173478" %}publicly accountable regulatory bodies{% endext %} and {% ext "https://www.theguardian.com/money/2021/sep/20/labor-climate-allies-green-union-jobs" %}trade unions{% endext %}. Regulation needs to be done with an eye to secondary effects (for example, research published in the <em>Joule</em> journal suggests that China's ban on PoW Bitcoin mining perversely lead miners to turn to energy from {% ext "https://www.researchgate.net/publication/358861058_Revisiting_Bitcoin%27s_carbon_footprint" %}less renewable resources{% endext %}).</p>
         <p>The internet's carbon emissions are, for the most part, no different from carbon emissions produced by any other energy-hungry industry, and can reduced the same way - providing the industrialists with the "carrot" of {% ext "https://www.forbes.com/sites/energyinnovation/2020/01/21/renewable-energy-prices-hit-record-lows-how-can-utilities-benefit-from-unstoppable-solar-and-wind/?sh=334600ce2c84" %}cheap green energy technology{% endext %} (which gets cheaper the more we invest in it), and the "stick" of {% ext "https://www.sciencedirect.com/science/article/abs/pii/S0301421515300550?via%3Dihub" %}carbon taxes{% endext %}.</p>
-        <p>Of course, we can hope that the big tech players stick to {% ext "https://clim8.com/blog/sustainable-investing/investing-in-big-tech-ranking-the-tech-giants-climate-commitments/" %}their pledges{% endext %}, but, as usual, {% ext "https://www.tum.de/en/about-tum/news/press-releases/details/37035" %}trust 'em as far as you can throw 'em{% endext %}.</p>
-        <p>If you're in a litigious mood, </p>
-        {# nice side effect of the paris agreements, https://en.wikipedia.org/wiki/Climate_change_litigation #}
-        {% ext "https://www.websitecarbon.com/" %}Carbon calculator{% endext %}
-        <div id="wcb" class="carbonbadge wcb-d"></div>
-        <script src="https://unpkg.com/website-carbon-badges@1.1.3/b.min.js" defer></script>
-        {% ext "https://davidsuzuki.org/science-learning-centre-article/purchasing-carbon-offsets-a-guide-for-canadian-consumers-businesses-and-organizations/" %}Purchase carbon offsets{% endext %}
-        {% ext "https://en.wikipedia.org/wiki/Individual_action_on_climate_change" %}Individual action on climate change{% endext %}
+        <p>Of course, we can hope that the big tech players stick to {% ext "https://clim8.com/blog/sustainable-investing/investing-in-big-tech-ranking-the-tech-giants-climate-commitments/" %}their pledges{% endext %}, but, as usual, {% ext "https://www.theverge.com/2022/2/9/22925436/big-tech-climate-change-goals-weak-report" %}trust 'em{% endext %} as far as you can {% ext "https://www.tum.de/en/about-tum/news/press-releases/details/37035" %}throw 'em{% endext %}.</p>
+        <p>If you're in a litigious mood (and who isn't from time to time?), you can {% ext "https://en.wikipedia.org/wiki/Climate_change_litigation" %}sue a polluter{% endext %}! The Paris Agreement is often the subject of people's disappointment, but it has been the foundation of numerous lawsuits by citizens suing their governments in countries like the U.K., Turkey and France, and in 2021, the case of <em>Milieudefensie et al v Royal Dutch Shell</em> was heard at the Hague, where they handed down a landmark ruling in environmental law - the {% ext "https://en.wikipedia.org/wiki/Milieudefensie_et_al_v_Royal_Dutch_Shell" %}first major ruling{% endext %} against a corporation.</p>
+        <h4>Changing a website</h4>
+        <p>Are you working on the web? The more popular the website, the bigger an impact you could have!</p>
+        <p>To level-set, the {% ext "https://www.websitecarbon.com/" %}Website Carbon Calculator{% endext %} gives us the following info:</p>
+        <blockquote>The average web page tested produces approximately 0.5 grams CO2 per page view. For a website with 10,000 monthly page views, that's 60 kg CO2 per year.</blockquote>
+        <p>This number is based on the "page weight" of the page visited.</p>
+        <div class="callout emphasis">
+            <h5>What is "page weight"?</h5>
+            <p>Whenever you visit a page on the internet, you're asking for a remote computer (a "server") to send you all the files you need to see the page - an HTML file, and probably a bunch of images, and files containing the CSS and JavaScript code to style the page and provide interactions. The size of all those files combined is the "weight" of the page you're visiting.</p>
+        </div>
+        <p>I've had the opportunity to work on the homepages of some major corporations, and shaving just a small fraction of the page weight from a page that gets millions (or {% ext "https://www.visualcapitalist.com/the-50-most-visited-websites-in-the-world/#:~:text=Top%20Three%20Websites%20(Monthly%20visits,Facebook%3A%2025.5%20billion" %}billions{% endext %}) of monthly visitors could save thousands of kilograms of emissions every year!</p>
+        <h5>How do you reduce page weight?</h5>
+        <p>That's a topic that I'm going to devote a whole lot of attention to on a separate occasion, but I can tell you this: the low-hanging fruit is always images. Use less images, and use images in a smarter way (with compression and modern image formats). Images are almost always the biggest part of a page's weight.</p>
+        {% image "images/bytes-distribution-content-type.png", "Chart showing median content by asset type on the web in 2021. Images are by far the biggest contributor to page weight.", "(min-width: 30em) 600px, 100vw", "Chart via https://almanac.httparchive.org/" %}
+        <div class="callout emphasis">
+            <strong>Text is cheap</strong>
+            <p>The average page weight is now {% ext "https://almanac.httparchive.org/en/2021/page-weight" %}2.2MB{% endext %}.</p>
+            <p>Here is the {% ext "https://www.gutenberg.org/files/1400/1400-0.txt" %}<strong><em>entire text of Charles Dickens' Great Expectations</em></strong>{% endext %}. At 1MB, it's less than half the size!</p>
+        </div>
+        <p>Another recommendation I'll make, if you're working on a website for someone else: <span data-annotate data-ann-color="var(--emphasis)">tell them it will make them a bunch of money</span>.</p>
+        <p>Seriously, the lower the page weight, the faster your pages load, and the faster your pages load, the more money you make. Don't take my word for it:</p>
+        <blockquote>
+            <ul>
+                <li>{% ext "https://web.archive.org/web/20081117195303if_/http://home.blarg.net/~glinden/StanfordDataMining.2006-11-29.ppt" %}Amazon (PowerPoint, slide #15){% endext %}: 100 ms of latency resulted in 1% less sales.</li>
+                <li>{% ext "https://youtu.be/6x0cAzQ7PVs?t=936" %}Google (video){% endext %}: 500 ms caused a 20% drop in traffic.</li>
+                <li>{% ext "https://www.slideshare.net/devonauerswald/walmart-pagespeedslide" %}Walmart (slide #46){% endext %}: a 100 ms improvement brought up to 1% incremental revenue.</li>
+                <li>{% ext "https://blog.mozilla.org/metrics/2010/04/05/firefox-page-load-speed-%E2%80%93-part-ii/" %}Mozilla{% endext %}: Shaving 2.2 seconds off page load time increased downloads by 15.4%.</li>
+                <li>{% ext "https://www.slideshare.net/stubbornella/designing-fast-websites-presentation/23-1_Create_a_component_library" %}Yahoo:{% endext %} 400 ms resulted in a 5 to 9% drop in traffic.</li>
+            </ul>
+            <cite>via {% ext "https://instant.page/" %}instant.page{% endext %}</cite>
+        </blockquote>
+        <h4>Understanding the carbon footprint of a website</h4>
+        <p>You can get an estimate of any website's carbon emissions from the {% ext "https://www.websitecarbon.com/" %}Website Carbon Calculator{% endext %}.</p>
+        <div class="callout">
+            <p>I did! Here's the result for this page (even with a bunch of pictures and graphs and an painfully long description of how NFTs use smart contracts on a proof-of-work blockchain):</p>
+            <div id="wcb" class="carbonbadge wcb-d"></div>
+            <script src="https://unpkg.com/website-carbon-badges@1.1.3/b.min.js" defer></script>
+        </div>
+        <p>If it's <em>your</em> website, you can always improve it - the Website Carbon Calculator recommends three actions:</p>
+        <ul>
+            <li>{% ext "https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Author_fast-loading_HTML_pages" %}Improve your page weight{% endext %}</li>
+            <li>{% ext "https://www.wholegraindigital.com/blog/choose-a-green-web-host/" %}Host your website using sustainable energy{% endext %}</li>
+            <li>{% ext "https://davidsuzuki.org/science-learning-centre-article/purchasing-carbon-offsets-a-guide-for-canadian-consumers-businesses-and-organizations/" %}Purchase carbon offsets{% endext %}</li>
+        </ul>
+        <p>If it's someone else's website, especially if it's somebody like your college or employer, tell them <span data-annotate>you want them to do better</span>!</p>
     {% endslide %}
 {% endsection %}
 {% separator "waves" %}
 {% section toc[4].href %}
     {% slide %}
         <h2>{{ toc[4].title }}</h2>
-
-        {% ext "https://solar.lowtechmagazine.com/about.html" %}solar.lowtechmagazine.com{% endext %}
+        <p>I'm going to end today with one of my favourite things on the internet: a <span data-annotate data-ann-color="var(--emphasis)">website that runs entirely off solar energy</span>.</p>
+        <figure>
+            {% image "images/low-tech.png", "", "(min-width: 30em) 600px, 100vw" %}
+            <figcaption>The solar-powered homepage of {% ext "https://solar.lowtechmagazine.com/" %}Low Tech Magazine{% endext %}</figcaption>
+        </figure>
+        <p>Rather than running off a green hosting service, they deliver their website to the entire world using a single {% ext "https://homebrewserver.club/low-tech-website-howto.html#server" %}tiny computer{% endext %} powered by a 20 watt solar panel connected to a small battery. The background of the website actually shows the battery level! When the battery is drained entirely, the website will go offline - but it's up 95% of the time ({% ext "https://www.notechmagazine.com/2021/04/solar-powered-website-uptime-for-2020.html" %}a little more in summer, a little less in winter{% endext %}).</p>
+        <p>This is made possible in part by keeping their average page weight low - they report an average of 0.5MB per page - by delivering their pages without a database, without custom fonts, and using an old-timey image compression technique called 'dithering'.</p>
+        <figure class="callout">
+            <div class="flex">
+                {% image "images/decathalon.jpeg", "Image of a pole vaulter in full color and resolution", "(min-width: 30em) 300px, 100vw", "© Marie-Lan Nguyen/Wikimedia Commons" %}
+                <img alt="Image of pole vaulter in grayscale, made grainy by dithering" title="© Marie-Lan Nguyen/Wikimedia Commons" loading="lazy" decoding="async" src="/images/decathalon-dithered.png" width="300" height="449">
+            </div>
+            <figcaption><p>Full disclosure, when I initially dithered this image using the {% ext "https://imagemagick.org/index.php" %}the ImageMagick <abbr title="command line interface">CLI</abbr>{% endext %} on my computer, the file-size, counter-interuitively, got about five times bigger. Turns out dithering only reduces file sizes in a "lossless" compression image format (like <abbr title="portable network graphic">PNG</abbr>, as opposed to a lossy format like <abbr title="Joint Photographic Experts Group">JPEG</abbr>). But I still can't get the dithered file size smaller than the full-color, full-resolution versions I generate in modern web image formats {% ext "https://www.smashingmagazine.com/2021/09/modern-image-formats-avif-webp/" %}<abbr title="AOMedia Video 1 Image File Format">AVIF</abbr> and <abbr title="I... don't know actually. I think 'Web Picture'? Can't find a source.">WebP</abbr>{% endext %}. I have so much left to learn about compression!</p></figcaption>
+        </figure>
+        <p>To be perfectly honest, I actually prefer the aesthetics of their bare-bones solar-powered website to their {% ext "https://www.lowtechmagazine.com/" %}regular website{% endext %} - it feels like I'm reading off a calming e-ink screen (which are, themselves, {% ext "https://www.eink.com/benefits.html#:~:text=compared%20with%20the%20same%20size%20LCD%20screen" %}extremely energy efficient!{% endext %}).</p>
+        <p>Is it practical for everyone to run their websites off of tiny, solar-powered computers in Barcelona? I wish! But it's a great example of the convergence of many small solutions that can reduce the web's carbon emissions.</p>
     {% endslide %}
 {% endsection %}
-{# <section id='the-web-s-carbon-footprint'>
-    <img class='body-icon' src='/images/ecology.svg'>
-    <h2>The web's carbon footprint</h2>
-    <p>Four years ago, Mozilla reported that the internet was producing <strong>more carbon emissions than <a href="https://internethealthreport.org/2018/the-internet-uses-more-electricity-than/" target="_blank">the airline industry<span class="show-for-sr"> Opens in a new window</span></a></strong>.</p>
+<section class="tldr" id="tldr">
+    <div class="row">
+    <h2>{{"Too long, didn't read" | allGas | safe}}</h2>
+    <ul>
+        <li>Now is not the time to give up hope for the climate. Instead, it's actually <span data-annotate>the best time</span> to work for a greener future.</li>
+        <li>Our actions should be chosen based on their impact, <span data-annotate>prioritizing systemic change</span> - this is true in our daily lives, and on our websites.</li>
+        <li>The carbon footprint of <span data-annotate>the internet is about 3.7% of humanity's total yearly CO<sup>2</sup> output</span> - in the neighbourhood of 1.3 billion metric tons.</li>
+        <li>This footprint includes energy sources for our personal devices (phones, smart TVs, etc.), the data centres that power the web, and the resources that go into manufacturing hardware.</li>
+        <li>Better technological efficiency is helping, but the internet just keeps growing.</li>
+        <li>Streaming video isn't that bad for the environment.</li>
+        <li><span data-annotate>Working from home is <em>probably</em> good</span> for the environment, but it's a tough thing to measure, and even harder to make generalizations about.</li>
+        <li>Bitcoin is <span data-annotate data-ann-color="var(--alert)">just bad</span> for the environment - it's about 5% of the total emissions for the whole internet, and will only get worse.</li>
+        <li>NFTs don't have a huge impact on the whole, and may be getting better (when the Ethereum blockchain improves).</li>
+        <li>Corporations won't fix things on their own.</li>
+        <li>Governments can help, but may be slow, or make mis-steps.</li>
+        <li>Some major changes are starting to happen through the courts when people sue for climate justice.</li>
+        <li><span data-annotate>Better websites mean less emissions.</span></li>
+        <li>Websites get greener when they're smaller, and the biggest factor is image compression.</li>
+        <li>You can run a nice-looking website off a single solar panel in southern Europe!</li>
+    </ul>
+    </div>
 </section>
-<section>
-    <p>I'm personally of the opinion that any solution that begins with, "If everybody would just..." is no solution at all.</p>
-    <p>That's why it's important to keep pressure on big companies to do things like <a href="https://www.bbc.com/news/technology-54141899" target="_blank">wiping out their carbon footprint<span class="show-for-sr"> Opens in a new window</span></a>, but I also think it's important to consider the impact you might have if you end up working for (or starting!) a larger company that serves billions of megabytes to millions of people.</p>
-    <p>While it would be very cool if everyone's websites were <a href="https://solar.lowtechmagazine.com/power.html" target="_blank">solar powered<span class="show-for-sr"> Opens in a new window</span></a>, the simplest and most accessible way to reduce your website's carbon footprint is by making it smaller.</p>
-</section>
-<section>
-    <img src="/images/scale.svg" alt="" class="body-icon body-icon--white-bg slide-only" style="width: 180px;padding:2rem;border-radius: 1rem;margin-bottom: 0;">
-    <p>When I say "smaller", I don't mean a smaller font-size, or even less content, I mean in terms of "page weight" - <strong>smaller file sizes for your code and assets</strong>.</p>
-</section> #}

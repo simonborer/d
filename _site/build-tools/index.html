@@ -88,7 +88,8 @@
     data-difficulty="3" 
     x-data 
     
-    :class="$store.menuToggle.on && 'no-scroll'">
+    :class="$store.menuToggle.on && 'no-scroll'"
+    id="body">
     <a href="#content" class="show-for-sr show-on-focus skip-link">Skip navigation</a>
 
     <div class="progress" aria-hidden="true"></div>
@@ -188,11 +189,7 @@
 
       
         <div class="summary-container">
-          
-          
-            <lite-youtube videoid="QPZ0pIK_wsc" style="background-image: url('https://i.ytimg.com/vi/QPZ0pIK_wsc/hqdefault.jpg');" params="controls=0&start=10&end=30&modestbranding=2&rel=0&enablejsapi=1"></lite-youtube>
-          
-          
+
             <div class="summary">
               <div class="summary__text-container">
                 <span class="summary__text" data-annotate>Today we look at introducing build tools in a modern development workflow, including task runners, toolchains, and bundlers. Then we get a project up and running using Vite.</span>
@@ -215,11 +212,18 @@
                   </ol>
                 </div>
               
+              
             </div>
+
           
+          
+            <lite-youtube videoid="QPZ0pIK_wsc" style="background-image: url('https://i.ytimg.com/vi/QPZ0pIK_wsc/hqdefault.jpg');" params="controls=0&start=10&end=30&modestbranding=2&rel=0&enablejsapi=1"></lite-youtube>
+          
+
           <svg width='100%' height='100%' xmlns='http://www.w3.org/2000/svg' role="presentation" class="toc__svg">
             <rect width='100%' height='100%' fill='url(#grid)' />
           </svg>
+
         </div>
       
 
@@ -701,16 +705,6 @@ npm run preview</code></pre>
           "tags": [],
           "isTag": true
         },{ 
-          "url": "/tags/Design/",
-          "title": "Design",
-          "tags": [],
-          "isTag": true
-        },{ 
-          "url": "/tags/conventions/",
-          "title": "conventions",
-          "tags": [],
-          "isTag": true
-        },{ 
           "url": "/tags/Ethics/",
           "title": "Ethics",
           "tags": [],
@@ -743,6 +737,16 @@ npm run preview</code></pre>
         },{ 
           "url": "/tags/Streaming/",
           "title": "Streaming",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Design/",
+          "title": "Design",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/conventions/",
+          "title": "conventions",
           "tags": [],
           "isTag": true
         },{ 

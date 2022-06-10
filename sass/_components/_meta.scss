@@ -79,9 +79,9 @@
 @media (min-width: var.$breakpoint) {
 	.summary {
 		max-width: min(calc(100vw - 12rem), 60ch);
-		border-top: .125rem solid var(--background--offset);
-		border-left: .125rem solid var(--background--offset);
-		border-bottom: .125rem solid var(--background--offset);
+		// border-top: .125rem solid var(--background--offset);
+		// border-left: .125rem solid var(--background--offset);
+		// border-bottom: .125rem solid var(--background--offset);
 		position: relative;
 		&:after {
 			content: " ";
@@ -90,6 +90,17 @@
 		    height: 5vh;
 		    right: 0;
 		}
+				&:before {
+					--size: 2.5vw;
+					content: " ";
+				    height: var(--size);
+				    width: var(--size);
+				    position: absolute;
+				    border-right: 2px dashed var(--background--offset);
+				    border-bottom: 2px dashed var(--background--offset);
+				    left: calc(-1 * var(--size));
+				    top: calc(-1 * var(--size));
+				}
 		&-container {
 			margin-top: 6rem;
 			margin-bottom: 8rem;
@@ -120,18 +131,17 @@
 			padding-left: 1rem;
 			&-container {
 				position: relative;
-				&:before {
-					--size: 2.5vw;
-					content: " ";
-				    height: var(--size);
-				    width: var(--size);
-				    position: absolute;
-				    border-right: 2px dashed var(--background--offset);
-				    border-bottom: 2px dashed var(--background--offset);
-				    left: calc(-1 * var(--size));
-				    top: calc(-1 * var(--size));
-				}
 
+&:after {
+	content: " ";
+    border-top: 2px dashed var(--background--offset);
+    border-left: 2px dashed var(--background--offset);
+    height: 2rem;
+    width: 2rem;
+    position: absolute;
+    bottom: -2rem;
+    right: -2rem;
+}
 				& picture {
 					padding: 1rem;
 					& img {

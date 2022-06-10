@@ -88,7 +88,8 @@
     data-difficulty="2" 
     x-data 
     
-    :class="$store.menuToggle.on && 'no-scroll'">
+    :class="$store.menuToggle.on && 'no-scroll'"
+    id="body">
     <a href="#content" class="show-for-sr show-on-focus skip-link">Skip navigation</a>
 
     <div class="progress" aria-hidden="true"></div>
@@ -188,13 +189,7 @@
 
       
         <div class="summary-container">
-          
-            <div class="summary__image-container" style="background-image:url('/images/dunce.jpeg');">
-            <picture><source type="image/avif" srcset="/img/9AQpE6SMlA-300.avif 300w, /img/9AQpE6SMlA-614.avif 614w" sizes="(min-width: 30em) 1200px, 100vw"><source type="image/webp" srcset="/img/9AQpE6SMlA-300.webp 300w, /img/9AQpE6SMlA-614.webp 614w" sizes="(min-width: 30em) 1200px, 100vw"><source type="image/jpeg" srcset="/img/9AQpE6SMlA-300.jpeg 300w, /img/9AQpE6SMlA-614.jpeg 614w" sizes="(min-width: 30em) 1200px, 100vw"><img alt="Man wearing dunce cap" title="Image credit: https://commons.wikimedia.org/wiki/File:Dunce_hat.webp" loading="eager" decoding="async" src="/img/9AQpE6SMlA-300.jpeg" width="614" height="576"></picture>
-            </div>
-          
-          
-          
+
             <div class="summary">
               <div class="summary__text-container">
                 <span class="summary__text" data-annotate>How do you design for the web in the most basic, user-friendly way possible? Don&#39;t reinvent the wheel - follow these basic tips (backed by science!) and follow design conventions so you can focus on the things that matter.</span>
@@ -213,11 +208,20 @@
                   </ol>
                 </div>
               
+              
+            </div>
+
+          
+            <div class="summary__image-container" style="background-image:url('/images/dunce.jpeg');">
+            <picture><source type="image/avif" srcset="/img/9AQpE6SMlA-300.avif 300w, /img/9AQpE6SMlA-614.avif 614w" sizes="(min-width: 30em) 1200px, 100vw"><source type="image/webp" srcset="/img/9AQpE6SMlA-300.webp 300w, /img/9AQpE6SMlA-614.webp 614w" sizes="(min-width: 30em) 1200px, 100vw"><source type="image/jpeg" srcset="/img/9AQpE6SMlA-300.jpeg 300w, /img/9AQpE6SMlA-614.jpeg 614w" sizes="(min-width: 30em) 1200px, 100vw"><img alt="Man wearing dunce cap" title="Image credit: https://commons.wikimedia.org/wiki/File:Dunce_hat.webp" loading="eager" decoding="async" src="/img/9AQpE6SMlA-300.jpeg" width="614" height="576"></picture>
             </div>
           
+          
+
           <svg width='100%' height='100%' xmlns='http://www.w3.org/2000/svg' role="presentation" class="toc__svg">
             <rect width='100%' height='100%' fill='url(#grid)' />
           </svg>
+
         </div>
       
 
@@ -410,16 +414,6 @@
           "tags": [],
           "isTag": true
         },{ 
-          "url": "/tags/Design/",
-          "title": "Design",
-          "tags": [],
-          "isTag": true
-        },{ 
-          "url": "/tags/conventions/",
-          "title": "conventions",
-          "tags": [],
-          "isTag": true
-        },{ 
           "url": "/tags/Ethics/",
           "title": "Ethics",
           "tags": [],
@@ -452,6 +446,16 @@
         },{ 
           "url": "/tags/Streaming/",
           "title": "Streaming",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Design/",
+          "title": "Design",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/conventions/",
+          "title": "conventions",
           "tags": [],
           "isTag": true
         },{ 

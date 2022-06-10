@@ -131,6 +131,9 @@ figcaption {
     text-align: right;
     font-style: italic;
     font-size: .8em;
+    & a {
+        white-space: pre-wrap;
+    }
 }
 
 sup {
