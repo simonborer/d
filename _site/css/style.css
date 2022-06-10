@@ -275,7 +275,7 @@ details[open] summary {
 
 blockquote {
   border-left: 0.25em solid;
-  font-size: 1.1em;
+  font-size: 0.9em;
   font-style: italic;
   background: var(--background--offset);
   padding: 1rem;
