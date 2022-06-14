@@ -13,81 +13,140 @@
     "readingTime": true,
     "tldr": true,
     "btt": true,
-    "description": "How to choose a career path on the web in 2022, and getting a job out of it!",
+    "description": "How to choose a career path on the web in 2022, and getting a job out of it! Let's take a holistic look at how to plot out the skills you need, get the credentials that make your résumé stand out, look for opportunities, and get through the interview process.",
     "tags": ["employment", "career"],
     "tag": "💼 Decent workplace 💼",
     "learningLevel": 2,
     "toc": [
         {
             "href": "skills",
+            "smallTitle": "Skills",
             "title": "Choosing & Building a Skillset"
         },
         {
             "href": "self-teaching",
+            "smallTitle": "Skills",
             "title": "Self-Teaching"
         },
         {
             "href": "bootcamps",
+            "smallTitle": "Credentials",
             "title": "To Bootcamp or not to Bootcamp?"
         },
         {
             "href": "college",
+            "smallTitle": "Credentials",
             "title": "Traditional Institutions"
         },
         {
-            "href": "other-credentials",
-            "title": "Other Credentials"
-        },
-        {
-            "href": "job",
-            "title": "Getting Hired"
-        },
-        {
-            "href": "technical-interviews",
-            "title": "Technical Interviews"
+            "href": "other-certs",
+            "smallTitle": "Credentials",
+            "title": "Other Certifications"
         },
         {
             "href": "connections",
+            "smallTitle": "Opportunities",
             "title": "Making Connections"
         },
         {
             "href": "portfolios",
+            "smallTitle": "Opportunities",
             "title": "What's Your Portfolio Worth?"
         },
         {
             "href": "freelance-contract-full-time",
+            "smallTitle": "Opportunities",
             "title": "Freelancing, <br>Contracting, and Full-time Positions"
         },
         {
             "href": "soft-skills",
-            "title": "The Worst-Kept Secret: Soft Skills"
+            "smallTitle": "Opportunities",
+            "title": "Soft Skills are the Worst-Kept Secret"
+        },
+        {
+            "href": "technical-interviews",
+            "smallTitle": "The Interview Process",
+            "title": "Technical Interviews"
+        },
+        {
+            "href": "job",
+            "smallTitle": "The Interview Process",
+            "title": "Getting Hired"
         }
     ]
 }
 ---
-{# 
-    Further reading
-    - https://redmonk.com/kholterhoff/2022/04/21/how-the-covid-19-pandemic-changed-developer-certifications/
-    - https://www.accessibilityassociation.org/s/wascertification
-#}
 {% import "macros.njk" as macro with context %}
 {% slide %}
-    {# brief intro #}
+    <p><span data-annotate>So you want to be a web developer...</span></p>
+    <p>What's that, you don't? Okay, no problem!</p>
+    <p>This rough guide is going to have some information that's specific to the work of coding, but the most of this will apply to anyone looking to work on the web.</p>
 {% endslide %}
+{% slide %}
+    <div class="related-post">
+        <strong>Related post: <em>Different jobs in a web project</em></strong>
+        <p>If you want to learn about all the many jobs & careers related to building stuff on the web, check out our related post:{% br %}<a class="related-post__link" href="/web-life-cycle/">Different jobs in a web project <img src="/images/page-link.svg" alt="Link to another page" class="related-post__icon" height="150" width="150"></a></p>
+    </div>
+{% endslide %}
+{% slide %}
+    <p>If you <em>do</em> want to write code for a living, however, let me congratulate you on a good career choice.</p>
+    <p>There's good reason to believe that a coding career is {# {% ext "https://whoisnnamdi.com/never-enough-developers/" %}future-proof{% endext %} #}{% ext "https://news.ycombinator.com/item?id=29808376" %}future-proof{% endext %}, {% ext "https://www.indeed.com/career-advice/finding-a-job/recession-proof-industries" %}recession-proof{% endext %}, and a pretty good job to have when {% ext "https://medium.com/coderbyte/how-the-covid-19-pandemic-is-impacting-software-development-hiring-72243f41ac9e" %}everyone suddenly needs to work at home for a few years{% endext %}.</p>
+{% endslide %}
+{% slide %}
+    <p>Over the past decade, the demand for people who can code for the web has skyrocketed. Coding "boot camps" have sprung up, offering to teach you the latest skills in a matter of months, with a focus on what employers are looking for in the moment.</p>
+    <p>These boot camps have increased the signal-to-noise ratio for recruiters, making it harder to distinguish candidates with working knowledge from those who have only a superficial grasp on a concept.</p>
+    <p>As a result, it has become somewhat harder to get your foot in the door, particularly for those just starting out, and especially in remote-only work.</p>
+{% endslide %}
+{% slide %}
+    <p>Don't let this discourage you, though. The government (where I am, in Canada), has 'web developer' as a top-rated job prospect for the next ten years in the majority of provinces.</p>
+    <figure>
+        {% ext "https://explore-labour-market.service.canada.ca/viz?page=outlooks&lang=en&noc=2175&geo=0&view=#4/60.45/-89.08" %}{% image "images/prospects.png", "Map showing web developer job propect ratings by province, with all provinces rated 2 out of three or 3 out of three.", "(min-width: 30em) 1200px, 100vw", "Map via explore-labour-market.service.canada.ca" %}{% endext %}
+        <figcaption>Via {% ext "https://www.jobbank.gc.ca/marketreport/outlook-occupation/17892/ca" %}jobbank.gc.ca{% endext %}</figcaption>
+    </figure>
+{% endslide %}
+{% slide %}
+    <blockquote><p>"The skills typically required in this occupation are usually standard worldwide... [a]s a result, there are lower barriers for immigrants to become web designers and developers... simplifying their entry and permanency in the country."</p><footer><cite>{% ext "https://www.jobbank.gc.ca/marketreport/outlook-occupation/17892/ca#:~:text=The%20skills%20typically,in%20the%20country." %}Government of Canada: Job Bank{% endext %}</cite></footer></blockquote>
+{% endslide %}
+{% slide %}
+    <p>I love that the web is providing jobs that provide a decent living (even to weirdos like me), and help establish people who want to come live where I am!</p>
+    <p>Okay, so how do you actually <em>get</em> one of these jobs? Let's start by figuring out <span data-annotate data-ann-color="var(--alert)">what skills you need</span>, and how to get them.</p>
+{% endslide %}
+{% separator "waves" %}
 {% section toc[0].href %}
     {% slide %}
         <img src="/images/building-skills.svg" alt="Building skills" height="306" width="406" class="body-icon body-icon--x-large">
-        <h2>{{ toc[0].title | allGas | safe }}</h2>
+        <h2>{% if toc[0].smallTitle %}<div class="small-title">{{toc[0].smallTitle}}:</div>{% endif %}{{ toc[0].title | allGas | safe }}</h2>
         {# dev roadmap #}
         {# https://roadmap.sh/roadmaps #}
         {# https://flaviocopes.com/roadmap-web-developer-2022/ #}
     {% endslide %}
+    {% slide %}
+        <p>As I mentioned a moment ago, there are <a href="/web-life-cycle/">many different jobs involved</a> in building stuff on the web. Similarly, there are many different jobs that could fall under the umbrella of "web development", too! You could be focussed on databases, or user interface design; you could specialize in data security, or performance, or architecting <abbr title="Application Programming Interface">API</abbr>s. Regardless of where you end up, <span data-annotate>you have to start somewhere</span>.</p>
+        <p>That "somewhere" is the internet - how it works (loosely), and a few relatively simple languages that make up the core web technologies.</p>
+    {% endslide %}
+    {% slide %}
+        <p>For the record, I'm not going to teach you this stuff today.</p>
+        <p>Rather, I'd like to share with you a couple of wonderful resources that map out exactly where you can start, how to progress, and, later on, where you might branch off into a specialization (once you're ready).</p>
+    {% endslide %}
+    {% slide %}
+        <h3>Roadmap.sh</h3>
+        <p>A project begun and curated by {% ext "https://github.com/sponsors/kamranahmedse" %}Kamran Ahmed{% endext %}, Roadmap.sh is based on the input of hundreds of developers, and is one of the most popular projects on Github ({% ext "https://github.com/search?o=desc&q=stars%3A%3E100000&s=stars&type=Repositories" %}#6, as of this writing{% endext %}, with nearly 200,000 stars ⭐).</p>
+    {% endslide %}
+    {% slide %}
+        <p>Roadmap.sh shows learning paths in flow-chart format, with links to recommended resources for each "node".</p>
+        <figure>
+            {% ext "https://roadmap.sh/frontend" %}
+                {% image "images/snippet-of-roadmap.png", "A snippet of a flowchart from Roadmap.sh", "(min-width: 30em) 1200px, 100vw", "Via roadmap.sh" %}
+            {% endext %}
+            <figcaption>Just a snippet of the front-end roadmap</figcaption>
+        </figure>
+    {% endslide %}
 {% endsection %}
-{% separator "waves" %}
+{% separator "dots" %}
 {% section toc[1].href %}
     {% slide %}
         <img src="/images/school.svg" alt="Learning by yourself" height="306" width="406" class="body-icon body-icon--x-large">
-        <h2>{{ toc[1].title | allGas | safe }}</h2>
+        <h2>{% if toc[1].smallTitle %}<div class="small-title">{{toc[1].smallTitle}}:</div>{% endif %}{{ toc[1].title | allGas | safe }}</h2>
         {# https://www.theodinproject.com/ #}
         {# https://developer.mozilla.org/en-US/docs/Learn #}
         {# https://www.freecodecamp.org/ #}
@@ -101,71 +160,62 @@
         {# This is down: https://teach.mozilla.org/web-literacy/ #}
     {% endslide %}
 {% endsection %}
-{% separator "dots" %}
+{% separator "chevrons" %}
 {% section toc[2].href %}
     {% slide %}
         <img src="/images/camp.svg" alt="Camping" height="306" width="406" class="body-icon body-icon--x-large">
-        <h2>{{ toc[2].title | allGas | safe }}</h2>
+        <h2>{% if toc[2].smallTitle %}<div class="small-title">{{toc[2].smallTitle}}:</div>{% endif %}{{ toc[2].title | allGas | safe }}</h2>
         {# https://old.reddit.com/r/codingbootcamp/comments/su88n1/are_coding_bootcamps_still_worth_it_in_2022/ #}
     {% endslide %}
 {% endsection %}
-{% separator "chevrons" %}
+{% separator "waves" %}
 {% section toc[3].href %}
     {% slide %}
         <img src="/images/graduation.svg" alt="Graduation" height="306" width="406" class="body-icon body-icon--x-large body-icon--alert-bg">
-        <h2>{{ toc[3].title }}</h2>
+        <h2>{% if toc[3].smallTitle %}<div class="small-title">{{toc[3].smallTitle}}:</div>{% endif %}{{ toc[3].title | safe }}</h2>
     {% endslide %}
 {% endsection %}
-{% separator "waves" %}
+{% separator "dots" %}
 {% section toc[4].href %}
     {% slide %}
         <img src="/images/checklist.svg" alt="Checking boxes" height="306" width="406" class="body-icon body-icon--x-large">
-        <h2>{{ toc[4].title | allGas | safe }}</h2>
+        <h2>{% if toc[4].smallTitle %}<div class="small-title">{{toc[4].smallTitle}}:</div>{% endif %}{{ toc[4].title | allGas | safe }}</h2>
         {# https://grow.google/certificates/ #}
         {# https://news.ycombinator.com/item?id=27579431 #}
         {# https://news.ycombinator.com/item?id=27494450 #}
+        {# 
+            Further reading
+            - https://redmonk.com/kholterhoff/2022/04/21/how-the-covid-19-pandemic-changed-developer-certifications/
+            - https://www.accessibilityassociation.org/s/wascertification
+        #}
     {% endslide %}
 {% endsection %}
-{% separator "dots" %}
+{% separator "chevrons" %}
 {% section toc[5].href %}
     {% slide %}
-        <img src="/images/interview.svg" alt="Job interview" height="306" width="406" class="body-icon body-icon--x-large">
-        <h2>{{ toc[5].title | allGas | safe }}</h2>
-    {% endslide %}
-{% endsection %}
-{% separator "chevrons" %}
-{% section toc[6].href %}
-    {% slide %}
-        <img src="/images/tech-interview.svg" alt="A technical interview" height="306" width="406" class="body-icon body-icon--x-large">
-        <h2>{{ toc[6].title | allGas | safe }}</h2>
-    {% endslide %}
-{% endsection %}
-{% separator "chevrons" %}
-{% section toc[7].href %}
-    {% slide %}
         <img src="/images/party.svg" alt="Party" height="306" width="406" class="body-icon body-icon--x-large">
-        <h2>{{ toc[7].title | allGas | safe }}</h2>
+        <h2>{% if toc[5].smallTitle %}<div class="small-title">{{toc[5].smallTitle}}:</div>{% endif %}{{ toc[5].title | allGas | safe }}</h2>
     {% endslide %}
 {% endsection %}
 {% separator "waves" %}
-{% section toc[8].href %}
+{% section toc[6].href %}
     {% slide %}
         <img src="/images/finance.svg" alt="Finance app" height="306" width="406" class="body-icon body-icon--x-large">
-        <h2>{{ toc[8].title | allGas | safe }}</h2>
+        <h2>{% if toc[6].smallTitle %}<div class="small-title">{{toc[6].smallTitle}}:</div>{% endif %}{{ toc[6].title | allGas | safe }}</h2>
     {% endslide %}
 {% endsection %}
 {% separator "dots" %}
-{% section toc[9].href %}
+{% section toc[7].href %}
     {% slide %}
         <img src="/images/office-chair.svg" alt="Ascending to an office chair" height="306" width="406" class="body-icon body-icon--x-large">
-        <h2>{{ toc[9].title | allGas | safe }}</h2>
+        <h2>{% if toc[7].smallTitle %}<div class="small-title">{{toc[7].smallTitle}}:</div>{% endif %}{{ toc[7].title | allGas | safe }}</h2>
     {% endslide %}
 {% endsection %}
 {% separator "chevrons" %}
-{% section toc[10].href %}
+{% section toc[8].href %}
     {% slide %}
         <img src="/images/scrum.svg" alt="Informal meeting" height="306" width="406" class="body-icon body-icon--x-large">
-        <h2>{{ toc[10].title | allGas | safe }}</h2>
+        <h2>{% if toc[8].smallTitle %}<div class="small-title">{{toc[8].smallTitle}}:</div>{% endif %}{{ toc[8].title | allGas | safe }}</h2>
         {# I wouldn't go so far as to call a dog filthy, but it's definitely dirty. But, dogs got personality, personality goes a long way. - Jules Winnfield #}
         {# Remote soft skills? #}
         {# Over promise and underdeliver #}
@@ -178,6 +228,23 @@
         {# Cultural context / when is laughter appropriate #}
     {% endslide %}
 {% endsection %}
+{% separator "waves" %}
+{% section toc[9].href %}
+    {% slide %}
+        <img src="/images/tech-interview.svg" alt="A technical interview" height="306" width="406" class="body-icon body-icon--x-large">
+        <h2>{% if toc[9].smallTitle %}<div class="small-title">{{toc[9].smallTitle}}:</div>{% endif %}{{ toc[9].title | allGas | safe }}</h2>
+        {# You will always be Googling #}
+    {% endslide %}
+{% endsection %}
+{% separator "dots" %}
+{% section toc[10].href %}
+    {% slide %}
+        <img src="/images/interview.svg" alt="Job interview" height="306" width="406" class="body-icon body-icon--x-large">
+        <h2>{% if toc[10].smallTitle %}<div class="small-title">{{toc[10].smallTitle}}:</div>{% endif %}{{ toc[10].title | allGas | safe }}</h2>
+        {# The shorter the term, the more important it is for _you_ to make sure you're the right fit. #}
+    {% endslide %}
+{% endsection %}
+{% separator "chevrons" %}
 <section class="tldr" id="tldr">
     <div class="row">
     <h2>{{"Too long, didn't read" | allGas | safe}}</h2>

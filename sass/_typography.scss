@@ -125,6 +125,10 @@ dt:after {
     }
 }
 
+.small-title {
+    font-size: .5em;
+}
+
 @media (prefers-color-scheme: dark) {
     .title {
         color: var(--foreground);

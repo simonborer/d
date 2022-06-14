@@ -225,3 +225,8 @@
     align-items: center;
     justify-content: center;
 }
+
+article picture:hover {
+    transition: transform 1s;
+    transform: scale(1.25);
+}
