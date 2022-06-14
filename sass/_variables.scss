@@ -92,6 +92,7 @@ $background--offset--dark-mode: #3a2b2b;
   --null-1: #{$green};
   --null-2: #{$gold};
   --null-3: #{$coral};
+  --hatching-stroke: rgba(10, 155, 191, 0.07);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -101,6 +102,7 @@ $background--offset--dark-mode: #3a2b2b;
     --background: #{$background--dark-mode};
     --background--offset: #{$background--offset--dark-mode};
     --emphasis--text: #{$coral-30};
+    --hatching-stroke: rgba(255, 236, 61, 0.07);
   }
 }
 

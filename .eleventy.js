@@ -66,6 +66,17 @@ module.exports = function(eleventyConfig) {
         return tagsSet
     });
 
+    eleventyConfig.addCollection("featuredAndPinned", function(collectionApi) {
+        const allSorted = collectionApi.getAllSorted();
+
+        const featured = allSorted.filter(post => post.data.featured === true);
+        const pinned = allSorted.filter(post => post.data.pinned === true);
+        const neitherPinnedNorFeatured = allSorted.filter(post => post.data.featured !== true && post.data.pinned !== true);
+        const postArr = featured.concat(pinned).concat(neitherPinnedNorFeatured);
+
+        return postArr;
+    });
+
     eleventyConfig.addFilter("allGas", function(str) {
         if (typeof str !== 'undefined') {
             str = str.trim().replace("-", "&#8209;");

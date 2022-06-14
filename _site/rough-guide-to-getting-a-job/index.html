@@ -12,10 +12,10 @@
       document.documentElement.classList.add('js');
     </script>
     
-    <title>Rough Guide: How To Get a Job as a Web Developer</title>
-    <meta name="description" content="Choosing a career path on the web in 2022">
-    <meta property="og:title" content="Rough Guide: How To Get a Job as a Web Developer">
-    <meta property="og:description" content="Choosing a career path on the web in 2022">
+    <title>Rough Guide: How To Get a Web Work</title>
+    <meta name="description" content="How to choose a career path on the web in 2022, and getting a job out of it!">
+    <meta property="og:title" content="Rough Guide: How To Get a Web Work">
+    <meta property="og:description" content="How to choose a career path on the web in 2022, and getting a job out of it!">
     <meta property="og:url" content="">
     <link rel="canonical" href="">
 
@@ -147,7 +147,7 @@
 
         </nav>
 
-        <h1 id="content" class="title">Rough&nbsp;Guide: How To Get a Job as a Web&nbsp;Developer</h1>
+        <h1 id="content" class="title">Rough&nbsp;Guide: How To Get a Web&nbsp;Work</h1>
 
         
         <div class="search__box hide-without-js">
@@ -184,6 +184,10 @@
             <path d='M-10 27.5l20 5 20-5 20 5' stroke-linecap='square' stroke-width='1' stroke='hsla(0, 100%, 75%, 1)' fill='none'/>
             <path d='M-10 47.5l20 5 20-5 20 5' stroke-linecap='square' stroke-width='1' stroke='hsla(192, 59%, 64%, 1)' fill='none'/>
           </pattern>
+          <pattern id='hatching' patternUnits='userSpaceOnUse' width='20' height='20' patternTransform='scale(1) rotate(150)'>
+            <rect x='0' y='0' width='100%' height='100%' fill='hsla(0, 0%, 100%, 0)'/>
+            <path d='M0 10h20z' stroke-width='2' stroke='var(--hatching-stroke)' fill='none'/>
+          </pattern>
         </defs>
       </svg>
 
@@ -192,8 +196,8 @@
 
             <div class="summary">
               <div class="summary__text-container">
-                <span class="summary__text" data-annotate>Choosing a career path on the web in 2022</span>
-                <div class="summary__reading-time">About 10 min reading time</div>
+                <span class="summary__text" data-annotate>How to choose a career path on the web in 2022, and getting a job out of it!</span>
+                <div class="summary__reading-time">About 1 min reading time</div>
                 <div class="summary__date">Thu, 12 May 2022 19:18:22 GMT</div>
               </div>
               
@@ -201,15 +205,31 @@
                   <h2>Table of contents</h2>
                   <ol>
                     
-                      <li><a href="#bonaFides">My bona fides</a></li>
+                      <li><a href="#skills">Choosing &amp; Building a Skillset</a></li>
                     
-                      <li><a href="#why">Why I&#39;m doing this</a></li>
+                      <li><a href="#self-teaching">Self-Teaching</a></li>
                     
-                      <li><a href="#who">Who this is for</a></li>
+                      <li><a href="#bootcamps">To Bootcamp or not to Bootcamp?</a></li>
                     
-                      <li><a href="#how">How I&#39;m doing this</a></li>
+                      <li><a href="#college">Traditional Institutions</a></li>
+                    
+                      <li><a href="#other-credentials">Other Credentials</a></li>
+                    
+                      <li><a href="#job">Getting Hired</a></li>
+                    
+                      <li><a href="#technical-interviews">Technical Interviews</a></li>
+                    
+                      <li><a href="#connections">Making Connections</a></li>
+                    
+                      <li><a href="#portfolios">What&#39;s Your Portfolio Worth?</a></li>
+                    
+                      <li><a href="#freelance-contract-full-time">Freelancing, Contracting, and Full-time Positions</a></li>
+                    
+                      <li><a href="#soft-skills">The Worst-Kept Secret: Soft Skills</a></li>
                     
                   </ol>
+                  
+                  <a class="tldr-link" href="#tldr">Jump to TLDR&nbsp;&darr;</a>
                   
                 </div>
               
@@ -238,528 +258,125 @@
       
       <article>
         
-        <div class="body-spacer--small"></div>
-<section>
-    <h2 class="text-center">Table of Contents</h2>
-    <ul>
-        <li><a href="#principals-of-ad-hoc-testing">Principals of Ad Hoc Testing</a></li>
-        <li><a href="#validators">Validators</a></li>
-        <li><a href="#linters">Linters</a></li>
-        <li><a href="#print-debugging">Print Debugging</a>
-            <ul class="post-only">
-                <li><a href="#log">Log</a></li>
-                <li><a href="#table">Table</a></li>
-                <li><a href="#count">Count</a></li>
-                <li><a href="#assert">Assert</a></li>
-            </ul>
-        </li>
-        <li><a href="#device-emulation">Device Emulation</a></li>
-        <li><a href="#manual-form-validation">Manual Form Validation</a></li>
-        <li><a href="#auditing-tools">Auditing & Dev Tools</a>
-            <ul class="post-only">
-                <li><a href="#starting-a-local-server">Starting a local server</a></li>
-                <li><a href="#lighthouse-auditing">Lighthouse auditing</a></li>
-                <li><a href="#axe-auditing">aXe auditing</a></li>
-                <li><a href="#dev-tools-etc">Some other dev tools... tools</a></li>
-                <li><a href="#link-validation">Link Validation</a></li>
-            </ul>
-        </li>
-    </ul>
-</section>
-<div class="body-spacer"></div>
-<section id="principals-of-ad-hoc-testing"><img class="body-icon" alt="" src="/images/calc.svg">
-    <h2>Principals of Ad Hoc Testing</h2>
-    <p>'<strong>Ad hoc</strong>' is a latin phrase that signifies a solution to a problem that wasn't planned for.</p>
-    <p>We do ad hoc testing because we don't have a test plan in place. This could be because our team isn't organized, or it could be simply because we've encountered a novel problem (like when we're prototyping with a new language or&nbsp;tool).</p>
-</section>
-<section>
-    <p>As students, you're in the process of learning what problems to expect, so you're likely performing ad hoc testing all the time!</p>
-    <p>Today I'll share some of the tools that I use when working on <strong>prototypes</strong>, working with <strong>disorganized teams</strong>, or working on <strong>small personal projects</strong>.</p>
-</section>
-<hr>
-<div class="further-reading">
-<strong>Further Reading:</strong>
-<ul>
-    <li><a href="https://en.wikipedia.org/wiki/Ad_hoc_testing" target="_blank" rel="noreferrer">Ad hoc testing<span class="show-for-sr"> Opens in a new window</span></a>, <em>Wikipedia</em></li>
-    <li><a href="http://tryqa.com/what-is-ad-hoc-testing/" target="_blank" rel="noreferrer">What is Adhoc testing? Types, Advantages and Disadvantages<span class="show-for-sr"> Opens in a new window</span></a>, <em>TryQA.com</em></li>
-</ul>
+          <a class="btt" href="#body">Back to top&nbsp;&uarr;</a>
+        
+        
+
+<div data-slide class="row">
+    
 </div>
-<div class="body-spacer"></div>
-<section id="validators"><img class="body-icon" alt="" src="/images/achievement.svg">
-    <h2>Validators</h2>
-    <p>Languages have <strong>specifications</strong>. Specifications are documented rules about how the languages work.</p>
-    <p>In English, we use words that aren't in the dictionary all the time, or we use them in new ways. That's great! If a lot of people find a new word or usage useful, it will eventually end up in the dictionary.</p>
-</section>
-<section>
-    <p>Language specifications evolve, too. You can write all kinds of HTML, CSS and JavaScript today that wasn't in the specification a few years ago.</p>
-    <p data-annotate="true" data-ann-type="box">Writing code meant for the browser is kind of like writing a family newsletter that will go to your grandparents and your cousins who speak English as their third language. <strong>If you use slang, some people may misunderstand, or lose the meaning entirely.</strong></p>
-</section>
-<section>
-    <p>So how do we know if our code meets the language specifications? Do we have to read through all the <a href="https://www.w3.org/TR/" target="_blank" rel="noopener noreferrer">W3C specifications<span class="show-for-sr"> Opens in a new window</span></a>?</p>
-    <p>Heck no! We can just paste our code into a <strong>validator</strong> and get detailed feedback!</p>
-    <p>For all your validation needs:</p>
-    <ul>
-        <li><strong>HTML</strong> <a href="https://validator.nu/" target="_blank" rel="noopener noreferrer">W3C HTML Validator<span class="show-for-sr"> Opens in a new window</span></a></li>
-        <li><strong>CSS</strong> <a href="https://jigsaw.w3.org/css-validator/#validate_by_input+with_options" target="_blank" rel="noopener noreferrer">W3C CSS Validator<span class="show-for-sr"> Opens in a new window</span></a></li>
-    </ul>
-</section>
-<section>
-    <p>Validators have the same limitations as a dictionary: they can check the building blocks for correctness, but they are limited in their ability to tell you if you put it together in a way that makes sense.</p>
-    <figure><img src="/images/dont.jpeg" alt="">
-        <figcaption class="post-only">All these words are spelled correctly!</figcaption>
-    </figure>
-</section>
-<section>
-    <p>To go one step beyond validation, we need to use a <strong>linter</strong>.</p>
-</section>
-<hr>
-<div class="further-reading">
-<strong>Further Reading:</strong>
-<ul>
-    <li><a href="https://stackoverflow.com/a/34140906" target="_blank" rel="noreferrer">What is the difference between a linter and a validator?<span class="show-for-sr"> Opens in a new window</span></a>, <em>stackoverflow</em></li>
-</ul>
-</div>
-<div class="body-spacer"></div>
-<section id="linters"><img class="body-icon--small body-icon--white-bg" alt="" src="/images/roller.svg">
-    <h2>Linters</h2>
-    <p>You'll notice that in the validator list, we didn't see our third pillar of front-end development: <strong>JavaScript</strong>. That's because a JavaScript validator would only catch a fraction of common errors.</p>
-    <p>A software <strong>linter</strong> analyzes computer code and checks for validity, but also for common mistakes that are <em>technically</em> allowed, but <strong>rarely correct</strong>. Since JavaScript is a very "permissive" language, linters are very popular tools (same goes for Python).</p>
-</section>
-<section>
-    <p>For <strong>ad hoc testing</strong>, <a href="https://jshint.com/" target="_blank" rel="noopener noreferrer">JSHint<span class="show-for-sr"> Opens in a new window</span></a> is very popular. You can go to the website, paste your code in, and quickly see any errors, warnings or potential problems.</p>
-    <p>For incorporating into your build process, <a href="https://eslint.org/demo" target="_blank" rel="noopener noreferrer">ESLint<span class="show-for-sr"> Opens in a new window</span></a> is <a href="https://2020.stateofjs.com/en-US/other-tools/#utilities" target="_blank" rel="noopener noreferrer">tremendously popular<span class="show-for-sr"> Opens in a new window</span></a>, but we'll look at incorporating tools into our build process another day.</p>
-</section>
-<hr>
-<div class="further-reading">
-<strong>Further Reading:</strong>
-<ul>
-    <li><a href="https://jshint.com/docs/" target="_blank" rel="noreferrer">Documentation<span class="show-for-sr"> Opens in a new window</span></a>, <em>JSHint</em></li>
-</ul>
-</div>
-<div class="body-spacer"></div>
-<section id="print-debugging"><img class="body-icon--small" alt="" src="/images/pencils.svg">
-    <h2>Print Debugging (Logging in the console)</h2>
-</section>
-<section id="the-console">
-    <blockquote>...if I had had to lose the fairy tales in order to acquire the novelists, I would not say that I had grown but only that I had changed. A tree grows because it adds rings: a train doesn't grow by leaving one station behind and puffing on to the next. <cite style="margin-top: 1rem"><strong>C.S. Lewis</strong>, On Three Ways of Writing for Children</cite></blockquote>
-</section>
-<section>
-    <p>Print debugging is the process of <strong>understanding how our own code is working by printing out values</strong> at different points in the process. It's probably the first type of debugging that most developers learn. It's one of those things that is so easy that some people might tell you to stop doing it because it's "immature".</p>
-    <p>You should definitely not <em>stop</em> at print debugging, but I doubt you will ever find yourself at a point where print debugging isn't sometimes the <strong>best tool for the job</strong>.</p>
-</section>
-<section>
-    <p>In web development, print debugging is usually done by outputting values to <strong>the console</strong>. Later we'll learn about how to do this through the terminal, but for now we'll be taking advantage of the built-in console that comes with all modern browsers.</p>
-    <p>The console API comes with a <a href="https://developer.mozilla.org/en-US/docs/Web/API/Console" target="_blank" rel="noopener noreferrer">bunch of different methods<span class="show-for-sr"> Opens in a new window</span></a>, including grouping, timestamps, and all other kinds of cool stuff.</p>
-    <p>Today we're just going to get familiar with a few that are pretty handy when doing ad hoc testing: <strong><code>log()</code></strong>, <strong><code>table()</code></strong>, <strong><code>count()</code></strong>, and <strong><code>assert()</code></strong>.</p>
-</section>
-<div class="body-spacer--small"></div>
-<section id="log">
-    <h3 class="text-center">console.log()</h3>
-    <p>Hopefully you're familiar with <code>console.log()</code> at this point, but just in case...</p>
-    <p><code>log()</code> outputs whatever you like from your code, and <strong>prints it in the browser console</strong> (accessible through your browser's developer tools).</p>
-</section>
-<div class="body-spacer--small"></div>
-<section>
-    <p><strong>/myScript.js</strong></p>
-    <pre><code class="language-javascript">// Set the variable value
-var myVariable = 'Hello World';
-// Log the variable
-console.log(myVariable);
-// Change the variable value
-myVariable += ', and Hello Anybody Else';
-// Log the variable again
-console.log(myVariable);</code></pre>
-    <strong>console output</strong>
-    <pre><code>> Hello World
-> Hello World, and Hello Anybody Else</code></pre>
-</section>
-<div class="body-spacer--small"></div>
-<section id="table">
-    <h3 class="text-center">console.table()</h3>
-    <p><code>.table()</code> works the same way, but instead of just getting the output of a single value, we get more complex data, like arrays and objects, printed out in a <strong>nice readable table</strong>.</p>
-</section>
-<div class="body-spacer--small"></div>
-<section>
-    <p><strong>/myScript.js</strong></p>
-    <pre><code class="language-javascript">var myArray = [
-    "baseball", 
-    "horror movies", 
-    "strange guitar pedals"
-];
-console.table(myArray);</code></pre>
-    <strong>console output</strong>
-    <pre><code>(index)   Value
-0         "baseball"
-1         "horror movies"
-2         "strange guitar pedals"</code></pre>
-</section>
-<div class="body-spacer--small"></div>
-<section>
-    <p><strong>/myScript.js</strong></p>
-    <pre><code class="language-javascript">var myObject = {
-  name: "Simon",
-  height: 183
-}
-console.table(myObject);</code></pre>
-    <strong>console output</strong>
-    <pre><code>(index)    Value
-name       "Simon"
-height     183</code></pre>
-</section>
-<div class="body-spacer--small"></div>
-<section id="count">
-    <h3 class="text-center">console.count()</h3>
-    <img src="/images/count.jpg" alt="" class="body-icon">
-    <p><code>.count()</code> does what it says on the box - it counts!</p>
-    <p>What does it count? The <strong>number of times it gets called</strong>.</p>
-</section>
-<div class="body-spacer--small"></div>
-<section>
-<p><strong>/myScript.js</strong></p>
-    <pre><code class="language-javascript">for (let step = 0; step < 5; step++) {
-  console.count();
-}</code></pre>
-    <strong>console output</strong>
-    <pre><code>> default: 1
-> default: 2
-> default: 3
-> default: 4
-> default: 5</code></pre>
-</section>
-<div class="body-spacer--small"></div>
-<section>
-    <p>Want <strong>more than one</strong> counter going? Just <strong>pass in a name</strong> for your counter!</p>
-</section>
-<section>
-    <p><strong>/myScript.js</strong></p>
-    <pre><code class="language-javascript">var myLabel = "a label";
-var myOtherLabel = "a different label";
-for (let step = 0; step < 3; step++) {
-  console.count(myLabel);
-}
-console.count(myOtherLabel);
-console.count(myOtherLabel);
-console.count(myLabel);</code></pre>
-    <strong>console output</strong>
-    <pre><code>> a label: 1
-> a label: 2
-> a label: 3
-> a different label: 1
-> a different label: 2
-> a label: 4</code></pre>
-</section>
-<div class="body-spacer--small"></div>
-<section id="assert">
-    <h3 class="text-center">console.assert()</h3>
-    <p><code>.assert()</code> is a little different than the above. Sometimes it doesn't output anything!</p>
-    <p>The first parameter of the assert function is, go figure, <strong>an assertion</strong>. An assertion is <strong>anything that can evaluate to <code>true</code> or <code>false</code></strong>.</p>
-</section>
-<section>
-    <h4>A few assertion examples:</h4>
-    <pre><code class="language-javascript">1 === 1 // true</code></pre>
-    <pre><code class="language-javascript">1 !== 2 // true</code></pre>
-    <pre><code class="language-javascript">1 === 2 // false</code></pre>
-    <pre><code class="language-javascript">12 % 3 <= 0 // true</code></pre>
-    <pre><code class="language-javascript">2 + 2 > 3 + 1 // false</code></pre>
-    <pre><code class="language-javascript">typeof 'Simon' === "string" // true</code></pre>
-</section>
-<section>
-    <p><code>.assert()</code> also takes an error message as a parameter. If the assertion is <strong>false</strong>, it returns the <strong>error message</strong>. If the assertion is <strong>true</strong>, <strong>nothing</strong> gets logged to the console.</p>
-</section>
-<div class="body-spacer--small"></div>
-<section>
-    <strong>/my-script.js</strong>
-    <pre><code class="language-javascript">// This logs nothing to the console
-var myNumber = 67;
-console.assert(myNumber === 67, "Nope, it ain't!");</code></pre>
-</section>
-<div class="body-spacer--small"></div>
-<section>
-    <strong>/my-script.js</strong>
-    <pre><code class="language-javascript">var myNumber = 67;
-console.assert(myNumber === 67, "Nope, it ain't!");
-console.assert(
-  myNumber === 65, 
-  "Okay, it was the first time, but not this time!"
-);</code></pre>
-    <strong>console output</strong>
-    <pre><code>> Assertion failed: Okay, it was the first time, 
-but not this time!</code></pre>
-</section>
-<hr>
-<div class="further-reading">
-<strong>Further Reading:</strong>
-<ul>
-    <li><a href="https://stackoverflow.com/a/34140906" target="_blank" rel="noreferrer">The unreasonable effectiveness of print debugging<span class="show-for-sr"> Opens in a new window</span></a>, <em>Geoffrey Litt</em></li>
-    <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Console" target="_blank" rel="noopener noreferrer">Console<span class="show-for-sr"> Opens in a new window</span></a>, <em>MDN Web Docs</em></li>
-</ul>
-</div>
-<div class="body-spacer"></div>
-<section id="device-emulation"><img class="body-icon" alt="" src="/images/mobile-testing.svg">
-    <h2>Device Emulation</h2>
-    <p>Well, hopefully someone's showed you this already - in your <strong>dev tools</strong>, you've got a very handy <strong>device emulator</strong>. The screenshots <span class="post-only">below </span>are from Chrome, but other browsers have similar options.</p>
-</section>
-<section>
-    <div class="callout">
-        <p><strong>Edge</strong> is nearly identical to Chrome.</p>
-        <p>In <strong>Firefox</strong>, the icon is on the right-hand side of the devtools instead of the left.</p>
-        <p>In <strong>Safari</strong>, press <kbd>^</kbd>&nbsp;+&nbsp;<kbd>⌘</kbd>&nbsp;+&nbsp;<kbd>r</kbd>, or from the "Develop" menu, select "Enter Responsive Design Mode".</p>
+<section id="skills" class="row row--section">
+    <div data-slide class="row">
+        <img src="/images/building-skills.svg" alt="Building skills" height="306" width="406" class="body-icon body-icon--x-large">
+        <h2>Choosing&nbsp;& Building a&nbsp;Skillset</h2>
+        
+        
+        
     </div>
 </section>
-<section>
-    <figure>
-        <a href="/images/device-emulator.png" target="_blank"><img src="/images/device-emulator.png" alt=""></a>
-        <figcaption>Device emulation in Chrome</figcaption>
-    </figure>
-</section>
-<section>
-    <figure>
-        <a href="/images/device-emulator--options.png" target="_blank"><img src="/images/device-emulator--options.png" alt=""></a>
-        <figcaption>You can choose to see how your application resizes dynamically by choosing "Responsive" from the dropdown, choose other devices, or even edit your list of devices to select your preferred options.</figcaption>
-    </figure>
-</section>
-<section>
-    <p><strong>Gesture support</strong> is limited - you can mock a "pinch-to-zoom" gesture by holding down the <kbd>shift</kbd> key - but for the most part <strong>gestures beyond swipe and tap aren't available</strong>.</p>
-    <p>In later weeks, we'll look at how to emulate devices in a more sophisticated way with device/environment/browser automation, but this is about the extent of what's available for ad hoc testing a web application.</p>
-</section>
-<hr>
-<div class="further-reading">
-<strong>Further Reading:</strong>
-<ul>
-    <li><a href="https://developer.chrome.com/docs/devtools/device-mode/" target="_blank" rel="noreferrer">Simulate mobile devices with Device Mode<span class="show-for-sr"> Opens in a new window</span></a>, <em>Kayce Basques (Chrome Developers)</em></li>
-</ul>
-</div>
-<div class="body-spacer"></div>
-<section id="manual-form-validation"><img class="body-icon" alt="" src="/images/form-error.svg">
-    <h2>Manual Form Validation Testing</h2>
-</section>
-<section>
-    <p>I'm going to go out on a limb and say that <strong>form validation is <em>not</em> something you should only be doing in ad hoc testing</strong>.</p>
-    <p>That being said, assuming you've got <strong>good requirements</strong> telling you what should or should not happen within your form, you'll often test forms in an ad hoc manner before passing it down the pipeline.</p>
-    <p>With that caveat stated, it's very important that you understand the difference between <strong>front-end validation</strong> and <strong>server-side</strong> validation.</p>
-</section>
-<section>
-    <figure>
-        <a href="/images/sign-not-cop.jpg" target="_blank"><img src="/images/sign-not-cop.jpg" alt=""></a>
-        <figcaption>Front-end validation is just a friendly suggestion.</figcaption>
-    </figure>
-</section>
-<div class="body-spacer--small"></div>
-<section>
-    <h3 class="text-center">Front-end vs server-side validation</h3>
-    <p>This is front-end validation. Try entering some characters that <strong>don't match the pattern</strong> of a Canadian postal code.</p>
-    <script type="text/javascript">function handleIt() {alert("Form submitted");}</script>
-    <form class="callout" action="javascript:handleIt()">
-        <label>Please enter your postal code:
-            <input 
-                type="text" 
-                pattern="[A-Za-z][0-9][A-Za-z]\s?[0-9][A-Za-z][0-9]"
-                title="Six character, alternating between letters and numbers, with an optional space in the centre." 
-                aria-label="Six character, alternating between letters and numbers, with an optional space in the centre."
-                >
-        </label>
-        <input type="submit" class="button">
-    </form>
-</section>
-<section>
-    <p>Now <strong>inspect the form</strong>, <strong>delete the pattern</strong>, and <strong>try to submit the form</strong>.</p>
-    <figure>
-        <a href="/images/edit-pattern.png" target="_blank"><img src="/images/edit-pattern.png" alt=""></a>
-        <figcaption>Technically hacking!</figcaption>
-    </figure>
-</section>
-<section>
-    <p>Front-end validation is <strong>good user experience</strong> - it saves a round-trip to the server to tell the user that something's gone wrong with how they're inputting their input.</p>
-    <p>Front-end validation is <strong>not security</strong>. The front-end <strong>belongs to the user</strong>, and they are able to do whatever they want with it, because it is on their device. And that's a good thing - provided that you haven't mistaken front-end validation for a security measure.</p>
-</section>
-<section>
-    <p>So go ahead and confirm that <strong>your form meets the requirements</strong> that you're working with by, you know, <strong>using the form</strong>. I wish we had time to go through all the many delightful complexities of HTML forms, but just keep in mind - requirements don't just come from the client, so remember...</p>
-</section>
-<section>
-    <ul>
-        <li><strong>front-end validation</strong> for <strong>usability</strong>, <strong>server-side validation</strong> for <strong>security</strong>,</li>
-        <li>check <strong>accessibility</strong> by filling out and submitting the form using <strong>only the keyboard</strong>, and again <strong>using a screenreader</strong></li>
-        <li>the wonderful <strong><a href="https://www.bbc.com/future/article/20160325-the-names-that-break-computer-systems" target="_blank" rel="noopener noreferrer">variety of names<span class="show-for-sr"> Opens in a new window</span></a></strong> people have</li>
-        <li>you <strong><a href="https://www.regular-expressions.info/email.html" target="_blank" rel="noopener noreferrer">probably shouldn't regex emails<span class="show-for-sr"> Opens in a new window</span></a></strong>, and</li>
-        <li><strong>whitespace</strong> can be tricky.</li>
-    </ul>
-</section>
-<hr>
-<div class="further-reading">
-<strong>Further Reading:</strong>
-<ul>
-    <li><a href="https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation" target="_blank" rel="noreferrer">Client-side form validation<span class="show-for-sr"> Opens in a new window</span></a>, <em>MDN Web Docs</em></li>
-    <li><a href="https://css-tricks.com/html-inputs-and-labels-a-love-story/" target="_blank" rel="noopener noreferrer">HTML Inputs and Labels: A Love Story<span class="show-for-sr"> Opens in a new window</span></a>, <em>Amber Wilson</em></li>
-    <li><a href="https://www.smashingmagazine.com/2009/07/web-form-validation-best-practices-and-tutorials/" target="_blank" rel="noopener noreferrer">Web Form Validation: Best Practices and Tutorials<span class="show-for-sr"> Opens in a new window</span></a>*, <em>Janko Jovanovic</em><br>(*older article, but still relevant)</li>
-</ul>
-</div>
-<div class="body-spacer"></div>
-<section id="auditing-tools"><img class="body-icon" alt="" src="/images/files.svg">
-    <h2>Auditing Tools, DevTools, and other tools that require a local server</h2>
-    <p>We're going to discuss a few tools below that <strong>require your page(s) to be "served"</strong> rather than simply sitting on your local machine. What's the difference between loading local files in a browser, rather than sending them from a server (local or otherwise)? Not a lot, <a href="https://stackoverflow.com/a/40204971" target="_blank" rel="noopener noreferrer">but a little<span class="show-for-sr"> Opens in a new window</span></a>.</p>
-</section>
-<div class="body-spacer--small"></div>
-<section id="starting-a-local-server">
-    <h3 class="text-center">Starting a local server</h3>
-    <p>If you're using VS Code, there's a wildly popular extension called <a href="https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer" target="_blank" rel="noopener noreferrer">Live Server<span class="show-for-sr"> Opens in a new window</span></a> that will take care of this for you.</p>
-    <p>If you'd rather take matters into your own hands, do the following:</p>
-</section>
-<section>
-    <ol>
-        <li>
-            <p>To start a local server according to these instructions, you must have <strong>PHP</strong> (v5.4+) or <strong>Python</strong> installed on your system.</p>
-            <p>To verify that these are installed, open your command prompt (Windows) or terminal (Mac) and verify the version by running one of these commands:</p>
-            <pre><code class="language-bash">php -v</code></pre>
-            <p>or</p>
-            <pre><code class="language-bash">python -V</code></pre>
-            <p>Both of these languages come installed on Macs. Windows users can install PHP by <a href="https://www.php.net/downloads.php" target="_blank" rel="noopener noreferrer">downloading PHP<span class="show-for-sr"> Opens in a new window</span></a>, and Python by <a href="https://www.python.org/downloads/windows/" target="_blank" rel="noopener noreferrer">downloading Python<span class="show-for-sr"> Opens in a new window</span></a>. Since we're in the second semester, though, hopefully one or both of these are already installed on your machine.</p>
-        </li>
-    </ol>
-</section>
-<section>
-    <ol start="2">
-        <li>
-            <p>In your terminal, <strong>change directories</strong> into the public folder (or wherever your html files are) for your project.</p>
-            <p>Windows:</p>
-            <pre><code class="language-bash">Set-Location -Path /path/to/public</code></pre>
-            <p>Mac:</p>
-            <pre><code class="language-bash">cd /path/to/public</code></pre>
-        </li>
-    </ol>
-</section>
-<section>
-    <ol start="3">
-        <li>
-            <p>Start the web server with the following command for PHP:</p>
-            <pre><code class="language-bash">php -S localhost:8000</code></pre>
-            <p>or for Python v2</p>
-            <pre><code class="language-bash">python -m SimpleHTTPServer</code></pre>
-            <p>or for Python v3</p>
-            <pre><code class="language-bash">python3 -m http.server</code></pre>
-        </li>
-    </ol>
-</section>
-<section>
-    <ol start="4">
-        <li>After running any of the above commands, you can go to <a href="http://localhost:8000" target="_blank" rel="noopener noreferrer">http://localhost:8000<span class="show-for-sr"> Opens in a new window</span></a> in a browser and see the index.html file served from the public server.</li>
-    </ol>
-</section>
-<hr>
-<div class="further-reading">
-<strong>Further Reading:</strong>
-<ul>
-    <li><a href="https://developer.mozilla.org/en-US/docs/Learn/Common_questions/set_up_a_local_testing_server" target="_blank" rel="noreferrer">How do you set up a local testing server?<span class="show-for-sr"> Opens in a new window</span></a>, <em>MDN Web Docs</em></li>
-    <li><a href="https://apple.stackexchange.com/questions/50590/mamp-html-source-folder" target="_blank" rel="noopener noreferrer">MAMP html source folder<span class="show-for-sr"> Opens in a new window</span></a>, <em>stackexchange.com</em> (Note: if all of the previous section's instructions don't work out for you, you can try serving your plain HTML, CSS &&nbsp;JS files from your MAMP installation as described in this link.)</li>
-</ul>
-</div>
-<div class="body-spacer--small"></div>
-<section id="lighthouse-auditing">
-    <h3 class="text-center">Lighthouse auditing</h3>
-    <p>Lighthouse is Chrome's auditing tool. (There is a <a href="https://addons.mozilla.org/en-CA/firefox/addon/google-lighthouse/" target="_blank" rel="noopener noreferrer">firefox<span class="show-for-sr"> Opens in a new window</span></a> extension for it, but... just use it in Chrome if you can.)</p>
-    <p>It checks 100+ of metrics and best practices in five major categories:</p>
-    <ul>
-        <li><strong>Performance</strong>: could your site be <strong>faster</strong>?</li>
-        <li><strong>Accessibility</strong>: are there any detectable <strong>accessibility errors</strong>?</li>
-        <li><strong>Best Practices</strong>: are there any mistakes with how you've <strong>configured</strong> and <strong>coded</strong> your page?</li>
-        <li><strong>SEO</strong>: are you doing everything you can to <strong>feed the web crawlers</strong>?</li>
-        <li><strong>Progressive Web App</strong>: are you doing what you need to do for your site to <strong>work as a PWA</strong>?</li>
-    </ul>
-</section>
-<section>
-    <div class="callout">
-        <img src="/images/incognito.svg" alt="" class="body-icon body-spacer--small">
-    <p>A <strong>handy tip</strong> - your browser plugins tend to inject a lot of stuff into the pages you're viewing. To get an accurate audit, <strong>load your pages in incognito/private browsing</strong> mode.</p>
+<svg class="section-separator" width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><rect width='800%' height='800%' transform='translate(0,0)' fill='url(#waves)'/></svg>
+<section id="self-teaching" class="row row--section">
+    <div data-slide class="row">
+        <img src="/images/school.svg" alt="Learning by yourself" height="306" width="406" class="body-icon body-icon--x-large">
+        <h2>Self&#8209;Teaching</h2>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     </div>
 </section>
-<section>
-    <p>Each one of these audits not only gives you a <strong>score</strong>, but a <strong>detailed explanation</strong> of why you passed or failed, with a link to <strong>further reading</strong> if you need it.</p>
-    <p>You can select which of these audits you want to run - which is good, because 99 times out of a hundred, the site you're checking is probably <strong>not configured as a progressive web app</strong>.</p>
+<svg class="section-separator" width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><rect width='800%' height='800%' transform='translate(0,0)' fill='url(#dots)'/></svg>
+<section id="bootcamps" class="row row--section">
+    <div data-slide class="row">
+        <img src="/images/camp.svg" alt="Camping" height="306" width="406" class="body-icon body-icon--x-large">
+        <h2>To&nbsp;Bootcamp or not to&nbsp;Bootcamp?</h2>
+        
+    </div>
 </section>
-<section>
-    <p>The <strong>performance</strong>, <strong>best practices</strong> and <strong>SEO</strong> scores are all very handy. Not only are they a good way to check the health of your page, but, despite one category being called 'SEO', they are <strong><em>all</em> good indicators of SEO</strong> - Google has stated that performance and best practices are factors in page rankings. Since this is Google's auditing tool, it's a safe bet that it's a <strong>good reflection of how they will look at your pages</strong>.</p>
+<svg class="section-separator" width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><rect width='800%' height='800%' transform='translate(0,0)' fill='url(#chevrons)'/></svg>
+<section id="college" class="row row--section">
+    <div data-slide class="row">
+        <img src="/images/graduation.svg" alt="Graduation" height="306" width="406" class="body-icon body-icon--x-large body-icon--alert-bg">
+        <h2>Traditional Institutions</h2>
+    </div>
 </section>
-<section>
-    <p>The accessibility score is worth looking at - anything flagged there is probably something that needs to be addressed. That being said, as discussed last week, <strong>accessibility is not something that can be entirely verified with an automated tool</strong>. Additionally, there is a tool I'd like to show you that does a considerably more thorough job of error checking and reporting.</p>
+<svg class="section-separator" width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><rect width='800%' height='800%' transform='translate(0,0)' fill='url(#waves)'/></svg>
+<section id="other-credentials" class="row row--section">
+    <div data-slide class="row">
+        <img src="/images/checklist.svg" alt="Checking boxes" height="306" width="406" class="body-icon body-icon--x-large">
+        <h2>Other&nbsp;Credentials</h2>
+        
+        
+        
+    </div>
 </section>
-<hr>
-<div class="further-reading">
-<strong>Further Reading:</strong>
-<ul>
-    <li><a href="https://developers.google.com/web/tools/lighthouse" target="_blank" rel="noreferrer">Lighthouse<span class="show-for-sr"> Opens in a new window</span></a>, <em>Chrome Developers</em></li>
-    <li><a href="https://web.dev/performance-scoring/" target="_blank" rel="noopener noreferrer">Lighthouse performance scoring<span class="show-for-sr"> Opens in a new window</span></a>, <em>web.dev</em></li>
-</ul>
-</div>
-<div class="body-spacer--small"></div>
-<section id="axe-auditing">
-    <h3 class="text-center">aXe auditing</h3>
-    <p><a href="https://www.deque.com/" target="_blank" rel="noopener noreferrer">Deque Systems<span class="show-for-sr"> Opens in a new window</span></a> is an accessibility consulting firm that has been around since 1999, and their auditing tools are first-in-class. In fact, Lighthouse's accessibility audit is a lightweight version of Deque's command-line tool, aXe-core. Later on in this course, we'll look at how it can be incorporated into our workflow.</p>
-    <p>For the time being, however, we're going to use aXe in our ad hoc testing on a per-page basis, because Deque are cool enough to provide a <strong>free browser extension</strong> for both <a href="https://chrome.google.com/webstore/detail/axe-devtools-web-accessib/lhdoppojpmngadmnindnejefpokejbdd" target="_blank" rel="noopener noreferrer">Chrome<span class="show-for-sr"> Opens in a new window</span></a> and <a href="https://addons.mozilla.org/en-US/firefox/addon/axe-devtools/" target="_blank" rel="noopener noreferrer">Firefox<span class="show-for-sr"> Opens in a new window</span></a>.</p>
-    <p>Simply add the extension to your browser, and you'll see it become <strong>available as a new tab in your dev tools</strong>!</p>
+<svg class="section-separator" width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><rect width='800%' height='800%' transform='translate(0,0)' fill='url(#dots)'/></svg>
+<section id="job" class="row row--section">
+    <div data-slide class="row">
+        <img src="/images/interview.svg" alt="Job interview" height="306" width="406" class="body-icon body-icon--x-large">
+        <h2>Getting&nbsp;Hired</h2>
+    </div>
 </section>
-<hr>
-<div class="further-reading">
-<strong>Further Reading:</strong>
-<ul>
-    <li><a href="https://sparkbox.com/foundry/chrome_axe_extension_website_accessibility_audit_website_accessibility_checker#conclusion:-%F0%9F%8F%86-highly-recommend-(25/28)" target="_blank" rel="noreferrer">axe Browser Extension: Automated Accessibility Tool Review<span class="show-for-sr"> Opens in a new window</span></a>, <em>Anastasia Lanz</em></li>
-</ul>
-</div>
-<div class="body-spacer"></div>
-<section id="dev-tools-etc">
-    <img class="body-icon" alt="" src="/images/carousel.svg">
-    <h3 class="text-center">Some other dev tools... tools</h3>
-    <script type="text/javascript">
-        document.cookie = "im_yer_cookie=monster";
-        localStorage.setItem("whatAmI", "local storage");
-        sessionStorage.setItem("whatAmI", "session storage");
-    </script>
-    <p>The dev tools in modern browsers are incredibly powerful. I wish we had time to go into everything here, but I'd just like to bring to your attention a few tools of particular importance to ad hoc testing that you may want to investigate further:</p>
+<svg class="section-separator" width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><rect width='800%' height='800%' transform='translate(0,0)' fill='url(#chevrons)'/></svg>
+<section id="technical-interviews" class="row row--section">
+    <div data-slide class="row">
+        <img src="/images/tech-interview.svg" alt="A technical interview" height="306" width="406" class="body-icon body-icon--x-large">
+        <h2>Technical&nbsp;Interviews</h2>
+    </div>
 </section>
-<section>
-    <h4>Storage</h4>
-    <p>Want to see the cookies, localStorage and sessionStorage objects? <strong>Go to the 'Application' tab</strong> and check them out! I've added a few key/value pairs on this page - see if you can find them.</p>
+<svg class="section-separator" width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><rect width='800%' height='800%' transform='translate(0,0)' fill='url(#chevrons)'/></svg>
+<section id="connections" class="row row--section">
+    <div data-slide class="row">
+        <img src="/images/party.svg" alt="Party" height="306" width="406" class="body-icon body-icon--x-large">
+        <h2>Making&nbsp;Connections</h2>
+    </div>
 </section>
-<section>
-    <h4>Assets</h4>
-    <p>Want to see <strong>all the assets your page is loading</strong>, filtered by type, sorted by file size, flagging any assets not loaded?</p>
-    <figure>
-        <img src="/images/assets.png" alt="">
-        <figcaption>Go to the 'Network' tab and hit <kbd>cmd</kbd>&nbsp;+&nbsp;<kbd>r</kbd></figcaption>
-    </figure>
+<svg class="section-separator" width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><rect width='800%' height='800%' transform='translate(0,0)' fill='url(#waves)'/></svg>
+<section id="portfolios" class="row row--section">
+    <div data-slide class="row">
+        <img src="/images/finance.svg" alt="Finance app" height="306" width="406" class="body-icon body-icon--x-large">
+        <h2>What's&nbsp;Your Portfolio&nbsp;Worth?</h2>
+    </div>
 </section>
-<section>
-    <h4>Security</h4>
-    <p>Want a <strong>quick security audit</strong>? Yup, there's a tab for that too! We'll spend some time with it later in this course.</p>
+<svg class="section-separator" width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><rect width='800%' height='800%' transform='translate(0,0)' fill='url(#dots)'/></svg>
+<section id="freelance-contract-full-time" class="row row--section">
+    <div data-slide class="row">
+        <img src="/images/office-chair.svg" alt="Ascending to an office chair" height="306" width="406" class="body-icon body-icon--x-large">
+        <h2>Freelancing,&nbsp;<br>Contracting, and Full&#8209;time&nbsp;Positions</h2>
+    </div>
 </section>
-<hr>
-<div class="further-reading">
-<strong>Further Reading:</strong>
-<ul>
-    <li><a href="https://www.smashingmagazine.com/2021/02/useful-chrome-firefox-devtools-tips-shortcuts/" target="_blank" rel="noreferrer">DevTools Debugging Tips And Shortcuts (Chrome, Firefox, Edge)<span class="show-for-sr"> Opens in a new window</span></a>, <em>Vitaly Friedman</em></li>
-</ul>
-</div>
-<div class="body-spacer"></div>
-<section id="link-validation">
-    <img class="body-icon" alt="" src="/images/link-validation.svg">
-    <h3 class="text-center">Link Validation</h3>
-    <p>One last handy tool enabled by serving pages from a local server: <strong>checking all the links</strong> on the page with the help of a handy <a href="https://chrome.google.com/webstore/detail/check-my-links/ojkcdipcgfaekbeaelaapakgnjflfglf" target="_blank" rel="noopener noreferrer">Chrome<span class="show-for-sr"> Opens in a new window</span></a> or <a href="https://addons.mozilla.org/en-CA/firefox/addon/simple-link-checker/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search" target="_blank" rel="noopener noreferrer">Firefox<span class="show-for-sr"> Opens in a new window</span></a> browser extension!</p>
-    <p>Just remember that what we're doing here is <strong>not</strong> checking that all the links <strong>are correct</strong>, only that they are <strong>not broken</strong>.</p>
+<svg class="section-separator" width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><rect width='800%' height='800%' transform='translate(0,0)' fill='url(#chevrons)'/></svg>
+<section id="soft-skills" class="row row--section">
+    <div data-slide class="row">
+        <img src="/images/scrum.svg" alt="Informal meeting" height="306" width="406" class="body-icon body-icon--x-large">
+        <h2>The&nbsp;Worst&#8209;Kept Secret: Soft&nbsp;Skills</h2>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    </div>
 </section>
-<div class="body-spacer"></div>
-<section>
-    <h2>In summary</h2>
-    <p>To sum up, ad hoc testing is quick-and-dirty testing for checking our work outside of a proper test plan.</p>
+<section class="tldr" id="tldr">
+    <div class="row">
+    <h2>Too&nbsp;long, didn't&nbsp;read</h2>
     <ul>
-        <li>We can <strong>validate code</strong></li>
-        <li>(or <strong>lint</strong> for looser languages)</li>
-        <li><strong>print debug</strong></li>
-        <li>check device compatibility with <strong>emulators</strong></li>
-        <li>manually <strong>test forms</strong></li>
-        <li><strong>audit pages</strong></li>
-        <li>troubleshoot with <strong>dev tools</strong>, and</li>
-        <li>check <strong>link validity</strong>.</li>
+        <li></li>
     </ul>
+    </div>
 </section>
-<div class="body-spacer"></div>
       </article>
 
     </main>
@@ -792,15 +409,15 @@ but not this time!</code></pre>
           "tags": []
         },{ 
           "url": "/rough-guide-to-getting-a-job/",
-          "title": "Rough Guide: How To Get a Job as a Web Developer",
-          "tags": ["OWASP","XSS","SQL Injection","Security","Authentication"]
+          "title": "Rough Guide: How To Get a Web Work",
+          "tags": ["employment","career"]
         },{ 
           "url": "/web-life-cycle/",
           "title": "Different jobs in a web project",
           "tags": ["Market research","Personas","Requirements","Design","Wireframes","Development","Unit testing","Code review","Version control","QA","Quality assurance","Analytics"]
         },{ 
           "url": "/carbon-footprint/",
-          "title": "The carbon footprint of the internet",
+          "title": "The Carbon Footprint of the Internet",
           "tags": ["Ethics","Climate Change","Bitcoin","Ethereum","Carbon Footprint","Optimization","Streaming"]
         },{ 
           "url": "/design-no-brainers/",
@@ -829,6 +446,16 @@ but not this time!</code></pre>
         },{ 
           "url": "/tags/SASS/",
           "title": "SASS",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/Design/",
+          "title": "Design",
+          "tags": [],
+          "isTag": true
+        },{ 
+          "url": "/tags/conventions/",
+          "title": "conventions",
           "tags": [],
           "isTag": true
         },{ 
@@ -867,38 +494,13 @@ but not this time!</code></pre>
           "tags": [],
           "isTag": true
         },{ 
-          "url": "/tags/Design/",
-          "title": "Design",
+          "url": "/tags/employment/",
+          "title": "employment",
           "tags": [],
           "isTag": true
         },{ 
-          "url": "/tags/conventions/",
-          "title": "conventions",
-          "tags": [],
-          "isTag": true
-        },{ 
-          "url": "/tags/OWASP/",
-          "title": "OWASP",
-          "tags": [],
-          "isTag": true
-        },{ 
-          "url": "/tags/XSS/",
-          "title": "XSS",
-          "tags": [],
-          "isTag": true
-        },{ 
-          "url": "/tags/SQL%20Injection/",
-          "title": "SQL Injection",
-          "tags": [],
-          "isTag": true
-        },{ 
-          "url": "/tags/Security/",
-          "title": "Security",
-          "tags": [],
-          "isTag": true
-        },{ 
-          "url": "/tags/Authentication/",
-          "title": "Authentication",
+          "url": "/tags/career/",
+          "title": "career",
           "tags": [],
           "isTag": true
         },{ 

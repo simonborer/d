@@ -105,6 +105,11 @@
     &--full-width {
         width: 100%;
     }
+    &--alert-bg {
+        background: var(--alert);
+        padding: 1rem;
+        border-radius: 2rem;
+    }
 }
 
 .section-separator {
@@ -206,6 +211,7 @@
     z-index: 2;
     max-height: 1.5rem;
     height: calc(1vh * 75 * var(--scroll));
+    box-shadow: 0 0 .125rem var.$foreground;
 }
 
 .margin-vertical-extra {
