@@ -1,7 +1,7 @@
 ---js
 {
     "layout": process.env.LAYOUT,
-    "title": "Rough Guide: How To Get a Web Work",
+    "title": "Rough Guide: How To Get Web Work",
     "feature": {
         "src": "Donald_Betsy_Gillies_Illiac_I.jpeg",
         "alt": "Alice (Betsy) E. D. Gillies and Donald B. Gillies with the ILLIAC I at the Digital Computer Lab, Urbana Illinois, circa 1957.",
@@ -59,11 +59,6 @@
             "title": "Freelancing, <br>Contracting, and Full-time Positions"
         },
         {
-            "href": "soft-skills",
-            "smallTitle": "Opportunities",
-            "title": "Soft Skills are the Worst-Kept Secret"
-        },
-        {
             "href": "technical-interviews",
             "smallTitle": "The Interview Process",
             "title": "Technical Interviews"
@@ -90,7 +85,7 @@
 {% endslide %}
 {% slide %}
     <p>If you <em>do</em> want to write code for a living, however, let me congratulate you on a good career choice.</p>
-    <p>There's good reason to believe that a coding career is {# {% ext "https://whoisnnamdi.com/never-enough-developers/" %}future-proof{% endext %} #}{% ext "https://news.ycombinator.com/item?id=29808376" %}future-proof{% endext %}, {% ext "https://www.indeed.com/career-advice/finding-a-job/recession-proof-industries" %}recession-proof{% endext %}, and a pretty good job to have when {% ext "https://medium.com/coderbyte/how-the-covid-19-pandemic-is-impacting-software-development-hiring-72243f41ac9e" %}everyone suddenly needs to work at home for a few years{% endext %}.</p>
+    <p>There's good reason to believe that a coding career is {# {% ext "https://whoisnnamdi.com/never-enough-developers/" %}future-proof{% endext %} #}{% ext "https://www.indeed.com/career-advice/finding-a-job/recession-proof-industries" %}recession-proof{% endext %}, {% ext "https://news.ycombinator.com/item?id=29808376" %}future-proof{% endext %}, and a pretty good job to have when {% ext "https://medium.com/coderbyte/how-the-covid-19-pandemic-is-impacting-software-development-hiring-72243f41ac9e" %}everyone suddenly needs to work at home for a few years{% endext %}.</p>
 {% endslide %}
 {% slide %}
     <p>Over the past decade, the demand for people who can code for the web has skyrocketed. Coding "boot camps" have sprung up, offering to teach you the latest skills in a matter of months, with a focus on what employers are looking for in the moment.</p>
@@ -109,7 +104,8 @@
 {% endslide %}
 {% slide %}
     <p>I love that the web is providing jobs that provide a decent living (even to weirdos like me), and help establish people who want to come live where I am!</p>
-    <p>Okay, so how do you actually <em>get</em> one of these jobs? Let's start by figuring out <span data-annotate data-ann-color="var(--alert)">what skills you need</span>, and how to get them.</p>
+    <p class="callout emphasis">Also, the {% ext "https://www.jobbank.gc.ca/outlookreport/location/22437" %}Job Bank trend analysis{% endext %} has pretty fascinating labour market data overall, so have fun with that!</p>
+    <p>Okay, so how do you actually <em>get</em> one of these jobs? Let's start by <span data-annotate data-ann-color="var(--alert)">figuring out what skills you need</span>, and how to get them.</p>
 {% endslide %}
 {% separator "waves" %}
 {% section toc[0].href %}
@@ -126,11 +122,16 @@
     {% endslide %}
     {% slide %}
         <p>For the record, I'm not going to teach you this stuff today.</p>
-        <p>Rather, I'd like to share with you a couple of wonderful resources that map out exactly where you can start, how to progress, and, later on, where you might branch off into a specialization (once you're ready).</p>
+        <p>In fact, a lot of this stuff, I will <em>never</em> attempt to teach you, for the simple reason that <span data-annotate data-ann-type="underline" data-ann-color="var(--warning)">the web is absolutely stuffed with free learn-to-code resources</span>. I'm never going to waste your time (or mine!) explaining something if I know that you can learn it elsewhere, as well or better, for free - I'm just going to point you in the right direction!</p>
+        <p>Of the free resources that are available, some are great, most are mediocre, and a lot are absolutely lousy. What few of them do is provide <span data-annotate data-ann-type="underline">context and guidance</span>. This, along with <span data-annotate data-ann-type="underline">networking</span> and <span data-annotate data-ann-type="underline">personalized feedback</span>, is essentially the value proposition of all web development classes (whether at a bootcamp or a college or wherever).</p>
+        <p>The web built using technologies that are extensively documented and free to use, which means that everything you need to learn is public knowledge. Knowing how it all fits together is the hard part.</p>
+        <p>With that in mind, I'd like to share with you a couple of wonderful resources that map out exactly where you can start, how to progress, and, later on, where you might branch off into a specialization (once you're ready).</p>
     {% endslide %}
+{% endsection %}
+{% section %}
     {% slide %}
         <h3>Roadmap.sh</h3>
-        <p>A project begun and curated by {% ext "https://github.com/sponsors/kamranahmedse" %}Kamran Ahmed{% endext %}, Roadmap.sh is based on the input of hundreds of developers, and is one of the most popular projects on Github ({% ext "https://github.com/search?o=desc&q=stars%3A%3E100000&s=stars&type=Repositories" %}#6, as of this writing{% endext %}, with nearly 200,000 stars ⭐).</p>
+        <p>A project begun and curated by {% ext "https://github.com/sponsors/kamranahmedse" %}Kamran Ahmed{% endext %}, {% ext "https://roadmap.sh/" %}Roadmap.sh{% endext %} is based on the input of hundreds of developers, and is one of the most popular projects on Github ({% ext "https://github.com/search?o=desc&q=stars%3A%3E100000&s=stars&type=Repositories" %}#6, as of this writing{% endext %}, with nearly 200,000 stars ⭐).</p>
     {% endslide %}
     {% slide %}
         <p>Roadmap.sh shows learning paths in flow-chart format, with links to recommended resources for each "node".</p>
@@ -140,6 +141,26 @@
             {% endext %}
             <figcaption>Just a snippet of the front-end roadmap</figcaption>
         </figure>
+        <p>Roadmap.sh has paths for many different types of developers, not just web developers. It divides web development paths into "frontend" and "backend".</p>
+        <p>While I'd argue that this isn't as important a distinction as it used to be, it very roughly boils down to:</p>
+        <dl>
+            <dt>Frontend developer</dt>
+            <dd>A frontend developer is responsible for things that happen <span data-annotate data-ann-type="underline">in the browser</span> - a website or web app's styles and links and buttons and content.</dd>
+            <dt>Backend developer</dt>
+            <dd>A backend developer is responsible for things that happen on the other end - the website waiting for users to retrieve it, data stored in databases that gets retrieved or updated by the website, and stays in memory after you leave.</dd>
+        </dl>
+        <p>This is a painfully broad description of these two roles, and ignores the fact that these two roles have a ton of overlap, and can include or exclude some of these responsibilities, depending on the organization. If it's a smaller organization, they might just have one "fullstack" developer responsible for everything.</p>
+        <p>This is just to say that I think you should take Roadmap.sh's taxonomy with a grain of salt, but don't let that take away from the enormous amount of value it provides.</p>
+    {% endslide %}
+{% endsection %}
+{% section %}
+    {% slide %}
+        <h3>A simpler roadmap from Flavio Copes</h3>
+        <p>Roadmap.sh can seem like a lot - each node is a deep rabbit hole that you could spend endless time exploring, and nobody is there to tell you, "that's enough learning for now, time to move on".</p>
+        <p>That's why I'd like to also show you {% ext "https://flaviocopes.com/roadmap-web-developer-2022/" %}a much simpler roadmap{% endext %} that, rather than being the output of countless developers by consensus, is the opinion of some guy. Luckily, it's a very smart, thoughtful, and experienced guy who helps tons of people with their web careers - Italian computer engineer {% ext "https://flaviocopes.com/" %}Flavio Copes{% endext %}.</p>
+        <p>Copes' roadmap starts where every web career journey starts, with the big 3: HTML, CSS, and JavaScript. He then shares his opinions about a backend language for the server, a database, and a framework to help handle the data, state and composition of your site or application.</p>
+        <p>I don't share all of his opinions, but I respect the heck out of his experience, teaching and writing. My recommendation: <span data-annotate>check 'em both out</span>, figure out what resources are best <em>for you</em> to learn the basics of HTML, CSS & JavaScript, and go from there!</p>
+    
     {% endslide %}
 {% endsection %}
 {% separator "dots" %}
@@ -147,17 +168,98 @@
     {% slide %}
         <img src="/images/school.svg" alt="Learning by yourself" height="306" width="406" class="body-icon body-icon--x-large">
         <h2>{% if toc[1].smallTitle %}<div class="small-title">{{toc[1].smallTitle}}:</div>{% endif %}{{ toc[1].title | allGas | safe }}</h2>
-        {# https://www.theodinproject.com/ #}
-        {# https://developer.mozilla.org/en-US/docs/Learn #}
-        {# https://www.freecodecamp.org/ #}
-        {# https://www.codecademy.com/ #}
-        {# https://automatetheboringstuff.com/ #}
-        {# https://collegecompendium.org/ #}
-        {# https://pll.harvard.edu/course/cs50-introduction-computer-science?delta=0 #}
-        {# https://ocw.mit.edu/courses/res-6-013-ai-101-fall-2021/ #}
-        {# https://see.stanford.edu/Course/CS106A #}
-        {# https://cybersecuritybase.mooc.fi/ #}
-        {# This is down: https://teach.mozilla.org/web-literacy/ #}
+        <p><span data-annotate>All coders teach themselves.</span></p>
+        <p>Some of them also get a degree, or go to a bootcamp, or get other certifications.</p>
+        {% ext "https://insights.stackoverflow.com/survey/2021#section-experience-learning-how-to-code" %}{% image "images/learn-to-code.png", "Survey responses from Stack Overflow", "(min-width: 30em) 1200px, 100vw", "Via Stack Overflow's 2021 Developer Survey" %}{% endext %}
+        <p>A slim majority went to a traditional college or university, about 40% took an online course, and 10% went to a bootcamp.</p>
+        <p>The most popular way to learn, though, is by watching Youtube videos and reading blog posts and online documentation.</p>
+        <p>The simple fact is <span data-annotate data-ann-color="var(--alert)">no course or college or bootcamp can teach you everything</span> that you will need to know over the course of your career. <span data-annotate data-ann-style="underline">The web keeps changing, and will always keep changing</span> - thanks both to new versions of existing languages, and with new languages, tools, frameworks and techniques altogether.</p>
+        <p>Whether or not you <em>start</em> by teaching yourself (which, for many people, is a cheap, viable option), you will need to teach yourself as you go, forever.</p>
+        {% ext "https://twitter.com/CatMcGeeCode/status/1418592423865950212" %}{% image "images/cat-mcgee.png", "Tweet by Cat McGee: 'Got a CV today and the guy literally listed one of his skills as ‘googling’. We’re interviewing him'", "(min-width: 30em) 1200px, 100vw", "@CatMcGeeCode" %}{% endext %}
+        <p class="callout warning">
+            One side effect of this: basically all developers suffer from a permanent case of {% ext "https://en.wikipedia.org/wiki/Impostor_syndrome" %}imposter syndrome{% endext %} for about the first decade of their careers. Everybody feels like they don't know what they're doing, because they're perpetually having to learn something new!
+        </p>
+        <h3>{{"Where to start teaching yourself" | allGas | safe}}</h3>
+        <p>There are a ton of potential starting places, and everyone has a different learning style, so I couldn't possibly tell you in good faith that there is one place to start your learning journey over all the others.</p>
+        <p>Or at least that's what I'd say if it weren't for {% ext "https://www.theodinproject.com/" %}The Odin Project{% endext %}.</p>
+        <figure>
+            {% image "images/odin-project-logo.png", "The Odin Project Logo", "(min-width: 30em) 600px, 100vw", "ATTR" %}
+            <figcaption>Odin Project logo by {% ext "https://dribbble.com/adachiu" %}Ada Chiu{% endext %}</figcaption>
+        </figure>
+        <p>The Odin Project is free, open-sourced (based on the input of hundreds of independent contributors), and has a sterling reputation. It is a great introduction to HTML, CSS and JavaScript (along with version control, which is an essential part of a coding workflow, via {% ext "https://git-scm.com/" %}git{% endext %}).</p>
+        <p class="callout alert">I strongly recommend learning <em>something</em> about these "web fundamentals" <strong>before</strong> you start any formal (i.e. paid) learning, be it a college program, a bootcamp, or a paid course. You will get a lot more value if you are not starting with nothing. A lot of free resources available for these fundamentals are really, really good!</p>
+    {% endslide %}
+{% endsection %}
+{% section %}
+    {% slide %}
+    <h3>Other great places to learn stuff</h3>
+    <p>There are <em>lots</em> of great places to start learning for free. If the Odin Project isn't your style, or you want to supplement your learning, or you want to learn something it doesn't cover, there's a ton more stuff out there!</p>
+    <h4>Fundamentals - HTML, CSS, JavaScript (and more!)</h4>
+    <div class="callout d-box">
+        <div class="d-box__title">{% ext "https://www.freecodecamp.org/" %}freeCodeCamp{% endext %}</div>
+        <hr>
+        <p>→ freeCodeCamp is a non-profit that, if you complete their certifications, connects students with non-profit organizations to do real (good) work, helping people and building a résumé at the same time. They offer courses in the fundamentals, plus all kinds of other fun stuff like Quality Assurance, the Python language, Information Security and Machine Learning. Really great stuff!</p>
+    </div>
+    <div class="callout d-box">
+        <div class="d-box__title">The {% ext "https://developer.mozilla.org/en-US/docs/Learn" %}Mozilla Developer's Network{% endext %}</div>
+        <hr>
+        <p>→ MDN is the absolute best source of documentation on the languages that power the web, and their learning program is great, too! While the tone and formatting might feel vaguely intimidating to some, most people who work on the web will find themselves reading MDN resources regularly (so you might as well get used to it 😉).</p>
+    </div>
+    <h4>Python</h4>
+    <p>Python is the {% ext "https://insights.stackoverflow.com/survey/2021#section-most-popular-technologies-programming-scripting-and-markup-languages" %}5<sup>th</sup> most popular language{% endext %} among professional developers, behind only HTML, CSS, JavaScript and the database language SQL. It's tremendously popular for being easy to learn, and is used for AI and Machine Learning, Data Analysis, and to run the back end of websites. While JavaScript can famously do all the things (working on the server, interacting with your database, and creating interactivity on your website), many people find Python a better place to start when it comes to serious programming.</p>
+    <div class="callout d-box">
+        <div class="d-box__title">{% ext "https://automatetheboringstuff.com/" %}Automate the Boring Stuff with Python{% endext %}</div>
+        <hr>
+        <p>→ One of the most fun things you can do with code is to <span data-annotate>make your own life easier</span>. This book, the entirety of which is <span data-annotate data-ann-type="underline">free to read online</span>, teaches you to create automations that can send emails and texts, create and populate spreadsheets, fetch information from websites, and lots more! It assumes you are an absolute beginner, and takes you through some fundamental computer programming concepts, while giving you practical examples of how you might be able to save yourself hours of boring grunt-work at the computer.</p>
+    </div>
+    <div class="callout d-box">
+        <div class="d-box__title">{% ext "http://introtopython.org/" %}Intro to Python{% endext %}</div>
+        <hr>
+        <p>→ Pretty dry, but highly recommended by {% ext "https://old.reddit.com/r/learnpython/wiki/index" %}r/learnpython{% endext %}, particularly for people who have never touched a line of code before in their lives.</p>
+    </div>
+    <h4>{{"Free College Courses on Computer Programming" | allGas | safe}}</h4>
+    <p>An absolutely shocking number of colleges and universities, particularly computer science heavyweights, have been putting their <span data-annotate data-ann-type="underline">course materials and textbooks online <em>for free</em></span> lately, at least as far as their "intro" courses go. I'll link to a few examples here, but definitely check out {% ext "https://collegecompendium.org/" %}College Compendium{% endext %}, which maintains a searchable catalogue of free, publicly available computer science college resources.</p>
+    <div class="callout d-box">
+        <div class="d-box__title">{% ext "https://pll.harvard.edu/course/cs50-introduction-computer-science?delta=0" %}CS50: Introduction to Computer Science{% endext %}</div>
+        <hr>
+        <p>→ Probably the most famous free university course on the internet. Get an introduction to computer science, and languages including C, PHP, JavaScript, SQL, CSS, and HTML. <em>"Where'd you learn how to code?"</em>  Oh, yah know... <strong>Harvard.</strong></p>
+    </div>
+    <div class="callout d-box">
+        <div class="d-box__title">{% ext "https://see.stanford.edu/Course/CS106A" %}CS106A - Programming Methodology{% endext %}</div>
+        <hr>
+        <p>→ Want to get introduced to computer science by a former Senior Research Scientist at Google, while learning the language that powers Android? Or are left-coast vibes just more your speed? Learn programming methods and concepts that will go with you, whatever your language of choice, by taking this free course from <strong>Stanford University</strong>.</p>
+    </div>
+    <div class="callout d-box">
+        <div class="d-box__title">{% ext "https://ocw.mit.edu/courses/res-6-013-ai-101-fall-2021/" %}AI 101{% endext %}</div>
+        <hr>
+        <p>→ Want to train a machine learning algorithm, but you don't even know how that's a thing? Get a free introduction to Artificial Intelligence from <strong><abbr title="Michigan Institute of Technology">MIT</abbr></strong>!</p>
+    </div>
+    <div class="callout d-box">
+        <div class="d-box__title">{% ext "https://cybersecuritybase.mooc.fi/" %}Cyber Security Base 2022{% endext %}</div>
+        <p>→ I watched {% ext "https://en.wikipedia.org/wiki/Hackers_(film)" %}Hackers{% endext %} at a very impressionable age, so it might just be me, but this introduction to cybersecurity from the <strong>University of Helsinki</strong> seems deeply cool. Their Department of Computer Science has a ton of {% ext "https://www.mooc.fi/en/" %}other free courses{% endext %} to choose from as well!</p>
+    </div>
+    <h4>Shout out to librarians</h4>
+    <div class="callout d-box">
+        <div class="d-box__title">Your {% ext "https://www.torontopubliclibrary.ca/search.jsp?N=4288098632+4288175358" %}Local Library{% endext %}</div>
+        <hr>
+        <p>→ I am a <span data-annotate data-ann-color="var(--emphasis)">massive fan of public libraries</span>, and they're not just for books! (That being said, physical books are a {% ext "https://insights.stackoverflow.com/survey/2021#section-experience-learning-how-to-code" %}phenomenally popular learning resource{% endext %} among professional developers - so check 'em out!) I'm very fortunate to live in a city with a phenomenal library system, where they have free classes on, among many other things, Python, Blender (for 3D modelling), Arduino (for "Internet of Things" devices), and plenty more, for both adults and kids! Want to learn how to code? <span data-annotate>Ask your friendly neighbourhood librarian.</span></p>
+    </div>
+    <h4>Paid Resources I Recommend</h4>
+    <p>Because of the wealth of free, open sources for learning fundamentals, I'm hesitant to recommend any paid resources for introductory materials. That being said, there are two creators I'd like to call out, because they create resources that are...</p>
+    <ul>
+        <li>incredibly fun, creative and approachable,</li>
+        <li>meticulous, and</li>
+        <li>offer a mix of free and paid content.</li>
+    </ul>
+    <p>I'm <strong>not</strong> recommending them because they're both Canadian. (But do I enjoy that fact? Yes, yes I do.)</p>
+    <div class="callout d-box">
+        <div class="d-box__title">{% ext "https://jvns.ca/" %}Julia Evans{% endext %}</div>
+        <p>→ Julia Evans has an incredible talent for making the most arcane parts of internet infrastructure <span data-annotate>somehow actually fun</span>. She creates {% ext "https://jvns.ca/projects/" %}interactive web projects{% endext %} and {% ext "https://jvns.ca/" %}compelling blog posts{% endext %}, and also inexpensive {% ext "https://wizardzines.com/" %}illustrated 'zines{% endext %} on topics including CSS, git and SQL. She is legitimately my hero.</p>
+    </div>
+    <div class="callout d-box">
+        <div class="d-box__title">{% ext "https://wesbos.com/" %}Wes Bos{% endext %}</div>
+        <p>→ Wes Bos is the host of the very popular web dev podcast <span class="no-breaks">{% ext "https://syntax.fm/" %}Syntax{% endext %},</span> and offers a mix of {% ext "https://wesbos.com/courses" %}free and paid courses{% endext %} which a lot of folks I know absolutely adore. His focus is on JavaScript and JavaScript frameworks, and his {% ext "https://wesbos.com/javascript" %}notes on beginner JavaScript{% endext %} are a terrific free resource.</p>
+    </div>
     {% endslide %}
 {% endsection %}
 {% separator "chevrons" %}
@@ -165,7 +267,55 @@
     {% slide %}
         <img src="/images/camp.svg" alt="Camping" height="306" width="406" class="body-icon body-icon--x-large">
         <h2>{% if toc[2].smallTitle %}<div class="small-title">{{toc[2].smallTitle}}:</div>{% endif %}{{ toc[2].title | allGas | safe }}</h2>
-        {# https://old.reddit.com/r/codingbootcamp/comments/su88n1/are_coding_bootcamps_still_worth_it_in_2022/ #}
+        <p><span data-annotate data-ann-color="var(--alert)">Learning by yourself is hard.</span> It takes a ton of discipline, and if something doesn't work, it can be really frustrating to figure out <em>what went wrong</em>.</p>
+        <p>On the other hand, a program at a traditional college or university is a big commitment. You're probably going to have to quit your job, and just be a student for a year (or several). If you have a specific job title in mind, some of the topics that get covered might not feel relevant to your goals.</p>
+        <p>If only there was somewhere you could go to learn exactly what the job postings are asking for, in less time than a traditional institution.</p>
+        <p>Guess what? That's exactly what coding bootcamps (promise to) do!</p>
+        <p>Which brings us to a contentious question: <span data-annotate>do bootcamps deliver?</span></p>
+        <p>I feel confident in saying that this question, over which so much digital ink has been spilled, has a boring answer: <span data-annotate data-ann-color="var(--emphasis)">some do, for some people.</span></p>
+        <h3>Before you Bootcamp</h3>
+        <p>I can strongly recommend, before you even consider bootcamps, <span data-annotate data-ann-type="underline">invest several weeks' worth of free time in teaching yourself the basics</span>. As mentioned earlier, there are a lot of great free resources to get you started. That way you'll know if you can <span data-annotate data-ann-type="underline">learn to love the work</span>. It would suck if you put down thousands of dollars only to quickly discover that you hate everything about the job. And if you <em>do</em> end up pursuing a bootcamp (or any other paid program), you'll get more value out of it than if you are scrambling to figure out the basics.</p> 
+        <h3>Return on (a significant) investment</h3>
+        <p>We've already established that you'll never learn everything you need to know from a single source, so the question is not "do bootcamps teach you everything?", but rather "do bootcamps make you money?". Full-time bootcamps cost, on average, {% ext "https://globalnews.ca/news/4811078/coding-bootcamp-canada/#:~:text=Full%2Dtime%20programs%20cost%20around%20%2412%2C000%2C%20according%20to%20data%20viewed%20by%20Global%20News%2C%20while%20prices%20for%20part%2Dtime%20classes%20range%20from%20a%20few%20hundred%20to%20a%20few%20thousand%20dollars." %}about $12,000 in Canada{% endext %}, promising that you'll increase your salary by a significant amount, thus justifying the expense.</p>
+        <p>It's at this point that it's important we talk about a big caveat:</p>
+        <div class="callout alert">
+            <h4>Accurate numbers about coding bootcamps are hard to come by</h4>
+            <p>Bootcamps, with few exceptions, are unaccredited and operate with little to no oversight. Nearly all don't qualify you for student loans. Some are "partnered" with traditional institutions, while others are entirely independent, without even the reputation of a larger institution to back them up.</p>
+            <p>This has lead to a reputation for {% ext "https://nymag.com/intelligencer/2020/02/lambda-schools-job-placement-rate-is-lower-than-claimed.html" %}bogus{% endext %} {% ext "https://twitter.com/fulligin/status/1452658647994015748?s=20&t=f9GbrnhHhQmZWQU9ljVmQw" %}claims{% endext %} and {% ext "https://twitter.com/lzsthw/status/1212284566431576069" %}shady business practices{% endext %}. (Seriously, if you are thinking of attending a bootcamp, actively seek out anti-bootcamp opinions and consider them.)</p>
+            <p><span data-annotate>Reliable hard data about outcomes for bootcamp attendees simply does not exist for the industry as a whole.</span></p>
+            <p>Additionally, when researching a bootcamp, take anything you read with a grain of salt. Remember that the internet is the main marketing channel for these organizations, and expect them to be very good at optimizing search results. Their value proposition could be (somewhat cynically) described as optimizing résumés to get the desired results from the {% ext "https://careers.workopolis.com/advice/beat-automated-resume-screening/#:~:text=More%C2%A0than%2060%25%20of%20companies%20use%20some%20sort%20of%20automated%20screening%20(you%20might%20have%20heard%20of%20this%20referred%20to%20as%20an%20applicant%20tracking%20system)%20to%20streamline%20their%20hiring%20process" %}disturbingly popular{% endext %} automated "resume parsers" (a.k.a. <abbr title="Applicant Tracking System">ATS</abbr>'s). So naturally, these businesses would take SEO seriously (and be good at it, too).</p>
+            <p>Also - just between you and me - a lot of the comments I read on reddit or hacker news that endorse the bootcamp experience can read a little... fishy. At very least, personal anecdotes of success are just that: anecdotes.</p>
+        </div>
+        <p>Bootcamps will promise the moon, but with so many to choose from, so little oversight, and not being sure what to trust when you Google them, how can you choose?</p>
+        <p>For that, I'm going to steal some of {% ext "https://www.forbes.com/sites/aswinpranam/2020/02/22/the-case-against-ai-ux-and-coding-bootcamps/?sh=4fb1894e4bad" %}Forbes' advice{% endext %}:</p>
+        <blockquote>
+            <ul>
+                <li>Perform a LinkedIn search of previous students and inquire about their experience in the program. </li>
+                <li>[E]xplore available scholarships (including those) for underrepresented communities. </li>
+                <li>Understand the bootcamp learning plan (e.g., projects-only, formal curriculum, apprenticeship).</li>
+                <li>Ensure that bootcamps that use ISAs (income share agreements) have a capped maximum so overpayment risk is avoided.</li>
+                <li>Investigate the financial health of the bootcamp to prevent unexpected closures or resource cuts. </li>
+                <li>Talk to HR managers at target companies and ask for their candid opinions about bootcamp hires. </li>
+            </ul>
+        </blockquote>
+        <p>Follow these tips to compare the promises of the bootcamp to see if:</p>
+        <ul>
+            <li>You can save some money.</li>
+            <li>The learning plans aligns with your goals. (Aren't you glad you learned a bit on your own so you can understand some of the jargon?)</li>
+            <li>You can avoid sketchy financing/lending practices. (If you aren't sure what an "Income Sharing Agreement" (ISA) is, or even if you think you are, {% ext "https://www.warren.senate.gov/oversight/letters/senator-warren-reps-pressley-and-porter-investigate-reports-that-education-department-seeks-to-develop-income-share-agreements-in-risky-new-student-debt-experiments" %}be wary of them{% endext %}).</li>
+            <li>You can see if attending a bootcamp isn't actually shooting yourself in the foot.</li>
+        </ul>
+        <h4>Some hiring managers hate bootcamps</h4>
+        <p>To that last point, be warned that there are people in hiring positions who have stopped hiring recent bootcamp grads altogether.</p>
+        <blockquote>
+            <p>{% ext "https://news.ycombinator.com/item?id=22301802" %}"Of 20 people I've interviewed who completed a coding bootcamp without prior CS education in the past year or so, I think 1 passed the phone screen. At this point I outright reject them because of the futility."{% endext %}</p>
+            <hr>
+            <p>"{% ext "https://news.ycombinator.com/item?id=31695850#:~:text=For%20everyone%20reading,the%20underlying%20concepts." %}For everyone reading, being on the hiring side I would advise against bootcamps. We pretty much stopped recruiting from those because the signal to noise ratio was just too low. It seems a lot of bootcamps teach with rote, rather than by looking at the underlying concepts.{% endext %}"</p>
+            <hr>
+            <p>{% ext "https://news.ycombinator.com/item?id=22303319" %}"I am not going to hire anybody from a ...coding bootcamp. Seems like they turn out people who know how to hack things together based on shallow knowledge."{% endext %}</p>
+        </blockquote>
+        <p>Keep in mind, this is a sampling of some comments from discussions on Hacker News, but bootcamps may try to sell you on the idea that they are producing graduates that are seen as somehow "elite". Not everyone shares this view.</p>
+        <p>If you think a coding bootcamp might be for you, go into it with clear eyes. Understand that <span data-annotate>not all bootcamps are created equal</span>, that you'll need to <span data-annotate>verify their claims</span> for yourself, and that successfully completing one is <span data-annotate>not a golden ticket.</span></p>
     {% endslide %}
 {% endsection %}
 {% separator "waves" %}
@@ -173,6 +323,16 @@
     {% slide %}
         <img src="/images/graduation.svg" alt="Graduation" height="306" width="406" class="body-icon body-icon--x-large body-icon--alert-bg">
         <h2>{% if toc[3].smallTitle %}<div class="small-title">{{toc[3].smallTitle}}:</div>{% endif %}{{ toc[3].title | safe }}</h2>
+        <p>Okay, so maybe you're someone who wants a more immersive experience than a bootcamp, and you'd feel better about giving thousands of dollars to an institution with more oversight.</p>
+        <p><span data-annotate data-ann-color="var(--emphasis)">🎓 Welcome to college! 🎓</span></p>
+        <div class="callout warning">Time for some <span data-annotate data-ann-color="var(--alert)">disclosure:</span> I started my coding career by taking a 12-month post-graduate college course in Web Development at Humber College, and, seven years later, I started teaching classes there, too, as a part-time instructor. As of this writing, I still do.</div>
+        <p>I think it's a pretty common knowledge that you should research a college or university, as well as the particular program you're applying to, before you try to get in, so I won't belabour that point. I'm also, as noted, not in a position to give you unbiased advice about learning to code at college.</p>
+        <p>I will simply say that it was a somewhat miserable experience that I don't regret at all.</p>
+        <p>One distinction I do want to make is the difference between learning about Computer Science ('CS' or 'CompSci'), and learning to be a coder.</p>
+        <h4>Computer science vs. web development</h4>
+        <p>Essentially this is the difference between learning to be a biologist and learning to be a farmer. <span data-annotate data-ann-color="var(--emphasis)">Both are super interesting!</span> Being a certified biologist means (at least) a four-year degree, and focusses on theory. And while you definitely go to school to learn how to farm (shout out to the {% ext "https://www.uoguelph.ca/oac/" %}aggies{% endext %}), it's a set of practical skills that requires a lot of hands-on learning.</p>
+        <p>If you want a career in web development, a computer science degree can help, but it's not required, and the focus on abstract concepts might come at the expense of time you could've spent on the practical skills that will become your stock-in-trade.</p>
+        <p>It seems that {% ext "https://www.ontariocolleges.ca/en/programs/computers-and-telecommunications/web-design-development?q=development&page=0&by%5BProgramLengthGroupEnglish%5D%5B0%5D=Two%20years&by%5BProgramLengthGroupEnglish%5D%5B1%5D=One%20year%20or%20less" %}basically all{% endext %} colleges where I am (Ontario, Canada) offer a one- or two-year program in web development. Contact your local college and see if they can sell you on it!</p>
     {% endslide %}
 {% endsection %}
 {% separator "dots" %}
@@ -180,14 +340,12 @@
     {% slide %}
         <img src="/images/checklist.svg" alt="Checking boxes" height="306" width="406" class="body-icon body-icon--x-large">
         <h2>{% if toc[4].smallTitle %}<div class="small-title">{{toc[4].smallTitle}}:</div>{% endif %}{{ toc[4].title | allGas | safe }}</h2>
-        {# https://grow.google/certificates/ #}
-        {# https://news.ycombinator.com/item?id=27579431 #}
-        {# https://news.ycombinator.com/item?id=27494450 #}
-        {# 
-            Further reading
-            - https://redmonk.com/kholterhoff/2022/04/21/how-the-covid-19-pandemic-changed-developer-certifications/
-            - https://www.accessibilityassociation.org/s/wascertification
-        #}
+        <p>A lot of big organizations offer certifications on their proprietary technologies. Could these certifications be a shortcut to a better job?</p>
+        <p>I'm gonna say: <span data-annotate>not if you're just starting out.</span> Even once you're strong in the fundamentals, some certifications are much more highly regarded than others. As a rule of thumb, based on my conversations with people in hiring positions, certifications for basic competencies aren't well-regarded. The tests can usually be passed with basic memorization, and don't impress nearly as much as <span data-annotate data-ann-color="var(--emphasis)">actually doing stuff.</span> Basic skills in web development are pretty much entirely <span data-annotate data-ann-type="underline">things you can showcase by building stuff yourself.</span> Ideally you have professional experience, but if not, you can still try things out in a personal project, demonstrating a practical understanding, rather than simply being good with memorizing stuff off flash cards.</p>
+        <p>People <em>do</em> appreciate certifications for skills that are less practical as weekend projects, for example {% ext "https://aws.amazon.com/certification/certified-solutions-architect-professional/?ch=tile&tile=getstarted" %}Amazon Web Services' Professional certifications{% endext %}, {% ext "https://cloud.google.com/certification#why-get-google-cloud-certified:~:text=Cloud%20Engineer-,Professional%20certification,-Assess%20key%20technical" %}Google Cloud Professional certifications{% endext %}, and other certs for large-scale applications that are hard to replicate at home.</p>
+        <p><abbr title="Information Security">Infosec</abbr> tends to be more certification-driven than other web roles, because there tends to be more risk (and insurance) involved in those roles. Personally, I've been hoping to get certified as a {% ext "https://www.accessibilityassociation.org/s/wascertification" %}Web Accessibility Professional{% endext %}, to supplement my years of practical experience, but only because accessibility can be an issue of legal compliance, and having a professional organization sign off on me would help me breathe easier!</p>
+        <p>These professional and specialty certifications tend to be expensive, so my advice is to get a job where they aren't mandatory, and ask if they have a training budget. If they do, see if you can get certified without having to foot the (significant) bill yourself!</p>
+        <p>Long story short: beginner/general certifications are only as valuable as <span data-annotate>the learning you get from studying</span> for them.</p>
     {% endslide %}
 {% endsection %}
 {% separator "chevrons" %}
@@ -195,6 +353,37 @@
     {% slide %}
         <img src="/images/party.svg" alt="Party" height="306" width="406" class="body-icon body-icon--x-large">
         <h2>{% if toc[5].smallTitle %}<div class="small-title">{{toc[5].smallTitle}}:</div>{% endif %}{{ toc[5].title | allGas | safe }}</h2>
+        <blockquote>
+            I wouldn't go so far as to call a dog filthy, but it's definitely dirty. But, dogs got personality, personality goes a long way.
+            <footer><cite>- Jules Winnfield</cite></footer>
+        </blockquote>
+        <p>I can't stress this enough, as much as it pains me to say it: "it's not what you know, it's who you know".</p>
+        <p><span data-annotate data-ann-type="underline" data-ann-color="var(--alert)">People get jobs because people want to work with them.</span></p>
+        <p>Being someone that people want to work with will help you more than any training, credentials, or certification. It helps if you can prove that you can do the job. But it helps <em>more</em> if people like you.</p>
+        <p>Why is this painful to say? Because I like to think that my field can be a refuge for awkward people, for shy people, and, ideally, for people who have traditionally been discriminated against. You can't argue with good code.</p>
+        <div class="callout warning">
+            <h3>{{"That last sentence was a lie." | allGas | safe }}</h3>
+            <p>You definitely <em>can</em> argue with good code, and this was proven in a sample size of about 330,000 people.</p>
+            <p>For context, a "pull request" is something that happens when people collaborate on code. You write a chunk of code on your own, and then make a request that it be merged into the shared code.</p>
+            <p>{% ext "https://www.sciencedaily.com/releases/2017/05/170501094343.htm" %}Researchers looked at 3 million{% endext %}(!) pull requests, and found that...</p>
+            <ul>
+                <li>...women with gender-neutral profiles had the highest acceptance rate for their code (70%)</li>
+                <li>...women with profiles where their gender was identifiable had the lowest acceptance rate for their code (58%)</li>
+                <li>...men with gender-neutral profiles had an acceptance rate of 65%, and men with gender-identifiable profiles had an acceptance rate of 61%.</li>
+            </ul>
+            <p>I'm not sure exactly why <em>all</em> gender-identifiable profiles had a lower acceptance rate, but the magnitude of the difference in the gap for men and the gap for women definitely indicates a widespread bias.</p>
+        </div>
+        <p>Okay, so coding definitely isn't the safe space I wish it was. It's still {% ext "https://insights.stackoverflow.com/survey/2021/#developer-profile-demographics" %}dominated by able-bodied, neurotypical, cis-het white men{% endext %}, at least in the surveys I looked at (from StackOverflow and {% ext "https://2021.stateofcss.com/en-US/demographics" %}StateOfCss.com{% endext %}. I live in a very diverse city, so this doesn't necessarily track with my experience, but it's hard to argue with those numbers.</p>
+{#         
+        Remote soft skills?
+        Over promise and underdeliver
+        Imposter syndrome and "I don't know about that, tell me more"
+        Relax and be interested
+        https://news.ycombinator.com/item?id=9987495
+        https://medium.com/@nina.semczuk/5-takeaways-from-the-charisma-myth-by-olivia-fox-cabane-2145d1c65c05
+        https://ecorner.stanford.edu/videos/build-your-personal-charisma-entire-talk/
+        https://www.mishaglouberman.com/negotiation
+        Cultural context / when is laughter appropriate #}
     {% endslide %}
 {% endsection %}
 {% separator "waves" %}
@@ -214,37 +403,20 @@
 {% separator "chevrons" %}
 {% section toc[8].href %}
     {% slide %}
-        <img src="/images/scrum.svg" alt="Informal meeting" height="306" width="406" class="body-icon body-icon--x-large">
+        <img src="/images/tech-interview.svg" alt="A technical interview" height="306" width="406" class="body-icon body-icon--x-large">
         <h2>{% if toc[8].smallTitle %}<div class="small-title">{{toc[8].smallTitle}}:</div>{% endif %}{{ toc[8].title | allGas | safe }}</h2>
-        {# I wouldn't go so far as to call a dog filthy, but it's definitely dirty. But, dogs got personality, personality goes a long way. - Jules Winnfield #}
-        {# Remote soft skills? #}
-        {# Over promise and underdeliver #}
-        {# Imposter syndrome and "I don't know about that, tell me more" #}
-        {# Relax and be interested #}
-        {# https://news.ycombinator.com/item?id=9987495 #}
-        {# https://medium.com/@nina.semczuk/5-takeaways-from-the-charisma-myth-by-olivia-fox-cabane-2145d1c65c05 #}
-        {# https://ecorner.stanford.edu/videos/build-your-personal-charisma-entire-talk/ #}
-        {# https://www.mishaglouberman.com/negotiation #}
-        {# Cultural context / when is laughter appropriate #}
+        {# You will always be Googling #}
     {% endslide %}
 {% endsection %}
 {% separator "waves" %}
 {% section toc[9].href %}
     {% slide %}
-        <img src="/images/tech-interview.svg" alt="A technical interview" height="306" width="406" class="body-icon body-icon--x-large">
-        <h2>{% if toc[9].smallTitle %}<div class="small-title">{{toc[9].smallTitle}}:</div>{% endif %}{{ toc[9].title | allGas | safe }}</h2>
-        {# You will always be Googling #}
-    {% endslide %}
-{% endsection %}
-{% separator "dots" %}
-{% section toc[10].href %}
-    {% slide %}
         <img src="/images/interview.svg" alt="Job interview" height="306" width="406" class="body-icon body-icon--x-large">
-        <h2>{% if toc[10].smallTitle %}<div class="small-title">{{toc[10].smallTitle}}:</div>{% endif %}{{ toc[10].title | allGas | safe }}</h2>
+        <h2>{% if toc[9].smallTitle %}<div class="small-title">{{toc[9].smallTitle}}:</div>{% endif %}{{ toc[9].title | allGas | safe }}</h2>
         {# The shorter the term, the more important it is for _you_ to make sure you're the right fit. #}
     {% endslide %}
 {% endsection %}
-{% separator "chevrons" %}
+{% separator "dots" %}
 <section class="tldr" id="tldr">
     <div class="row">
     <h2>{{"Too long, didn't read" | allGas | safe}}</h2>

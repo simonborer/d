@@ -278,9 +278,11 @@ details[open] summary {
 blockquote {
   border-left: 0.25em solid;
   font-size: 0.9em;
-  font-style: italic;
   background: var(--background--offset);
   padding: 1rem;
+}
+blockquote cite {
+  font-style: italic;
 }
 
 hr {
@@ -290,6 +292,11 @@ hr {
   border-width: 0.125em;
   margin: 4em 0;
   border-radius: 1em;
+}
+
+blockquote hr {
+  margin: 1em 0;
+  border-width: 0.0625rem;
 }
 
 code:not([class*=language-]) {
@@ -303,6 +310,11 @@ code:not([class*=language-]) {
 
 iframe {
   max-width: 100%;
+}
+
+figure picture {
+  display: flex;
+  justify-content: center;
 }
 
 figcaption {
@@ -1450,7 +1462,7 @@ blockquote footer {
   margin-top: 0;
 }
 .body-icon--x-large {
-  width: 50%;
+  width: 90%;
 }
 .body-icon--alert-bg {
   background: var(--alert);
@@ -1458,6 +1470,11 @@ blockquote footer {
   border-radius: 2rem;
 }
 
+@media (min-width: 599px) {
+  .body-icon--x-large {
+    width: 50%;
+  }
+}
 .section-separator {
   margin-top: 8rem;
 }
@@ -1521,9 +1538,16 @@ blockquote footer {
 }
 .callout {
   padding: 1em;
+  margin: 1em 0;
   background: var(--background--offset);
   border-radius: 0.25em;
   font-size: 0.9em;
+}
+.callout h3 {
+  margin-top: 0;
+}
+.callout h4 {
+  margin-top: 0;
 }
 .callout p:last-child {
   margin-bottom: 0;
@@ -1532,13 +1556,31 @@ blockquote footer {
   background: var(--emphasis);
   color: #fff9eb;
 }
+.callout.emphasis strong {
+  color: var(--background--offset);
+}
 .callout.warning {
   background: var(--warning);
   color: #2a2222;
 }
+.callout.warning strong {
+  color: var(--background--offset);
+}
 .callout.alert {
   background: var(--alert);
   color: #2a2222;
+}
+.callout.alert strong {
+  color: var(--background--offset);
+}
+.callout.d-box .d-box__title {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+.callout.d-box hr {
+  margin: 1em 0;
+  background: var(--warning);
+  border-color: var(--warning);
 }
 
 .flex {
@@ -1575,6 +1617,10 @@ blockquote footer {
 article picture:hover {
   transition: transform 1s;
   transform: scale(1.25);
+}
+
+.no-breaks {
+  white-space: pre;
 }
 
 /*# sourceMappingURL=style.css.map */

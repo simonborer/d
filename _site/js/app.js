@@ -8,7 +8,7 @@ const animDefaults = {
     type: `highlight`,
     color: `var(--warning)`,
     strokeWidth: 2,
-    padding: 10
+    padding: 12
 };
 
 annElem.forEach((e) => {
