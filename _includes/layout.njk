@@ -313,11 +313,16 @@
               <a 
                 href="{{ post.url }}" 
                 class="card-list__link">
-                
+                {% if post.data.featured %}<div class="card-list__banner">🍿 Featured Post 🍿</div>{% endif %}
+                {% if post.data.pinned %}<div class="card-list__banner">📌 Pinned Post 📌</div>{% endif %}
                 <div class="card-list__feature">
               {# wtf, this was real weird - didn't work as an if else #}
               {% if regExp.test(post.data.feature.src) %}
-                {% image "images/" + post.data.feature.src, post.data.feature.alt, "(min-width: 30em) 300px, 100vw", post.data.feature.title, "eager" %}
+                {% if post.data.featured %}
+                  {% image "images/" + post.data.feature.src, post.data.feature.alt, "(min-width: 30em) 600px, 100vw", post.data.feature.title, "eager" %}
+                {% else %}
+                  {% image "images/" + post.data.feature.src, post.data.feature.alt, "(min-width: 30em) 300px, 100vw", post.data.feature.title, "eager" %}
+                {% endif %}
               {% endif %}
               {% if svgRegExp.test(post.data.feature.src) %}
                 <img alt="{{post.data.feature.alt}}" class="card-list__image{% if post.data.feature.needsPadding %} card-list__image--padded{% endif %}" src="/images/{{ post.data.feature.src }}" height="{{ post.data.feature.height }}" width="{{ post.data.feature.width }}">

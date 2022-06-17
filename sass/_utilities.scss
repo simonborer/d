@@ -189,27 +189,41 @@
     & h4 {
         margin-top: 0;
     }
+    & h5 {
+        margin-top: 0;
+        margin-bottom: 0;
+        font-size: 1.25em;
+    }
     & p:last-child {
         margin-bottom: 0;
     }
     &.emphasis {
         background: var(--emphasis);
         color: var.$background;
-        & strong {
+        & figcaption {
+            color: var(--foreground);
+        }
+        & a strong {
             color: var(--background--offset);
         }
     }
     &.warning {
         background: var(--warning);
         color: var.$foreground;
-        & strong {
+        & figcaption {
+            color: var(--foreground);
+        }
+        & a strong {
             color: var(--background--offset);
         }
     }
     &.alert {
         background: var(--alert);
         color: var.$foreground;
-        & strong {
+        & figcaption {
+            color: var(--foreground);
+        }
+        & a strong {
             color: var(--background--offset);
         }
     }

@@ -24,6 +24,13 @@
     display: flex;
     flex-wrap: wrap;
 
+    &__banner {
+        background: var(--null-1);
+        font-size: 1.1em;
+        padding: 0.5em 1em;
+        text-align: center;
+    }
+
     &__item {
         list-style: none;
         max-width: 40ch;
@@ -35,6 +42,7 @@
         height: 100%;
         text-decoration: none;
     }
+
     &__pin {
         position: absolute;
         top: 0.5rem;
@@ -42,12 +50,12 @@
         height: 1.5rem;
         width: 1.5rem;
     }
+
     &__text {
         position: relative;
     }
-    &__tag {
 
-    }
+    &__tag {}
 }
 
 // Theme
@@ -55,11 +63,14 @@
     border-bottom: 0.125rem solid var(--background--offset);
     border-right: 0.125rem solid var(--background--offset);
     width: 100%;
+
     &__svg {
         display: none;
+
         .active & {
             display: flex;
         }
+
         .active [data-filter-option="1"] & {
             & path {
                 fill: var(--background);
@@ -73,6 +84,7 @@
             display: flex;
             padding: .5rem 1rem;
             width: 100%;
+
             & svg {
                 margin-right: .5rem;
             }
@@ -87,6 +99,7 @@
 @media (min-width: var.$breakpoint) {
     .filter-strip {
         margin-top: -1px;
+
         &:after {
             $border-width: .0625rem;
             $height: 1.25rem;
@@ -101,13 +114,16 @@
             right: calc(-#{$width} + #{$border-width});
         }
     }
+
     .filter-strip__wrapper {
         position: absolute;
     }
 }
 
 @media (min-width: 1279px) {
-    .filter-strip {width: auto;}
+    .filter-strip {
+        width: auto;
+    }
 }
 
 $card-list-border-color: var(--foreground--offset);
@@ -118,58 +134,70 @@ $card-list-border-color: var(--foreground--offset);
     padding-left: 0;
     gap: 3rem;
     justify-content: center;
+
     &__item {
         transition: .2s all;
         border-top: .25rem solid $card-list-border-color;
         box-shadow: 0 0 0.25rem rgb(0 0 0 / 25%);
         backdrop-filter: brightness(1.75) hue-rotate(-20deg);
         overflow: hidden;
+
         &:hover {
             transform: translate(0, -.125rem);
             box-shadow: 0px .125rem 6px 1px rgb(0 0 0 / 25%);
         }
     }
+
     &__feature {
         display: flex;
         justify-content: center;
         align-items: flex-start;
         min-height: 12rem;
         min-width: 12rem;
+        max-height: 18rem;
+        overflow: hidden;
 
         & lite-youtube {
             flex-basis: 100%;
         }
+
         & picture {
             height: 100%;
             overflow: hidden;
             display: flex;
             justify-content: flex-end;
         }
+
         & img {
             height: 100%;
             margin: 0 auto;
             max-width: max-content;
             flex: 0 0 auto;
         }
+
         @for $i from 1 through 3 {
             [data-learning-level="#{$i}"] & {
                 background-color: nth(var.$learning-level-colours, $i);
             }
         }
     }
+
     &__image {
         &--padded {
             padding: 1rem;
         }
     }
+
     &__text {
         // padding: 1.5rem;
         border-top: .25rem solid $card-list-border-color;
         border-bottom: .25rem solid $card-list-border-color;
     }
+
     &__pin {
         fill: var(--foreground);
     }
+
     &__title {
         font-size: 1.5em;
         line-height: calc(1em + .4rem);
@@ -179,6 +207,7 @@ $card-list-border-color: var(--foreground--offset);
         padding-left: 1rem;
         padding-right: 2rem;
     }
+
     &__tag {
         margin-top: auto;
         background: var(--foreground--offset);
@@ -188,19 +217,17 @@ $card-list-border-color: var(--foreground--offset);
         font-size: small;
         // margin-top: 1rem;
     }
+
     &__summary {
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 6;
-        text-overflow: ellipsis;
-        overflow: hidden;
         padding-left: 1rem;
         padding-bottom: 1rem;
         padding-right: 2rem;
     }
+
     &__hatching-svg {
         position: absolute;
     }
+
     &__cta {
         align-self: flex-end;
         width: 100%;
@@ -208,16 +235,18 @@ $card-list-border-color: var(--foreground--offset);
         text-align: right;
         padding-top: .5rem;
         flex-grow: 1;
+
         @for $i from 1 through 3 {
             [data-learning-level="#{$i}"] & {
                 background-color: nth(var.$learning-level-colours, $i);
             }
         }
+
         &-text {
             border-top-left-radius: .5rem;
             background: $card-list-border-color;
             display: inline-block;
-            padding: 0.5rem 1rem ;
+            padding: 0.5rem 1rem;
             color: var(--background);
         }
     }
@@ -229,45 +258,62 @@ $card-list-border-color: var(--foreground--offset);
         padding-left: 2rem;
         padding-right: 2rem;
         gap: 1rem;
+
         &__item {
             height: fit-content;
         }
+
         &__text {
             // padding-left: 2rem;
             // padding-right: 2rem;
             border-bottom: 0 solid transparent;
         }
+
         &__feature {
             border-bottom: .25rem solid var(--foreground--offset);
         }
+
         &__summary {
             padding-left: 1rem;
             padding-right: 2rem;
             padding-bottom: 1rem;
         }
+
         &__title {
             padding-top: 1rem;
             padding-left: 1rem;
             padding-right: 2rem;
             margin-bottom: .5rem;
         }
+
         &__tag {
             text-align: right;
             // margin-top: .5rem;
         }
     }
 }
+
 @media (min-width: 1279px) {
     .card-list {
         gap: 1rem;
+
+        &__feature {
+            max-height: fit-content;
+        }
+
         &__link {
             flex-direction: row;
+        }
+
+        &__banner {
+            display: none;
         }
 
         &__item {
             height: auto;
             max-width: 100%;
             width: clamp(40rem, 40vw, 64rem);
+
             &--featured {
                 flex-basis: clamp(81rem, calc(80vw + 1rem), 129rem);
                 font-size: 1.5rem;
@@ -275,6 +321,7 @@ $card-list-border-color: var(--foreground--offset);
                 padding-top: 1rem;
                 padding-bottom: 1rem;
                 margin-bottom: 1rem;
+
                 & .card-list__feature {
                     flex-basis: 40%;
                     max-width: fit-content;
@@ -282,51 +329,62 @@ $card-list-border-color: var(--foreground--offset);
                     border-left: .25rem solid var(--foreground--offset);
                     border-bottom: .25rem solid var(--foreground--offset);
                 }
+
                 & .card-list__link {
                     justify-content: center;
                 }
+
                 & .card-list__text {
                     border-top: .25rem solid var(--foreground--offset);
 
-            border-right: .25rem solid $card-list-border-color; 
+                    border-right: .25rem solid $card-list-border-color;
                 }
+
                 & .card-list__title {
                     padding-top: 2rem;
                     padding-left: 2rem;
                 }
+
                 & .card-list__summary {
                     padding-left: 2rem;
                 }
             }
         }
+
         &__feature {
             flex-basis: 25%;
+
             & lite-youtube {
                 background-size: auto auto;
             }
         }
+
         &__title {
             font-size: 2.5em;
             line-height: 1.1;
         }
+
         &__text {
             flex-basis: 40vw;
             border-top: 0 solid transparent;
-            border-left: .25rem solid $card-list-border-color; 
+            border-left: .25rem solid $card-list-border-color;
             max-width: 60ch;
             display: flex;
             flex-direction: column;
             justify-content: center;
         }
+
         &__cta {
             margin-top: 0;
             padding-top: 0;
             align-self: auto;
             margin-left: auto;
             flex-basis: calc(6.25% - .125rem);
+
             .card-list__item--featured & {
                 display: none;
             }
+
             &-text {
                 display: none;
             }
@@ -337,20 +395,26 @@ $card-list-border-color: var(--foreground--offset);
     @for $i from 1 through 3 {
         .card-list__item--featured[data-learning-level="#{$i}"] {
             background: nth(var.$learning-level-colours, $i);
-            @if nth(var.$learning-level-colours, $i) == "var(--warning)" or nth(var.$learning-level-colours, $i) == "var(--alert)" {
+
+            @if nth(var.$learning-level-colours, $i)=="var(--warning)"or nth(var.$learning-level-colours, $i)=="var(--alert)" {
                 & .card-list__text {
                     background: var(--background--offset);
                 }
-            } @else {
+            }
+
+            @else {
                 color: var.$background;
             }
-            @if nth(var.$learning-level-colours, $i) == "var(--warning)" {
+
+            @if nth(var.$learning-level-colours, $i)=="var(--warning)" {
                 & .card-list__feature {
                     border-color: var.$background;
                 }
+
                 & .card-list__text {
                     border-color: var.$background;
                 }
+
                 & .card-list__tag {
                     background-color: var.$background;
                 }
@@ -362,9 +426,12 @@ $card-list-border-color: var(--foreground--offset);
 @for $i from 1 through 3 {
     [data-filter-option="#{$i}"] {
         background: nth(var.$learning-level-colours, $i);
-        @if nth(var.$learning-level-colours, $i) == "var(--emphasis)" {
+
+        @if nth(var.$learning-level-colours, $i)=="var(--emphasis)" {
             color: var(--background);
-        } @else {
+        }
+
+        @else {
             color: var(--foreground);
         }
     }
@@ -373,20 +440,25 @@ $card-list-border-color: var(--foreground--offset);
 @media (prefers-color-scheme: dark) {
     @for $i from 1 through 3 {
         [data-filter-option="#{$i}"] {
-            @if nth(var.$learning-level-colours, $i) == "var(--warning)" or nth(var.$learning-level-colours, $i) == "var(--alert)" {
+            @if nth(var.$learning-level-colours, $i)=="var(--warning)"or nth(var.$learning-level-colours, $i)=="var(--alert)" {
                 color: var(--background);
-            } @else {
+            }
+
+            @else {
                 color: var(--foreground);
             }
         }
     }
+
     .filter-strip .active a {
         box-shadow: 0 0 .25rem var(--background) inset;
     }
+
     .filter-strip .active {
         & [data-filter-option="1"] path {
             fill: var(--warning);
         }
+
         & [data-filter-option="2"] path {
             fill: var(--background);
         }

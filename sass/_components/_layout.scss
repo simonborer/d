@@ -1,13 +1,14 @@
 @use '../variables.scss' as var;
-
 main {
-    padding-bottom: 20vh;
+    padding-bottom: 5vh;
 }
+
 footer {
     display: flex;
     position: relative;
     padding: 10vh 1rem 5vh;
     margin-top: 10vh;
+
     blockquote & {
         padding: 1rem 0 0;
         margin-top: 0;
@@ -15,6 +16,7 @@ footer {
         justify-content: flex-end;
     }
 }
+
 .footer-bg {
     position: absolute;
     z-index: -1;
@@ -22,14 +24,18 @@ footer {
     left: 0;
     height: 100%;
 }
+
 .copyright {
     display: flex;
     flex-grow: 1;
+
     &__info {
         background: var(--background);
     }
 }
-.row, .col {
+
+.row,
+.col {
     max-width: 50ch;
     margin: 0 auto;
 }
@@ -37,8 +43,10 @@ footer {
 .row.full-width {
     max-width: none;
 }
+
 .row {
     padding: 0 1rem;
+
     & .row {
         padding: 0;
     }

@@ -541,7 +541,7 @@ article strong a {
 }
 
 main {
-  padding-bottom: 20vh;
+  padding-bottom: 5vh;
 }
 
 footer {
@@ -573,7 +573,8 @@ blockquote footer {
   background: var(--background);
 }
 
-.row, .col {
+.row,
+.col {
   max-width: 50ch;
   margin: 0 auto;
 }
@@ -794,6 +795,12 @@ blockquote footer {
   display: flex;
   flex-wrap: wrap;
 }
+.card-list__banner {
+  background: var(--null-1);
+  font-size: 1.1em;
+  padding: 0.5em 1em;
+  text-align: center;
+}
 .card-list__item {
   list-style: none;
   max-width: 40ch;
@@ -890,6 +897,8 @@ blockquote footer {
   align-items: flex-start;
   min-height: 12rem;
   min-width: 12rem;
+  max-height: 18rem;
+  overflow: hidden;
 }
 .card-list__feature lite-youtube {
   flex-basis: 100%;
@@ -942,11 +951,6 @@ blockquote footer {
   font-size: small;
 }
 .card-list__summary {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 6;
-  text-overflow: ellipsis;
-  overflow: hidden;
   padding-left: 1rem;
   padding-bottom: 1rem;
   padding-right: 2rem;
@@ -1009,8 +1013,16 @@ blockquote footer {
   .card-list {
     gap: 1rem;
   }
+  .card-list__feature {
+    max-height: -webkit-fit-content;
+    max-height: -moz-fit-content;
+    max-height: fit-content;
+  }
   .card-list__link {
     flex-direction: row;
+  }
+  .card-list__banner {
+    display: none;
   }
   .card-list__item {
     height: auto;
@@ -1549,6 +1561,11 @@ blockquote footer {
 .callout h4 {
   margin-top: 0;
 }
+.callout h5 {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 1.25em;
+}
 .callout p:last-child {
   margin-bottom: 0;
 }
@@ -1556,21 +1573,30 @@ blockquote footer {
   background: var(--emphasis);
   color: #fff9eb;
 }
-.callout.emphasis strong {
+.callout.emphasis figcaption {
+  color: var(--foreground);
+}
+.callout.emphasis a strong {
   color: var(--background--offset);
 }
 .callout.warning {
   background: var(--warning);
   color: #2a2222;
 }
-.callout.warning strong {
+.callout.warning figcaption {
+  color: var(--foreground);
+}
+.callout.warning a strong {
   color: var(--background--offset);
 }
 .callout.alert {
   background: var(--alert);
   color: #2a2222;
 }
-.callout.alert strong {
+.callout.alert figcaption {
+  color: var(--foreground);
+}
+.callout.alert a strong {
   color: var(--background--offset);
 }
 .callout.d-box .d-box__title {
