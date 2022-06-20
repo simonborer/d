@@ -1,41 +1,57 @@
 ---js
 {
     "layout": process.env.LAYOUT,
-    "title": "Web Design No-Brainers",
+    "title": "6 Web Design No-Brainers",
     "feature": {
         "src": "dunce.jpeg",
         "alt": "Man wearing dunce cap",
         "title": "Image credit: https://commons.wikimedia.org/wiki/File:Dunce_hat.webp"
     },
     "readingTime": true,
-    "description": "How do you design for the web in the most basic, user-friendly way possible? Don't reinvent the wheel - follow these basic tips (backed by science!) and follow design conventions so you can focus on the things that matter.",
+    "description": "How do you design for the web in the most basic, user-friendly way possible? Don't reinvent the wheel - follow these basic tips (backed by science!), and 6 classic design conventions so you can focus on the things that matter. Don't know what to do? Do this!",
     "tags": ["Design", "conventions"],
     "tag": "🧰 Decent toolkit 🧰",
     "learningLevel": 2,
     "toc": [
         {
-            href: "design-conventions",
-            title: "Design Conventions"
+            href: "logo",
+            title: "Put the logo in the top left"
         },
         {
-            href: "no-brainers",
-            title: "Web Design No-Brainers"
-        }
+            href: "nav",
+            title: "Put the navigation prominently in the header"
+        },
+        {
+            href: "actions",
+            title: "Put important actions in the top right"
+        },
+        {
+            href: "grid",
+            title: "Stick to the grid"
+        },
+        {
+            href: "f-pattern",
+            title: "Prioritize content in highly-read areas"
+        },
+        {
+            href: "boring",
+            title: "Boring stuff goes in the footer"
+        },
     ]
 }
 ---
 
 {% import "macros.njk" as macro with context %}
 
-{% section toc[0].href %}
+{% section %}
     {% slide %}
-        <h2>{{ toc[0].title }}</h2>
+        <h2>Design Conventions</h2>
         <p>Sometimes the person tasked with the web design phase finds themselves without a proper style guide, appropriate existing layouts, or explicit layout requirements.</p>
         <p>Non-traditional, experimental design can be wonderful, exciting, and rewarding. However, you also have to contend with deadlines, client expectations, and users who just want to find out what time the library closes, goshdarnit.</p>
-        <p>It's at this point that a web designer asks - <strong>what is the normal thing to do?</strong></p>
+        <p>It's at this point that a web designer (or someone pretending to be a web designer) asks - <span data-annotate data-ann-color="var(--emphasis)">what is the normal thing to do?</span></p>
     {% endslide %}
     {% slide %}
-        <p>As a rule, users are best served by designs and layouts that are <strong>intuitive</strong> - meaning that they can easily recognize interactive elements, and where to find the information they're looking for.</p>
+        <p>As a rule, users are best served by designs and layouts that are <span data-annotate data-ann-type="underline">intuitive</span> - meaning that they can <span data-annotate data-ann-type="underline" data-ann-color="var(--warning)">easily recognize interactive elements</span>, and <span data-annotate data-ann-type="underline" data-ann-color="var(--warning)">where to find the information</span> they're looking for.</p>
     {% endslide %}
     {% slide %}
         <p>Most of these conventions are not just tried-and-true, they're based on a simple principle: <strong>people scan site content in a particular order</strong>.</p>
@@ -50,68 +66,77 @@
     {% endslide %}
 {% endsection %}
 {% separator "waves" %}
-{% section toc[1].href %}
-    {% slide %}
-        <h2>{{ toc[1].title }}</h2>
-    {% endslide %}
+{% section toc[0].href %}
     {% slide %}
         <ol>
-            <li><strong>Put the logo in the top left</strong>, and make it a link to the home page.</li>
+            <li><h2 data-annotate>{{ toc[0].title }}</h2>, and make it a link to the home page.</li>
         </ol>
         <figure>
-            <img src="/images/cl.png" alt="">
+            {% image "images/cl.png", "", "(min-width: 30em) 600px, 100vw" %}
             <figcaption>Craigslist, brutalists that they are, do nothing unnecessarily.</figcaption>
         </figure>
     {% endslide %}
+{% endsection %}
+{% section toc[1].href %}
     {% slide %}
         <ol start="2">
-            <li><strong>Put the navigation prominently in the header</strong>.</li>
-            <li><strong>Put important actions in the top right</strong>.</li>
+            <li><h2 data-annotate>{{ toc[1].title }}</h2>.</li>
+            <li id="{{toc[2].href}}"><h2 data-annotate>{{ toc[2].title }}</h2>.</li>
         </ol>
         <figure>
-            <a href="/images/ms.png" target="_blank"><img src="/images/ms.png" alt=""></a>
+            <a href="/images/ms.png" target="_blank">{% image "images/ms.png", "", "(min-width: 30em) 600px, 100vw", "ATTR" %}</a>
             <figcaption>Microsoft, not always guilty of great user interfaces, plays it safe on their home&nbsp;page.</figcaption>
         </figure>
     {% endslide %}
+{% endsection %}
+{% section %}
     {% slide %}
-        <ol start="4">
-            <li><strong>Stick to the grid</strong>. Using a grid to guide your content placement creates a consistent, predictable experience.</li>
+        <ol start="4" id="{{ toc[3].href }}">
+            <li><h2 data-annotate>{{ toc[3].title }}</h2>. Using a grid to guide your content placement creates a consistent, predictable experience.</li>
         </ol>
         <figure>
-            <a href="/images/grid.png" target="_blank"><img src="/images/grid.png" alt=""></a>
+            <a href="/images/grid.png" target="_blank">{% image "images/grid.png", "", "(min-width: 30em) 600px, 100vw" %}</a>
             <figcaption><a href="https://uxdesign.cc/" rel="noreferrer" target="_blank">uxdesign.cc<span class="show-for-sr"> Opens in a new window</span></a> grid demo</figcaption>
         </figure>
     {% endslide %}
+{% endsection %}
+{% section %}
     {% slide %}
-        <ol start="5">
+        <ol start="5" id="{{ toc[4].href }}">
             <li>
-                <p><strong>Prioritize content in highly read areas</strong>. One guide for this could be the F-pattern we discussed earlier. Another high-priority pattern is choosing what content should be "above the fold".</p>
+                <p><h2 data-annotate>{{ toc[4].title | allGas | safe}}</h2>. One guide for this could be the F-pattern we discussed earlier. Another high-priority pattern is choosing what content should be <span data-annotate data-ann-color="var(--alert)">"above the fold".</span></p>
                 <p>This is a term that dates back to newprint - top headlines were kept in the top half of the page, above where the newspaper would be folded in half horizontally. In the early days of the web, people <em>did not scroll</em> web pages. Like, at all, basically.</p>
             </li>
         </ol>
     {% endslide %}
     {% slide %}
-        <p>This has changed somewhat.</p>
-        <blockquote class="slide-only" style="display: block;">In 2010, 80% of the viewing time was spent above the fold. Today, that number is only 57%.<footer><cite><a href="https://www.nngroup.com/articles/scrolling-and-attention/" target="_blank">Norman Nielsen<span class="show-for-sr"> Opens in a new window</span></a>.</cite></footer></blockquote>
-        <p>Add to that the fact that responsive design means there is no exact spot where the "fold" will be for users. Nonetheless, it's a good rule to follow that the higher up the content is, the better the chance users will actually see it.</p>
+        <p>This has changed... somewhat.</p>
+        <blockquote>In 2010, 80% of the viewing time was spent above the fold. Today, that number is only 57%.<footer><cite><a href="https://www.nngroup.com/articles/scrolling-and-attention/" target="_blank">Norman Nielsen<span class="show-for-sr"> Opens in a new window</span></a>.</cite></footer></blockquote>
+        <p>Add to that the fact that responsive design means there is <span data-annotate data-ann-type="underline">no exact spot where the "fold" will be</span> for users. Nonetheless, it's a good rule to follow that <span data-annotate>the higher up the content is, the better the chance users will actually see it.</span></p>
     {% endslide %}
     {% slide %}
-<figure>
-<a href="/images/atf.png" target="_blank"><img src="/images/atf.png" alt=""></a>
-<figcaption><a href="https://css-tricks.com/" rel="noreferrer" target="_blank">CSS Tricks<span class="show-for-sr"> Opens in a new window</span></a> looks at where the fold <em>might</em> be.</figcaption>
-</figure>
-{% endslide %}
+        <figure>
+            <a href="/images/atf.png" target="_blank">{% image "images/atf.png", "", "(min-width: 30em) 600px, 100vw" %}</a>
+            <figcaption><a href="https://css-tricks.com/" rel="noreferrer" target="_blank">CSS Tricks<span class="show-for-sr"> Opens in a new window</span></a> looks at where the fold <em>might</em> be.</figcaption>
+        </figure>
+    {% endslide %}
+{% endsection %}
+{% section %}
     {% slide %}
-    <ol start="6">
-<li><strong>Boring stuff goes in the footer</strong>. Sitemaps, contact forms, social media links, copyright - all the stuff the client requires but no user would ever actually need.</li>
-</ol>
-<figure>
-<img src="/images/css-tricks-footer.png" alt="" style="max-height: 40vh">
-<figcaption><a href="https://css-tricks.com/" rel="noreferrer" target="_blank">CSS Tricks<span class="show-for-sr"> Opens in a new window</span></a>: stuff that's even less important than the comments.</figcaption>
-</figure>
-{% endslide %}
+        <ol start="6" id="{{ toc[5].href }}">
+            <li><h2 data-annotate>{{ toc[5].title }}</h2>. <span data-annotate data-ann-type="underline">Sitemaps, contact forms, social media links, copyright</span> - all the stuff the client requires but no user would ever actually need.</li>
+        </ol>
+    <figure>
+        {% image "images/css-tricks-footer.png", "", "(min-width: 30em) 600px, 100vw" %}
+        <figcaption>
+            <a href="https://css-tricks.com/" rel="noreferrer" target="_blank">CSS Tricks<span class="show-for-sr"> Opens in a new window</span></a>: stuff that's even less important than the comments.
+        </figcaption>
+    </figure>
+    {% endslide %}
+{% endsection %}
+{% section %}
     {% slide %}
-<p>Those are the big ones! Web design truisms that you can hang your hat on. Of course, there are all kinds of smaller conventions that we can take for granted (☰&nbsp;hamburger menu, anyone?), but these 6 standard approaches to page design are enough to get you started.</p>
+    <p>Those are the big ones! Web design truisms that you can hang your hat on. Of course, there are all kinds of smaller conventions that we can take for granted (☰&nbsp;hamburger menu, anyone?), but these 6 standard approaches to page design are enough to get you started.</p>
 {% endslide %}
 {{ macro.furtherReading([{
     href: "https://www.interaction-design.org/literature/article/visual-hierarchy-organizing-content-to-follow-natural-eye-movement-patterns",

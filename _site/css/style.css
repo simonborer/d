@@ -280,6 +280,7 @@ blockquote {
   font-size: 0.9em;
   background: var(--background--offset);
   padding: 1rem;
+  margin: 1.5rem 0;
 }
 blockquote cite {
   font-style: italic;
@@ -408,6 +409,16 @@ ol ol li {
 ul ul ul li,
 ol ol ol li {
   font-size: 0.9em;
+}
+
+article li h2 {
+  display: inline-block;
+  font-size: 1em;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: 0 solid transparent;
+  line-height: 1;
 }
 
 code {
@@ -592,6 +603,10 @@ blockquote footer {
 }
 
 @media (min-width: 599px) {
+  main {
+    min-height: calc(100vh - 21.5em);
+  }
+
   .row--section {
     margin-top: 6rem;
     padding-top: 6rem;
@@ -632,10 +647,10 @@ blockquote footer {
   font-size: 0;
 }
 .nav__toggle-tap-to-close--open {
-  width: 80vw;
+  width: 100vw;
   height: 100vw;
   opacity: 0;
-  right: 0;
+  bottom: 0;
   position: absolute;
 }
 
@@ -643,6 +658,10 @@ blockquote footer {
   height: 3.33rem;
   padding-bottom: 4rem;
   border-bottom: 0.125rem solid var(--background--offset);
+}
+.nav__links--expanded {
+  -webkit-backdrop-filter: grayscale(1) blur(2px);
+          backdrop-filter: grayscale(1) blur(2px);
 }
 .nav__links ul {
   font-size: 1.5rem;
@@ -682,6 +701,11 @@ blockquote footer {
             backdrop-filter: blur(1rem);
     color: var(--foreground);
     border-right: 0.125rem solid var(--background--offset);
+  }
+  .nav__toggle-tap-to-close--open {
+    width: 80vw;
+    height: 100vh;
+    right: 0;
   }
 }
 @media (prefers-color-scheme: dark) and (min-width: 599px) {
@@ -978,7 +1002,8 @@ blockquote footer {
 
 @media (min-width: 599px) {
   .card-list {
-    margin-left: 14rem;
+    margin-left: 15rem;
+    padding-top: 2.75rem;
     padding-left: 2rem;
     padding-right: 2rem;
     gap: 1rem;
@@ -1200,6 +1225,9 @@ blockquote footer {
   margin-bottom: 1rem;
   display: block;
 }
+.summary__text[data-annotate] {
+  color: #2a2222;
+}
 .summary__text-container {
   background: var(--emphasis);
   padding: 1rem;
@@ -1404,6 +1432,10 @@ blockquote footer {
   stroke: transparent;
 }
 
+[data-annotate]:not([data-ann-type]):not([data-ann-color="var(--emphasis)"]) {
+  color: #2a2222;
+}
+
 @media (prefers-color-scheme: dark) {
   .svg-fill {
     fill: var(--warning);
@@ -1413,9 +1445,12 @@ blockquote footer {
     fill: var(--warning);
     stroke: transparent;
   }
+}
+@media (min-width: 599px) {
 
-  [data-annotate]:not([data-ann-type]):not([data-ann-color="var(--emphasis)"]) {
-    color: var(--background);
+  article picture:hover {
+    transition: transform 1s;
+    transform: scale(1.25);
   }
 }
 .progress {
@@ -1519,9 +1554,8 @@ blockquote footer {
 }
 .related-post__link {
   background: var(--alert);
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   border-radius: 0.5rem;
-  text-align: center;
   text-decoration: none;
   padding: 1rem;
   margin-top: 1rem;
@@ -1539,6 +1573,12 @@ blockquote footer {
   margin: 0;
 }
 
+@media (min-width: 599px) {
+  .related-post__link {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+}
 .hide-for-mobile {
   display: none;
 }
@@ -1575,6 +1615,9 @@ blockquote footer {
 }
 .callout.emphasis figcaption {
   color: var(--foreground);
+}
+.callout.emphasis strong {
+  color: var(--background--offset);
 }
 .callout.emphasis a strong {
   color: var(--background--offset);
@@ -1638,11 +1681,6 @@ blockquote footer {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
-
-article picture:hover {
-  transition: transform 1s;
-  transform: scale(1.25);
 }
 
 .no-breaks {

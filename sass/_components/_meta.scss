@@ -8,16 +8,16 @@
         border-top: 1px solid var(--foreground);
         margin-top: .5rem;
         text-align: right;
-        	color: var.$background;
-        	border-color: var.$background;
+        color: var.$background;
+        border-color: var.$background;
     }
 
     &__date {
         border-top: 1px solid var(--foreground);
         margin-top: .5rem;
         text-align: right;
-        	color: var.$background;
-        	border-color: var.$background;
+        color: var.$background;
+        border-color: var.$background;
     }
 
     &-container {
@@ -38,12 +38,16 @@
         font-style: italic;
         line-height: 1.6;
         padding-top: .25rem;
-    	color: var.$background;
-margin-bottom: 1rem;
-        	display: block;
+        color: var.$background;
+        margin-bottom: 1rem;
+        display: block;
+        &[data-annotate] {
+            color: var.$foreground;
+        }
+
         &-container {
-        	background: var(--emphasis);
-        	padding: 1rem;
+            background: var(--emphasis);
+            padding: 1rem;
         }
     }
 
@@ -143,21 +147,15 @@ margin-bottom: 1rem;
 
         &__text-container {
 
-        	padding: 2rem 2rem 1rem 2rem;
+            padding: 2rem 2rem 1rem 2rem;
 
         }
 
-        &__text {
-        	
-        }
+        &__text {}
 
-        &__date {
+        &__date {}
 
-        }
-
-        &__reading-time {
-        	
-        }
+        &__reading-time {}
 
         &__image {
             border-right: .125rem solid var(--background--offset);
@@ -198,8 +196,9 @@ margin-bottom: 1rem;
     padding-top: 3rem;
     text-align: center;
     font-size: 1.25rem;
-	
-	padding-top: 0;
+
+    padding-top: 0;
+
     & h2 {
         font-size: 1.5em;
         margin-bottom: 1rem;
@@ -211,7 +210,7 @@ margin-bottom: 1rem;
     }
 
     & ol {
-    	padding: 1rem 1rem .5rem;
+        padding: 1rem 1rem .5rem;
     }
 
     & li {
@@ -239,8 +238,8 @@ margin-bottom: 1rem;
 
 @media (min-width: var.$breakpoint) {
     .toc {
-        
-        
+
+
 
         &__svg {
             margin-top: 6rem;

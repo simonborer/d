@@ -39,10 +39,10 @@
 	        font-size: 0;
 
 	        &--open {
-	            width: 80vw;
+	            width: 100vw;
 	            height: 100vw;
 	            opacity: 0;
-	            right: 0;
+	            bottom: 0;
 	            position: absolute;
 	        }
 	    }
@@ -56,6 +56,9 @@
 			height: 3.33rem;
 		    padding-bottom: 4rem;
 		    border-bottom: 0.125rem solid var(--background--offset);
+		}
+		&--expanded {
+			backdrop-filter: grayscale(1) blur(2px);
 		}
 		& ul {
 			font-size: 1.5rem;
@@ -95,6 +98,11 @@
 	            color: var(--foreground);
 	            border-right: .125rem solid var(--background--offset);
 	        }
+		}
+		&__toggle-tap-to-close--open {
+			width: 80vw;
+			height: 100vh;
+			right: 0;
 		}
         // & ul {
         // 	margin-top: 0;

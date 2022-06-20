@@ -84,4 +84,10 @@ module.exports = function(eleventyConfig) {
             return str;
         }
     });
+
+    eleventyConfig.addFilter("lowerCase", function(str) {
+        if (typeof str !== 'undefined') {
+            return str.toLowerCase();
+        }
+    });
 };

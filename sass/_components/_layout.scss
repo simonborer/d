@@ -60,6 +60,9 @@ footer {
 }
 
 @media (min-width: var.$breakpoint) {
+    main {
+        min-height: calc(100vh - 21.5em);
+    }
     .row--section {
         margin-top: 6rem;
         padding-top: 6rem;

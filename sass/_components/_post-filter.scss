@@ -254,7 +254,8 @@ $card-list-border-color: var(--foreground--offset);
 
 @media (min-width: var.$breakpoint) {
     .card-list {
-        margin-left: 14rem;
+        margin-left: 15rem;
+        padding-top: 2.75rem;
         padding-left: 2rem;
         padding-right: 2rem;
         gap: 1rem;

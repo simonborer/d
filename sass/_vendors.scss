@@ -89,6 +89,7 @@ lite-youtube.lyt-activated > .lty-playbtn {
     width: 1px;
   }
 
-  .wcp_p {
-    display: flex;
+  .wcp_p, #wcb_p {
+    display: flex !important;
+    flex-wrap: nowrap;
   }

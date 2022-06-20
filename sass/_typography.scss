@@ -74,6 +74,16 @@ ol ol ol li {
     font-size: .9em;
 }
 
+article li h2 {
+    display: inline-block;
+    font-size: 1em;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: 0 solid transparent;
+    line-height: 1;
+}
+
 code {
     word-break: break-all;
     white-space: pre-line;
