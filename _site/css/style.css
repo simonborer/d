@@ -540,11 +540,15 @@ pre[class*=language-] {
 }
 dt {
   font-weight: bold;
+  font-size: 1.25em;
+  margin-top: 1em;
+  margin-bottom: 0.25em;
 }
 
-dt:after {
+dd:before {
   font-family: monospace;
-  content: " →";
+  content: "→ ";
+  font-size: 1.25em;
 }
 
 .title {
@@ -1467,21 +1471,20 @@ blockquote footer {
 }
 .toc {
   margin: 2rem 0 0;
-  padding-top: 3rem;
   text-align: center;
   font-size: 1.25rem;
   padding-top: 0;
 }
 .toc h2 {
   font-size: 1.5em;
-  margin-bottom: 1rem;
+  margin-bottom: 0;
 }
 .toc__svg {
   height: 4rem;
   background: var(--background);
 }
 .toc ol {
-  padding: 1rem 1rem 0.5rem;
+  padding: 1rem 1rem 1.5rem;
 }
 .toc li {
   list-style-position: inside;
@@ -1508,7 +1511,6 @@ blockquote footer {
   }
   .toc h2 {
     text-align: center;
-    margin: 0;
   }
   .toc ol {
     padding-left: 2rem;
@@ -1753,6 +1755,9 @@ blockquote footer {
 .callout p:last-child {
   margin-bottom: 0;
 }
+.callout p:first-child {
+  margin-top: 0;
+}
 .callout.emphasis {
   background: var(--emphasis);
   color: #fff9eb;
@@ -1776,6 +1781,9 @@ blockquote footer {
 .callout.warning a strong {
   color: var(--background--offset);
 }
+.callout.warning strong {
+  color: var(--background--offset);
+}
 .callout.alert {
   background: var(--alert);
   color: #2a2222;
@@ -1784,6 +1792,9 @@ blockquote footer {
   color: var(--foreground);
 }
 .callout.alert a strong {
+  color: var(--background--offset);
+}
+.callout.alert strong {
   color: var(--background--offset);
 }
 .callout.d-box .d-box__title {

@@ -103,11 +103,16 @@ pre[class*=language-] {
 
 dt {
     font-weight: bold;
+    font-size: 1.25em;
+    margin-top: 1em;
+    margin-bottom: .25em;
 }
 
-dt:after {
+dd:before {
     font-family: monospace;
-    content: " →"
+    content: "→ ";
+    font-size: 1.25em;
+    // margin-right: 1rem;
 }
 
 .title {

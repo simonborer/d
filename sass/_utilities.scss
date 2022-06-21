@@ -208,6 +208,9 @@
     & p:last-child {
         margin-bottom: 0;
     }
+    & p:first-child {
+        margin-top: 0;
+    }
     &.emphasis {
         background: var(--emphasis);
         color: var.$background;
@@ -230,6 +233,9 @@
         & a strong {
             color: var(--background--offset);
         }
+        & strong {
+            color: var(--background--offset);
+        }
     }
     &.alert {
         background: var(--alert);
@@ -238,6 +244,9 @@
             color: var(--foreground);
         }
         & a strong {
+            color: var(--background--offset);
+        }
+        & strong {
             color: var(--background--offset);
         }
     }

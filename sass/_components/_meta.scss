@@ -207,15 +207,13 @@
 
 .toc {
     margin: 2rem 0 0;
-    padding-top: 3rem;
     text-align: center;
     font-size: 1.25rem;
-
     padding-top: 0;
 
     & h2 {
         font-size: 1.5em;
-        margin-bottom: 1rem;
+        margin-bottom: 0;
     }
 
     &__svg {
@@ -224,7 +222,7 @@
     }
 
     & ol {
-        padding: 1rem 1rem .5rem;
+        padding: 1rem 1rem 1.5rem;
     }
 
     & li {
@@ -255,7 +253,6 @@
         text-align: left;
         & h2 {
             text-align: center;
-            margin: 0;
         }
         & ol {
             padding-left: 2rem;

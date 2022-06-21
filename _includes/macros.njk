@@ -27,10 +27,12 @@
 </div>
 {% endmacro %}
 
-{% macro furtherReading(links) %}
+{% macro furtherReading(links, title='<strong>Further Reading:</strong>') %}
+{% if (hr !== 'false') %}
 <hr>
+{% endif %}
 <div class="row">
-<strong>Further Reading:</strong>
+{{title | safe}}
 <ul>
   {% for link in links %}
     <li>{% ext link.href %}{{ link.title | safe }}{% endext %}{% if link.source %}, <em>{{ link.source | safe }}</em>{% endif %}</li>

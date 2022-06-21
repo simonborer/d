@@ -8,6 +8,7 @@
         "title": "Image credit: Rhododendrites, CC BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0, via Wikimedia Commons"
     },
     "readingTime": true,
+    "btt": true,
     "description": "How does work actually get done on the web? Let's learn about the lifecycle of a web-based project. Most projects on the web are done according to these steps, and any one of these steps could be a full-time job for you!",
     "tags": ["Market research", "Personas", "Requirements", "Design", "Wireframes", "Development", "Unit testing", "Code review", "Version control", "QA", "Quality assurance", "Analytics"],
     "tag": "💼 Decent workplace 💼",
@@ -69,11 +70,10 @@
 {% endslide %}
 {% slide %}
     <p>We'll also look at the <strong>tools</strong> commonly used in the industry, <strong>techniques</strong> for getting the best results, and what <strong>deliverables</strong> (generated materials) are involved for each stage.</p>
-    <p>These stages aren't always performed in this order! Research, for example, can happen as a result of analytics (once the users are using the product), requirements can be generated as part of the QA process, and all these steps may just be one cycle in a larger project.</p>
 {% endslide %}
 {% slide %}
+    <p><span data-annotate>These stages aren't always performed in this order!</span> Research, for example, can happen as a result of analytics (once the users are using the product), requirements can be generated as part of the QA process, and all these steps may just be one cycle in a larger project.</p>
     <img src="/images/recycle.svg" alt="Recycling triangle" height="150" width="150" class="body-icon body-icon--b-w">
-    <p class="callout primary">These stages aren't always performed in this order! Research, for example, can happen as a result of analytics (once the users are using the product), requirements can be generated as part of the QA process, and all these steps may just be one cycle in a larger project.</p>
 {% endslide %}
 {% separator "waves" %}
 
@@ -85,18 +85,19 @@
     {% endslide %}
     <hr>
     {% slide %}
-        <p>Typically, market research is done by the <strong>Product Owner</strong>, not someone on the design and development team. However, if the team has done similar work for the client, they often have insights, through analytics and user outreach, that can be invaluable during this stage.</p>
         <p>The purpose of this stage is to understand <strong>who your audience is</strong>, <strong>how it can be segmented</strong> (broken down into user types), and <strong>what value you can offer</strong>.</p>
+        <p>Typically, market research is done by the <strong>Product Owner</strong>, not someone on the design and development team. However, if the team has done similar work for the client, they often have insights, through analytics and user outreach, that can be invaluable during this stage.</p>
         <p>There are a number of strategies for creating tools based on your audience. Probably the most popular is the '<strong>persona</strong>'.</p>
     {% endslide %}
 
     {% slide %}
         <h3 id="personas">Personas</h3>
         <p>Personas are a tool for creating a design. A persona is <strong>a fake person you use to represent a major user group</strong> for your product.</p>
-        <p class="post-only">Let's say you're a library, and you're creating a form to get people to sign up for an online account. You would create personas based on your current users, and any group that you want to target as a user (maybe you've got an ad campaign to drive new users to the website, for example).</p>
+        <p class="post-only">Let's say you're a library, and you're creating a form to get people to sign up for an online account. You would create personas based on your <span data-annotate data-ann-type="underline">current users</span>, and any <span data-annotate data-ann-type="underline">group that you want to target</span> as a user (maybe you've got an ad campaign to drive new users to the website, for example).</p>
         <p class="post-only">Based on the information you have, you might create personas for an elderly person, a parent with children, and a student. </p>
     {% endslide %}
     {% slide %}
+        <h4>What to include in a Persona</h4>
         <p>Personas generally include the following key pieces of information:</p>
         <ul>
             <li>Persona Group (i.e. web manager) </li>
@@ -170,7 +171,7 @@
     {% endslide %}
     {% slide %}
         <h3 id="turning-goals-into-strategies">Turning goals into strategies</h3>
-        <p>If you're working for a client, they might already have firm ideas about what they want. Depending on the circumstances, and your relationship with the client, it might be a good idea to review their goals. Is what they're asking for the best way to get what they want?</p>
+        <p>If you're working for a client, they might already have firm ideas about what they want. Depending on the circumstances, and your relationship with the client, it might be a good idea to review their goals. <span data-annotate data-ann-type="underline">Is what they're asking for the best way to get what they want?</span></p>
         <p>Remember that you are an expert in your medium - you might be aware of opportunities they don't know are available!</p>
     {% endslide %}
     <span id="furtherReadingIdeation"></span>
@@ -392,7 +393,7 @@
     {% endslide %}
     {% slide %}
         <h3 id="userJourneys">User journeys</h3>
-        <p>If the project is adding a new user capability, this should be mapped out in a User Journey map. (If this is a whole new project, then a User Journey map should be created for each goal a different set of users might have.)</p>
+        <p>If the project is adding a new <span data-annotate data-ann-type="underline">user capability</span>, this should be <span data-annotate data-ann-type="underline">mapped out</span> in a User Journey map. (If this is a whole new project, then a User Journey map should be created for each goal a different set of users might have.)</p>
     {% endslide %}
     {% slide %}
         <figure>
@@ -401,7 +402,7 @@
         </figure>
     {% endslide %}
     {% slide %}
-        <p>Websites have <strong>different types of users</strong> with <strong>different goals</strong>. Every website has at least one page that is trying to be useful to more than one type of user.</p>
+        <p>Websites have <strong>different types of users</strong> with <strong>different goals</strong>. Every website has at least one page that is <span data-annotate>trying to be useful to more than one type of user.</span></p>
         <p>Creating user journey maps (following one user type through one goal) should be referenced while creating wireframes, so that different journeys don't conflict, and the right goals are given the right priority.</p>
     {% endslide %}
     {% slide %}
@@ -548,7 +549,7 @@
     {% endslide %}
     <hr>
     {% slide %}
-        <p>As a developer, QA testers have both saved my job, and nearly drove me quit.</p>
+        <p>As a developer, QA testers have both <span data-annotate>saved my job</span>, and <span data-annotate>nearly driven me quit</span>.</p>
         <p>QA testers employ a number of techniques, both automated and manual, to make sure that features meet both project requirements and technical requirements. And that the developer didn't break anything.</p>
     {% endslide %}
     {% slide %}
@@ -640,8 +641,8 @@
     <hr>
     {% slide %}
         <p>Deployment can be as simple a process as dropping a file into a folder, and checking it in your browser afterwards.</p>
-        <p>Most website hosting works in this file-and-folder system.</p>
-        <p>For static sites (like this one!) where there is no database attached, services like Github Pages and Netlify will build from a git branch.</p>
+        <p>Most basic website hosting works in this file-and-folder system.</p>
+        <p>For static sites (like this one!) where there is no database attached, services like Github Pages and Netlify will build directly from a git branch (which is to say, a version of your code in your version control system).</p>
     {% endslide %}
     {% slide %}
         <p>But all that simplicity comes with risks not many medium-to-large organizations are willing to take. Enter the role of <strong>devOps</strong>.</p>
@@ -655,7 +656,7 @@
         <p>In practice, it means creating <strong>a pipeline of different services</strong> in an automated workflow from <strong>version control</strong> (automatically starting a deployment on changes to the master branch, for example), to different <strong>testing</strong> types (like integration tests, which make sure that everything continues working after it's all been put together), to <strong>staging</strong> (putting the code in different environments for other testing types, including client acceptance), to <strong>backups</strong>, to <strong>containerization</strong> (running light-weight virtual environments), to <strong>monitoring</strong> the application in the wild.</p>
     {% endslide %}
     {% slide %}
-        <p>If I'm being honest, DevOps is a jungle. It's also the fastest legal way I know of getting to a six-figure salary.</p>
+        <p>If I'm being honest, <span data-annotate>DevOps is a jungle</span>. It's also the fastest legal way I know of getting to a six-figure salary.</p>
     {% endslide %}
     {{ macro.furtherReading([
         {
@@ -702,7 +703,7 @@
         <p>Once your site is out in the wild, you can start <del>spying on your users</del> tracking visitors.</p>
     {% endslide %}
     {% slide %}
-        <p>Depending on how they're configured, analytics can tell you:</p>
+        <p>Depending on how your analytics is configured, it can tell you:</p>
         <ul>
             <li>how many people visit your website</li>
             <li>where they live</li>
@@ -713,10 +714,10 @@
             <li>where visitors went afterwards</li>
             <li>how long people spent doing different tasks</li>
         </ul>
-        <p>…and oh so much more.</p>
+        <p>…and <span data-annotate data-ann-color="var(--alert)">oh so much more</span>.</p>
     {% endslide %}
     {% slide %}
-        <p>Other types of user testing can be performed on real-world users as well. <strong>A/B testing</strong> lets you serve different versions of a page or component to users to see how they react.</p>
+        <p>Other types of user testing can be performed on real-world users as well. <strong>A/B testing</strong> lets you serve different versions of a page or component to different subsets of users to see how they react.</p>
         <p>This research is put towards refining the things you build, giving you <strong>real evidence</strong> of what works (and what doesn't).</p>
         <p>It's also more data to feed into the gaping maw of the <a href="https://crm.org/crmland/what-is-a-crm"><abbr title="Customer Relationship Management Software">CRM</abbr></a>, but that's a different topic entirely.</p>
     {% endslide %}
