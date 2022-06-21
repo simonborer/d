@@ -49,32 +49,42 @@ img {
     min-height: 50px;
 }
 
-img:before {
-    content: " ";
-    display: block;
-    position: absolute;
-    top: -10px;
-    left: 0;
-    height: calc(100% + 10px);
-    width: 100%;
-    background-color: var(--background);
-    border: 2px dotted rgb(200, 200, 200);
-    border-radius: 5px;
-}
+// Temporarily removing this feature.
+/* 
+    It does a weird thing on touch screens, where
+    touching the image (which is a common occurence
+    when scrolling) brings the after (and maybe 
+    before?) content to the foreground, making it
+    seem like the image is broken (when really it's
+    just obscured). Note that this is only observed
+    on real devices, not in the emulator.
+*/
+// img:before {
+//     content: " ";
+//     display: block;
+//     position: absolute;
+//     top: -10px;
+//     left: 0;
+//     height: calc(100% + 10px);
+//     width: 100%;
+//     background-color: var(--background);
+//     border: 2px dotted rgb(200, 200, 200);
+//     border-radius: 5px;
+// }
 
-img:after {
-    content: "🏞 Broken Image of "attr(alt);
-    display: block;
-    font-size: 1rem;
-    line-height: 1.2;
-    font-style: normal;
-    color: var(--foreground);
-    position: absolute;
-    top: 5px;
-    left: 0;
-    width: 100%;
-    text-align: center;
-}
+// img:after {
+//     content: "🏞 Broken Image of "attr(alt);
+//     display: block;
+//     font-size: 1rem;
+//     line-height: 1.2;
+//     font-style: normal;
+//     color: var(--foreground);
+//     position: absolute;
+//     top: 5px;
+//     left: 0;
+//     width: 100%;
+//     text-align: center;
+// }
 
 details {
     background: rgba(0, 0, 0, .25);

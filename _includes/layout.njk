@@ -223,10 +223,10 @@
           <svg width='100%' height='100%' xmlns='http://www.w3.org/2000/svg' role="presentation" class="toc__svg">
             <rect width='100%' height='100%' fill='url(#grid)' />
           </svg>
-
+          {# Working on feature.offset - for dunce cap it's 67% #}
           {% if regExp.test(feature.src) %}
             <div class="summary__image-container">
-            {% image "images/" + feature.src, feature.alt, "(min-width: 30em) 1200px, 100vw", feature.title, "eager" %}
+            {% image "images/" + feature.src, feature.alt, "(min-width: 30em) 1200px, 100vw", feature.title, "eager", feature.offset %}
             </div>
           {% endif %}
           {% if ytRegExp.test(feature.src) %}

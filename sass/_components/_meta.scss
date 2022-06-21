@@ -187,6 +187,15 @@
                     }
                 }
             }
+
+            &-offset {
+                &-67 {
+                    object-position: 0 67%;
+                }
+                &-33 {
+                    object-position: 0 33%;
+                }
+            }
         }
     }
 }

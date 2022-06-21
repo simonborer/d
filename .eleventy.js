@@ -3,8 +3,8 @@ const { EleventyRenderPlugin } = require("@11ty/eleventy");
 const readingTime = require("eleventy-plugin-reading-time");
 const Image = require("@11ty/eleventy-img");
 
-// Avif was being weeeeird
-async function imageShortcode(src, alt, sizes, title = ``, loading = `lazy`) {
+async function imageShortcode(src, alt, sizes, title = ``, loading = `lazy`, cssClass = ``) {
+
   let metadata = await Image(src, {
     widths: [300, 614, 1200, 2400],
     formats: ["avif", "webp", "jpeg"]
@@ -16,6 +16,7 @@ async function imageShortcode(src, alt, sizes, title = ``, loading = `lazy`) {
     title,
     loading,
     decoding: "async",
+    class: cssClass,
   };
 
   return Image.generateHTML(metadata, imageAttributes);
