@@ -146,16 +146,21 @@
         }
 
         &__text-container {
-
-            padding: 2rem 2rem 1rem 2rem;
-
+            padding: 2rem 0 .5rem;
+            border-bottom: 1px solid var(--foreground--offset);
         }
 
-        &__text {}
+        &__text {
+            margin: 0 2rem 2rem;
+        }
 
-        &__date {}
+        &__date {
+            padding-right: 2rem;
+        }
 
-        &__reading-time {}
+        &__reading-time {
+            padding-right: 2rem;
+        }
 
         &__image {
             border-right: .125rem solid var(--background--offset);
@@ -247,9 +252,14 @@
 
 @media (min-width: var.$breakpoint) {
     .toc {
-
-
-
+        text-align: left;
+        & h2 {
+            text-align: center;
+            margin: 0;
+        }
+        & ol {
+            padding-left: 2rem;
+        }
         &__svg {
             margin-top: 6rem;
         }
