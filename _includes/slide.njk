@@ -2,6 +2,9 @@
 permalink: "{{ page.filePathStem }}/slides/index.html"
 eleventyExcludeFromCollections: true
 ---
+{% set regExp = r/\.(jpe?g|avif|tiff?|png|webp|bmp)\s*/gi %}
+{% set svgRegExp = r/\.(gif|svg)\s*/i %}
+{% set ytRegExp = r/\.(youtube.com\/embed)\s*/gi %}
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 
@@ -39,6 +42,26 @@ eleventyExcludeFromCollections: true
 <body>
     <main class="reveal">
       <div class="slides">
+        <div data-slide>
+            <div class="summary__image-container">
+            {% if regExp.test(feature.src) %}
+                {% image "images/" + feature.src, feature.alt, "(min-width: 30em) 1200px, 100vw", feature.title, "eager", feature.offset %}
+            {% endif %}
+            {% if ytRegExp.test(feature.src) %}
+                {% image "https://i.ytimg.com/vi/" + feature.id + "/hqdefault.jpg", feature.title, "(min-width: 30em) 1200px, 100vw", "", "eager" %}
+            {% endif %}
+            </div>
+        <h1>{{ title | striptags | allGas | safe }}</h1></div>
+        {% if toc %}
+            <div data-slide class="toc">
+                <h2>Table of contents</h2>
+                <ol>
+                {% for section in toc %}
+                    <li>{{ section.title | striptags | allGas | safe }}</li>
+                {% endfor %}
+                </ol>
+            </div>
+          {% endif %}
           {{ content | safe }}
       </div>
     </main>
@@ -54,7 +77,7 @@ eleventyExcludeFromCollections: true
     <script src="/js/reveal.js"></script>
     <script>
     Reveal.initialize({
-        dependencies: [{
+        dependencies: [{ src: '/js/highlight.min.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }, {
             src: '/js/reveal.a11y.js',
             async: true,
             condition: function() {

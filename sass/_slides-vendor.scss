@@ -496,3 +496,22 @@ script[type="text/plain"] {
 .reveal p {
     text-align: left;
 }
+
+.reveal {
+	& pre code.hljs{display:block;overflow-x:auto;padding:1em}
+	& code.hljs{padding:3px 5px}
+	& .hljs{background:#2b2b2b;color:#f8f8f2}
+	& .hljs-attribute{color:gold}
+	& .hljs-emphasis{font-style:italic}
+	& .hljs-strong{font-weight:700}
+}
+	.hljs-comment,.hljs-quote{.reveal & {color:#d4d0ab}}
+	.hljs-deletion,.hljs-name,.hljs-regexp,.hljs-selector-class,.hljs-selector-id,.hljs-tag,.hljs-template-variable,.hljs-variable{.reveal & {color:#ffa07a}}
+	.hljs-built_in,.hljs-link,.hljs-literal,.hljs-meta,.hljs-number,.hljs-params,.hljs-type{.reveal & {color:#f5ab35}}
+	.hljs-addition,.hljs-bullet,.hljs-string,.hljs-symbol{.reveal & {color:#abe338}}
+	.hljs-section,.hljs-title{.reveal & {color:#00e0e0}}
+	.hljs-keyword,.hljs-selector-tag{.reveal & {color:#dcc6e0}}
+@media screen and (-ms-high-contrast:active) {
+	.hljs-addition,.hljs-attribute,.hljs-built_in,.hljs-bullet,.hljs-comment,.hljs-link,.hljs-literal,.hljs-meta,.hljs-number,.hljs-params,.hljs-quote,.hljs-string,.hljs-symbol,.hljs-type{.reveal & {color:highlight}}
+	.hljs-keyword,.hljs-selector-tag{.reveal & {font-weight:700}}
+}

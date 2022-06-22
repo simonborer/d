@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 
@@ -35,6 +38,30 @@
 <body>
     <main class="reveal">
       <div class="slides">
+        <div data-slide>
+            <div class="summary__image-container">
+            
+            
+                <picture><source type="image/avif" srcset="/img/CrPnCUtvYi-300.avif 300w" sizes="(min-width: 30em) 1200px, 100vw"><source type="image/webp" srcset="/img/CrPnCUtvYi-300.webp 300w" sizes="(min-width: 30em) 1200px, 100vw"><img alt="FizzBuzz: One Simple Interview Question" title="" loading="eager" decoding="async" class="" src="/img/CrPnCUtvYi-300.jpeg" width="300" height="225"></picture>
+            
+            </div>
+        <h1>Build&nbsp;Tools</h1></div>
+        
+            <div data-slide class="toc">
+                <h2>Table of contents</h2>
+                <ol>
+                
+                    <li>Nerd&nbsp;Sniping & the Weird State of Build&nbsp;Tools</li>
+                
+                    <li>Problems&nbsp;build tools&nbsp;solve</li>
+                
+                    <li>Categories&nbsp;of build tools: Task Runners, Toolchains &&nbsp;Bundlers</li>
+                
+                    <li>Let's&nbsp;try out a&nbsp;toolchain</li>
+                
+                </ol>
+            </div>
+          
           
 
 <section id="nerdSniping" class="row row--section">
@@ -279,13 +306,14 @@
     </div>
     <div data-slide class="row">
         <p>Then it'll tell you a few commands to run to get started:</p>
-        <pre><code class="language-bash"># change directories into your project folder
-    cd {your project name}
-    # install dependencies
-    npm install
-    # start using vite, including
-    #   the development server
-    npm run dev</code></pre>
+        <pre><code class="language-bash"># change directories into your 
+#   project folder
+cd {your project name}
+# install dependencies
+npm install
+# start using vite, including
+#   the development server
+npm run dev</code></pre>
     </div>
     <div data-slide class="row">
         <img src="/images/vite-server.png" alt="Console output after starting the vite server">
@@ -390,8 +418,8 @@
     </div>
     <div data-slide class="row">
         <pre><code class="language-bash"># This will only work after you've 
-    # run the `build` command
-    npm run preview</code></pre>
+# run the `build` command
+npm run preview</code></pre>
         <p>And that's how you build with a build tool!</p>
     </div>
     <div data-slide class="row">
@@ -416,7 +444,7 @@
     <script src="/js/reveal.js"></script>
     <script>
     Reveal.initialize({
-        dependencies: [{
+        dependencies: [{ src: '/js/highlight.min.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }, {
             src: '/js/reveal.a11y.js',
             async: true,
             condition: function() {

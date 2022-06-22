@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 
@@ -35,6 +38,34 @@
 <body>
     <main class="reveal">
       <div class="slides">
+        <div data-slide>
+            <div class="summary__image-container">
+            
+                <picture><source type="image/avif" srcset="/img/9AQpE6SMlA-300.avif 300w, /img/9AQpE6SMlA-614.avif 614w" sizes="(min-width: 30em) 1200px, 100vw"><source type="image/webp" srcset="/img/9AQpE6SMlA-300.webp 300w, /img/9AQpE6SMlA-614.webp 614w" sizes="(min-width: 30em) 1200px, 100vw"><source type="image/jpeg" srcset="/img/9AQpE6SMlA-300.jpeg 300w, /img/9AQpE6SMlA-614.jpeg 614w" sizes="(min-width: 30em) 1200px, 100vw"><img alt="Man wearing dunce cap" title="Image credit: https://commons.wikimedia.org/wiki/File:Dunce_hat.webp" loading="eager" decoding="async" class="summary__image-offset-67" src="/img/9AQpE6SMlA-300.jpeg" width="614" height="576"></picture>
+            
+            
+            </div>
+        <h1>6&nbsp;Web Design&nbsp;No&#8209;Brainers</h1></div>
+        
+            <div data-slide class="toc">
+                <h2>Table of contents</h2>
+                <ol>
+                
+                    <li>Put&nbsp;the logo in the top&nbsp;left</li>
+                
+                    <li>Put&nbsp;the navigation prominently in the&nbsp;header</li>
+                
+                    <li>Put&nbsp;important actions in the top&nbsp;right</li>
+                
+                    <li>Stick&nbsp;to the&nbsp;grid</li>
+                
+                    <li>Prioritize&nbsp;content in highly&#8209;read&nbsp;areas</li>
+                
+                    <li>Boring&nbsp;stuff goes in the&nbsp;footer</li>
+                
+                </ol>
+            </div>
+          
           
 
 
@@ -169,7 +200,7 @@
     <script src="/js/reveal.js"></script>
     <script>
     Reveal.initialize({
-        dependencies: [{
+        dependencies: [{ src: '/js/highlight.min.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }, {
             src: '/js/reveal.a11y.js',
             async: true,
             condition: function() {

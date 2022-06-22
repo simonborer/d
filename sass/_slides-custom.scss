@@ -3,7 +3,7 @@
 @mixin body-icon {
     max-width: 50vw;
     max-height: 20vh;
-    min-height: 10vh;
+    min-height: 20vh;
     min-width: 20vw;
     border: 0 solid transparent;
 }
@@ -97,9 +97,9 @@
         color: var.$background--offset--dark-mode;
     }
 
-    & img {
-        max-width: fit-content;
-    }
+    // & img {
+    //     max-width: fit-content;
+    // }
 
     & blockquote {
         font-size: 1.2em;
@@ -129,13 +129,23 @@
     & .callout {
         border: 0.0625em dashed;
         padding: 1em;
-        line-height: 1.4;
+        line-height: 1.2;
         & p {
-            line-height: 1.4;
+            line-height: 1.2;
         }
         &.warning {
             color: var.$background--dark-mode;
-            background: var.$gold-70;
+            background: var.$gold-50;
+            & strong {
+                color: var.$background--dark-mode;
+            }
+        }
+        &.alert {
+            color: var.$background--dark-mode;
+            background: var.$coral-50;
+            & strong {
+                color: var.$background--dark-mode;
+            }
         }
     }
     & .smaller-image-container img {
@@ -147,6 +157,36 @@
     }
     & .text-center {
         text-align: center;
+    }
+    dt {
+        font-weight: bold;
+        color: var.$gold-30;
+        margin-top: .5em;
+        margin-bottom: .5em;
+        font-size: 1.1em;
+
+        &:first-child {
+            margin-top: 0;
+        }
+}
+
+    dd::before {
+        content: "→ ";
+    }
+    & .toc {
+        & li {
+            max-width: 24ch;
+            margin: .5em;
+            &:nth-child(3n + 1) {
+                color: var.$coral-10;
+            }
+            &:nth-child(3n + 2) {
+                color: var.$gold-30;
+            }
+            &:nth-child(3n + 3) {
+                color: var.$green-10;
+            }
+        }
     }
 }
 

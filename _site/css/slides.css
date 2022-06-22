@@ -333,6 +333,14 @@
   transition: none;
 }
 
+.reveal .hljs {
+  min-height: 100%;
+}
+
+.reveal .hljs table {
+  margin: initial;
+}
+
 @media print {
   html:not(.print-pdf) {
     background: #fff;
@@ -478,6 +486,19 @@
 
   html:not(.print-pdf) .reveal [data-slide] small {
     font-size: 0.8em;
+  }
+
+  html:not(.print-pdf) .reveal .hljs {
+    max-height: 100%;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    word-break: break-word;
+    font-size: 15pt;
+  }
+
+  html:not(.print-pdf) .reveal .hljs td {
+    font-size: inherit !important;
+    color: inherit !important;
   }
 }
 
@@ -865,10 +886,23 @@
   text-align: left;
 }
 
+.reveal pre code.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 1em;
+}
+.reveal code.hljs {
+  padding: 3px 5px;
+}
+.reveal .hljs {
+  background: #2b2b2b;
+  color: #f8f8f2;
+}
+
 .reveal [data-slide] .body-icon {
   max-width: 50vw;
   max-height: 20vh;
-  min-height: 10vh;
+  min-height: 20vh;
   min-width: 20vw;
   border: 0 solid transparent;
   background: none;
@@ -877,7 +911,7 @@
 .reveal [data-slide] .body-icon--white-bg {
   max-width: 50vw;
   max-height: 20vh;
-  min-height: 10vh;
+  min-height: 20vh;
   min-width: 20vw;
   border: 0 solid transparent;
   background: white;
@@ -919,11 +953,6 @@
   background: #ffcd43;
   color: #3a2b2b;
 }
-.reveal img {
-  max-width: -webkit-fit-content;
-  max-width: -moz-fit-content;
-  max-width: fit-content;
-}
 .reveal blockquote {
   font-size: 1.2em;
   margin-bottom: 1em;
@@ -950,14 +979,24 @@
 .reveal .callout {
   border: 0.0625em dashed;
   padding: 1em;
-  line-height: 1.4;
+  line-height: 1.2;
 }
 .reveal .callout p {
-  line-height: 1.4;
+  line-height: 1.2;
 }
 .reveal .callout.warning {
   color: #1e1818;
-  background: #b3902f;
+  background: #ffcd43;
+}
+.reveal .callout.warning strong {
+  color: #1e1818;
+}
+.reveal .callout.alert {
+  color: #1e1818;
+  background: #ff8080;
+}
+.reveal .callout.alert strong {
+  color: #1e1818;
 }
 .reveal .smaller-image-container img {
   max-height: 30vh;
@@ -968,6 +1007,32 @@
 }
 .reveal .text-center {
   text-align: center;
+}
+.reveal dt {
+  font-weight: bold;
+  color: #ffe18e;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  font-size: 1.1em;
+}
+.reveal dt:first-child {
+  margin-top: 0;
+}
+.reveal dd::before {
+  content: "→ ";
+}
+.reveal .toc li {
+  max-width: 24ch;
+  margin: 0.5em;
+}
+.reveal .toc li:nth-child(3n+1) {
+  color: #ffe6e6;
+}
+.reveal .toc li:nth-child(3n+2) {
+  color: #ffe18e;
+}
+.reveal .toc li:nth-child(3n+3) {
+  color: #b3ced1;
 }
 
 [data-annotate] {
