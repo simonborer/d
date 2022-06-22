@@ -1,5 +1,8 @@
-@use './variables.scss'as var;
+@use './variables.scss' as var;
 
+.slide-only {
+    display: none !important;
+}
 .no-scroll {
     overflow-y: hidden;
 }

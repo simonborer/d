@@ -48,7 +48,7 @@ module.exports = function(eleventyConfig) {
 
     eleventyConfig.addPairedNunjucksShortcode("section", function(content, id) {return `<section id="${id}" class="row row--section">${content}</section>`});
 
-    eleventyConfig.addPairedNunjucksShortcode("slide", function(content) {return `<div data-slide class="row">${content}</div>`});
+    eleventyConfig.addPairedNunjucksShortcode("slide", function(content, slideOnly) {return `<div data-slide class="row${slideOnly ? ` slide-only` : ``}">${content}</div>`});
     
     eleventyConfig.addShortcode("sectionImg", function(src, alt, height, width) {
         return `<img class="body-icon body-icon--x-large" height="${height}" width="${width}" alt="${alt}" src="/images/${src}.svg">`;
