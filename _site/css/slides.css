@@ -937,7 +937,7 @@
 }
 
 .reveal p {
-  line-height: 1.6;
+  line-height: 1.5;
 }
 .reveal p + figure {
   margin-top: 0;
@@ -953,13 +953,24 @@
   background: #ffcd43;
   color: #3a2b2b;
 }
+.reveal li h2 {
+  display: inline-block;
+  font-size: 1em;
+  margin-bottom: 0;
+}
+.reveal img {
+  width: 100%;
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+}
 .reveal blockquote {
   font-size: 1.2em;
-  margin-bottom: 1em;
   font-style: normal;
+  line-height: 1.2;
   color: #b3ced1;
   background: #4c2626;
-  line-height: 1.2;
+  margin-bottom: 1em;
   border-left: 1rem solid;
 }
 .reveal blockquote ul {
@@ -973,11 +984,14 @@
 .reveal blockquote cite {
   font-style: italic;
 }
+.reveal blockquote.slide-full-width {
+  width: 100%;
+}
 .reveal .reveal__center {
   text-align: center;
 }
 .reveal .callout {
-  border: 0.0625em dashed;
+  border: 0.25em double var(--emphasis);
   padding: 1em;
   line-height: 1.2;
 }
@@ -985,6 +999,7 @@
   line-height: 1.2;
 }
 .reveal .callout.warning {
+  border-color: #ffe18e;
   color: #1e1818;
   background: #ffcd43;
 }
@@ -992,6 +1007,7 @@
   color: #1e1818;
 }
 .reveal .callout.alert {
+  border-color: #ffb3b3;
   color: #1e1818;
   background: #ff8080;
 }
@@ -1021,6 +1037,18 @@
 .reveal dd::before {
   content: "→ ";
 }
+.reveal [data-annotate] {
+  font-weight: bolder;
+  color: #ffd970;
+}
+.reveal [data-annotate][data-ann-type=underline] {
+  color: #f9f9f9;
+  text-decoration: underline;
+  -webkit-text-decoration-color: var(--warning);
+          text-decoration-color: var(--warning);
+  -webkit-text-decoration-style: wavy;
+          text-decoration-style: wavy;
+}
 .reveal .toc li {
   max-width: 24ch;
   margin: 0.5em;
@@ -1034,10 +1062,24 @@
 .reveal .toc li:nth-child(3n+3) {
   color: #b3ced1;
 }
-
-[data-annotate] {
-  font-weight: bolder;
-  color: #ff9999;
+.reveal .related-post__link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.5em;
+  text-decoration: underline;
+  margin-top: 1em;
+  background: #005b66;
+  color: #fff9eb;
+}
+.reveal .related-post__link img {
+  background: transparent;
+  padding: 0.25em;
+  height: 1em;
+  margin-left: 0.5em;
+}
+.reveal .no-breaks {
+  white-space: pre;
 }
 
 .post-only {

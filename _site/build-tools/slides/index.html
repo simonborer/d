@@ -45,6 +45,8 @@
                 <picture><source type="image/avif" srcset="/img/CrPnCUtvYi-300.avif 300w" sizes="(min-width: 30em) 1200px, 100vw"><source type="image/webp" srcset="/img/CrPnCUtvYi-300.webp 300w" sizes="(min-width: 30em) 1200px, 100vw"><img alt="FizzBuzz: One Simple Interview Question" title="" loading="eager" decoding="async" class="" src="/img/CrPnCUtvYi-300.jpeg" width="300" height="225"></picture>
             
             </div>
+        </div>  
+        <div data-slide>
         <h1>Build&nbsp;Tools</h1></div>
         
             <div data-slide class="toc">
@@ -444,7 +446,7 @@ npm run preview</code></pre>
     <script src="/js/reveal.js"></script>
     <script>
     Reveal.initialize({
-        dependencies: [{ src: '/js/highlight.min.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }, {
+        dependencies: [{ src: '/js/highlight.min.js', async: true, callback: function() { hljs.highlightAll(); } }, {
             src: '/js/reveal.a11y.js',
             async: true,
             condition: function() {
