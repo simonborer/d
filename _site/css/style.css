@@ -1465,9 +1465,9 @@ blockquote footer {
 }
 @media (min-width: 599px) {
 
-  article picture:hover {
+  .hover-to-zoom:hover {
     transition: transform 1s;
-    transform: scale(1.25);
+    transform: scale(1.5);
   }
 }
 .progress {

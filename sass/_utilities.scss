@@ -63,9 +63,9 @@
         display: none;
     }
 
-    article picture:hover {
+    .hover-to-zoom:hover {
         transition: transform 1s;
-        transform: scale(1.25);
+        transform: scale(1.5);
     }
 }
 
