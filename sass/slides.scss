@@ -535,6 +535,15 @@ script[type="text/plain"] {
     background: none;
     margin-bottom: 2rem;
 
+    &--b-w {
+        padding: 2rem;
+        background: var(--null-2);
+        margin-left: auto;
+        margin-right: auto;
+        display: inline-block; 
+        width: auto;
+    }
+
     &--white-bg {
         @include body-icon;
         background: white;
@@ -548,6 +557,7 @@ script[type="text/plain"] {
     &.body-icon--small {
         max-width: 10vw;
     }
+
 }
 
 .reveal .body-icon--xl {
@@ -732,7 +742,7 @@ script[type="text/plain"] {
     & .toc {
         & li {
             max-width: 24ch;
-            margin: .5em;
+            margin: .25em .5em;
             &:nth-child(3n + 1) {
                 color: var.$coral-10;
             }
@@ -762,6 +772,29 @@ script[type="text/plain"] {
     }
     & .no-breaks {
         white-space: pre;
+    }
+
+    & .section-card {
+    	display: flex;
+    	flex-direction: column;
+    	text-align: center;
+    	align-items: center;
+    	margin: 0 auto;
+    	& div {
+    		font-size: .75em;
+    		text-align: left;
+    		font-style: italic;
+    		max-width: 36ch;
+    		margin: 1em 0;
+    		color: var.$green-20;
+    	}
+    	& ul {
+    		max-width: 24ch;
+		    text-align: left;
+		    list-style-position: inside;
+		    padding-left: 0;
+		    margin-bottom: 1em;
+    	}
     }
 }
 

@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Decent Internet</title>
   <subtitle>I am writing about my experiences as a naval navel-gazer.</subtitle>
-  <link href="https://meek-tarsier-01cebe.netlify.app/feed.xml" rel="self"/>
-  <link href="https://meek-tarsier-01cebe.netlify.app/"/>
-  <updated>2022-06-22T16:43:48Z</updated>
-  <id>https://meek-tarsier-01cebe.netlify.app/</id>
+  <link href="https://www.decentinternet.com/feed.xml" rel="self"/>
+  <link href="https://www.decentinternet.com/"/>
+  <updated>2022-06-30T14:09:58Z</updated>
+  <id>https://www.decentinternet.com/</id>
   <author>
     <name>Boaty McBoatFace</name>
     <email>me@example.com</email>

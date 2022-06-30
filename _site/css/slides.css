@@ -2608,6 +2608,14 @@ script[type="text/plain"] {
   background: none;
   margin-bottom: 2rem;
 }
+.reveal [data-slide] .body-icon--b-w {
+  padding: 2rem;
+  background: var(--null-2);
+  margin-left: auto;
+  margin-right: auto;
+  display: inline-block;
+  width: auto;
+}
 .reveal [data-slide] .body-icon--white-bg {
   max-width: 50vw;
   max-height: 20vh;
@@ -2800,7 +2808,7 @@ script[type="text/plain"] {
 }
 .reveal .toc li {
   max-width: 24ch;
-  margin: 0.5em;
+  margin: 0.25em 0.5em;
 }
 .reveal .toc li:nth-child(3n+1) {
   color: #ffe6e6;
@@ -2829,6 +2837,28 @@ script[type="text/plain"] {
 }
 .reveal .no-breaks {
   white-space: pre;
+}
+.reveal .section-card {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  margin: 0 auto;
+}
+.reveal .section-card div {
+  font-size: 0.75em;
+  text-align: left;
+  font-style: italic;
+  max-width: 36ch;
+  margin: 1em 0;
+  color: #80adb3;
+}
+.reveal .section-card ul {
+  max-width: 24ch;
+  text-align: left;
+  list-style-position: inside;
+  padding-left: 0;
+  margin-bottom: 1em;
 }
 
 .reveal-viewport {
