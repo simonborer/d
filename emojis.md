@@ -7,6 +7,7 @@ tags:
   - ARIA
   - emojis
 title: Accessible Emojis
+articleClass: row
 description: >-
   Billions of emojis are used every single day. Today we'll look at how you can make them accessible to everyone 🏆
 feature:

@@ -14,6 +14,7 @@ tags:
   - PDFs
   - Zelda
 title: Creating Accessible Content
+articleClass: row
 description: >-
   Accessibility isn't just for developers. Meeting WCAG requirements has to be a team effort, and content is no exception. This is also a great way to get SEO wins, while improving your accessibility!
 feature:

@@ -12,6 +12,7 @@ tags:
   - cheatsheet
   - Bulma
 title: Accessibility and Visibility
+articleClass: row
 description: >-
   There are lots of options in front-end code for controlling visibility, including native attributes, CSS property values, and helper classes from popular front-end libraries like Bootstrap, Foundation and HTML Boilerplate. It can be tough to remember which option shows or hides things for whom. Here's a little cheat sheet and demo to help!
 feature:

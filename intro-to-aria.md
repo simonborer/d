@@ -11,6 +11,7 @@ tags:
   - DOM
   - DOM API
 title: Intro to ARIA
+articleClass: row
 description: >-
   ARIA is one of the most neglected aspects of accessibility, and one of the most important! Let's learn the basics of supplementing our native semantics with ARIA attributes.
 feature:

@@ -356,7 +356,7 @@
       {% endif %}
 
       {# Page content #}
-      {% if not home %}<article>{% endif %}
+      {% if not home %}<article{% if articleClass %} class="{{ articleClass }}"{% endif %}>{% endif %}
         {% if btt %}
           <a class="btt" href="#body">Back to top&nbsp;&uarr;</a>
         {% endif %}
