@@ -1,3 +1,4 @@
+@use 'sass:list';
 @use '../variables.scss' as var;
 
 // Structure
@@ -177,7 +178,7 @@ $card-list-border-color: var(--foreground--offset);
 
         @for $i from 1 through 3 {
             [data-learning-level="#{$i}"] & {
-                background-color: nth(var.$learning-level-colours, $i);
+                background-color: list.nth(var.$learning-level-colours, $i);
             }
         }
     }
@@ -238,7 +239,7 @@ $card-list-border-color: var(--foreground--offset);
 
         @for $i from 1 through 3 {
             [data-learning-level="#{$i}"] & {
-                background-color: nth(var.$learning-level-colours, $i);
+                background-color: list.nth(var.$learning-level-colours, $i);
             }
         }
 
@@ -395,9 +396,9 @@ $card-list-border-color: var(--foreground--offset);
 
     @for $i from 1 through 3 {
         .card-list__item--featured[data-learning-level="#{$i}"] {
-            background: nth(var.$learning-level-colours, $i);
+            background: list.nth(var.$learning-level-colours, $i);
 
-            @if nth(var.$learning-level-colours, $i)=="var(--warning)"or nth(var.$learning-level-colours, $i)=="var(--alert)" {
+            @if list.nth(var.$learning-level-colours, $i)=="var(--warning)"or list.nth(var.$learning-level-colours, $i)=="var(--alert)" {
                 & .card-list__text {
                     background: var(--background--offset);
                 }
@@ -407,7 +408,7 @@ $card-list-border-color: var(--foreground--offset);
                 color: var.$background;
             }
 
-            @if nth(var.$learning-level-colours, $i)=="var(--warning)" {
+            @if list.nth(var.$learning-level-colours, $i)=="var(--warning)" {
                 & .card-list__feature {
                     border-color: var.$background;
                 }
@@ -426,9 +427,9 @@ $card-list-border-color: var(--foreground--offset);
 
 @for $i from 1 through 3 {
     [data-filter-option="#{$i}"] {
-        background: nth(var.$learning-level-colours, $i);
+        background: list.nth(var.$learning-level-colours, $i);
 
-        @if nth(var.$learning-level-colours, $i)=="var(--emphasis)" {
+        @if list.nth(var.$learning-level-colours, $i)=="var(--emphasis)" {
             color: var(--background);
         }
 
@@ -441,7 +442,7 @@ $card-list-border-color: var(--foreground--offset);
 @media (prefers-color-scheme: dark) {
     @for $i from 1 through 3 {
         [data-filter-option="#{$i}"] {
-            @if nth(var.$learning-level-colours, $i)=="var(--warning)"or nth(var.$learning-level-colours, $i)=="var(--alert)" {
+            @if list.nth(var.$learning-level-colours, $i)=="var(--warning)"or list.nth(var.$learning-level-colours, $i)=="var(--alert)" {
                 color: var(--background);
             }
 

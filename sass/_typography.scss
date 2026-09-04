@@ -1,3 +1,4 @@
+@use 'sass:list';
 @use './variables.scss' as var;
 
 ::selection:not(img, iframe) {
@@ -130,8 +131,8 @@ dd:before {
     padding: 1rem .5rem;
     @for $i from 1 through 3 {
         [data-difficulty="#{$i}"] & {
-            background: nth(var.$learning-level-colours, $i);
-            @if nth(var.$learning-level-colours, $i) == "var(--emphasis)" {
+            background: list.nth(var.$learning-level-colours, $i);
+            @if list.nth(var.$learning-level-colours, $i) == "var(--emphasis)" {
                 color: var(--background);
             } @else {
                 color: var(--foreground);
@@ -150,7 +151,7 @@ dd:before {
     }
     @for $i from 1 through 3 {
         [data-difficulty="#{$i}"] .title {
-            @if nth(var.$learning-level-colours, $i) == "var(--warning)" or nth(var.$learning-level-colours, $i) == "var(--alert)" {
+            @if list.nth(var.$learning-level-colours, $i) == "var(--warning)" or list.nth(var.$learning-level-colours, $i) == "var(--alert)" {
                 color: var(--background);
             } @else {
                 color: var(--foreground);

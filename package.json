@@ -2,37 +2,46 @@
   "name": "d11ty",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch:eleventy": "npx @11ty/eleventy --serve",
-    "watch:sass": "npx sass sass:_site/css --watch",
-    "watch:esbuild": "npx esbuild js/app.js --outfile=js/script.js --bundle --watch",
+    "build:alpine": "node _utilities/copy-alpine.mjs",
+    "watch:eleventy": "eleventy --serve",
+    "watch:sass": "sass sass:_site/css --watch",
+    "watch:esbuild": "esbuild js/app.js --outfile=js/script.js --bundle --watch",
     "start": "LAYOUT=layout.njk npm run watch:eleventy & npm run watch:sass && npm run watch:esbuild",
     "start:slides": "LAYOUT=slide.njk npm run watch:eleventy & npm run watch:sass && npm run watch:esbuild",
-    "build": "npx sass sass:_site/css && npx esbuild js/app.js --outfile=js/script.js --bundle --minify && LAYOUT=slide.njk npx @11ty/eleventy && LAYOUT=layout.njk npx @11ty/eleventy && npx postcss _site/css/*.css -r -m --verbose",
+    "build": "npm run build:alpine && sass sass:_site/css && esbuild js/app.js --outfile=js/script.js --bundle --minify && LAYOUT=slide.njk eleventy && LAYOUT=layout.njk eleventy && postcss _site/css/*.css -r -m --verbose",
     "spellcheck": "node _utilities/turn.mjs"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@11ty/eleventy": "^1.0.0",
-    "alpinejs": "^3.10.2",
-    "autoprefixer": "^10.4.7",
-    "eleventy-plugin-reading-time": "^0.0.1",
-    "rough-notation": "^0.5.1",
-    "sass": "^1.50.0"
+    "alpinejs": "^3.17.1",
+    "rough-notation": "^0.5.1"
   },
   "devDependencies": {
-    "@11ty/eleventy-img": "^2.0.1",
-    "@11ty/eleventy-plugin-rss": "^1.1.2",
-    "@fullhuman/postcss-purgecss": "^4.1.3",
-    "esbuild": "^0.14.39",
-    "fs-extra": "^10.1.0",
-    "postcss": "^8.4.14",
-    "postcss-cli": "^9.1.0",
-    "spellchecker-cli": "^4.11.0",
-    "turndown": "^7.1.1"
-  }
+    "@11ty/eleventy": "^3.1.6",
+    "@11ty/eleventy-img": "^7.0.0",
+    "@11ty/eleventy-plugin-rss": "^3.0.0",
+    "@fullhuman/postcss-purgecss": "^8.0.0",
+    "autoprefixer": "^10.5.5",
+    "esbuild": "^0.28.2",
+    "fs-extra": "^11.4.0",
+    "postcss": "^8.5.28",
+    "postcss-cli": "^11.0.1",
+    "sass": "1.99.0",
+    "spellchecker-cli": "^7.0.3",
+    "turndown": "^7.2.4"
+  },
+  "overrides": {
+    "spellchecker-cli": {
+      "toml": "4.2.0"
+    }
+  },
+  "packageManager": "npm@10.9.0"
 }

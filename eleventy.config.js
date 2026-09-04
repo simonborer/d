@@ -1,7 +1,22 @@
-const pluginRss = require("@11ty/eleventy-plugin-rss");
-const { EleventyRenderPlugin } = require("@11ty/eleventy");
-const readingTime = require("eleventy-plugin-reading-time");
-const Image = require("@11ty/eleventy-img");
+import { EleventyRenderPlugin } from "@11ty/eleventy";
+import Image from "@11ty/eleventy-img";
+import pluginRss from "@11ty/eleventy-plugin-rss";
+
+function formatReadingTime(postOrContent) {
+    const htmlContent = typeof postOrContent === "string"
+        ? postOrContent
+        : postOrContent?.templateContent;
+
+    if (!htmlContent) {
+        return "0 min";
+    }
+
+    const content = htmlContent.replace(/(<([^>]+)>)/gi, "");
+    const words = content.match(/[\u0400-\u04FF]+|\S+\s*/g);
+    const wordCount = words?.length ?? 0;
+
+    return `${Math.ceil(wordCount / 300)} min`;
+}
 
 async function imageShortcode(src, alt, sizes, title = ``, loading = `lazy`, cssClass = ``) {
 
@@ -22,10 +37,10 @@ async function imageShortcode(src, alt, sizes, title = ``, loading = `lazy`, css
   return Image.generateHTML(metadata, imageAttributes);
 }
 
-module.exports = function(eleventyConfig) {
+export default function(eleventyConfig) {
     eleventyConfig.addPlugin(pluginRss);
     eleventyConfig.addPlugin(EleventyRenderPlugin);
-    eleventyConfig.addPlugin(readingTime);
+    eleventyConfig.addNunjucksFilter("readingTime", formatReadingTime);
 
     eleventyConfig.addPassthroughCopy("images");
     eleventyConfig.addPassthroughCopy("img");
@@ -68,7 +83,12 @@ module.exports = function(eleventyConfig) {
     });
 
     eleventyConfig.addCollection("featuredAndPinned", function(collectionApi) {
-        const allSorted = collectionApi.getAllSorted();
+        const allSorted = collectionApi.getAll().sort((firstPost, secondPost) => {
+            const firstOrder = firstPost.data.homeOrder ?? Number.MAX_SAFE_INTEGER;
+            const secondOrder = secondPost.data.homeOrder ?? Number.MAX_SAFE_INTEGER;
+
+            return firstOrder - secondOrder;
+        });
 
         const featured = allSorted.filter(post => post.data.featured === true);
         const pinned = allSorted.filter(post => post.data.pinned === true);
@@ -91,4 +111,8 @@ module.exports = function(eleventyConfig) {
             return str.toLowerCase();
         }
     });
-};
+
+    return {
+        markdownTemplateEngine: "njk",
+    };
+}

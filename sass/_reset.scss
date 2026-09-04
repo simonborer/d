@@ -1,9 +1,11 @@
 /* reset */
+/* purgecss start ignore */
 *:where(:not(iframe, canvas, img, svg, video, strong, em, abbr, summary, hr, q, blockquote, cite, code, pre, kbd, samp, var, del, ins, small, sub, sup, mark):not(svg *, symbol
       *)) {
   all: unset;
   display: revert;
 }
+/* purgecss end ignore */
 
 html {
   box-sizing: border-box;
@@ -104,4 +106,3 @@ textarea {
 :where([draggable="true"]) {
   -webkit-user-drag: element;
 }
-
